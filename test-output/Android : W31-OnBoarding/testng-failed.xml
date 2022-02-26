@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Android : W31-OnBoarding]" guice-stage="DEVELOPMENT">
+  <parameter name="signup_data" value="testdata/registered_users.json"/>
+  <parameter name="device" value="Android"/>
+  <parameter name="platform" value="Android"/>
+  <listeners>
+    <listener class-name="com.cs.arris.Listeners.TestListener"/>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+  </listeners>
+  <test thread-count="5" name="COR_TC01_EC_0005_1200_Disconnect_Bluetooth_On_Mobile_Device_Test(failed)">
+    <classes>
+      <class name="com.cs.arris.Tests.COR_TC01_EC_0005_1200_Disconnect_Bluetooth_On_Mobile_Device_Test">
+        <methods>
+          <include name="EC_0005_1200_Disconnect_Bluetooth_On_Mobile_Test"/>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+          <include name="afterMethod"/>
+          <include name="beforeMethod"/>
+          <include name="beforeMethod"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- com.cs.arris.Tests.COR_TC01_EC_0005_1200_Disconnect_Bluetooth_On_Mobile_Device_Test -->
+    </classes>
+  </test> <!-- COR_TC01_EC_0005_1200_Disconnect_Bluetooth_On_Mobile_Device_Test(failed) -->
+</suite> <!-- Failed suite [Android : W31-OnBoarding] -->

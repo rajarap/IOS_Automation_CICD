@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!-- Get Started Page -->
+	<string name="0001-0000">Bluetooth Connection failed</string>
+	<string name="0002-0000">Internet connection not available</string>	
+    <string name="0003-0000">Service is not available</string>
+    <string name="0005-0000">Bluetooth not enabled</string> 
+    <string name="0006-0000">Bluetooth Communication failure</string> 
+	<string name="0008-0000">User pool validation failed</string> 
+	<string name="0013-0000">Multiple devices found</string> 
+	<string name="0014-0000">Bluetooth pairing failed</string> 
+	<string name="0015-0000">Cannot connect to mAX devices</string> 
+	
+	<!-- Bluetooth connection failed -->
+	<string name="0001-1201">0001-1201</string>
+	<string name="0005-1200">0005-1200</string>
+	<string name="0001-0000">0001-0000</string>
+	<string name="bluetooth_connection_failed_text">BLUETOOTH CONNECTION FAILED</string>
+	<string name="bluetooth_connection_failed_message">Bluetooth is not enabled or location permission is not enabled on your device.</string>
+	
+	<!-- entered Invalid OTP  -->
+	<string name="0000-1012">0000-1012</string>
+	<string name="invalid_otp_text">ENTER VERIFICATION CODE</string>
+	<string name="invalid_otp_message">Check your email account for the verification code and enter it here. If not found, check your Spam folder. Tap on RESEND for a new code if needed.</string>
+	<string name="invalid_otp_resend_message">The code you entered is not valid. Please verify your code and try again. If needed, you can try to Resend the code.</string>
+	
+	<!-- Resend OTP dialog  -->
+	<string name="invalid_otp_text">ENTER VERIFICATION CODE</string>
+	<string name="invalid_otp_message">Check your email account for the verification code and enter it here. If not found, check your Spam folder. Tap on RESEND for a new code if needed.</string>
+	<string name="invalid_otp_resend_message">The code you entered is not valid. Please verify your code and try again. If needed, you can try to Resend the code.</string>
+	
+	<!-- Wifi turned off - No Internet Conenction -->
+	<string name="0002-1002">0002-1002</string>
+	<string name="internet_connection_not_available">INTERNET CONNECTION NOT AVAILABLE</string>
+	<string name="internet_connection_not_available_message">Internet connection is currently NOT available on your mobile device.</string>
+	<string name="try_again_button">TRY AGAIN</string>
+	<string name="troubleshoot_button">TROUBLESHOOT</string>
+	<string name="troubleshoot_text">Troubleshoot</string>
+	<string name="troubleshoot_message">Internet Connection not available</string>
+	<string name="troubleshoot_proceed_button">PROCEED</string>
+	<string name="troubleshoot_customer_support_button">CUSTOMER SUPPORT</string>
+	
+</resources>

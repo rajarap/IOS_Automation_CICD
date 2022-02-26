@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-Default_suite" class="navigator-link">
+              <span class="suite-name border-skipped">Default suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
+                    <span>testng-customsuite.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-Default_suite" class="navigator-link ">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-Default_suite" class="navigator-link ">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-Default_suite" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-Default_suite" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-Default_suite" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-Default_suite" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">3 methods,  3 skipped,  </span>
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods skipped suite-Default_suite"> (hide)</a> <!-- hide-methods skipped suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods skipped suite-Default_suite"> (show)</a> <!-- show-methods skipped suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Default_suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.cs.arris.Tests.TC03_Complex_Test" class="method navigator-link" hash-for-method="Login_And_Onboard">Login_And_Onboard</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.cs.arris.Tests.TC03_Complex_Test" class="method navigator-link" hash-for-method="Verify_Network_UI_Page">Verify_Network_UI_Page</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.cs.arris.Tests.TC03_Complex_Test" class="method navigator-link" hash-for-method="Verify_WAN_Settings_UI_Page">Verify_WAN_Settings_UI_Page</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Default_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.cs.arris.Tests.TC03_Complex_Test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Login_And_Onboard">
+                  </a> <!-- Login_And_Onboard -->
+                  <span class="method-name">Login_And_Onboard</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Parameter &apos;platform&apos; is required by BeforeSuite on method beforeSuite but has not been marked @Optional or defined
+in /private/var/folders/0n/gztfs3315sqflgmf8691xcwr0000gp/T/testng-eclipse--1514880679/testng-customsuite.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:270)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:358)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:700)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:168)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:302)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:317)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Verify_Network_UI_Page">
+                  </a> <!-- Verify_Network_UI_Page -->
+                  <span class="method-name">Verify_Network_UI_Page</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC03_Complex_Test.Verify_Network_UI_Page()[pri:27, instance:com.cs.arris.Tests.TC03_Complex_Test@2f666ebb] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Verify_WAN_Settings_UI_Page">
+                  </a> <!-- Verify_WAN_Settings_UI_Page -->
+                  <span class="method-name">Verify_WAN_Settings_UI_Page</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC03_Complex_Test.Verify_WAN_Settings_UI_Page()[pri:30, instance:com.cs.arris.Tests.TC03_Complex_Test@2f666ebb] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+        </div> <!-- panel Default_suite -->
+        <div panel-name="test-xml-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">/private/var/folders/0n/gztfs3315sqflgmf8691xcwr0000gp/T/testng-eclipse--1514880679/testng-customsuite.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.cs.arris.Tests.TC03_Complex_Test&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;Verify_WAN_Settings_UI_Page&quot;/&gt;
+          &lt;include name=&quot;Verify_Network_UI_Page&quot;/&gt;
+          &lt;include name=&quot;Login_And_Onboard&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.cs.arris.Tests.TC03_Complex_Test --&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Default test --&gt;
+&lt;/suite&gt; &lt;!-- Default suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Default test (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Default_suite');
+function tableData_Default_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(3);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'Login_And_Onboard')
+data.setCell(0, 2, 'com.cs.arris.Tests.TC03_Complex_Test')
+data.setCell(0, 3, 0);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'Verify_Network_UI_Page')
+data.setCell(1, 2, 'com.cs.arris.Tests.TC03_Complex_Test')
+data.setCell(1, 3, 0);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'Verify_WAN_Settings_UI_Page')
+data.setCell(2, 2, 'com.cs.arris.Tests.TC03_Complex_Test')
+data.setCell(2, 3, 0);
+window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 0 ms</span>
+              <div id="times-div-Default_suite">
+              </div> <!-- times-div-Default_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">68 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.cs.arris.Tests.TC03_Complex_Test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">Verify_New_Guest_WiFi_Network</span>
+                <br/>
+                <span class="ignored-method-name">Verify_LAN_Settings_LAN_Subnet_DHCP_Range_Configuration_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_LAN_Settings_LAN_DHCP_Lease_Time_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_General_Settings_Port_Forwarding_Settings</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Add_EveryDay_Schedule_To_Rule</span>
+                <br/>
+                <span class="ignored-method-name">Edit_LAN_Subnet_Configuration_Octets</span>
+                <br/>
+                <span class="ignored-method-name">Verify_WAN_Settings_DNS_Configuration_IPv6_Static_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_WAN_Settings_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_LAN_Settings_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_LAN_Settings_LAN_DHCP_Set_Lease_Time_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_WAN_Settings_WAN_IP_Configuration_IPv6_Stateless_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_General_Settings_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Pause_Internet_For_All_Users</span>
+                <br/>
+                <span class="ignored-method-name">Verify_LAN_Settings_LAN_IP_Reservation_Add_Reservation_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Select_Start_Time_For_EveryDay_Schedule</span>
+                <br/>
+                <span class="ignored-method-name">Verify_General_Settings_Port_Forwarding_Edit_Rules</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Add_Rule_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_WAN_Settings_DNS_Configuration_IPv4_Automatic_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Edit_User_Profile_Name</span>
+                <br/>
+                <span class="ignored-method-name">Verify_General_Settings_Port_Forwarding_Add_Rules</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Device_Priority_Settings_Add_Device_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Add_Custom_Schedule_Select_DOW</span>
+                <br/>
+                <span class="ignored-method-name">Verify_User_Profile_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Device_Priority_Settings_Add_Device_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Parental_Control_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Currently_Blocked_Users_After_Resuming_Internet_For_All_Users</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Enable_Schedule_Time_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Extended_WiFi_Settings_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Edit_LAN_Subnet_DHCP_Range_Configuration_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Device_Priority_Settings_Add_Device_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Existing_Guest_WiFi_Network</span>
+                <br/>
+                <span class="ignored-method-name">Verify_LAN_Settings_LAN_IP_Reservation_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_LAN_Settings_LAN_Subnet_DHCP_Range_Configuration_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_WAN_Settings_DNS_Configuration_IPv4_Static_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_WAN_Settings_LAC_Alert_Dialog</span>
+                <br/>
+                <span class="ignored-method-name">Verify_LAN_Settings_LAN_IP_Reservation_Page</span>
+                <br/>
+                <span class="ignored-method-name">Delete_Rules_Associated_With_User</span>
+                <br/>
+                <span class="ignored-method-name">Verify_WAN_Settings_WAN_IP_Configuration_IPv4_DHCP_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Add_Device_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Device_Priority_Settings_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_WAN_Settings_DNS_Configuration_IPv6_Automatic_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Device_Priority_Settings_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Add_Custom_Schedule_Select_Stop_Time</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Newtork_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_LAN_Settings_LAN_IP_Reservation_Edit_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_WAN_Settings_WAN_IP_Configuration_IPv4_Static_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_General_Settings_Bridge_Mode_Settings</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Add_Device_To_User_Profile</span>
+                <br/>
+                <span class="ignored-method-name">Verify_General_Settings_Port_Forwarding_Add_Rule_Settings_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Time_Zone_Settings_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_User_Profile_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_General_Settings_UPnP_Settings</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Devices_Associated_With_User_Profile</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Add_Custom_Schedule_Select_Start_Time</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Currently_Blocked_Profiles</span>
+                <br/>
+                <span class="ignored-method-name">Verify_General_Settings_IPv6_Enable_Settings</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Device_Priority_Settings_Added_Device_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_LAN_Settings_LAN_IP_Reservation_Rules</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Add_Profile_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Add_Custom_Schedule_To_Rule</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Select_Stop_Time_For_EveryDay_Schedule</span>
+                <br/>
+                <span class="ignored-method-name">Verify_WAN_Settings_WAN_IP_Configuration_Help_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Newtork_Test_Connection_Speed_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Resume_Internet_For_All_Users</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Time_Zone_Settings_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_Parental_Control_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_WAN_Settings_WAN_IP_Configuration_IPv6_Stateful_UI_Page</span>
+                <br/>
+                <span class="ignored-method-name">Verify_General_Settings_Port_Forwarding_Help_Page</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.cs.arris.Tests.TC03_Complex_Test</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">beforeTest</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">29 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">41 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">43 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Login_And_Onboard</span>
+                <span class="method-start">45 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">53 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Verify_Network_UI_Page</span>
+                <span class="method-start">59 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Verify_WAN_Settings_UI_Page</span>
+                <span class="method-start">70 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">83 ms</span>
+              </div> <!-- configuration-test after -->
+              <div class="configuration-suite after">
+                <span class="method-name">afterSuite</span>
+                <span class="method-start">5221 ms</span>
+              </div> <!-- configuration-suite after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

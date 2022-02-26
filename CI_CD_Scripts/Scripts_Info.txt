@@ -1,1 +1,0 @@
-This repo is basically created to have the scripts developed for automation test for W31 device as part of CI/ CD

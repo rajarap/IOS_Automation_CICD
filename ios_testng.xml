@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="iOS : W31-OnBoarding">
+
+	<listeners>
+		<listener class-name="com.cs.arris.Listeners.TestListener" />
+		<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+		<listener class-name="com.cs.arris.Listeners.AnnotationTransformer" />
+	</listeners>
+	
+	<parameter name="platform" value="iOS" />
+	<parameter name="device" value="iPhone" />
+	
+	<test name="Signin_And_Onboard_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC002_Test_Signin_And_Onboard" />
+		</classes>
+	</test> 
+	
+	<test name="Simple_Tests">
+		<classes>
+			<class name="com.cs.arris.Tests.TC01_Simple_Test" />
+		</classes>
+	</test>
+
+     
+</suite> 
+
+
+<!--  Flow for demo
+
+	<test name="Simple_Tests">
+		<classes>
+			<class name="com.cs.arris.Tests.TC01_Simple_Test" />
+		</classes>
+	</test>
+
+	<test name="Medium_Tests">
+		<classes>
+			<class name="com.cs.arris.Tests.TC02_Medium_Test" />
+		</classes>
+	</test>
+	
+	<test name="Complex_Tests">
+		<classes>
+			<class name="com.cs.arris.Tests.TC03_Complex_Test" />
+		</classes>
+	</test>
+
+	<test name="SignUp_And_Onboard_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC001_Test_SignUp_And_Onboard" />
+		</classes>
+	</test> 
+	
+	<test name="Signin_And_Onboard_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC002_Test_Signin_And_Onboard" />
+		</classes>
+	</test> 
+	
+	<test name="Home_Page_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC003_Login_And_Test_Home_Page" />
+		</classes>
+	</test>
+	
+	<test name="Devices_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC004_Login_And_Test_Devices_Page" />
+		</classes>
+	</test>
+	
+	<test name="Device_Signal_Strength_Leader_Board_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC005_Login_And_Test_Device_Signal_Strength_Leader_Board_Page" />
+		</classes>
+	</test>
+	
+	<test name="Speed_Test_History_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC006_Login_And_Test_Home_Speed_Test_History_Page" />
+		</classes>
+	</test>
+	
+	<test name="Main_Device_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC007_Login_And_Test_Main_Device_Page" />
+		</classes>
+	</test>
+	
+	<test name="Hamburger_Menu_Settings_About_Help_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC008_Login_And_Test_Hamburger_Menu_And_Settings_About_Help_Page" />
+		</classes>
+	</test>
+	
+	<test name="Hamburger_Menu_Amazaon_Features_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC009_Login_And_Test_Hamburger_Menu_Amazon_Feature" />
+		</classes>
+	</test>
+	
+	<test name="Parental_Control_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC010_Login_And_Test_Parental_Control_Page" />
+		</classes>
+	</test>
+	
+	<test name="Network_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC011_Login_And_Test_Network_Page" />
+		</classes>
+	</test>
+	
+	<test name="Hamburger_Add_And_Remove_Device_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC013_Login_And_Test_Add_And_Remove_Device" />
+		</classes>
+	</test>
+	
+
+
+
+
+	<test name="Enter_Invalid_OTP_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC03_Verify_Invalid_OTP_Test" />
+		</classes>
+	</test>
+	
+	<test name="EC_0002_1002_Disconnect_Wifi_On_Mobile_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC02_EC_0002_1002_Disconnect_Wifi_On_Mobile_Test" />
+		</classes>
+	</test> 
+	
+	<test name="EC_0001_1201_Disconnect_Bluetooth_On_Mobile_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC01_EC_0001_1201_Disconnect_Bluetooth_On_Mobile_Test" />
+		</classes>
+	</test>
+	
+		<test name="EC_0000_1303_Router_Failed_To_Connect_To_Internet_Test">
+		<classes>
+			<class name="com.cs.arris.Tests.TC05_EC_0000_1303_Router_Failed_To_Connect_To_Internet_Test" />
+		</classes>
+	</test>
+	
+-->

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!-- Get Started Page -->
+	<string name="get_started_page_message">LET'S GET YOU STARTED WITH YOUR NEW SURFBOARD DEVICE!</string>
+	<string name="get_started_page_get_started_button_text">GET STARTED</string>	
+<!-- Error Text -->
+    <string name="err_invalid_username_or_password">Username and password do not match any user in this service.</string>
+    <string name="product_title">PRODUCTS</string>
+
+<!-- Grant Permission for Best Possible Experience Page -->  
+	<string name="grant_access_permission_page_message">GRANT ACCESS PERMISSIONS TO CONTINUE</string>
+	<string name="grant_access_permission_page_access_to_resources">To install the device, we require access to a few resources on your mobile devices.</string>
+    <string name="grant_access_permission_page_location_message">This is used during installation for access to Bluetooth and when selecting a Wi-Fi network. ARRIS does not collect and share location information with 3rd parties.</string>
+    <string name="grant_access_permission_page_location_text">Location</string>
+    <string name="grant_access_permission_page_storage_message">This is used to cache data to optimize the performance of the application.</string>
+    <string name="grant_access_permission_page_storage_text">Storage</string>
+    <string name="grant_access_permission_page_phone_message">This is used to allow dial access to contact customer support when needed.</string>	
+	<string name="grant_access_permission_page_phone_text">Phone</string>
+	<string name="grant_access_permission_page_continue_button_text">CONTINUE</string>
+	
+	<string name="device_location_page_popup_location_message">Allow SBC Test to access this device's location?</string>
+	<string name="device_location_page_while_using_the_app">While using the app</string>
+	<string name="device_location_page_only_this_time">Only this time</string>
+	<string name="device_location_page_deny">Deny</string>
+	
+	<string name="signup_page_already_registered_email_id">User already exist with this email. Please try a different email OR press SIGN IN button to login with existing user.</string>
+	<string name="signup_page_agree_conditions">I agree to the Terms and Conditions</string>
+	<string name="signup_page_updates_and_communications">I want to receive updates and communications from CommScope</string>
+	
+	<string name="OTPVerification_page_enter_verification_code_message">ENTER VERIFICATION CODE</string>
+	<string name="OTPVerification_page_check_email_account_message">Check your email account for the verification code and enter it here. If not found, check your Spam folder. Tap on RESEND for a new code if needed.</string>
+	<string name="OTPVerification_page_invalid_passcode_message">The code you entered is not valid. Please verify your code and try again. If needed, you can try to Resend the code.</string>
+
+<!-- Resend OTP -->
+	<string name="resend_otp_text">New Code Sent!</string>
+	<string name="resend_otp_message">We have sent a new verification code to the email you provided. Please check both the Inbox and Spam folders for the code and enter it to verify your account.</string>
+	<string name="resend_otp_ok_button">OK</string>
+	<string name="resend_otp_link">I did not receive</string>
+	<string name="resend_otp_link_validation_code">Validation Code</string>
+	<string name="resend_otp_link_validation_text">As added security to confirm your account, an email containing a uniquely generated code has been sent to you. Please note that this typically takes under a minute. If you have not received an email from our team, please check your Spam mail folder. If you have not received the email please try again. If you are not able to receive the email, please verify your email address or contact our support team.</string>
+<!-- Resend OTP -->
+	
+<!-- Home Screen -->
+	<string name="home_page_title">Home</string>
+	<string name="home_page_text">Network Speed</string>
+	<string name="home_page_download">Download</string>
+	<string name="home_page_upload">Upload</string>
+	<string name="home_page_leader_board">Device Signal Strength Leader Board</string>
+	<string name="home_page_speed_test_history">Speed Test History</string>
+	<string name="home_page_blocked_devices">Currently Blocked Devices</string>
+	<string name="home_page_home_button">Home</string>
+	<string name="home_page_network_button">Network</string>
+	<string name="home_page_parental">Parental</string>
+	<string name="home_page_main">MAIN</string>
+<!-- Home Screen -->
+	
+<!-- Restart Router Dialog -->
+	<string name="restart_router_title">Reboot your router?</string>
+	<string name="restart_router_text1">Your devices will no longer be able to access this network, the Internet, or each other until Internet is restored.</string>
+	<string name="restart_router_text2">Are you sure you want to do this?</string>
+	<string name="restart_router_button_text">RESTART ROUTER</string>
+<!-- Restart Router Dialog -->
+	
+<!-- Device List Details Help -->
+	<string name="device_list_details_help1">Device List Detail</string>
+	<string name="device_list_details_help2">Device Details List 
+	The Device List is sorted by router (Main and satellites) showing the connected devices.
+	
+	You can switch between the currently online devices and offline devices using the top bar selector. Please note that Offline device list can be maintained over a fairly long period of time.</string>
+	<string name="device_list_details_help3">Device Card
+	You can expand the information shown by clicking on the + symbol. 
+	
+	You can click on the device icon to change the icon to a more fitting description. You can also change the device name using the pencil icon near the name.</string>
+	<string name="device_list_details_help4">Network SSID is not seen. If your client device is not showing the expected broadcast SSID - please disable your Wi-Fi and re-enable to enter scanning mode. If this problem persists, please note that for certain Intel-based Wi-Fi clients installed in certain laptops, a driver update is required in order to connect to Wi-Fi6 (802.11AX) routers. Please consult the Intel driver update documentation to update your Wi-Fi driver.</string>
+<!-- Device List Details Help -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</resources>
