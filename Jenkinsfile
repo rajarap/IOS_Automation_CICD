@@ -60,7 +60,7 @@ pipeline
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') 
                 {
                 	sh """
-                        ios-deploy --debug --bundle /Users/rm2652/.jenkins/workspace/ipa/${PROJECT_SCHEME_BETA}/SBC-Test.ipa
+                        ios-deploy --debug --bundle /Users/rm2652/.jenkins/workspace/ipa/${PROJECT_SCHEME_BETA}/SBC\ Test.ipa
                         mvn -f /Users/rm2652/.jenkins/workspace/Arris_Android_QA_Automation_W31_BOBA/pom.xml test -PiOS
                 		"""   
                 }
@@ -87,7 +87,7 @@ pipeline
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') 
                 {
                 	sh """
-                    	ios-deploy --debug --bundle /Users/rm2652/.jenkins/workspace/ipa/${PROJECT_SCHEME_BETA}/SBC-Test.ipa
+                    	ios-deploy --debug --bundle /Users/rm2652/.jenkins/workspace/ipa/${PROJECT_SCHEME_BETA}/SBC\ Test.ipa
                     	mvn -f /Users/rm2652/.jenkins/workspace/Arris_Android_QA_Automation_W31_BOBA/pom.xml test -PiOS
                		 """       
                 }
