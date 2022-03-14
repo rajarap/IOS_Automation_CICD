@@ -59,7 +59,8 @@ pipeline
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') 
                 {
                 	sh """
-                        ios-deploy --debug --bundle /Users/rm2652/.jenkins/workspace/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
+                   	cp -f /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa  /Users/rm2652/Documents/jenkins/pipeline/build/artifacts/ios/
+                        ios-deploy --debug --bundle /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
                         mvn -f /Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/pom.xml test -PiOS
                 		"""   
                 }
@@ -86,7 +87,8 @@ pipeline
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') 
                 {
                 	sh """
-                        ios-deploy --debug --bundle /Users/rm2652/.jenkins/workspace/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
+                    	cp -f /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa  /Users/rm2652/Documents/jenkins/pipeline/build/artifacts/ios/
+                        ios-deploy --debug --bundle /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
                         mvn -f /Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/pom.xml test -PiOS
                 		"""   
                 }
@@ -113,8 +115,9 @@ pipeline
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') 
                 {
                 	sh """
-                    	ios-deploy --debug --bundle /Users/rm2652/.jenkins/workspace/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
-                    	mvn -f /Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/pom.xml test -PiOS
+                   	cp -f /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa  /Users/rm2652/Documents/jenkins/pipeline/build/artifacts/ios/
+                        ios-deploy --debug --bundle /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
+                        mvn -f /Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/pom.xml test -PiOS
                		 """       
                 }
                 echo '=====Automated Test Completed====='
