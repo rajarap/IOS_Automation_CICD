@@ -43,8 +43,16 @@ public class SetUpYourWiFiManagementPage extends ParentClass implements Page
 	
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(setupWifiManagementText.isDisplayed())
+		{
+			utils.log().info("On SET UP YOUR Wi-Fi MANAGEMENT Page");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Not on SET UP YOUR Wi-Fi MANAGEMENT Page");
+			return false;
+		}
 	}
 
 }

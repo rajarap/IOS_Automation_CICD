@@ -43,8 +43,16 @@ public class ConnectToBlueToothDialog extends ParentClass implements Page
 	
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(connectToBluetoothText.isDisplayed())
+		{
+			utils.log().info("On “SBC Test” Would Like to Use Bluetooth Page");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Not on “SBC Test” Would Like to Use Bluetooth");
+			return false;
+		}
 	}
 	
 }

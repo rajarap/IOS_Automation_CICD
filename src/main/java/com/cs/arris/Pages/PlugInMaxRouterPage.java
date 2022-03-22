@@ -48,8 +48,16 @@ public class PlugInMaxRouterPage extends ParentClass implements Page
 	
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(plugInYourMaxRouterText.isDisplayed())
+		{
+			utils.log().info("On PLUG IN YOUR mAX Router Page");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Not on PLUG IN YOUR mAX Router Page");
+			return false;
+		}
 	}
 	
 }

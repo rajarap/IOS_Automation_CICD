@@ -54,8 +54,16 @@ public class SystemFirmwareUpdatePage extends ParentClass implements Page
 	
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(systemUpToDate.isDisplayed())
+		{
+			utils.log().info("On YOUR SYSTEM IS ALREADY UP TO DATE Page");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Not on YOUR SYSTEM IS ALREADY UP TO DATE Page");
+			return false;
+		}
 	}
 	
 }

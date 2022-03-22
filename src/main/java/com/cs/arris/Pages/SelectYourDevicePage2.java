@@ -82,8 +82,16 @@ public class SelectYourDevicePage2 extends ParentClass implements Page
 	
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(selectYourDeviceMessage.isDisplayed())
+		{
+			utils.log().info("At Select your Device Page2");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Select your Device Page2 is not displayed");
+			return false;
+		}
 	}
 	
 }

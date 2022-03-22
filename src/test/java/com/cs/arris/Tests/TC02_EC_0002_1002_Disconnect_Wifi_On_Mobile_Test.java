@@ -77,7 +77,7 @@ public class TC02_EC_0002_1002_Disconnect_Wifi_On_Mobile_Test extends ParentClas
 			}).deviceLocationPage(deviceLocation -> {
 			  deviceLocation.clickOnlyThisTimeLink();
 			}).accessResourcesOnDevicePage(accessResoucesOnDevice -> {
-			  accessResoucesOnDevice.clickAllowLink();
+				  accessResoucesOnDevice.clickOkButton();
 			}).internetConnectionNotAvailable(nowifi -> {
 			  String actualText = nowifi.getTitleText();
 			  String actualMessage = nowifi.getDescriptionMessage();

@@ -40,8 +40,16 @@ public class CongratulationsPage extends ParentClass implements Page
 	
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(congratulationsText.isDisplayed())
+		{
+			utils.log().info("On CONGRATULATIONS Page");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Not on CONGRATULATIONS Page");
+			return false;
+		}
 	}
 
 }

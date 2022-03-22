@@ -554,6 +554,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 	}
 
 	// To verify the details of all connected devices
+	@SuppressWarnings("unchecked")
 	public boolean verifyConnectedDeviceDetails() {
 		utils.log().info("                                               ");
 		utils.log().info("***********************************************");

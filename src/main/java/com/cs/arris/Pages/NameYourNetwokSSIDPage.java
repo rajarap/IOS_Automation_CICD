@@ -66,24 +66,35 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 	public void clickDoneLink()
 	{
 		try {
-			String acc = "Done";
-			super.getDriver().findElement(MobileBy.AccessibilityId(acc)).click();
-		}catch(Exception e) {utils.log().info("Clicked on Done Button 1");}
-		
-		try {
-			String pred = "label == \"Done\"";
-			super.getDriver().findElement(MobileBy.iOSNsPredicateString(pred)).click();
-		}catch(Exception e) {utils.log().info("Clicked on Done Button 2");}
-		
-		try {
-			String selector = "**/XCUIElementTypeButton[`label == \"Done\"`]";
-			super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
-		}catch(Exception e) {utils.log().info("Clicked on Done Button 3");}
-		
-		try {
-		click(doneLink);
-		utils.log().info("Name Your Network Page  - Clicked on Done Button");
-		}catch(Exception e) {utils.log().info("Clicked on Done Button 4");}
+			try {
+				String acc = "Done";
+				super.getDriver().findElement(MobileBy.AccessibilityId(acc)).click();
+			} catch (Exception e) {
+				utils.log().info("Clicked on Done Button 1");
+			}
+
+			try {
+				String pred = "label == \"Done\"";
+				super.getDriver().findElement(MobileBy.iOSNsPredicateString(pred)).click();
+			} catch (Exception e) {
+				utils.log().info("Clicked on Done Button 2");
+			}
+
+			try {
+				String selector = "**/XCUIElementTypeButton[`label == \"Done\"`]";
+				super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
+			} catch (Exception e) {
+				utils.log().info("Clicked on Done Button 3");
+			}
+
+			try {
+				click(doneLink);
+				utils.log().info("Name Your Network Page  - Clicked on Done Button");
+			} catch (Exception e) {
+				utils.log().info("Clicked on Done Button 4");
+			}
+		} catch (Exception e) {
+		}
 	}
 
 	public void clickNextButton()
@@ -94,10 +105,19 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 	}
 	
 	
+	
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(nameYourHomeNetworkText.isDisplayed())
+		{
+			utils.log().info("On LET’S NAME YOUR HOME NETWORK Page");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Not on LET’S NAME YOUR HOME NETWORK Page");
+			return false;
+		}
 	}
 	
 }

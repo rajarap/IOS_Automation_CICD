@@ -79,7 +79,7 @@ public class TC05_EC_0000_1303_Router_Failed_To_Connect_To_Internet_Test extends
 		  }).deviceLocationPage(deviceLocation -> {
 			  deviceLocation.clickOnlyThisTimeLink();
 		  }).accessResourcesOnDevicePage(accessResoucesOnDevice -> {
-			  accessResoucesOnDevice.clickAllowLink();
+			  accessResoucesOnDevice.clickOkButton();
 			  super.pause(5);
 		  }).selectYourDevicePage(selectDevice -> {
 			  selectDevice.selectSurfboardMaxOption();

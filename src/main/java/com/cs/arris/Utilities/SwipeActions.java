@@ -13,7 +13,7 @@ import io.appium.java_client.touch.offset.PointOption;
 public class SwipeActions extends ParentClass
 {
 	public void swipeScreen(Direction dir) {
-	    System.out.println("swipeScreen(): dir: '" + dir + "'"); 
+	  //  System.out.println("swipeScreen(): dir: '" + dir + "'"); 
 	    final int ANIMATION_TIME = 200; // ms
 
 	    final int PRESS_TIME = 200; // ms

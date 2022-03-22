@@ -28,6 +28,7 @@ com/cs/arris/Pages/NetworkGeneralSettingsPortForwardingPage.class
 com/cs/arris/Pages/AmazonFeaturesPage.class
 com/cs/arris/Pages/NetworkLANDHCPLeaseTimeEditTimeUnitDialog.class
 com/cs/arris/Pages/SpeedTestHistoryPage.class
+com/cs/arris/Utilities/SerialComPortCommunicator.class
 com/cs/arris/Pages/AFFSHelpPage.class
 com/cs/arris/Pages/ErrorCode_0003_1003_Service_Is_Currently_Not_Available.class
 com/cs/arris/Pages/NetworkAddDeviceSelectOneDeviceOfHighestPriorityDialog.class
@@ -42,6 +43,7 @@ com/cs/arris/Pages/ConnectToWifiUsingRouterSSID.class
 com/cs/arris/Pages/NetworkHelpPage.class
 com/cs/arris/Pages/NetworkWANIPConfigurationHelpPage.class
 com/cs/arris/Pages/NetworkEnableGuestNetworkDialog.class
+com/cs/arris/Pages/TermsAndConditionsPage.class
 com/cs/arris/Pages/SelectYourDevicePage2.class
 com/cs/arris/Pages/NetworkDevicePrioritySettings.class
 com/cs/arris/Pages/DevicesPage.class
@@ -110,6 +112,7 @@ com/cs/arris/Pages/ErrorCode_0002_1002_Internet_Connection_Not_Available_On_Mobi
 com/cs/arris/Pages/AddDeviceSuccessPage.class
 com/cs/arris/Pages/NetworkLANDHCPLeaseTimeHelpPage.class
 com/cs/arris/Pages/ParentalControlUserProfileAddRulePage.class
+com/cs/arris/Utilities/KillAndRelaunchApp.class
 com/cs/arris/Pages/NetworkGeneralSettingsBridgeModeInfoDialog.class
 com/cs/arris/Pages/AddSatelliteAddNewSatellitePage3.class
 com/cs/arris/Pages/ConnectToBlueToothDialog.class
@@ -122,15 +125,18 @@ com/cs/arris/Utilities/SwipeOnElement.class
 com/cs/arris/Pages/MainDevice24GHzTabPage.class
 com/cs/arris/Pages/AddDeviceCongratulationsPage.class
 com/cs/arris/Pages/MainDeviceEthernetTabPage.class
+com/cs/arris/Pages/BTConnectionsPage.class
 com/cs/arris/Pages/AddSatelliteSuccessfullyConnectedToInternetPage.class
 com/cs/arris/Pages/AmazonWiFiSimpleSetupDialog.class
 com/cs/arris/Pages/NetworkLANIPReservationHelpPage.class
+com/cs/arris/Pages/SomethingWentWrongPage.class
 com/cs/arris/Pages/WhosHomeAddHouseholdMemberDialog.class
 com/cs/arris/Listeners/AnnotationTransformer.class
 com/cs/arris/JsonMappers/Signin_TestData.class
 com/cs/arris/Pages/AddSatellitePlacementTipsPage3.class
 com/cs/arris/Pages/NetworkWANSettingsHelpPage.class
 com/cs/arris/Pages/HamburgerSettingsPage.class
+com/cs/arris/Pages/BlueToothConnectionFailedPage.class
 com/cs/arris/Pages/SpeedTestPage.class
 com/cs/arris/Pages/AddDeviceFAQPage.class
 com/cs/arris/Pages/NetworkLANSubnetDHCPConfigurationHelpPage.class
@@ -161,8 +167,10 @@ com/cs/arris/Pages/RetrieveOTPPage.class
 com/cs/arris/Pages/HamburgerMenuPage.class
 com/cs/arris/Pages/NetworkWANDNSConfigurationIPv6Page.class
 com/cs/arris/Pages/NetworkDevicePrioritySettingsSelectAtleatOneDeviceAlertDialog.class
+com/cs/arris/Utilities/ResetMAXRouter.class
 com/cs/arris/Pages/AddDeviceFooterIconsPage.class
 com/cs/arris/Pages/ConnectMaxRouterToInternetPage.class
+com/cs/arris/Utilities/BTPairing.class
 com/cs/arris/Pages/HomeNetworkHealthOptimizationConnectedDevicesPage.class
 com/cs/arris/Pages/NetworkTimeZoneSettingsHelpPage.class
 com/cs/arris/Pages/ConnectMaxRouterToMobileDevicePage.class
@@ -185,9 +193,12 @@ com/cs/arris/Pages/HomeNetowrkISPServicePerformanceAndConnectionHealthPage.class
 com/cs/arris/Pages/MainDevice5GHzTabPage$1.class
 com/cs/arris/Pages/AddDeviceSelectDevice1Page.class
 com/cs/arris/Pages/SettingsHelpPage.class
+com/cs/arris/Utilities/TapSevenTimes.class
+com/cs/arris/Utilities/SevenTapEmail.class
 com/cs/arris/Pages/ErrorCode_0000_1015_Invalid_OTP_Page.class
 com/cs/arris/Pages/EditMainDeviceNameDialog.class
 com/cs/arris/Pages/WhosHomeNotifyMeWhenHelpPage.class
+com/cs/arris/Utilities/SerialCommunicator.class
 com/cs/arris/Pages/ParentalControlCurrentlyBlockedPage.class
 com/cs/arris/Pages/NetworkLANDHCPIPRangeBetween1And255AlertDialog.class
 com/cs/arris/Base/ParentClass.class
@@ -246,6 +257,7 @@ com/cs/arris/Utilities/SwipeActions.class
 com/cs/arris/Pages/ParentalControlAddDeviceHelpPage.class
 com/cs/arris/Pages/MainDevicePage.class
 com/cs/arris/Pages/WhosHomeWelcomePage.class
+com/cs/arris/Utilities/EmailTest.class
 com/cs/arris/Pages/NetworkGeneralSettingsPage.class
 com/cs/arris/Pages/HamburgerAboutPage.class
 com/cs/arris/Pages/AddSatellitePlacementTipsPage4.class

@@ -80,7 +80,7 @@ public class TC001_Test_SignUp_And_Onboard extends ParentClass
 		  }).deviceLocationPage(deviceLocation -> {
 			  deviceLocation.clickWhileUsingTheAppLink();
 		  }).accessResourcesOnDevicePage(accessResoucesOnDevice -> {
-			  accessResoucesOnDevice.clickAllowLink();
+			  accessResoucesOnDevice.clickOkButton();
 		  }).selectYourDevicePage(selectDevice -> {
 			  selectDevice.selectSurfboardMaxOption();
 			  selectDevice.clickNextButton();
@@ -123,6 +123,7 @@ public class TC001_Test_SignUp_And_Onboard extends ParentClass
 		  }).plugInYourMaxRouterPage(pluginRouter -> {
 			  pluginRouter.clickNextButton();
 			  super.pause(20);
+			  
 		  }).maxRouterConnectedToMobilePage(connectedRouterToMobile -> {
 			  connectedRouterToMobile.clickNextButton();
 			  super.pause(10);

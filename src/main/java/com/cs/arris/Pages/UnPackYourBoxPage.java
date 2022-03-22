@@ -23,11 +23,9 @@ public class UnPackYourBoxPage extends ParentClass implements Page
 	@iOSXCUITFindBy(xpath="//XCUIElementTypeButton[@name=\"BOBA_Unpack_Box_Screen_Button\"]")
 	public MobileElement nextButton;
 	
-	// text = LET'S SET UP YOUR HOME NETWORK
 	@iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name=\"BOBA_Unpack_Box_Screen_TitleLabel\"]")
 	public MobileElement letsUnpackYouBoxText;
 	
-	// text = You are only a few steps away from setting up your home network.
 	@iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name=\"BOBA_Unpack_Box_Screen_SubTitleLabel\"]")
 	public MobileElement routerAndPoweCableInsideBoxText;
 	
@@ -46,8 +44,16 @@ public class UnPackYourBoxPage extends ParentClass implements Page
 	
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(letsUnpackYouBoxText.isDisplayed())
+		{
+			utils.log().info("On LET'S UNPACK YOUR BOX Page");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Not on LET'S UNPACK YOUR BOX Page");
+			return false;
+		}
 	}
 	
 }

@@ -17,28 +17,6 @@ public class AccessResourcesOnDevicePage extends ParentClass implements Page
 {
 	TestUtils utils = new TestUtils();
 
-	@AndroidFindBy (xpath = "//android.widget.TextView[@resource-id='com.android.permissioncontroller:id/permission_message']")
-	public MobileElement accessResourcesMessage;	
-		
-//	@AndroidFindAll({
-//		@AndroidBy (id = "com.android.permissioncontroller:id/permission_allow_button"),
-//		@AndroidBy (xpath = "//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_allow_button']"),
-//		@AndroidBy (xpath = "//android.widget.Button[@bounds='[64,1826][1016,1921]"),
-//		@AndroidBy (xpath = "//android.widget.Button[@text='Allow']"),
-//		@AndroidBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.Button[1]")
-//	})
-	@AndroidFindBy (xpath = "//android.widget.Button[@text='Allow']")
-	public MobileElement allowLink;
-	
-	@AndroidFindAll({
-		@AndroidBy (id = "com.android.permissioncontroller:id/permission_deny_button"),
-		@AndroidBy (xpath = "//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_deny_button']"),
-		@AndroidBy (xpath = "//android.widget.Button[@bounds='[64,1963][1016,2042]"),
-		@AndroidBy (xpath = "//android.widget.Button[@text='Deny']"),
-		@AndroidBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.Button[2]")
-	})
-	public MobileElement denyLink;
-	
 	
 	//***********  IOS   *********************
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"“SBC Test” would like to find and connect to devices on your local network.\"]")
@@ -60,18 +38,6 @@ public class AccessResourcesOnDevicePage extends ParentClass implements Page
 		PageFactory.initElements(new AppiumFieldDecorator(super.getDriver()), this);
 	}
 
-	public void clickAllowLink() 
-	{
-		click(allowLink);
-		utils.log().info("Access Resources On Device - Clicked on Allow Link");
-	}
-
-	public void clickDenyLink() 
-	{
-		click(denyLink);
-		utils.log().info("Access Resources On Device - Clicked on Deny Link");
-	}
-	
 	public void clickOkButton() 
 	{
 		try {
@@ -95,7 +61,7 @@ public class AccessResourcesOnDevicePage extends ParentClass implements Page
 	
 	@Override
 	public boolean isAt() {
-		if(allowLink.isDisplayed())
+		if(connectToLocalNetworkMessage.isDisplayed())
 		{
 			utils.log().info("At Access Resource On Device Page");
 			return true;

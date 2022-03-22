@@ -76,7 +76,7 @@ public class TC002_Test_Signin_And_Onboard extends ParentClass
 			  grantPermission.clickContinueButton();
 			  super.pause(5);
 		  }).deviceLocationPage(deviceLocation -> {
-			  deviceLocation.clickWhileUsingAppLink();
+			  deviceLocation.clickAllowWhileUsingAppLink();
 			  super.pause(5);
 		  }).accessResourcesOnDevicePage(accessResoucesOnDevice -> {
 			  accessResoucesOnDevice.clickOkButton();

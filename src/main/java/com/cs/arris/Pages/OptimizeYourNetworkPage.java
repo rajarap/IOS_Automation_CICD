@@ -47,11 +47,18 @@ public class OptimizeYourNetworkPage  extends ParentClass implements Page
 		click(skipOptimizeButton);
 	}
 	
-	
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(helpYouOptimizeYourNetwork.isDisplayed())
+		{
+			utils.log().info("On HELP YOU OPTIMIZE YOUR NETWORK Page");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Not on HELP YOU OPTIMIZE YOUR NETWORK Page");
+			return false;
+		}
 	}
 	
 }

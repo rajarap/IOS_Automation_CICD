@@ -89,9 +89,7 @@ public class ParentClass
 	private static AppiumDriverLocalService server;
 	
 	TestUtils utils = new TestUtils();
-	public AndroidDriver andDriver ;
 	public AppiumDriver<MobileElement> driver;
-	public AndroidDriver<MobileElement> androidDriver;
 	public DesiredCapabilities desiredCapabilities ;
 	public URL url;
 	public InputStream inputStream = null;
@@ -110,6 +108,7 @@ public class ParentClass
 	public String ssidNumber;
 //	public String ssidName;
 //	public String ssidpwd;
+	public String mail7EmailId;
 	public String randNum;
 	public String profileName;
 	public String ruleName;
@@ -144,7 +143,7 @@ public class ParentClass
 //			utils.log().info("Appium server already running");
 //		}	
 //	}
-//	
+	
 	public ParentClass() 
 	{ 
 		
@@ -187,10 +186,25 @@ public class ParentClass
 		return AppiumDriverLocalService.buildDefaultService();
 	}
 	
+	public boolean checkIfAppiumServerIsRunnning(int port) throws Exception {
+	    boolean isAppiumServerRunning = false;
+	    ServerSocket socket;
+	    try {
+	        socket = new ServerSocket(port);
+	        socket.close();
+	    } catch (IOException e) {
+	    	System.out.println("1");
+	        isAppiumServerRunning = true;
+	    } finally {
+	        socket = null;
+	    }
+	    return isAppiumServerRunning;
+	}
+	
 	public AppiumDriverLocalService getAppiumService() {
 		HashMap<String, String> environment = new HashMap<String, String>();
 		environment.put("PATH",  "/Users/prabhu/.fastlane/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/opt/homebrew/bin:/opt/homebrew/Cellar/openjdk@11/11.0.10/libexec/openjdk.jdk/Contents/Home/bin:/Users/prabhu/Library/Android/sdk:/Applications/sonar-scanner/bin:/Applications/sonarqube/bin:/usr/bin/ruby:/usr/local/bin/pod");
-		environment.put("ANDROID_HOME", "/Users/prabhu/Library/Android/sdk");
+		//environment.put("ANDROID_HOME", "/Users/prabhu/Library/Android/sdk");
 		return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
 				.usingDriverExecutable(new File("/usr/local/bin/node"))
 				.withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
@@ -204,22 +218,21 @@ public class ParentClass
 	@BeforeSuite
 	public void beforeSuite(String platform, String device) throws Exception
 	{
-		setConfigProperties();
-		ThreadContext.put("ROUTINGKEY", "ServerLogs");
-		server = getAppiumService();
-		if(!checkIfAppiumServerIsRunnning(4723)) {
-			server.start();
-			server.clearOutPutStreams();
-			System.out.println("***************   Appium server started   **************");
-			utils.log().info("Appium server started");
-		} else {
-			utils.log().info("Appium server already running");
-		}	
-		
-		
-		
+//		setConfigProperties();
+//		ThreadContext.put("ROUTINGKEY", "ServerLogs");
+////		server = getAppiumService();
+//		if(!checkIfAppiumServerIsRunnning(4723)) {
+//			server.start();
+//			server.clearOutPutStreams();
+//			System.out.println("***************   Appium server started   **************");
+//			utils.log().info("Appium server started");
+//		} else {
+//			utils.log().info("Appium server already running");}
+	
 		this.pltName = platform;
 		this.dvcName = device;
+		System.out.println(this.pltName);
+		System.out.println(this.dvcName);
 		
 		try
 		{
@@ -248,7 +261,8 @@ public class ParentClass
 				desiredCapabilities.setCapability(MobileCapabilityType.UDID, getProps().getProperty("androidUDID"));
 				desiredCapabilities.setCapability(MobileCapabilityType.VERSION, getProps().getProperty("androidVersion"));
 				desiredCapabilities.setCapability(MobileCapabilityType.APP, getProps().getProperty("androidAppLocation"));
-				desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, false);
+				desiredCapabilities.setCapability(MobileCapabilityType.FULL_RESET, false);
+				desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
 				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, getProps().getProperty("timeout"));
 				driver = new AndroidDriver<MobileElement>(url, desiredCapabilities);
 				setDriver(driver);
@@ -265,10 +279,11 @@ public class ParentClass
 				desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, getProps().getProperty("iOSPlatformVersion"));
 				desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, getProps().getProperty("iOSAutomationName"));
 				desiredCapabilities.setCapability(MobileCapabilityType.UDID, getProps().getProperty("iOSUDID"));
-				//desiredCapabilities.setCapability(MobileCapabilityType.APP, getProps().getProperty("iOSAppLocation"));
+	//			desiredCapabilities.setCapability(MobileCapabilityType.APP, getProps().getProperty("iOSAppLocation"));
 				desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, getProps().getProperty("iOSBundleId"));
-				desiredCapabilities.setCapability(IOSMobileCapabilityType.XCODE_ORG_ID, getProps().getProperty("xcodeOrgId"));
 				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, getProps().getProperty("timeout"));
+				
+				//desiredCapabilities.setCapability(IOSMobileCapabilityType.XCODE_ORG_ID, getProps().getProperty("xcodeOrgId"));
 				//desiredCapabilities.setCapability(IOSMobileCapabilityType.UPDATE_WDA_BUNDLEID, getProps().getProperty("updatedWDABundleId"));
 				//desiredCapabilities.setCapability(IOSMobileCapabilityType.XCODE_SIGNING_ID, getProps().getProperty("xcodeSigningId"));	
 				setDriver(new IOSDriver<MobileElement>(url, desiredCapabilities));
@@ -276,27 +291,11 @@ public class ParentClass
 				utils.log().info("iOS Driver is set to the Thread Local context " + getDriver().getPlatformName());
 				utils.log().info(getPlatformName() + " driver initialized: "); 
 			}
-		}catch (Exception e) 
-		{
+		}catch (Exception e) {
 		  utils.log().fatal("Unable to initialize " + getPlatformName() + " driver...... ABORTING !!!\n" + e.toString());
 		} 
 	}
-	
-	public boolean checkIfAppiumServerIsRunnning(int port) throws Exception {
-	    boolean isAppiumServerRunning = false;
-	    ServerSocket socket;
-	    try {
-	        socket = new ServerSocket(port);
-	        socket.close();
-	    } catch (IOException e) {
-	    	System.out.println("1");
-	        isAppiumServerRunning = true;
-	    } finally {
-	        socket = null;
-	    }
-	    return isAppiumServerRunning;
-	}
-	
+		
 		@BeforeTest
 		public void beforeTest()
 		{
@@ -420,7 +419,7 @@ public class ParentClass
 	@BeforeMethod
 	public void beforeMethod() 
 	{
-		((CanRecordScreen) getDriver()).startRecordingScreen();
+	//	((CanRecordScreen) getDriver()).startRecordingScreen();
 	}
 	
 	//stop video capturing and create *.mp4 file
@@ -556,11 +555,13 @@ public class ParentClass
 	  }
 
 	  public void closeApp() {
-		  ((InteractsWithApps) getDriver()).closeApp();
+	//	  ((InteractsWithApps) getDriver()).closeApp();
+		  getDriver().closeApp();
 	  }
 	  
 	  public void launchApp() {
-		  ((InteractsWithApps) getDriver()).launchApp();
+	//	  ((InteractsWithApps) getDriver()).launchApp();
+		  getDriver().launchApp();
 	  }
 	  
 	  public void takeScreenshot(String methodName, ITestResult result) 
@@ -719,6 +720,18 @@ public class ParentClass
 			randNum = String.valueOf(result);
 			String portRuleName = "PR"+ randNum;
 			return portRuleName;
+		}
+		
+		public void generateEmailId()
+		{
+			Random r = new Random();
+			int low = 1;
+			int high = 9999;
+			
+			int result = r.nextInt(high-low) + low;
+			String temp = String.valueOf(result);
+			utils.log().info("Mail-Id :" + "user" + temp + "@mail7.io");
+			mail7EmailId= "user"+ temp;
 		}
 		
 		public String generateGuestNetworkeName()

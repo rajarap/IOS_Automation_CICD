@@ -36,10 +36,12 @@ com/cs/arris/Workflows/UserSuccessfulSigninWorkflow.class
 com/cs/arris/Tests/GrantPermissionPageTest.class
 com/cs/arris/Tests/SigninAsValidUserTest.class
 com/cs/arris/Tests/TC02_EC_0002_1002_Disconnect_Wifi_On_Mobile_Test.class
+com/cs/arris/Tests/TC0011_Test_SignUp_Onboard_And_Test_SBC.class
 com/cs/arris/Tests/TC01_Simple_Test.class
 com/cs/arris/Tests/DeviceLocationPageTest.class
 com/cs/arris/Tests/TC03_Verify_Invalid_OTP_Test.class
 com/cs/arris/Tests/SignUpTest.class
+com/cs/arris/Tests/TC0012_Test_SignUp_And_Onboard_Satellite.class
 com/cs/arris/Workflows/TC04_EC_0002_1304_Internet_Connection_Not_Available_On_Router_Workflow.class
 com/cs/arris/Workflows/TC05_EC_0000_1303_Router_Failed_To_Connect_To_Internet_Workflow.class
 com/cs/arris/Tests/TC006_Login_And_Test_Home_Speed_Test_History_Page.class

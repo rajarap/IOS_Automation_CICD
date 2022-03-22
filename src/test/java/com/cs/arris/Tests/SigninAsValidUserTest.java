@@ -57,7 +57,7 @@ public class SigninAsValidUserTest  extends ParentClass
 		  }).deviceLocationPage(deviceLocation -> {
 			  deviceLocation.clickOnlyThisTimeLink();
 		  }).accessResourcesOnDevicePage(accessResoucesOnDevice -> {
-			  accessResoucesOnDevice.clickAllowLink();
+			  accessResoucesOnDevice.clickOkButton();
 		  }).selectYourDevicePage(selectDevice -> {
 			  selectDevice.selectSurfboardMaxOption();
 			  selectDevice.clickNextButton();

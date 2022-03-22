@@ -78,7 +78,7 @@ public class TC04_EC_0002_1304_Internet_Connection_Not_Available_On_Router_Test 
 		  }).deviceLocationPage(deviceLocation -> {
 			  deviceLocation.clickOnlyThisTimeLink();
 		  }).accessResourcesOnDevicePage(accessResoucesOnDevice -> {
-			  accessResoucesOnDevice.clickAllowLink();
+			  accessResoucesOnDevice.clickOkButton();
 		  }).selectYourDevicePage(selectDevice -> {
 			  selectDevice.selectSurfboardMaxOption();
 			  selectDevice.clickNextButton();

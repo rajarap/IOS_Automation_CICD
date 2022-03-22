@@ -39,14 +39,22 @@ public class SetupHomeNetworkPage extends ParentClass implements Page
 	public void clickNextButton()
 	{
 		String selector = "**/XCUIElementTypeButton[`label == \"NEXT\"`]";
-		utils.log().info("Setup Home Network Page - Clicked on Next Button");
 		click(nextButton);
+		utils.log().info("Setup Home Network Page - Clicked on Next Button");
 	}
 	
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(setupHomeNetworkText.isDisplayed())
+		{
+			utils.log().info("On LET'S SET UP YOUR HOME NETWORK Page");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Not on LET'S SET UP YOUR HOME NETWORK Page");
+			return false;
+		}
 	}
 	
 }

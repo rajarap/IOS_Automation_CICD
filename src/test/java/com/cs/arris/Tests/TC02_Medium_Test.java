@@ -663,10 +663,10 @@ public class TC02_Medium_Test extends ParentClass
 	  
 	  @Test(priority = 49, dependsOnMethods = { "Login_And_Onboard"})
 		public void Verify_Speed_Test_Page() {
-			utils.log().info("                                ");
-			utils.log().info("********************************");
-			utils.log().info("Test: Home Speed Test History   ");
-			utils.log().info("********************************");
+			utils.log().info("                                         ");
+			utils.log().info("*****************************************");
+			utils.log().info("Test: Speed Test and Speed Test History   ");
+			utils.log().info("******************************************");
 			SoftAssert softspeedtest2 = new SoftAssert();
 			softspeedtest2.assertTrue(new HomePage().clickNavigationButton());
 			if(new HomePage().getHamburgerMenuPageObject().isAt()) 

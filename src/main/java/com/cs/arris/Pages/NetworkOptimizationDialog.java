@@ -40,8 +40,16 @@ public class NetworkOptimizationDialog extends ParentClass implements Page
 
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(networkOptimizationText.isDisplayed())
+		{
+			utils.log().info("On Network Optimization Page");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Not on Network Optimization Page");
+			return false;
+		}
 	}
 	
 }

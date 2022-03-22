@@ -61,14 +61,13 @@ public class CodeVerifiedPage  extends ParentClass implements Page
 	
 	public void clickNextButton()
 	{
-		if(nextButton.isDisplayed())
-			utils.log().info("OTP Code Verified Page - Clicked on Next Button");
-			click(nextButton);
+		click(nextButton);
+		utils.log().info("OTP Code Verified Page - Clicked on Next Button");
 	}
 	
 	public void getCodeVerifiedText()
 	{
-		System.out.println(codeVerifiedText.getText());
+		utils.log().info(codeVerifiedText.getText());
 	}
 	
 	public void clickContinueOnboardingButton()
@@ -90,8 +89,16 @@ public class CodeVerifiedPage  extends ParentClass implements Page
 
 	@Override
 	public boolean isAt() {
-		super.pause();
-		return true;
+		if(codeVerifiedText.isDisplayed())
+		{
+			utils.log().info("On Code Verified Page");
+			return true;
+		}
+		else
+		{
+			utils.log().info("Not on Code Verified Page");
+			return false;
+		}
 	}
 	
 }

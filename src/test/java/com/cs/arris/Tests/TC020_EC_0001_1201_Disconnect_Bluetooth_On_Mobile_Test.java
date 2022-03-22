@@ -91,7 +91,7 @@ public class TC020_EC_0001_1201_Disconnect_Bluetooth_On_Mobile_Test extends Pare
 			  }).deviceLocationPage(deviceLocation -> {
 				  deviceLocation.clickOnlyThisTimeLink();
 			  }).accessResourcesOnDevicePage(accessResoucesOnDevice -> {
-				  accessResoucesOnDevice.clickAllowLink();
+				  accessResoucesOnDevice.clickOkButton();
 			  }).selectYourDevicePage(selectDevice -> {
 				  selectDevice.selectSurfboardMaxOption();
 				  selectDevice.clickNextButton();

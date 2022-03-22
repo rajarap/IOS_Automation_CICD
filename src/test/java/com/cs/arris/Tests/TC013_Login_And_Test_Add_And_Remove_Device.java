@@ -103,7 +103,7 @@ public class TC013_Login_And_Test_Add_And_Remove_Device extends ParentClass {
 			deviceLocation.clickOnlyThisTimeLink();
 		}).accessResourcesOnDevicePage(accessResoucesOnDevice -> {
 			super.pause(3);
-			accessResoucesOnDevice.clickAllowLink();
+			  accessResoucesOnDevice.clickOkButton();
 		}).selectYourDevicePage(selectDevice -> {
 			selectDevice.selectSurfboardMaxOption();
 			selectDevice.clickNextButton();

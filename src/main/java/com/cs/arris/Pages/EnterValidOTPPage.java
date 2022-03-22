@@ -7,6 +7,7 @@ import com.cs.arris.Base.ParentClass;
 import com.cs.arris.Interface.Page;
 import com.cs.arris.Utilities.RandomEmailAddress;
 import com.cs.arris.Utilities.TestUtils;
+import com.cs.arris.Utilities.EmailTest;
 import com.cs.arris.Utilities.GetOTPFromNada;
 import com.cs.arris.Utilities.ValidOTP;
 
@@ -20,6 +21,7 @@ public class EnterValidOTPPage   extends ParentClass implements Page
 {
 	public TestUtils utils = new TestUtils();
 	public RandomEmailAddress random;
+	public String passCode;
 //	public OTP otp;
 
 
@@ -57,11 +59,17 @@ public class EnterValidOTPPage   extends ParentClass implements Page
 		return emailAddress.getText();
 	}
 	
-	public void enterValidPassCode(String passcode)
+	public void enterValidPassCode(String email)
 	{
-		utils.log().info("Entering Valid OTP..." + passcode);
-		for (int i = 0; i < passcode.length() ; i++) {
-			sendKeys(otpCode, Character.toString(passcode.charAt(i)));
+//		utils.log().info("Entering Valid OTP..." + passcode);
+//		for (int i = 0; i < passcode.length() ; i++) {
+//			sendKeys(otpCode, Character.toString(passcode.charAt(i)));
+			
+			utils.log().info("Obtaining OTP from mail7.io...");
+			passCode = new EmailTest().getValidOTP(email); 
+			utils.log().info("Entering valid OTP..." + passCode);
+			for (int i = 0; i < passCode.length() ; i++) {
+				sendKeys(otpCode, Character.toString(passCode.charAt(i)));
 		}
 	}
 	
@@ -69,7 +77,11 @@ public class EnterValidOTPPage   extends ParentClass implements Page
 	{
 		String selector = "**/XCUIElementTypeOther[`name == \"Code_Verified_Screen_View_OTP\"`]";
 		utils.log().info("Entering invalid OTP..." + passcode);
-		super.getDriver().findElement(MobileBy.iOSClassChain(selector)).sendKeys(passcode);
+		
+		for (int i = 0; i < passcode.length() ; i++) {
+			sendKeys(otpCode, Character.toString(passcode.charAt(i)));
+		}
+
 	}
 	
 	public boolean verifyInvalidPassCodeMessage()

@@ -777,10 +777,10 @@ public class TC01_Simple_Test extends ParentClass
 		//TC009_Login_And_Test_Hamburger_Menu_Amazon_Feature
 		@Test(priority = 41, dependsOnMethods = { "Login_And_Onboard" })
 		public void Verify_Install_Additional_Satellite_Page() {
-		utils.log().info("                                                    ");
-		utils.log().info("****************************************************");
-		utils.log().info("Test: Hamburger Menu - Install Additional Satellite ");
-		utils.log().info("****************************************************");
+		utils.log().info("                            ");
+		utils.log().info("****************************");
+		utils.log().info("Test: Install Left Satellite ");
+		utils.log().info("*****************************");
 			SoftAssert softsatellite1 = new SoftAssert();
 			new HomePage().getFooterIconsPageObject().clickHomeButton();
 			softsatellite1.assertTrue(new HomePage().clickNavigationButton());

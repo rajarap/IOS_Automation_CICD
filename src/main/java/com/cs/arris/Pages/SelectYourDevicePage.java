@@ -23,9 +23,6 @@ public class SelectYourDevicePage  extends ParentClass implements Page
 	@iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Select_Your_Device_Category_Screen_TitleLabel\"]")
 	public MobileElement selectYourDeviceMessage;
 	
-//	@AndroidFindBy (id = "com.arris.sbcBeta:id/product_category_recycler_view") 
-//	public MobileElement selectYourDeviceOptions;  //contains both the product category options
-	
 	@iOSXCUITFindBy(xpath="//XCUIElementTypeImage[@name=\"Select_Your_Device_Category_Screen_Image_Deselect[1]\"]")
 	public MobileElement selectYourDeviceSurfboardMaxOption; 
 	
@@ -69,7 +66,7 @@ public class SelectYourDevicePage  extends ParentClass implements Page
 
 	@Override
 	public boolean isAt() {
-		if(selectYourDeviceNextButton.isDisplayed())
+		if(selectYourDeviceMessage.isDisplayed())
 		{
 			utils.log().info("At Select your Device Page");
 			return true;

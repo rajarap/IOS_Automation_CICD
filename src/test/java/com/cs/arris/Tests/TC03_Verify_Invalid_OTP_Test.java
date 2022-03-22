@@ -63,7 +63,7 @@ public class TC03_Verify_Invalid_OTP_Test extends ParentClass
 		  }).deviceLocationPage(deviceLocation -> {
 			  deviceLocation.clickOnlyThisTimeLink();
 		  }).accessResourcesOnDevicePage(accessResoucesOnDevice -> {
-			  accessResoucesOnDevice.clickAllowLink();
+			  accessResoucesOnDevice.clickOkButton();
 		  }).selectYourDevicePage(selectDevice -> {
 			  selectDevice.selectSurfboardMaxOption();
 			  selectDevice.clickNextButton();

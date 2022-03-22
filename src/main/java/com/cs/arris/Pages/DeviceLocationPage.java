@@ -61,7 +61,7 @@ public class DeviceLocationPage  extends ParentClass implements Page
 		public MobileElement allowOnce;
 		
 		@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Allow While Using App\"]")
-		public MobileElement whileUsingApp;
+		public MobileElement allowWhileUsingApp;
 		
 		@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Don’t Allow\"]")
 		public MobileElement dontAllow;
@@ -143,11 +143,11 @@ public class DeviceLocationPage  extends ParentClass implements Page
 		}
 	}
 	
-	public void clickWhileUsingAppLink() 
+	public void clickAllowWhileUsingAppLink() 
 	{
 		try {
-			click(whileUsingApp);
-			utils.log().info("Device Location - Clicked " + whileUsingApp.getText());
+			click(allowWhileUsingApp);
+			utils.log().info("Device Location - Clicked " + allowWhileUsingApp.getText());
 		} catch (Exception e) {
 			//utils.log().info("Device Location - While Using The App Link is not displayed");
 		}
