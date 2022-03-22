@@ -24,7 +24,6 @@ pipeline
     {
       string description: 'Contains the Job name', name: 'FROM_JOB_NAME'
       string description: 'Contains the Build Number', name: 'FROM_BUILD_NUMBER'
-      booleanParam defaultValue: true, name: 'QA_AUTOMATION'
     } 
 
     stages
@@ -60,8 +59,37 @@ pipeline
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') 
                 {
                 	sh """
-                        ios-deploy --debug --bundle /Users/rm2652/.jenkins/workspace/ipa/${PROJECT_SCHEME_BETA}/SBC\ Test.ipa
-                        mvn -f /Users/rm2652/.jenkins/workspace/Arris_Android_QA_Automation_W31_BOBA/pom.xml test -PiOS
+                   	cp -f /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa  /Users/rm2652/Documents/jenkins/pipeline/build/artifacts/ios/
+                        ios-deploy --debug --bundle /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
+                        mvn -f /Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/pom.xml test -PiOS
+                		"""   
+                }
+                
+                echo '=====Automated Test Completed====='
+            }
+        }
+      
+        stage('Execute QA Automated Test Scripts for Manually Selected Branch EXP')
+        {
+            when 
+            {
+                allOf
+                {
+                    expression { params.FROM_JOB_NAME == 'Arris_iOS_Manually_Build_Any_Branch_Or_Tag_EXP' }
+                    expression { params.QA_AUTOMATION  == true }
+                }
+            }
+
+            steps
+            {
+                echo '===== Automated Test Started ====='
+                
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') 
+                {
+                	sh """
+                    	cp -f /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa  /Users/rm2652/Documents/jenkins/pipeline/build/artifacts/ios/
+                        ios-deploy --debug --bundle /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
+                        mvn -f /Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/pom.xml test -PiOS
                 		"""   
                 }
                 
@@ -87,8 +115,9 @@ pipeline
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') 
                 {
                 	sh """
-                    	ios-deploy --debug --bundle /Users/rm2652/.jenkins/workspace/ipa/${PROJECT_SCHEME_BETA}/SBC\ Test.ipa
-                    	mvn -f /Users/rm2652/.jenkins/workspace/Arris_Android_QA_Automation_W31_BOBA/pom.xml test -PiOS
+                   	cp -f /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa  /Users/rm2652/Documents/jenkins/pipeline/build/artifacts/ios/
+                        ios-deploy --debug --bundle /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
+                        mvn -f /Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/pom.xml test -PiOS
                		 """       
                 }
                 echo '=====Automated Test Completed====='
