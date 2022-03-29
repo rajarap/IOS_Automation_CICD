@@ -123,32 +123,23 @@ pipeline
                 echo '=====Automated Test Completed====='
             }
         }
-
-        stage('Publish Reports')
-        {
-            steps
-            {
-                echo '=====Publish QA ReportNG Report====='
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, 
-                    reportDir: 'mvn -f /Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/pom.xml test -PiOS/target/surefire-reports/html', reportFiles: 'index.html', 
-                    reportName: 'W31 iOS Onboarding BOBA', reportTitles: 'Arris SURFboard App'])
-
-                    zip archive: true, dir: '/Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/target/surefire-reports/html', zipFile: 'W31_iOS_Onboarding_BOBA_'+params.FROM_BUILD_NUMBER+'.zip'
-
-             }
-        }
     }
 
     post
     {
+    
+        always
+    	{
+    			echo '=====Publish QA ReportNG Report====='
+                zip archive: true, dir: '/Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/target/surefire-reports/html', zipFile: 'W31_Android_Onboarding_BOBA_'+env.BUILD_NUMBER+'.zip'
+    	}
         success
         {
             echo 'Jenkins job ' + env.JOB_NAME + ' ' + env.BUILD_NUMBER +' '+ env.BUILD_TIMESTAMP + ' - SUCCESS '                
             emailext body: '''${SCRIPT, template="groovy-html.template"}''',
             subject: 'Job \'${JOB_NAME}\' - (${BUILD_NUMBER}) - \'${BUILD_TIMESTAMP}\' -  SUCCESS',
             mimeType: 'text/html',
-            to: 'prabhu.rajarathinam@mobileprogramming.com'
-            //to: "${IOS_RECP}"
+            to: "${IOS_RECP}"
         }
 
         failure
@@ -158,8 +149,7 @@ pipeline
             subject: 'Job \'${JOB_NAME}\' - (${BUILD_NUMBER}) - \'${BUILD_TIMESTAMP}\' - FAILED',
             mimeType: 'text/html',
             attachLog: true, 
-            to: 'prabhu.rajarathinam@mobileprogramming.com'
-            //to: "${IOS_RECP}"
+            to: "${IOS_RECP}"
         }
 
         unstable
@@ -169,8 +159,7 @@ pipeline
             subject: 'Job \'${JOB_NAME}\' - (${BUILD_NUMBER}) - \'${BUILD_TIMESTAMP}\' - UNSTABLE',
             mimeType: 'text/html',
             attachLog: true, 
-            to: 'prabhu.rajarathinam@mobileprogramming.com'
-            //to: "${IOS_RECP}"
+            to: "${IOS_RECP}"
         }
     }
 }

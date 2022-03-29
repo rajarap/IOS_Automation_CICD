@@ -26,7 +26,7 @@ public class AddSatelliteAddNewSatellitePage3 extends ParentClass implements Pag
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Add_New_BOBA_Satellite_Screen_Button\"]")
 	public MobileElement nextButton;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Add_New_BOBA_Satellite_Screen_Button_Cancel\"]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"CANCEL\"]")
 	public MobileElement cancelButton;
 	
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"BOBA Arrow\"]")
@@ -39,7 +39,7 @@ public class AddSatelliteAddNewSatellitePage3 extends ParentClass implements Pag
 	public boolean clickNextButton() {
 		if (nextButton.isDisplayed()) {
 			click(nextButton);
-			utils.log().info("Clicked on Next Button");
+			utils.log().info("Add Satellite 3 - Clicked on Next Button");
 			return true;
 		} else {
 			utils.log().info("Next Button is not displayed");
@@ -61,10 +61,10 @@ public class AddSatelliteAddNewSatellitePage3 extends ParentClass implements Pag
 	@Override
 	public boolean isAt() {
 		if (addSatelliteTitle3.isDisplayed()) {
-			utils.log().info("On ADD NEW SATELLITE Page");
+			utils.log().info("On ADD NEW SATELLITE3 Page");
 			return true;
 		} else {
-			utils.log().info("Not on ADD NEW SATELLITE Page");
+			utils.log().info("Not on ADD NEW SATELLITE3 Page");
 			return false;
 		}
 	}

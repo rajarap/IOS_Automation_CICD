@@ -41,13 +41,13 @@ public class SerialComPortCommunicator {
 			long handle = scm.openComPort(portName, true, true, false);
 			scm.configureComPortData(handle, DATABITS.DB_8, STOPBITS.SB_1, PARITY.P_NONE, BAUDRATE.B115200, 0);
 			scm.configureComPortControl(handle, FLOWCONTROL.NONE, 'x', 'x', false, false);
-			System.out.println(scm.getPortName(handle));
+//			System.out.println(scm.getPortName(handle));
 			try {
 				scm.writeString(handle, "dmcli eRT setv Device.X_ARRIS_COM_HNE.FactoryReset bool 1 \n", 100);
 			}catch(SerialComException e) {e.getStackTrace();}
 
 			String data = scm.readString(handle);
-			System.out.println("data read is :" + data);
+//			System.out.println("data read is :" + data);
 			scm.closeComPort(handle);
 		} catch (Exception e) {
 			e.printStackTrace();}

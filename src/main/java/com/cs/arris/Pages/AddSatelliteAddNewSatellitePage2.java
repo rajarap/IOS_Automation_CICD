@@ -1,6 +1,5 @@
 package com.cs.arris.Pages;
 
-import org.apache.commons.lang3.time.StopWatch;
 import org.openqa.selenium.support.PageFactory;
 
 import com.cs.arris.Base.ParentClass;
@@ -8,9 +7,6 @@ import com.cs.arris.Interface.Page;
 import com.cs.arris.Utilities.TestUtils;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidBy;
-import io.appium.java_client.pagefactory.AndroidFindAll;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
@@ -30,7 +26,7 @@ public class AddSatelliteAddNewSatellitePage2 extends ParentClass implements Pag
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Add_New_BOBA_Satellite_Screen_Button\"]")
 	public MobileElement nextButton;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Add_New_BOBA_Satellite_Screen_Button_Cancel\"]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"CANCEL\"]")
 	public MobileElement cancelButton;
 	
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"BOBA Arrow\"]")
@@ -43,7 +39,7 @@ public class AddSatelliteAddNewSatellitePage2 extends ParentClass implements Pag
 	public boolean clickNextButton() {
 		if (nextButton.isDisplayed()) {
 			click(nextButton);
-			utils.log().info("Clicked on Next Button");
+			utils.log().info("Add Satellite 2 - Clicked on Next Button");
 			return true;
 		} else {
 			utils.log().info("Next Button is not displayed");
@@ -65,10 +61,10 @@ public class AddSatelliteAddNewSatellitePage2 extends ParentClass implements Pag
 	@Override
 	public boolean isAt() {
 		if (addSatelliteTitle2.isDisplayed()) {
-			utils.log().info("On ADD SATELLITE Page");
+			utils.log().info("On ADD NEW SATELLITE Page");
 			return true;
 		} else {
-			utils.log().info("Not on ADD SATELLITE Page");
+			utils.log().info("Not on ADD NEW SATELLITE Page");
 			return false;
 		}
 	}

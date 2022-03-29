@@ -54,7 +54,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Mar 23, 2022 01:34:33 AM</span>
+			<span class='label blue darken-3 suite-start-time'>Mar 29, 2022 02:13:32 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -70,6 +70,7 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -122,10 +123,10 @@
                     <canvas id='parent-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> test(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> test(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> skipped
+                    <span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> skipped
                 </div>
             </div>
         </div>
@@ -146,14 +147,14 @@
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Verify_SignUp_And_Onboard</span>
-						<span class='test-time'>Mar 23, 2022 01:34:33 AM</span>
+						<span class='test-time'>Mar 29, 2022 02:13:33 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Mar 23, 2022 01:34:33 AM</span>
-	<span class='label end-time'>Mar 23, 2022 01:44:39 AM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 10m 5s+865ms</span>
+	<span class='label start-time'>Mar 29, 2022 02:13:33 PM</span>
+	<span class='label end-time'>Mar 29, 2022 02:22:19 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 8m 46s+547ms</span>
 </div>
 <div class='test-attributes'>
 	<div class='category-list'>
@@ -175,9 +176,60 @@
 		<tbody>
 			<tr class='log' status='pass'>
 				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>1:44:39 AM</td>
+				<td class='timestamp'>2:22:19 PM</td>
 				<td class='step-details'>
 						Test Passed
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify_Install_Additional_Satellite_Page</span>
+						<span class='test-time'>Mar 29, 2022 02:22:19 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 29, 2022 02:22:19 PM</span>
+	<span class='label end-time'>Mar 29, 2022 02:28:42 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 6m 22s+976ms</span>
+</div>
+<div class='test-attributes'>
+	<div class='category-list'>
+		<span class='category label'>iOS_iPhone</span>
+	</div>
+	<div class='author-list'>
+		<span class='author label'>PrabhuRajarathinam</span>
+	</div>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>2:28:41 PM</td>
+				<td class='step-details'>
+						Test Failed
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>2:28:42 PM</td>
+				<td class='step-details'>
+						Test Failed
 					
 				</td>
 			</tr>
@@ -229,12 +281,13 @@
 						<span class='category-name'>iOS_iPhone</span>
 						<span class='category-status right'>
 						<span class='label pass'>1</span>
+						<span class='label fail'>1</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
 							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
-							
+							<span status="fail" class='label red lighten-1 white-text'>Failed: 1</span>
 							
 						</div>
 						<div class='category-tests'>
@@ -248,9 +301,14 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Mar 23, 2022 01:34:33 AM</td>
+										<td>Mar 29, 2022 02:13:33 PM</td>
 										<td class='linked' test-id='1'>Verify_SignUp_And_Onboard</td>
 										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 29, 2022 02:22:19 PM</td>
+										<td class='linked' test-id='2'>Verify_Install_Additional_Satellite_Page</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -289,12 +347,13 @@
 						<span class='author-name'>PrabhuRajarathinam</span>
 						<span class='author-status right'>
 						<span class='label pass'>1</span>
+						<span class='label fail'>1</span>
 						</span>
 					</div>
 					<div class='author-content hide'>
 						<div class='author-status-counts'>
 							<span class='label green accent-4 white-text'>Passed: 1</span>
-							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
 							
 						</div>
 						<div class='author-tests'>
@@ -308,9 +367,14 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Mar 23, 2022 01:34:33 AM</td>
+										<td>Mar 29, 2022 02:13:33 PM</td>
 										<td class='linked' test-id='1'>Verify_SignUp_And_Onboard</td>
 										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 29, 2022 02:22:19 PM</td>
+										<td class='linked' test-id='2'>Verify_Install_Additional_Satellite_Page</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -334,7 +398,7 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
@@ -346,19 +410,19 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Mar 23, 2022 01:34:33 AM</div>
+					<div class='panel-lead'>Mar 29, 2022 02:13:32 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Mar 23, 2022 01:44:40 AM</div>
+			 		<div class='panel-lead'>Mar 29, 2022 02:28:43 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 10m 7s+73ms</div>
+					<div class='panel-lead'>0h 15m 10s+640ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -376,10 +440,10 @@
 						<tr>
 							<td>iOS_iPhone</td>
 							<td>1</td>
-							<td>0</td>
+							<td>1</td>
 							<td>0</td>
 							<td>
-									100%
+									50%
 							</td>
 						</tr>
 					</table>
@@ -393,14 +457,14 @@
 		<!-- container -->
 		<script>
 			var statusGroup = {
-                parentCount: 1,
+                parentCount: 2,
 				passParent: 1,
-				failParent: 0,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
+				exceptionsParent: 1,
 				childCount: 0,
 				passChild: 0,
 				failChild: 0,
@@ -425,7 +489,7 @@
 		</script>
 		<script>
 			var timeline = {
-			        "Verify_SignUp_And_Onboard":605.865
+			        "Verify_SignUp_And_Onboard":526.547,"Verify_Install_Additional_Satellite_Page":382.976
 			};
 		</script>
 	

@@ -5,7 +5,7 @@ public class ResetMAXRouter
 	public static void main(String args[]) {
 		
 	//	SerialComPortCommunicator.getSerialPorts();
-		SerialComPortCommunicator.resetMAXRouter("/dev/tty.usbserial-142340");
+		SerialComPortCommunicator.resetMAXRouter("/dev/tty.usbserial-142330");
 
 
 

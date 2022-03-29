@@ -8,10 +8,13 @@ import com.cs.arris.Utilities.TestUtils;
 
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindAll;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 public class NameYourNetwokSSIDPage extends ParentClass implements Page
@@ -41,6 +44,8 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 	@iOSXCUITFindBy(xpath="//XCUIElementTypeButton[@name=\"Done\"]")
 	public MobileElement doneLink;
 	
+
+	
 	
 	public NameYourNetwokSSIDPage()
 	{
@@ -57,15 +62,15 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 	{
 		sendKeys(ssidPassword, ssidpwd);
 		utils.log().info("Name Your Network Page - Entered SSID Password");
-		
+				
 //		String selector = "**/XCUIElementTypeButton[`label == \"Done\"`]";
 //		super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
 //		utils.log().info("Name Your Network Page  - Clicked on Done Button");
 	}
 	
+	
 	public void clickDoneLink()
 	{
-		try {
 			try {
 				String acc = "Done";
 				super.getDriver().findElement(MobileBy.AccessibilityId(acc)).click();
@@ -93,13 +98,18 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 			} catch (Exception e) {
 				utils.log().info("Clicked on Done Button 4");
 			}
-		} catch (Exception e) {
-		}
 	}
 
 	public void clickNextButton()
 	{
-		String selector = "**/XCUIElementTypeButton[`label == \"NEXT\"`]";
+//		iosDriver = (IOSDriver<?>) super.getDriver();
+//		iosDriver.hideKeyboard("Done");
+//		//String selector = "**/XCUIElementTypeButton[`label == \"NEXT\"`]";
+//		iosDriver.hideKeyboard(iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]"));
+//		iosDriver.hideKeyboard(HideKeyboardStrategy.PRESS_KEY, "Done");
+		
+		iosDriver = (IOSDriver<?>) super.getDriver();
+		iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
 		click(nextButton);
 		utils.log().info("Name Your Network Page  - Clicked on Next Button");
 	}

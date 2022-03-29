@@ -50,6 +50,7 @@ import org.testng.asserts.SoftAssert;
 import com.aventstack.extentreports.Status;
 import com.cs.arris.Reports.ExtentReport;
 import com.cs.arris.Utilities.Direction;
+import com.cs.arris.Utilities.SerialComPortCommunicator;
 import com.cs.arris.Utilities.SwipeActions;
 import com.cs.arris.Utilities.TestUtils;
 
@@ -90,6 +91,7 @@ public class ParentClass
 	
 	TestUtils utils = new TestUtils();
 	public AppiumDriver<MobileElement> driver;
+	public IOSDriver<?> iosDriver;
 	public DesiredCapabilities desiredCapabilities ;
 	public URL url;
 	public InputStream inputStream = null;
@@ -179,6 +181,7 @@ public class ParentClass
 		
 		server.stop();
 		utils.log().info("Appium server stopped");
+		System.gc();
 		
 	}
 	
@@ -203,8 +206,7 @@ public class ParentClass
 	
 	public AppiumDriverLocalService getAppiumService() {
 		HashMap<String, String> environment = new HashMap<String, String>();
-		environment.put("PATH",  "/Users/prabhu/.fastlane/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/opt/homebrew/bin:/opt/homebrew/Cellar/openjdk@11/11.0.10/libexec/openjdk.jdk/Contents/Home/bin:/Users/prabhu/Library/Android/sdk:/Applications/sonar-scanner/bin:/Applications/sonarqube/bin:/usr/bin/ruby:/usr/local/bin/pod");
-		//environment.put("ANDROID_HOME", "/Users/prabhu/Library/Android/sdk");
+		environment.put("PATH",  "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/opt/homebrew/bin:/opt/homebrew/Cellar/openjdk@11/11.0.10/libexec/openjdk.jdk/Contents/Home/bin:/Applications/sonar-scanner/bin:/Applications/sonarqube/bin:/usr/bin/ruby:/usr/local/bin/pod");
 		return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
 				.usingDriverExecutable(new File("/usr/local/bin/node"))
 				.withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
@@ -231,12 +233,11 @@ public class ParentClass
 	
 		this.pltName = platform;
 		this.dvcName = device;
-		System.out.println(this.pltName);
-		System.out.println(this.dvcName);
 		
 		try
 		{
 			setConfigProperties();
+			factoryReset();
 			setDateTime(utils.dateTime());
 			setPlatformName(this.pltName);
 			setDeviceName(this.dvcName);
@@ -261,12 +262,11 @@ public class ParentClass
 				desiredCapabilities.setCapability(MobileCapabilityType.UDID, getProps().getProperty("androidUDID"));
 				desiredCapabilities.setCapability(MobileCapabilityType.VERSION, getProps().getProperty("androidVersion"));
 				desiredCapabilities.setCapability(MobileCapabilityType.APP, getProps().getProperty("androidAppLocation"));
-				desiredCapabilities.setCapability(MobileCapabilityType.FULL_RESET, false);
-				desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, getProps().getProperty("timeout"));
+				desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, false);
+				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 900);
 				driver = new AndroidDriver<MobileElement>(url, desiredCapabilities);
 				setDriver(driver);
-				getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+				getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				utils.log().info("Android Driver is set to the Thread Local context " + getDriver().getPlatformName());
 				utils.log().info(getPlatformName() + " driver initialized: "); 
 			}
@@ -275,14 +275,15 @@ public class ParentClass
 				utils.log().info("Setting " + getPlatformName() + " driver capabilities");
 				desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, false);
 				desiredCapabilities.setCapability(MobileCapabilityType.SUPPORTS_ALERTS, true);				
-				desiredCapabilities.setCapability(IOSMobileCapabilityType.PLATFORM_NAME, getProps().getProperty("iOSPlatformName"));
+				desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, getProps().getProperty("iOSPlatformName"));
 				desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, getProps().getProperty("iOSPlatformVersion"));
 				desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, getProps().getProperty("iOSAutomationName"));
 				desiredCapabilities.setCapability(MobileCapabilityType.UDID, getProps().getProperty("iOSUDID"));
-	//			desiredCapabilities.setCapability(MobileCapabilityType.APP, getProps().getProperty("iOSAppLocation"));
+
 				desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, getProps().getProperty("iOSBundleId"));
+				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 900);
 				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, getProps().getProperty("timeout"));
-				
+				//desiredCapabilities.setCapability(MobileCapabilityType.APP, getProps().getProperty("iOSAppLocation"));
 				//desiredCapabilities.setCapability(IOSMobileCapabilityType.XCODE_ORG_ID, getProps().getProperty("xcodeOrgId"));
 				//desiredCapabilities.setCapability(IOSMobileCapabilityType.UPDATE_WDA_BUNDLEID, getProps().getProperty("updatedWDABundleId"));
 				//desiredCapabilities.setCapability(IOSMobileCapabilityType.XCODE_SIGNING_ID, getProps().getProperty("xcodeSigningId"));	
@@ -334,6 +335,24 @@ public class ParentClass
 			setProps(properties);
 			utils.log().info("Config.properties object is set to Thread Local");
 	  }
+	  
+	  public void factoryReset() {
+		  try {
+				utils.log().info("Factory Resetting MainAP");
+				SerialComPortCommunicator.resetMAXRouter("/dev/tty.usbserial-142330");
+				pause(75);
+		  }catch(Exception e) {utils.log().info("Issue in Factory reset of MainAP");}
+		  
+	  }
+	  
+//	  public void rebootDevice() {
+//		  try {
+//			    utils.log().info("Restarting Android Device");
+//				SerialComPortCommunicator.restartAndroidDevice();
+//				pause(90);
+//		  }catch(Exception e) {utils.log().info("Issue in rebooting device");}
+//		  
+//	  }
 	  
 	  public void loadTestData(String filePath)
 	  {
@@ -583,6 +602,7 @@ public class ParentClass
 		}
 	  
 
+		@SuppressWarnings("rawtypes")
 		public void toggleWiFI()
 		{
 			((AndroidDriver) this.getDriver()).toggleWifi();

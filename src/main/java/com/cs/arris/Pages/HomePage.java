@@ -211,6 +211,25 @@ public class HomePage extends ParentClass implements Page {
 	
 //	@iOSXCUITFindBy (xpath = "//XCUIElementTypeButton[@name=\"Settings\"]")
 //	public MobileElement settings;
+	
+	//After adding additional satellites
+	@iOSXCUITFindBy (xpath = "//XCUIElementTypeButton[@name=\"Mesh_Home_Screen_Button_LeftExtender\"]")
+	public MobileElement leftRouter;
+	
+	@iOSXCUITFindBy (xpath = "//XCUIElementTypeStaticText[@name=\"Mesh_Home_Screen_Label_LeftExtender\"]")
+	public MobileElement leftRouterName;
+	
+	@iOSXCUITFindBy (xpath = "//XCUIElementTypeStaticText[@name=\"Mesh_Home_Screen_Label_LeftAPWithDevices\"]")
+	public MobileElement leftRouterDeviceCount;
+	
+	@iOSXCUITFindBy (xpath = "//XCUIElementTypeButton[@name=\"Mesh_Home_Screen_Button_RightExtender\"]")
+	public MobileElement rightRouter;
+	
+	@iOSXCUITFindBy (xpath = "//XCUIElementTypeStaticText[@name=\"Mesh_Home_Screen_Label_RightExtender\"]")
+	public MobileElement rightRouterName;
+	
+	@iOSXCUITFindBy (xpath = "//XCUIElementTypeStaticText[@name=\"Mesh_Home_Screen_Label_RightAPWithDevices\"]")
+	public MobileElement rightRouterDeviceCount;
 
 	public MainDeviceAllTabPage getMainDeviceAllTabPageObject() {
 		MainDeviceAllTabPage mainDevicePage = new MainDeviceAllTabPage();
@@ -842,12 +861,13 @@ public class HomePage extends ParentClass implements Page {
 			if(wifiLink.isDisplayed())
 				click(wifiLink);
 				
-			super.pause(2);
+			super.pause(10);
 				
 			String selector = "**/XCUIElementTypeCell[`label == \""+ssidentity+", Secure network, Signal strength 3 of 3 bars\"`]";
 			super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
-			super.pause(3);
-				
+			super.pause(5);
+				////XCUIElementTypeButton[@name="Settings"]
+			//**/XCUIElementTypeButton[`label == "Settings"`]
 			click(settings);
 			super.getDriver().activateApp("com.arris.sbcBeta");
 		}catch(Exception e) {}
@@ -871,6 +891,51 @@ public class HomePage extends ParentClass implements Page {
 		}catch(Exception e) {}
 	}
 	
+	
+	public boolean verifyLeftRouterDetails() {
+		utils.log().info("***************************");
+		utils.log().info("Details of Left Satellite  ");
+		utils.log().info("***************************");
+		try {
+			if (leftRouter.isDisplayed()) 
+				utils.log().info("Left Router Image is displayed");
+		}catch(Exception e) {utils.log().info("Left Router Image is not displayed");} 
+		
+		try {
+			if (leftRouterName.isDisplayed()) 
+				utils.log().info("Left Router Name : " + leftRouterName.getText() + " is displayed");
+		}catch(Exception e) {utils.log().info("Left Router Name is not displayed");} 
+		
+		try {
+			if (leftRouterDeviceCount.isDisplayed()) 
+				utils.log().info("Left Router Device Count : " + leftRouterDeviceCount.getText() + " is displayed");
+		}catch(Exception e) {utils.log().info("Left Router Device Count is not displayed");} 
+
+			return true;
+}
+
+public boolean verifyRightRouterDetails() {
+	utils.log().info("***************************");
+	utils.log().info("Details of Right Satellite  ");
+	utils.log().info("***************************");
+	try {
+		if (rightRouter.isDisplayed()) 
+			utils.log().info("Right Router Image is displayed");
+	}catch(Exception e) {utils.log().info("Right Router Image is not displayed");} 
+	
+	try {
+		if (rightRouterName.isDisplayed()) 
+			utils.log().info("Right Router Name : " + rightRouterName.getText() + " is displayed");
+	}catch(Exception e) {utils.log().info("Left Router Name is not displayed");} 
+	
+	try {
+		if (rightRouterDeviceCount.isDisplayed()) 
+			utils.log().info("Right Router Device Count : " + rightRouterDeviceCount.getText() + " is displayed");
+	}catch(Exception e) {utils.log().info("Right Router Device Count is not displayed");} 
+
+		return true;
+}
+
 
 	@Override
 	public boolean isAt() {

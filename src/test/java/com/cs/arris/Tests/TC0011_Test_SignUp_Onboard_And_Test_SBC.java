@@ -91,6 +91,7 @@ import com.cs.arris.Pages.UnPackYourBoxPage;
 import com.cs.arris.Utilities.Direction;
 import com.cs.arris.Utilities.EmailTest;
 import com.cs.arris.Utilities.KillAndRelaunchApp;
+import com.cs.arris.Utilities.SerialComPortCommunicator;
 import com.cs.arris.Utilities.SevenTapEmail;
 
 import com.cs.arris.Utilities.SwipeActions;
@@ -154,12 +155,7 @@ public class TC0011_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
   
 	  @Test(priority = 1)
 	  public void Verify_SignUp_And_Onboard()
-	  {
-		  	utils.log().info("Manually switch on and reest your mAX MainAP Router");
-		  	super.pause(10);
-//			utils.log().info("Factory Resetting MainAP");
-//			SerialComPortCommunicator.resetMAXRouter("/dev/tty.usbserial-142330");
-//			super.pause(75);
+	  {  
 		  try {
 			  new GetStartedPage().clickGetStartedButton();
 			  new GrantPermissionsPage().clickContinueButton();
@@ -248,13 +244,13 @@ public class TC0011_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 		  		}catch(Exception e) {};
 			  new HomePage().getSSIDName();  
 
-		  }catch(Exception e) {
-			  new TapSevenTimes().tapSeven();
-			  super.pause(3);
-			  new SevenTapEmail().enterEmailAddress();
-			  super.pause(3);
-			  new SevenTapEmail().clickSendButton();
-			  new KillAndRelaunchApp().killApp();}
+		  }catch(Exception e) {}
+//			  new TapSevenTimes().tapSeven();
+//			  super.pause(3);
+//			  new SevenTapEmail().enterEmailAddress();
+//			  super.pause(3);
+//			  new SevenTapEmail().clickSendButton();
+//			  new KillAndRelaunchApp().killApp();}
 	  }
 	  
   
@@ -823,13 +819,13 @@ public class TC0011_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				softmain2.assertAll();
 			}
 			
-//			@Test(priority = 36, dependsOnMethods    = { "Verify_SignUp_And_Onboard", "Verify_Main_Device_UI_On_All_Tab_Page" })
-//			public void Verify_LED_Settings_UI_On_All_Tab() {
-//				SoftAssert softmain3 = new SoftAssert();
-//				softmain3.assertTrue(new MainDeviceAllTabPage().verifyUIOnLedSettings());
-//				
-//				softmain3.assertAll();
-//			}
+			@Test(priority = 36, dependsOnMethods    = { "Verify_SignUp_And_Onboard", "Verify_Main_Device_UI_On_All_Tab_Page" })
+			public void Verify_LED_Settings_UI_On_All_Tab() {
+				SoftAssert softmain3 = new SoftAssert();
+				softmain3.assertTrue(new MainDeviceAllTabPage().verifyUIOnLedSettings());
+				
+				softmain3.assertAll();
+			}
 			
 			@Test(priority = 37, dependsOnMethods = { "Verify_SignUp_And_Onboard",  "Verify_LED_Settings_UI_On_All_Tab"})
 			public void Verify_Decrease_LED_Settings_On_All_Tab_Page() {
@@ -1682,67 +1678,75 @@ public class TC0011_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				}	
 				
 				
-//				//TC009_Login_And_Test_Hamburger_Menu_Amazon_Feature
-//				@Test(priority = 104, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
-//				public void Verify_Install_Additional_Satellite_Page() {
-//				utils.log().info("                            ");
-//				utils.log().info("****************************");
-//				utils.log().info("Test: Install Left Satellite ");
-//				utils.log().info("*****************************");
-//					SoftAssert softsatellite1 = new SoftAssert();
-//					new HomePage().getFooterIconsPageObject().clickHomeButton();
-//					softsatellite1.assertTrue(new HomePage().clickNavigationButton());
-//					softsatellite1.assertTrue(new HomePage().getHamburgerMenuPageObject().clickAddSatelliteButton());
-//					softsatellite1.assertTrue(new AddSatelliteInstallAdditionalSatelliteDialog().clickInstallSatelliteButton());
-//					//1
-//					softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage1().clickNextButton());
-//					
-//					//2
-//					softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage2().clickNextButton());
-//					super.pause(25);
-//					
-//					//3
-//					try {
-//						if(new AddSatelliteAddNewSatellitePage3().isAt()) {
-//							new HomePage().connectToSSID();
-//							softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage3().clickNextButton());
-//						}
-//					}catch(Exception e) {}
-//					super.pause(25);
-//
-//					softsatellite1.assertTrue(new AddSatelliteUnPackYourSatellitePage().clickNextButton());
-//					softsatellite1.assertTrue(new AddSatelliteHelpPlaceYourSatellitePage().clickSkipButton());
-//					softsatellite1.assertTrue(new AddSatellitePlugInYourSatellitePage().clickNextButton());
-//					super.pause(30);
-//					softsatellite1.assertTrue(new AddSatelliteSuccessfullyConnectedPage().clickNextButton());
-//					super.pause(90);
-//					softsatellite1.assertTrue(new AddSatelliteSuccessfullyConnectedToInternetPage().clickNextButton());
-//					super.pause(15);
-//					softsatellite1.assertTrue(new AddSatelliteSystemUpToDatePage().clickNextButton());
-//					super.pause(40);
-//					
-//					try {
-////						 if(new AddSatelliteRegisteringDeviceFailedPage().isAt())
-////						 	new AddSatelliteRegisteringDeviceFailedPage().checkError();
-////						 	try {
-////						 		if(new MailErrorLogsPage().isAt()) {
-////						 			new MailErrorLogsPage().enterEmailAddress();
-////						 			new MailErrorLogsPage().clickSendButton();
-////						 			super.pause(5);
-////						 		}
-////						 	}catch(Exception e) {}
-//						 	
-//						 	softsatellite1.assertTrue(new AddSatelliteRegisteringDeviceFailedPage().clickContinueButton());
-//					//	 	super.pause(120);
-//						 	super.pause(30);
-//						 }catch(Exception e) {}
-//					
-//					softsatellite1.assertTrue(new AddSatelliteCongratulationsPage().clickContinueButton());
-////					softsatellite1.assertTrue(new AddSatelliteHomePage().clickContinueButton());
-//					
-//					softsatellite1.assertAll();
-//
-//				}
+				//TC009_Login_And_Test_Hamburger_Menu_Amazon_Feature
+				@Test(priority = 104, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+				public void Verify_Install_Additional_Satellite_Page() {
+				utils.log().info("                            ");
+				utils.log().info("****************************");
+				utils.log().info("Test: Install Left Satellite ");
+				utils.log().info("*****************************");
+					SoftAssert softsatellite1 = new SoftAssert();
+					new HomePage().getFooterIconsPageObject().clickHomeButton();
+					softsatellite1.assertTrue(new HomePage().clickNavigationButton());
+					softsatellite1.assertTrue(new HomePage().getHamburgerMenuPageObject().clickAddSatelliteButton());
+					softsatellite1.assertTrue(new AddSatelliteInstallAdditionalSatelliteDialog().clickInstallSatelliteButton());
+					//1
+					softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage1().clickNextButton());
+					
+					try {
+					softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage2().clickNextButton());
+					super.pause(25);
+					}catch(Exception e) {}
+					
+					//3
+					try {
+						if(new AddSatelliteAddNewSatellitePage3().isAt()) {
+							new HomePage().connectToSSID();
+							softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage3().clickNextButton());
+						}
+					}catch(Exception e) {}
+					super.pause(25);
+
+					softsatellite1.assertTrue(new AddSatelliteUnPackYourSatellitePage().clickNextButton());
+					softsatellite1.assertTrue(new AddSatelliteHelpPlaceYourSatellitePage().clickSkipButton());
+					softsatellite1.assertTrue(new AddSatellitePlugInYourSatellitePage().clickNextButton());
+					super.pause(30);
+					
+					try {
+						if(new BlueToothConnectionFailedPage().bluetoothConnectionMessage.isDisplayed())
+							new BlueToothConnectionFailedPage().clickTryAgainbutton();
+						super.pause(90);
+					}catch(Exception e) {}
+					
+			
+					try {
+						if(new BlueToothConnectionFailedPage().bluetoothConnectionMessage.isDisplayed())
+							new BlueToothConnectionFailedPage().clickTryAgainbutton();
+						super.pause(90);
+					}catch(Exception e) {}
+					
+					softsatellite1.assertTrue(new AddSatelliteSuccessfullyConnectedPage().clickNextButton());
+					super.pause(90);
+					softsatellite1.assertTrue(new AddSatelliteSuccessfullyConnectedToInternetPage().clickNextButton());
+					super.pause(15);
+					softsatellite1.assertTrue(new AddSatelliteSystemUpToDatePage().clickNextButton());
+					super.pause(40);
+					
+					try {
+						 if(new AddSatelliteRegisteringDeviceFailedPage().isAt())				 	
+						 	softsatellite1.assertTrue(new AddSatelliteRegisteringDeviceFailedPage().clickContinueButton());
+					//	 	super.pause(120);
+						 	super.pause(30);
+						 }catch(Exception e) {}
+					
+					softsatellite1.assertTrue(new AddSatelliteCongratulationsPage().clickContinueButton());
+//					softsatellite1.assertTrue(new AddSatelliteHomePage().clickContinueButton());
+					super.pause(20);
+					softsatellite1.assertTrue(new HomePage().verifyLeftRouterDetails());
+					
+					softsatellite1.assertAll();
+
+				}
 				
 				//TC009_Login_And_Test_Hamburger_Menu_Amazon_Feature
 				@Test(priority = 105, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
@@ -2070,82 +2074,75 @@ public class TC0011_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnetwork16.assertAll();
 				}
 					
-//				//TC009_Login_And_Test_Hamburger_Menu_Amazon_Feature
-//				@Test(priority = 121, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
-//				public void Verify_Install_Right_Satellite_Page() {
-//				utils.log().info("                             ");
-//				utils.log().info("*****************************");
-//				utils.log().info("Test: Install Right Satellite ");
-//				utils.log().info("******************************");
-//					SoftAssert softsatellite1 = new SoftAssert();
-//					new HomePage().getFooterIconsPageObject().clickHomeButton();
-//					softsatellite1.assertTrue(new HomePage().clickNavigationButton());
-//					softsatellite1.assertTrue(new HomePage().getHamburgerMenuPageObject().clickAddSatelliteButton());
-//					softsatellite1.assertTrue(new AddSatelliteInstallAdditionalSatelliteDialog().clickInstallSatelliteButton());
-//					//1
-//					softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage1().clickNextButton());
-//					
-//					//2
-//					try {
-//					softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage2().clickNextButton());
-//					super.pause(20);
-//					}catch(Exception e) {}
-//					
-//					//3
-//					try {
-//						if(new AddSatelliteAddNewSatellitePage3().isAt()) {
-//							new HomePage().connectToSSID();
-//							softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage3().clickNextButton());
-//						}
-//					}catch(Exception e) {}
-//					super.pause(25);
-//
-//					softsatellite1.assertTrue(new AddSatelliteUnPackYourSatellitePage().clickNextButton());
-//					softsatellite1.assertTrue(new AddSatelliteHelpPlaceYourSatellitePage().clickSkipButton());
-//					softsatellite1.assertTrue(new AddSatellitePlugInYourSatellitePage().clickNextButton());
-//					super.pause(40);
-//					
-//					try {
-//						if(new BlueToothConnectionFailedPage().bluetoothConnectionMessage.isDisplayed())
-//							new BlueToothConnectionFailedPage().clickTryAgainbutton();
-//					}catch(Exception e) {}
-//					
-//					softsatellite1.assertTrue(new AddSatelliteSuccessfullyConnectedPage().clickNextButton());
-//					super.pause(90);
-//					
-//					try {
-//						if(new BlueToothConnectionFailedPage().bluetoothConnectionMessage.isDisplayed())
-//							new BlueToothConnectionFailedPage().clickTryAgainbutton();
-//					}catch(Exception e) {}
-//					
-//					softsatellite1.assertTrue(new AddSatelliteSuccessfullyConnectedToInternetPage().clickNextButton());
-//					super.pause(18);
-//					softsatellite1.assertTrue(new AddSatelliteSystemUpToDatePage().clickNextButton());
-//					super.pause(40);
-//					
-//					try {
-////						 if(new AddSatelliteRegisteringDeviceFailedPage().isAt())
-////						 	new AddSatelliteRegisteringDeviceFailedPage().checkError();
-////						 	try {
-////						 		if(new MailErrorLogsPage().isAt()) {
-////						 			new MailErrorLogsPage().enterEmailAddress();
-////						 			new MailErrorLogsPage().clickSendButton();
-////						 			super.pause(5);
-////						 		}
-////						 	}catch(Exception e) {}
-//						 	
-//					 	softsatellite1.assertTrue(new AddSatelliteRegisteringDeviceFailedPage().clickContinueButton());
-//						//super.pause(120);
-//						super.pause(30);
-//					}catch(Exception e) {}
-//						
-//					softsatellite1.assertTrue(new AddSatelliteCongratulationsPage().clickContinueButton());
-////						softsatellite1.assertTrue(new AddSatelliteHomePage().clickContinueButton());
-//						
-//					
-//					softsatellite1.assertAll();
-//
-//				}
+				//TC009_Login_And_Test_Hamburger_Menu_Amazon_Feature
+				@Test(priority = 121, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+				public void Verify_Install_Right_Satellite_Page() {
+				utils.log().info("                             ");
+				utils.log().info("*****************************");
+				utils.log().info("Test: Install Right Satellite ");
+				utils.log().info("******************************");
+					SoftAssert softsatellite1 = new SoftAssert();
+					new HomePage().getFooterIconsPageObject().clickHomeButton();
+					softsatellite1.assertTrue(new HomePage().clickNavigationButton());
+					softsatellite1.assertTrue(new HomePage().getHamburgerMenuPageObject().clickAddSatelliteButton());
+					softsatellite1.assertTrue(new AddSatelliteInstallAdditionalSatelliteDialog().clickInstallSatelliteButton());
+					//1
+					softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage1().clickNextButton());
+					
+					//2
+					try {
+					softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage2().clickNextButton());
+					super.pause(20);
+					}catch(Exception e) {}
+					
+					//3
+					try {
+						if(new AddSatelliteAddNewSatellitePage3().isAt()) {
+							new HomePage().connectToSSID();
+							softsatellite1.assertTrue(new AddSatelliteAddNewSatellitePage3().clickNextButton());
+						}
+					}catch(Exception e) {}
+					super.pause(25);
+
+					softsatellite1.assertTrue(new AddSatelliteUnPackYourSatellitePage().clickNextButton());
+					softsatellite1.assertTrue(new AddSatelliteHelpPlaceYourSatellitePage().clickSkipButton());
+					softsatellite1.assertTrue(new AddSatellitePlugInYourSatellitePage().clickNextButton());
+					super.pause(40);
+					
+					try {
+						if(new BlueToothConnectionFailedPage().bluetoothConnectionMessage.isDisplayed())
+							new BlueToothConnectionFailedPage().clickTryAgainbutton();
+						super.pause(90);
+					}catch(Exception e) {}
+					
+			
+					try {
+						if(new BlueToothConnectionFailedPage().bluetoothConnectionMessage.isDisplayed())
+							new BlueToothConnectionFailedPage().clickTryAgainbutton();
+						super.pause(90);
+					}catch(Exception e) {}
+					
+					softsatellite1.assertTrue(new AddSatelliteSuccessfullyConnectedPage().clickNextButton());
+					super.pause(90);
+					softsatellite1.assertTrue(new AddSatelliteSuccessfullyConnectedToInternetPage().clickNextButton());
+					super.pause(20);
+					softsatellite1.assertTrue(new AddSatelliteSystemUpToDatePage().clickNextButton());
+					super.pause(40);
+					
+					try {
+						 if(new AddSatelliteRegisteringDeviceFailedPage().isAt())		 	
+							 softsatellite1.assertTrue(new AddSatelliteRegisteringDeviceFailedPage().clickContinueButton());
+						//super.pause(120);
+						super.pause(30);
+					}catch(Exception e) {}
+						
+					softsatellite1.assertTrue(new AddSatelliteCongratulationsPage().clickContinueButton());
+					super.pause(20);
+					softsatellite1.assertTrue(new HomePage().verifyRightRouterDetails());
+					
+					softsatellite1.assertAll();
+
+				}
 				
 				
 				
@@ -2592,7 +2589,7 @@ public class TC0011_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 //						softnet30.assertAll();
 //				}
 				
-				@Test(priority = 151, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_LAN_Settings_UI_Page"})
+				@Test(priority = 151, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
 				public void Verify_Device_Priority_Settings_UI_Page() 
 				{
 					SoftAssert softnet31 = new SoftAssert();
@@ -2631,7 +2628,7 @@ public class TC0011_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 //					}
 //				}
 				
-				@Test(priority = 153, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Device_Priority_Settings_Add_Device_UI_Page"})
+				@Test(priority = 153, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
 				public void Verify_Device_Priority_Settings_Add_Device_Page() 
 				{
 					SoftAssert softnet33 = new SoftAssert();

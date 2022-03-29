@@ -1,5 +1,7 @@
 package com.cs.arris.Pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 
 import com.cs.arris.Base.ParentClass;
@@ -8,11 +10,13 @@ import com.cs.arris.Utilities.RandomEmailAddress;
 import com.cs.arris.Utilities.TestUtils;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindAll;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import io.appium.java_client.remote.HideKeyboardStrategy;
 
 public class SignupPage  extends ParentClass implements Page
 {
@@ -83,6 +87,12 @@ public class SignupPage  extends ParentClass implements Page
 	
 	public void clickSignupButton()
 	{
+		
+//		iosDriver.hideKeyboard(iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]"));
+//		iosDriver.hideKeyboard(HideKeyboardStrategy.PRESS_KEY, "Done");
+		
+		iosDriver = (IOSDriver<?>) super.getDriver();
+		iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
 		click(signupButton);
 		utils.log().info("SignUp Page - Clicked on Sign Up Button");
 	}

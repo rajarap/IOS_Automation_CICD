@@ -39,7 +39,7 @@ public class AddSatelliteAddNewSatellitePage1 extends ParentClass implements Pag
 	public boolean clickNextButton() {
 		if (nextButton.isDisplayed()) {
 			click(nextButton);
-			utils.log().info("Clicked on Next Button");
+			utils.log().info("Add Satellite 1 - Clicked on Next Button");
 			return true;
 		} else {
 			utils.log().info("Next Button is not displayed");
