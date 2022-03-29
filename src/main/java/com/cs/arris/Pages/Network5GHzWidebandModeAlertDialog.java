@@ -60,6 +60,17 @@ public class Network5GHzWidebandModeAlertDialog extends ParentClass implements P
 			return false;
 		}
 	}
+	
+	public boolean clickCancelButton() {
+		if (cancelButton.isDisplayed()) {
+			click(cancelButton);
+			utils.log().info("Clicked on Cancel Button");
+			return true;
+		} else {
+			utils.log().info("OK button is Cancel displayed");
+			return false;
+		}
+	}
 
 	@Override
 	public boolean isAt() {

@@ -216,11 +216,6 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  new SomethingWentWrongPage().clickContinueButton();
 			  new NameYourNetwokSSIDPage().enterSSIDName(this.ssidName);
 			  new NameYourNetwokSSIDPage().enterSSIDPassword(this.ssidpass);
-//arris			  new NameYourNetwokSSIDPage().clickDoneLink();
-//			  try {
-//				  if(new NameYourNetwokSSIDPage().doneLink.isDisplayed())
-//					  new NameYourNetwokSSIDPage().clickDoneLink();
-//			  }catch(Exception e) {}
 			  new NameYourNetwokSSIDPage().clickNextButton();
 			  super.pause(60);
 			  new ConnectionToWifiNeededPage().clickJoinButton();
@@ -274,8 +269,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 
 			  }catch(Exception e) {utils.log().info("Unable to Factory reset satellite 1");}
 			  
-				try 
-				{
+//				try {
 					new HomePage().getFooterIconsPageObject().clickHomeButton();
 					new HomePage().clickNavigationButton();
 					new HomePage().getHamburgerMenuPageObject().clickAddSatelliteButton();
@@ -286,6 +280,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 
 					try 
 					{
+						try {
+				  			if(new HomePage().cloudIcon.isDisplayed() || new HomePage().remoteAccessNotAvailableLink.isDisplayed())
+				  				new HomePage().connectToSSID(this.ssidName);
+				  		}catch(Exception e) {};
 						new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
 						super.pause(100);
 						try {
@@ -295,6 +293,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						} catch (Exception e) {	}
 						
 						try {
+							try {
+					  			if(new HomePage().cloudIcon.isDisplayed() || new HomePage().remoteAccessNotAvailableLink.isDisplayed())
+					  				new HomePage().connectToSSID(this.ssidName);
+					  		}catch(Exception e) {};
 							if(new AddSatelliteAddNewSatellitePage3().isAt()) {
 								new AddSatelliteAddNewSatellitePage3().clickNextButton(); //To continue with satellite install, please connect to arris-5550 network. Please connect through the WiFi settings of your mobile device.
 								super.pause(100);}
@@ -317,6 +319,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					new AddSatelliteHelpPlaceYourSatellitePage().clickSkipButton();
 
 					try {
+						try {
+				  			if(new HomePage().cloudIcon.isDisplayed() || new HomePage().remoteAccessNotAvailableLink.isDisplayed())
+				  				new HomePage().connectToSSID(this.ssidName);
+				  		}catch(Exception e) {};
 						new AddSatellitePlugInYourSatellitePage().clickNextButton();
 						super.pause(100);
 						if (new BlueToothConnectionFailedPage().isAt()) {
@@ -359,15 +365,15 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 
 					softsatellite1.assertAll();
 
-				} catch (Exception e) {
-					new TapSevenTimes().tapSeven();
-					super.pause(3);
-					new SevenTapEmail().enterEmailAddress();
-					super.pause(3);
-					new SevenTapEmail().clickSendButton();
-					new KillAndRelaunchApp().killApp();
-					new KillAndRelaunchApp().relaunchApp();
-				}
+//				} catch (Exception e) {
+//					new TapSevenTimes().tapSeven();
+//					super.pause(3);
+//					new SevenTapEmail().enterEmailAddress();
+//					super.pause(3);
+//					new SevenTapEmail().clickSendButton();
+//					new KillAndRelaunchApp().killApp();
+//					new KillAndRelaunchApp().relaunchApp();
+//				}
 			}
 		
 		
@@ -385,7 +391,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					super.pause(100);
 			  }catch(Exception e) {utils.log().info("Unable to Factory reset satellite 2");}
 			
-			try {
+//			try {
 				new HomePage().getFooterIconsPageObject().clickHomeButton(); 
 				new HomePage().clickNavigationButton();
 				new HomePage().getHamburgerMenuPageObject().clickAddSatelliteButton();
@@ -395,6 +401,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 				super.pause(30);
 
 				try {
+					try {
+			  			if(new HomePage().cloudIcon.isDisplayed() || new HomePage().remoteAccessNotAvailableLink.isDisplayed())
+			  				new HomePage().connectToSSID(this.ssidName);
+			  		}catch(Exception e) {};
 					new AddSatelliteAddNewSatellitePage2().clickNextButton();
 					super.pause(100);
 					if (new BlueToothConnectionFailedPage().isAt()) {
@@ -431,29 +441,23 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			super.pause(20);
 			new AddSatelliteSystemUpToDatePage().clickNextButton();
 			super.pause(40);
-			
-			try {
-				 if(new AddSatelliteRegisteringDeviceFailedPage().isAt())		 	
-					 new AddSatelliteRegisteringDeviceFailedPage().clickContinueButton();
-				//super.pause(120);
-				super.pause(30);
-			}catch(Exception e) {}
-				
+			new AddSatelliteRegisteringDeviceFailedPage().clickContinueButton();
+			super.pause(30);
 			new AddSatelliteCongratulationsPage().clickContinueButton();
 			super.pause(20);
 			new HomePage().verifyRightRouterDetails();
 			
 			softsatellite2.assertAll();
 
-			} catch (Exception e) {
-				new TapSevenTimes().tapSeven();
-				super.pause(3);
-				new SevenTapEmail().enterEmailAddress();
-				super.pause(3);
-				new SevenTapEmail().clickSendButton();
-				new KillAndRelaunchApp().killApp();
-				new KillAndRelaunchApp().relaunchApp();
-			}
+//			} catch (Exception e) {
+//				new TapSevenTimes().tapSeven();
+//				super.pause(3);
+//				new SevenTapEmail().enterEmailAddress();
+//				super.pause(3);
+//				new SevenTapEmail().clickSendButton();
+//				new KillAndRelaunchApp().killApp();
+//				new KillAndRelaunchApp().relaunchApp();
+//			}
 		}
   
 }
@@ -468,3 +472,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 //	}
 //}catch(Exception e) {}
 //super.pause(25);
+
+
+//try {
+//if(new AddSatelliteRegisteringDeviceFailedPage().isAt())		 	
+//	 new AddSatelliteRegisteringDeviceFailedPage().clickContinueButton();
+//super.pause(30);
+//}catch(Exception e) {}
