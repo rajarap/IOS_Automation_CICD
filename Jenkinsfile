@@ -92,7 +92,7 @@ pipeline
                         cd ./tmp
                         unzip /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
                 
-                        ios-deploy --debug --bundle ./Payload/*.app
+                        ios-deploy --noninteractive --debug --bundle  ./Payload/*.app
                    
                         cd ..
                         rm -r ./tmp
