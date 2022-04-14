@@ -820,13 +820,13 @@ public class TC0011_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				softmain2.assertAll();
 			}
 			
-//			@Test(priority = 36, dependsOnMethods    = { "Verify_SignUp_And_Onboard", "Verify_Main_Device_UI_On_All_Tab_Page" })
-//			public void Verify_LED_Settings_UI_On_All_Tab() {
-//				SoftAssert softmain3 = new SoftAssert();
-//				softmain3.assertTrue(new MainDeviceAllTabPage().verifyUIOnLedSettings());
-//				
-//				softmain3.assertAll();
-//			}
+			@Test(priority = 36, dependsOnMethods    = { "Verify_SignUp_And_Onboard", "Verify_Main_Device_UI_On_All_Tab_Page" })
+			public void Verify_LED_Settings_UI_On_All_Tab() {
+				SoftAssert softmain3 = new SoftAssert();
+				softmain3.assertTrue(new MainDeviceAllTabPage().verifyUIOnLedSettings());
+				
+				softmain3.assertAll();
+			}
 			
 			@Test(priority = 37, dependsOnMethods = { "Verify_SignUp_And_Onboard",  "Verify_LED_Settings_UI_On_All_Tab"})
 			public void Verify_Decrease_LED_Settings_On_All_Tab_Page() {

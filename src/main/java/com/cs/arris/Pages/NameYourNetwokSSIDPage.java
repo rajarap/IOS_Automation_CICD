@@ -110,6 +110,8 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 		
 		iosDriver = (IOSDriver<?>) super.getDriver();
 		iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
+		super.pause(3);
+//		super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"BOBA_Network_Connect_Screen_Button\"]").click();
 		click(nextButton);
 		utils.log().info("Name Your Network Page  - Clicked on Next Button");
 	}
