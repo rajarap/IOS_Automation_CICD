@@ -139,22 +139,22 @@ pipeline
         always
     	{
     			echo '=====Publish QA ReportNG Report====='
-                zip archive: true, dir: '/Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/target/surefire-reports/html', zipFile: 'W31_Android_Onboarding_BOBA_'+env.BUILD_NUMBER+'.zip'
+                zip archive: true, dir: '/Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/target/surefire-reports/html', zipFile: 'W31_iOS_Onboarding_BOBA_'+env.BUILD_NUMBER+'.zip'
     	}
         success
         {
-            echo 'Jenkins job ' + env.JOB_NAME + ' ' + env.BUILD_NUMBER +' '+ env.BUILD_TIMESTAMP + ' - SUCCESS '                
+            echo 'Jenkins job ' + env.JOB_NAME + ' ' + env.BUILD_NUMBER +' '+ env.BUILD_TIMESTAMP + ' - COMPLETED '                
             emailext body: '''${SCRIPT, template="groovy-html.template"}''',
-            subject: 'Job \'${JOB_NAME}\' - (${BUILD_NUMBER}) - \'${BUILD_TIMESTAMP}\' -  SUCCESS',
+            subject: 'Job \'${JOB_NAME}\' - (${BUILD_NUMBER}) - \'${BUILD_TIMESTAMP}\' -  COMPLETED',
             mimeType: 'text/html',
             to: "${IOS_RECP}"
         }
 
         failure
         {
-            echo 'Jenkins job ' + env.JOB_NAME + ' ' + env.BUILD_NUMBER +' '+ env.BUILD_TIMESTAMP + ' - FAILED ' 
+            echo 'Jenkins job ' + env.JOB_NAME + ' ' + env.BUILD_NUMBER +' '+ env.BUILD_TIMESTAMP + ' - COMPLETED ' 
             emailext body: '''${SCRIPT, template="groovy-html.template"}''', 
-            subject: 'Job \'${JOB_NAME}\' - (${BUILD_NUMBER}) - \'${BUILD_TIMESTAMP}\' - FAILED',
+            subject: 'Job \'${JOB_NAME}\' - (${BUILD_NUMBER}) - \'${BUILD_TIMESTAMP}\' - COMPLETED',
             mimeType: 'text/html',
             attachLog: true, 
             to: "${IOS_RECP}"
@@ -162,9 +162,9 @@ pipeline
 
         unstable
         {
-            echo 'Jenkins job ' + env.JOB_NAME + ' ' + env.BUILD_NUMBER +' '+ env.BUILD_TIMESTAMP + ' - UNSTABLE ' 
+            echo 'Jenkins job ' + env.JOB_NAME + ' ' + env.BUILD_NUMBER +' '+ env.BUILD_TIMESTAMP + ' - COMPLETED ' 
             emailext body: '''${SCRIPT, template="groovy-html.template"}''', 
-            subject: 'Job \'${JOB_NAME}\' - (${BUILD_NUMBER}) - \'${BUILD_TIMESTAMP}\' - UNSTABLE',
+            subject: 'Job \'${JOB_NAME}\' - (${BUILD_NUMBER}) - \'${BUILD_TIMESTAMP}\' - COMPLETED',
             mimeType: 'text/html',
             attachLog: true, 
             to: "${IOS_RECP}"
