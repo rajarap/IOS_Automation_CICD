@@ -1,20 +1,17 @@
 package com.cs.arris.Pages;
 
-import org.apache.commons.lang3.time.StopWatch;
 import org.openqa.selenium.support.PageFactory;
 
 import com.cs.arris.Base.ParentClass;
 import com.cs.arris.Interface.Page;
+import com.cs.arris.Utilities.KillAndRelaunchApp;
 import com.cs.arris.Utilities.TestUtils;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidBy;
-import io.appium.java_client.pagefactory.AndroidFindAll;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
-public class AddSatelliteAddNewSatellitePage4 extends ParentClass implements Page {
+public class AddSatelliteOperationFailedPage4 extends ParentClass implements Page {
 	public TestUtils utils = new TestUtils();
 	
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"BOBAHelp\"]")
@@ -32,7 +29,7 @@ public class AddSatelliteAddNewSatellitePage4 extends ParentClass implements Pag
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"BOBA Arrow\"]")
 	public MobileElement backButton;
 
-	public AddSatelliteAddNewSatellitePage4() {
+	public AddSatelliteOperationFailedPage4() {
 		PageFactory.initElements(new AppiumFieldDecorator(super.getDriver()), this);
 	}
 
@@ -46,14 +43,19 @@ public class AddSatelliteAddNewSatellitePage4 extends ParentClass implements Pag
 			return false;
 		}
 	}
+	
+	public void relaunchApp() {
+		new KillAndRelaunchApp().killApp();
+		new KillAndRelaunchApp().relaunchApp();
+	}
 
 	@Override
 	public boolean isAt() {
 		if (addSatelliteTitle4.isDisplayed()) {
-			utils.log().info("On ADD NEW SATELLITE Page");
+			//utils.log().info("On ADD NEW SATELLITE Page");
 			return true;
 		} else {
-			utils.log().info("Not on ADD NEW SATELLITE Page");
+		//	utils.log().info("Not on ADD NEW SATELLITE Page");
 			return false;
 		}
 	}

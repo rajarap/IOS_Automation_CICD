@@ -97,6 +97,7 @@
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AddDeviceRegistrationFailedPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/HomeNetworkHealthOptimizationSkipPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AppRatingDialog.java
+/Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AddSatelliteOperationFailedPage4.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/NetworkDevicePrioritySettingsSelectAtleatOneDeviceAlertDialog.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Utilities/GetOTPFromNada.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/HamburgerSettingsPage.java
@@ -141,7 +142,6 @@
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Utilities/SerialComPortCommunicator.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/NetworkGeneralSettingsIPv6EnableInfoDialog.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/ParentalControlAddProfileDialog.java
-/Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AddSatelliteAddNewSatellitePage4.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/NetworkReserveLANIPDialog.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/GetStartedPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/NetworkLANDHCPIPRangeEmptyOctetAlertDialog.java
@@ -244,6 +244,7 @@
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AddDeviceSelectDevice2Page.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AddSatelliteAddNewSatellitePage3.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/WhosHomeMonitoringHelpPage.java
+/Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AddSatelliteConnectedToNonMaxNetworkPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/BlankSpeedTestHistoryPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/SpeedTestHistoryPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Utilities/TapSevenTimes.java

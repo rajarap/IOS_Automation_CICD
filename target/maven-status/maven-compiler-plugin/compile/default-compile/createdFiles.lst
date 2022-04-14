@@ -9,6 +9,7 @@ com/cs/arris/Pages/FooterIconsPage.class
 com/cs/arris/Pages/HomeNetworkHealthOptimizationPage.class
 com/cs/arris/Pages/GenerateEmailAndPasscode.class
 com/cs/arris/Pages/AddDeviceEstablishingConnectionPage.class
+com/cs/arris/Pages/AddSatelliteConnectedToNonMaxNetworkPage.class
 com/cs/arris/Pages/AccessResourcesOnDevicePage.class
 com/cs/arris/Pages/EnterInValidOTPPage.class
 com/cs/arris/Pages/NotificationPage.class
@@ -29,6 +30,7 @@ com/cs/arris/Pages/AmazonFeaturesPage.class
 com/cs/arris/Pages/NetworkLANDHCPLeaseTimeEditTimeUnitDialog.class
 com/cs/arris/Pages/SpeedTestHistoryPage.class
 com/cs/arris/Utilities/SerialComPortCommunicator.class
+com/cs/arris/Pages/AddSatelliteOperationFailedPage4.class
 com/cs/arris/Pages/AFFSHelpPage.class
 com/cs/arris/Pages/ErrorCode_0003_1003_Service_Is_Currently_Not_Available.class
 com/cs/arris/Pages/NetworkAddDeviceSelectOneDeviceOfHighestPriorityDialog.class
@@ -65,7 +67,6 @@ com/cs/arris/Pages/NetworkGeneralSettings.class
 com/cs/arris/Pages/NetworkWANDNSConfigurationIPv4Page.class
 com/cs/arris/Pages/ErrorCode_0002_1304_Internet_Connection_Not_Available_On_Router.class
 com/cs/arris/Pages/ParentalControlUserProfilePage.class
-com/cs/arris/Pages/AddSatelliteAddNewSatellitePage4.class
 com/cs/arris/Interface/Page.class
 com/cs/arris/Pages/RemoveDeviceFromHomePage.class
 com/cs/arris/Pages/WhosHomeMonitoringPage.class

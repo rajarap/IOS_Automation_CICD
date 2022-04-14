@@ -56,8 +56,8 @@ public class HomeNetworkHealthOptimizationSkipPage extends ParentClass implement
 	
 	public boolean tapSkip()
 	{
-		int X1 = 182;
-		int Y1 = 504;
+		int X1 = 185;
+		int Y1 = 503;
 		PointOption p = new PointOption();
 		p.withCoordinates(X1, Y1);
 		action.tap(p).perform();

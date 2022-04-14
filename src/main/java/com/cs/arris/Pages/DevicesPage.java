@@ -155,6 +155,7 @@ public class DevicesPage extends ParentClass implements Page {
 	}
 
 	// To verify the details of online devices
+	@SuppressWarnings("unchecked")
 	public boolean verifyOnlineDeviceDetails() {
 		this.getOnlineDevicesCount();
 		
@@ -263,8 +264,7 @@ public class DevicesPage extends ParentClass implements Page {
 						utils.log().info("RSSI Label and RSSI data is not displayed");
 					}
 
-					super.pause(5);
-					
+			
 					click(super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_List_Screen_Button_Expand["+i+"]\"]"));
 					
 

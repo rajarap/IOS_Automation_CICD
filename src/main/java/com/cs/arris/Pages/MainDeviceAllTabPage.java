@@ -573,7 +573,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 					utils.log().info("--------------------------");
 					
 					List<MobileElement> entity = (List<MobileElement>) super.getDriver().findElementsByXPath(
-					"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
+					"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+ i++ +"]");
 
 					for (MobileElement e : entity) {
 						try {
@@ -655,8 +655,8 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 					if(i >= 1)
 						super.swipeConnectedDevices(Direction.UP);
 				}
-				super.swipeDown();
 				click(connectedDevicesExpandButton);
+				super.swipeDown();
 				return true;
 			} else {
 				utils.log().info("Currently there are no devices connected to the main Router ");

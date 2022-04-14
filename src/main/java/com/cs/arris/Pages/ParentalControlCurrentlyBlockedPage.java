@@ -64,7 +64,7 @@ public class ParentalControlCurrentlyBlockedPage extends ParentClass implements 
 			utils.log().info("Details of User Profiles For Whom Internet is Currently Paused/Blocked");
 			utils.log().info("*********************************************************************");
 
-			for (int i = 1; i < 3; i++) 
+			for (int i = 1; i <= 3; i++) 
 			{
 				utils.log().info("Blocked User Profile : " + i);
 				utils.log().info("--------------------------------");
