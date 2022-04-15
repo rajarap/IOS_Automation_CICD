@@ -59,6 +59,7 @@ pipeline
 
                 	sh """
                    		cp -f /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa  /Users/rm2652/Documents/jenkins/pipeline/build/artifacts/ios/
+                        ios-deploy --uninstall --bundle_id com.arris.sbcBeta
                         ios-deploy --bundle /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
                         mvn -f /Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/pom.xml test -PiOS
                 		"""   
