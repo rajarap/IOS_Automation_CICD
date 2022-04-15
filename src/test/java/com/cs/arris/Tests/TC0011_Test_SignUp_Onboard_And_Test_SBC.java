@@ -2947,15 +2947,15 @@ public class TC0011_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnet42.assertAll();
 				}
 				
-//				@Test(priority = 166, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_UI_Page"})
-//				public void Verify_General_Settings_Port_Forwarding_Settings() 
-//				{
-//					SoftAssert softnet43 = new SoftAssert();
-//					new NetworkPage().getGeneralSettingsPageObject().clickPortForwardingink();
-////					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().isAt())
-////						softnet43.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().verifyUIOnPortForwardingPage());
-//					softnet43.assertAll();
-//				}
+				@Test(priority = 166, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_UI_Page"})
+				public void Verify_General_Settings_Port_Forwarding_Settings() 
+				{
+					SoftAssert softnet43 = new SoftAssert();
+					new NetworkPage().getGeneralSettingsPageObject().clickPortForwardingink();
+//					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().isAt())
+//						softnet43.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().verifyUIOnPortForwardingPage());
+					softnet43.assertAll();
+				}
 				
 				@Test(priority = 167, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_Port_Forwarding_Settings"})
 				public void Verify_General_Settings_Port_Forwarding_Add_Rule_Settings_Page() 
