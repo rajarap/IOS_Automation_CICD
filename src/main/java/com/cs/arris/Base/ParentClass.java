@@ -255,21 +255,6 @@ public class ParentClass
 			desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, getPlatformName());
 			desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, getDeviceName());
 			
-			if(getPlatformName().equalsIgnoreCase("Android"))
-			{
-				utils.log().info("Setting " + getPlatformName() + " driver capabilities");
-				desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, getProps().getProperty("androidAutomationName"));
-				desiredCapabilities.setCapability(MobileCapabilityType.UDID, getProps().getProperty("androidUDID"));
-				desiredCapabilities.setCapability(MobileCapabilityType.VERSION, getProps().getProperty("androidVersion"));
-				desiredCapabilities.setCapability(MobileCapabilityType.APP, getProps().getProperty("androidAppLocation"));
-				desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, false);
-				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 900);
-				driver = new AndroidDriver<MobileElement>(url, desiredCapabilities);
-				setDriver(driver);
-				getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-				utils.log().info("Android Driver is set to the Thread Local context " + getDriver().getPlatformName());
-				utils.log().info(getPlatformName() + " driver initialized: "); 
-			}
 			if(getPlatformName().equalsIgnoreCase("iOS"))
 			{
 				utils.log().info("Setting " + getPlatformName() + " driver capabilities");
@@ -712,7 +697,7 @@ public class ParentClass
 			//Integer randomNumber = (int)(Math.random()*9000)+1000;
 			Random r = new Random();
 			int low = 10;
-			int high = 100;
+			int high = 10000;
 			int result = r.nextInt(high-low) + low;
 			randNum = String.valueOf(result);
 			profileName = "profile"+ randNum;
@@ -723,7 +708,7 @@ public class ParentClass
 		{
 			Random r = new Random();
 			int low = 100;
-			int high = 999;
+			int high = 99999;
 			int result = r.nextInt(high-low) + low;
 			randNum = String.valueOf(result);
 			String routerName = "arrisW31-"+ randNum;
@@ -735,7 +720,7 @@ public class ParentClass
 		{
 			Random r = new Random();
 			int low = 10;
-			int high = 3000;
+			int high = 99999;
 			int result = r.nextInt(high-low) + low;
 			randNum = String.valueOf(result);
 			String portRuleName = "PR"+ randNum;
@@ -746,7 +731,7 @@ public class ParentClass
 		{
 			Random r = new Random();
 			int low = 1;
-			int high = 9999;
+			int high = 99999;
 			
 			int result = r.nextInt(high-low) + low;
 			String temp = String.valueOf(result);
@@ -758,7 +743,7 @@ public class ParentClass
 		{
 			Random r = new Random();
 			int low = 10;
-			int high = 999;
+			int high = 99999;
 			int result = r.nextInt(high-low) + low;
 			randNum = String.valueOf(result);
 			String guestNet = "guestNet"+ randNum;
@@ -825,7 +810,7 @@ public class ParentClass
 		{
 			Random r = new Random();
 			int low = 10;
-			int high = 999;
+			int high = 9999;
 			int result = r.nextInt(high-low) + low;
 			 randNum = String.valueOf(result);
 			 ruleName = "rule"+ randNum;
@@ -1044,67 +1029,3 @@ public class ParentClass
 		}
 		
 }
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	//Switch based on platform name
-//	switch (getPlatformName())
-//	{
-//		case "Android":
-//			System.out.println("Inside Android DesiredCapabilities...Platform Name ---> : " + getPlatformName());
-//			desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, getProps().getProperty("androidAutomationName"));
-//			desiredCapabilities.setCapability(MobileCapabilityType.UDID, getProps().getProperty("androidUDID"));
-//			desiredCapabilities.setCapability(MobileCapabilityType.VERSION, getProps().getProperty("androidVersion"));
-//			desiredCapabilities.setCapability(MobileCapabilityType.APP, getProps().getProperty("androidAppLocation"));
-//			driver = new AndroidDriver<MobileElement>(url, desiredCapabilities);
-//			System.out.println("=======> "+ driver.getPlatformName());
-//			break;
-//		default:
-//			throw new Exception("Invalid platform! - " + getPlatformName());
-//	}
-//	setDriver(driver);
-//	utils.log().info("driver initialized: " + getDriver()); 
-//	PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
-//}catch (Exception e) {
-//	  utils.log().fatal("driver initialization failure. ABORT!!!\n" + e.toString());
-//  } finally {
-//	  if(inputStream != null) {
-//		  try {
-//			inputStream.close();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	  }
-//	  if(stringsis != null) {
-//		  try {
-//			stringsis.close();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	  }
-//  }

@@ -450,10 +450,10 @@ public boolean verifyUIOnLedSettings() {
 	// To verify the details of all connected devices
 	@SuppressWarnings("unchecked")
 	public boolean verifyConnectedDeviceDetails() {
-		utils.log().info("                                               ");
-		utils.log().info("***********************************************");
-		utils.log().info("Details of All Devices Connected to Main Router");
-		utils.log().info("***********************************************");
+		utils.log().info("                                                    ");
+		utils.log().info("****************************************************");
+		utils.log().info("Details of Ethernet Devices Connected to Main Router");
+		utils.log().info("****************************************************");
 
 		this.getAllDevicesCount();
 		
