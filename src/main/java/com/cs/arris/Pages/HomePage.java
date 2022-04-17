@@ -1,6 +1,5 @@
 package com.cs.arris.Pages;
 
-import java.time.Duration;
 import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
@@ -15,9 +14,6 @@ import com.cs.arris.Utilities.TestUtils;
 
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidBy;
-import io.appium.java_client.pagefactory.AndroidFindAll;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -869,6 +865,21 @@ public class HomePage extends ParentClass implements Page {
 				////XCUIElementTypeButton[@name="Settings"]
 			//**/XCUIElementTypeButton[`label == "Settings"`]
 			click(settings);
+			super.getDriver().activateApp("com.arris.sbcBeta");
+		}catch(Exception e) {}
+	}
+	
+	public void checkConnectedWifiNetworkName(String ssidentity)
+	{
+		try
+		{
+			super.getDriver().activateApp("com.apple.Preferences");
+			super.swipeDown();
+				
+			String networkNameXpath = "//XCUIElementTypeStaticText[@name=\""+ssidentity+"\"]";
+			super.networkName = super.getDriver().findElement(MobileBy.xpath(networkNameXpath)).getText();
+			
+			super.pause(5);
 			super.getDriver().activateApp("com.arris.sbcBeta");
 		}catch(Exception e) {}
 	}

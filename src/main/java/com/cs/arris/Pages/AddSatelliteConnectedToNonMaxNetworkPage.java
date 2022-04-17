@@ -21,12 +21,24 @@ public class AddSatelliteConnectedToNonMaxNetworkPage extends ParentClass implem
 
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"OB_Error_Screen_SubTitleLabel\"]")
 	public MobileElement description;
+	
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"OB_Error_Screen_Label\"]")
+	public MobileElement errorCode1;
 
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"OB_Error_Screen_Button\"]")
 	public MobileElement tryAgainButton;
 	
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"TRY AGAIN\"]")
+	public MobileElement tryAgainStaticText;
+	
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"OB_Error_Screen_Label\"]")
-	public MobileElement errorCode;
+	public MobileElement errorCode2;
+	
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"OB_Error_Screen_Button\"]")
+	public MobileElement troubleShootButton;
+	
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"TROUBLESHOOT\"]")
+	public MobileElement troubleShootStaticText;
 
 	public AddSatelliteConnectedToNonMaxNetworkPage() {
 		PageFactory.initElements(new AppiumFieldDecorator(super.getDriver()), this);
@@ -39,6 +51,17 @@ public class AddSatelliteConnectedToNonMaxNetworkPage extends ParentClass implem
 			return true;
 		} else {
 			utils.log().info("Try Again Button is not displayed");
+			return false;
+		}
+	}
+	
+	public boolean clickTroubleShootButton() {
+		if (troubleShootButton.isDisplayed()) {
+			click(troubleShootButton);
+			utils.log().info("Clicked on TroubleShoot Button");
+			return true;
+		} else {
+			utils.log().info("TroubleShoot Button is not displayed");
 			return false;
 		}
 	}

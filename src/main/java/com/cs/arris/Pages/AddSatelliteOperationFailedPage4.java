@@ -52,10 +52,10 @@ public class AddSatelliteOperationFailedPage4 extends ParentClass implements Pag
 	@Override
 	public boolean isAt() {
 		if (addSatelliteTitle4.isDisplayed()) {
-			//utils.log().info("On ADD NEW SATELLITE Page");
+			utils.log().info("On ADDING SATELLITE OPERATION FAILED Page");
 			return true;
 		} else {
-		//	utils.log().info("Not on ADD NEW SATELLITE Page");
+			//utils.log().info("Not on ADD NEW SATELLITE Page");
 			return false;
 		}
 	}

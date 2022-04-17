@@ -127,6 +127,7 @@ public class ParentClass
 	public List<String> lanIPRuleName = new ArrayList<String>();
 //	public String[] logEmailids = {"prabhu.rajarathinam@mobileprogramming.com", "prabhu.rajarathinam@commscope.com"};
 	public String[] logEmailids;
+	public String networkName;
 	
 	private static final String ESCAPE_PROPERTY = "org.uncommons.reportng.escape-output";
 	
@@ -458,10 +459,26 @@ public class ParentClass
 		}		
 	}
 	
-	 public void waitForVisibility(MobileElement e) {
-		  WebDriverWait wait = new WebDriverWait(getDriver(), TestUtils.WAIT);
+	  public void waitForVisibility(MobileElement e){
+		  Wait<WebDriver> wait = new FluentWait<WebDriver>(getDriver())
+		  .withTimeout(Duration.ofSeconds(120))
+		  .pollingEvery(Duration.ofSeconds(3))
+		  .ignoring(NoSuchElementException.class);
+
 		  wait.until(ExpectedConditions.visibilityOf(e));
-	  }
+		  }
+	  
+	  public void waitFor120(){
+		  Wait<WebDriver> wait120 = new FluentWait<WebDriver>(getDriver())
+		  .withTimeout(Duration.ofSeconds(120))
+		  .pollingEvery(Duration.ofSeconds(3));
+		  }
+	  
+	  public void waitFor60(){
+		  Wait<WebDriver> wait60 = new FluentWait<WebDriver>(getDriver())
+		  .withTimeout(Duration.ofSeconds(60))
+		  .pollingEvery(Duration.ofSeconds(3));
+		  }
 	  
 	  public void waitForVisibility(WebElement e){
 		  Wait<WebDriver> wait = new FluentWait<WebDriver>(getDriver())
