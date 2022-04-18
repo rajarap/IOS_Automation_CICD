@@ -13,19 +13,17 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 public class AddSatelliteCongratulationsPage extends ParentClass implements Page {
 	public TestUtils utils = new TestUtils();
 	
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"BOBAHelp\"]")
-	public MobileElement helpIcon;
 	
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Satellite_Congratulations_Screen_TitleLabel\"]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"BOBA_Satellite_Congratulations_Screen_TitleLabel\"]")
 	public MobileElement congratulationsTitle;
 	
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Satellite_Congratulations_Screen_SubTitleLabel\"]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"BOBA_Satellite_Congratulations_Screen_SubTitleLabel\"]")
 	public MobileElement congratulationsSubTitle;
 	
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Satellite_Congratulations_Screen_Image\"]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeImage[@name=\"BOBA_Satellite_Congratulations_Screen_Image\"]")
 	public MobileElement image;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Satellite_Congratulations_Screen_Button\"]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"BOBA_Satellite_Congratulations_Screen_Button\"]")
 	public MobileElement continueButton;
 	
 
@@ -44,17 +42,6 @@ public class AddSatelliteCongratulationsPage extends ParentClass implements Page
 		}
 	}
 	
-	public boolean clickHelpButton() {
-		if (helpIcon.isDisplayed()) {
-			click(helpIcon);
-			utils.log().info("Clicked on Help Button");
-			return true;
-		} else {
-			utils.log().info("Help Button is not displayed");
-			return false;
-		}
-	}
-
 	@Override
 	public boolean isAt() {
 		if (congratulationsTitle.isDisplayed()) {

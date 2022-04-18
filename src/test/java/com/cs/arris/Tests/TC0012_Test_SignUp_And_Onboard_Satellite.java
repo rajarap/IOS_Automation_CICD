@@ -278,8 +278,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						if(new AddSatelliteAddNewSatellitePage1().isAt()) 
 						{
 							new AddSatelliteAddNewSatellitePage1().clickNextButton();// Each satellite expands your network
-							utils.log().info("Waiting for 30 seconds ");
-							super.pause(30);
+							utils.log().info("Waiting for 40 seconds ");
+							super.pause(40);
 							
 							try
 							{
@@ -292,25 +292,26 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					  				if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
 					  				{
 					  					new AddSatelliteConnectedToNonMaxNetworkPage().clickTryAgainButton();
+//										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+//						  				super.pause(120);
 					  				} else {
 					  					new AddSatelliteConnectedToNonMaxNetworkPage().clickTroubleShootButton();
 					  					super.pause(3);
 					  					new AddSatelliteConnectedToNonMaxNetworkTroubleShootProceedPage().clickProceedButton();
+//										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+//						  				super.pause(120);
 					  				}
 								}
 							}catch(Exception e) {}
 						}
 					}catch(Exception e) {
-						utils.log().info("Clicking on Cancel button on Add Satellite Page 1 and proceed to home page");
-						new AddSatelliteAddNewSatellitePage1().clickCancelButton();
-						 if(new HomePage().isAt()) {
-							 	super.pause(10);
-							 	new TapSevenTimes().tapSeven();
-							 	super.pause(3);
-							 	new SevenTapEmail().enterEmailAddress();
-							 	super.pause(3); 
-							 	new SevenTapEmail().clickSendButton();
-						 }
+						super.pause(10);
+						new TapSevenTimes().tapSeven();
+						super.pause(3);
+						new SevenTapEmail().enterEmailAddress();
+						super.pause(3); 
+						new SevenTapEmail().clickSendButton();
+
 					}
 					
 					
@@ -324,29 +325,30 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
 							utils.log().info("Waiting for 80 seconds ");
 							super.pause(80);
+						}
 							
-							try {
-								if(new AddSatelliteOperationFailedPage4().isAt()) {
-									utils.log().info("Adding Satellite operation failed. Trying to re-establish connection with max router");
+						try {
+							if(new AddSatelliteOperationFailedPage4().isAt()) {
+								utils.log().info("Adding Satellite operation failed. Trying to re-establish connection with max router");
+								
+								new HomePage().connectToSSID(this.ssidName);
+								utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+					  			super.pause(120);
 									
-									new HomePage().connectToSSID(this.ssidName);
-									utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
-					  				super.pause(120);
+								utils.log().info("Clicking on Back button on Add Satellite Operation Failed page ");
+								new AddSatelliteOperationFailedPage4().clickBackButton();
 									
-									utils.log().info("Clicking on Back button on Add Satellite Operation Failed page ");
-									new AddSatelliteOperationFailedPage4().clickBackButton();
-									
-									if(new AddSatelliteAddNewSatellitePage1().isAt()) {
-										new AddSatelliteAddNewSatellitePage1().clickNextButton();
-									}
+								if(new AddSatelliteAddNewSatellitePage1().isAt()) {
+									new AddSatelliteAddNewSatellitePage1().clickNextButton();
 								}
-							}catch(Exception e) {
-							 	super.pause(5);
-							 	new TapSevenTimes().tapSeven();
-							 	super.pause(3);
-							 	new SevenTapEmail().enterEmailAddress();
-							 	super.pause(3); 
-							 	new SevenTapEmail().clickSendButton();
+							}
+						}catch(Exception e) {
+							super.pause(5);
+							new TapSevenTimes().tapSeven();
+							super.pause(3);
+							new SevenTapEmail().enterEmailAddress();
+							super.pause(3); 
+							new SevenTapEmail().clickSendButton();
 //								utils.log().info("Clicking on Cancel button on Add Satellite Operation Failed page and proceed to home page");
 //								new AddSatelliteOperationFailedPage4().clickCancelButton();
 //								super.pause(5);
@@ -371,14 +373,17 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					  				if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
 					  				{
 					  					new AddSatelliteConnectedToNonMaxNetworkPage().clickTryAgainButton();
+//										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+//						  				super.pause(120);
 					  				} else {
 					  					new AddSatelliteConnectedToNonMaxNetworkPage().clickTroubleShootButton();
 					  					super.pause(3);
 					  					new AddSatelliteConnectedToNonMaxNetworkTroubleShootProceedPage().clickProceedButton();
+//										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+//						  				super.pause(120);
 					  				}
 								}
 							}catch(Exception e) {}
-						}
 						
 					} catch (Exception e) {
 //						utils.log().info("Clicking on Cancel button on Add Satellite Page 2 and proceed to home page");
@@ -406,37 +411,34 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						super.waitForVisibility(new AddSatelliteAddNewSatellitePage3().nextButton);
 						
 						if(new AddSatelliteAddNewSatellitePage3().isAt()) 
-						{
-							new HomePage().connectToSSID(this.ssidName);
-							utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
-			  				super.pause(120);
-			  									
+						{  									
 							new AddSatelliteAddNewSatellitePage3().clickNextButton(); //To continue with satellite install, please connect to arris-5550 network. Please connect through the WiFi settings of your mobile device.
 							utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
 			  				super.pause(60);
+						}
 			  				
-			  				try {
-								if(new AddSatelliteOperationFailedPage4().isAt()) {
-									utils.log().info("Adding Satellite operation failed.");
+			  			try {
+							if(new AddSatelliteOperationFailedPage4().isAt()) {
+								utils.log().info("Adding Satellite operation failed.");
 									
-//									new HomePage().connectToSSID(this.ssidName);
-//									utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
-//					  				super.pause(60);
-//									
-//									utils.log().info("Clicking on Back button on Add Satellite Operation Failed page ");
-//									new AddSatelliteOperationFailedPage4().clickBackButton();
-//									
-//									if(new AddSatelliteAddNewSatellitePage1().isAt()) {
-//										new AddSatelliteAddNewSatellitePage1().clickNextButton();
-//									}
+								new HomePage().connectToSSID(this.ssidName);
+								utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
+					  			super.pause(60);
+									
+								utils.log().info("Clicking on Back button on Add Satellite Operation Failed page ");
+								new AddSatelliteOperationFailedPage4().clickBackButton();
+									
+								if(new AddSatelliteAddNewSatellitePage1().isAt()) {
+									new AddSatelliteAddNewSatellitePage1().clickNextButton();
 								}
-							}catch(Exception e) {
-							 	super.pause(10);
-							 	new TapSevenTimes().tapSeven();
-							 	super.pause(3);
-							 	new SevenTapEmail().enterEmailAddress();
-							 	super.pause(3); 
-							 	new SevenTapEmail().clickSendButton();
+							}
+						}catch(Exception e) {
+							 super.pause(10);
+							 new TapSevenTimes().tapSeven();
+							 super.pause(3);
+							 new SevenTapEmail().enterEmailAddress();
+							 super.pause(3); 
+							 new SevenTapEmail().clickSendButton();
 //								utils.log().info("Clicking on Cancel button on Add Satellite Operation Failed page and proceed to home page");
 //								new AddSatelliteOperationFailedPage4().clickCancelButton();
 //								if(new HomePage().isAt()) {
@@ -460,25 +462,25 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					  				if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
 					  				{
 					  					new AddSatelliteConnectedToNonMaxNetworkPage().clickTryAgainButton();
+										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+						  				super.pause(120);
 					  				} else {
 					  					new AddSatelliteConnectedToNonMaxNetworkPage().clickTroubleShootButton();
 					  					super.pause(3);
 					  					new AddSatelliteConnectedToNonMaxNetworkTroubleShootProceedPage().clickProceedButton();
+										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+						  				super.pause(120);
 					  				}
 								}
 							}catch(Exception e) {}
-						}
+
 					} catch (Exception e) {
-						utils.log().info("Clicking on Cancel button on Add Satellite Page 3 and proceed to home page");
-						new AddSatelliteAddNewSatellitePage3().clickCancelButton();
-						 if(new HomePage().isAt()) {
-							 	super.pause(10);
-							 	new TapSevenTimes().tapSeven();
-							 	super.pause(3);
-							 	new SevenTapEmail().enterEmailAddress();
-							 	super.pause(3); 
-							 	new SevenTapEmail().clickSendButton();
-						 }
+						super.pause(10);
+						new TapSevenTimes().tapSeven();
+						super.pause(3);
+						new SevenTapEmail().enterEmailAddress();
+						super.pause(3); 
+						new SevenTapEmail().clickSendButton();
 					}
 					
 					//Unpack your satellite
@@ -529,6 +531,29 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							utils.log().info("Waiting for 120 seconds to establish connection with bluetooth");
 							super.pause(120);
 						}
+						
+						try	{
+							if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
+							{
+								utils.log().info("Connected to a non max network. Trying to re-establish connection with your max router network");
+								new HomePage().connectToSSID(this.ssidName);
+								utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+				  				super.pause(120);
+				  				
+				  				if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
+				  				{
+				  					new AddSatelliteConnectedToNonMaxNetworkPage().clickTryAgainButton();
+//									utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+//					  				super.pause(120);
+				  				} else {
+				  					new AddSatelliteConnectedToNonMaxNetworkPage().clickTroubleShootButton();
+				  					super.pause(3);
+				  					new AddSatelliteConnectedToNonMaxNetworkTroubleShootProceedPage().clickProceedButton();
+//									utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+//					  				super.pause(120);
+				  				}
+							}
+						}catch(Exception e) {}
 						
 						try {
 							if (new BlueToothConnectionFailedPage().isAt()) {
@@ -670,8 +695,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					try {
 						if(new AddSatelliteRegisteringDeviceFailedPage().isAt()) {
 							new AddSatelliteRegisteringDeviceFailedPage().clickContinueButton();
-							super.waitForVisibility(new AddSatelliteCongratulationsPage().continueButton);
-							}
+							super.pause(60);
+						}
 					}catch(Exception e) {
 						super.pause(10);
 					 	new TapSevenTimes().tapSeven();
@@ -686,6 +711,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					
 					//Congratulations Page
 					try {
+//						super.waitForVisibility(new AddSatelliteCongratulationsPage().continueButton);
 						if(new AddSatelliteCongratulationsPage().isAt()) {
 							new AddSatelliteCongratulationsPage().clickContinueButton();
 							super.pause(40);
@@ -1068,3 +1094,55 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 //		 	new SevenTapEmail().clickSendButton();
 //	 }
 //}
+
+
+
+
+
+//new OptimizeYourNetworkPage().clickSkipOptimizeButton();
+//new SetupHomeNetworkPage().clickNextButton();
+//new UnPackYourBoxPage().clickNextButton();
+//try {
+//	  if(new PlugInMaxRouterPage().isAt()) {
+//		  new PlugInMaxRouterPage().clickNextButton();
+//		  super.pause(2);
+//		  new ConnectToBlueToothDialog().clickOkButton();
+//		  super.pause(15);
+//	  }
+//		  
+//	  try {
+//			if (new BlueToothConnectionFailedPage().isAt()) {
+//				new BlueToothConnectionFailedPage().clickTryAgainbutton();
+//				utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+//				super.pause(120);}
+//		} catch (Exception e5) {}
+//		
+//		
+//		try {
+//			if (new BlueToothConnectionFailedTroubleShootPage().isAt()) 
+//				new BlueToothConnectionFailedTroubleShootPage().clickTroubleShootButton();
+//			
+//			if (new BlueToothConnectionFailedProceedPage().isAt()) 
+//				new BlueToothConnectionFailedProceedPage().clickProceedButton();
+//			
+//			utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+//			super.pause(120);
+//		} catch (Exception e6) {}
+//
+//	} catch (Exception e) {
+//		super.pause(10);
+//	 	new TapSevenTimes().tapSeven();
+//	 	super.pause(3);
+//	 	new SevenTapEmail().enterEmailAddress();
+//	 	super.pause(3); 
+//	 	new SevenTapEmail().clickSendButton();
+//		Assert.fail("Main AP Onboarding - Unable to connect Max Router to your Mobile Device due to blue tooth connection failure");
+//		new KillAndRelaunchApp().killApp();
+//	}
+//
+//new ConnectMaxRouterToMobileDevicePage().clickNextButton();
+//super.pause(55);
+//new ConnectMaxRouterToInternetPage().clickNextButton();
+//super.pause(10);
+//new SystemFirmwareUpdatePage().clickNextButton();
+//super.pause(30);
