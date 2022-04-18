@@ -226,8 +226,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  try {
 		  			if(new HomePage().cloudIcon.isDisplayed() || new HomePage().remoteAccessNotAvailableLink.isDisplayed())
 		  				new HomePage().connectToSSID(this.ssidName);
-		  			utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize on the homepage");
-		  			super.pause(60);
+		  			utils.log().info("Waiting for 80 seconds for the Wifi connection to stabilize on the homepage");
+		  			super.pause(80);
 		  		}catch(Exception e) {};
 		  		
 			  new HomePage().getSSIDName();  
@@ -261,8 +261,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					try {
 			  			if(new HomePage().cloudIcon.isDisplayed() || new HomePage().remoteAccessNotAvailableLink.isDisplayed()) {
 			  				new HomePage().connectToSSID(this.ssidName);
-			  				utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize on the homepage");
-			  				super.pause(60);
+			  				utils.log().info("Waiting for 80 seconds for the Wifi connection to stabilize on the homepage");
+			  				super.pause(80);
 						}else {utils.log().info("Remote access to your network is currently available");}
 			  		}catch(Exception e) {};
 			  		
@@ -278,16 +278,16 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						if(new AddSatelliteAddNewSatellitePage1().isAt()) 
 						{
 							new AddSatelliteAddNewSatellitePage1().clickNextButton();// Each satellite expands your network
-							utils.log().info("Waiting for 60 seconds ");
-							super.pause(60);
+							utils.log().info("Waiting for 30 seconds ");
+							super.pause(30);
 							
 							try
 							{
 								if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 								{
 									new HomePage().connectToSSID(this.ssidName);
-									utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize on the homepage");
-					  				super.pause(60);
+									utils.log().info("Waiting for 80 seconds for the Wifi connection to stabilize on the homepage");
+					  				super.pause(80);
 					  				
 					  				if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
 					  				{
@@ -327,7 +327,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							
 							try {
 								if(new AddSatelliteOperationFailedPage4().isAt()) {
-									utils.log().info("Adding Satellite operation failed. Please try again. If this problem persists please contact our support team.");
+									utils.log().info("Adding Satellite operation failed. Trying to re-establish connection with max router");
 									
 									new HomePage().connectToSSID(this.ssidName);
 									utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
@@ -339,13 +339,13 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 									if(new AddSatelliteAddNewSatellitePage1().isAt()) {
 										new AddSatelliteAddNewSatellitePage1().clickNextButton();
 									}
-									
 								}
 							}catch(Exception e) {
 								utils.log().info("Clicking on Cancel button on Add Satellite Operation Failed page and proceed to home page");
 								new AddSatelliteOperationFailedPage4().clickCancelButton();
+								super.pause(5);
 								if(new HomePage().isAt()) {
-								 	super.pause(10);
+								 	super.pause(5);
 								 	new TapSevenTimes().tapSeven();
 								 	super.pause(3);
 								 	new SevenTapEmail().enterEmailAddress();
@@ -357,6 +357,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							try	{
 								if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 								{
+									utils.log().info("Connected to a non max network. Trying to re-establish connection with max router");
 									new HomePage().connectToSSID(this.ssidName);
 									utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
 					  				super.pause(60);
@@ -400,7 +401,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  				
 			  				try {
 								if(new AddSatelliteOperationFailedPage4().isAt()) {
-									utils.log().info("Adding Satellite operation failed. Please try again. If this problem persists please contact our support team.");
+									utils.log().info("Adding Satellite operation failed. Trying to re-establish connection with max router");
 									
 									new HomePage().connectToSSID(this.ssidName);
 									utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
@@ -412,7 +413,6 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 									if(new AddSatelliteAddNewSatellitePage1().isAt()) {
 										new AddSatelliteAddNewSatellitePage1().clickNextButton();
 									}
-									
 								}
 							}catch(Exception e) {
 								utils.log().info("Clicking on Cancel button on Add Satellite Operation Failed page and proceed to home page");
@@ -430,6 +430,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							try	{
 								if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 								{
+									utils.log().info("Connected to a non max network. Trying to re-establish connection with max router");
 									new HomePage().connectToSSID(this.ssidName);
 									utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
 					  				super.pause(60);
@@ -950,7 +951,6 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					try {
 						if(new AddSatelliteRegisteringDeviceFailedPage().isAt()) {
 							new AddSatelliteRegisteringDeviceFailedPage().clickContinueButton();
-							super.waitForVisibility(new AddSatelliteCongratulationsPage().continueButton);
 							}
 					}catch(Exception e) {
 						super.pause(10);
@@ -966,6 +966,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					
 					//Congratulations Page
 					try {
+						super.waitForVisibility(new AddSatelliteCongratulationsPage().continueButton);
 						if(new AddSatelliteCongratulationsPage().isAt()) {
 							new AddSatelliteCongratulationsPage().clickContinueButton();
 							super.pause(35);

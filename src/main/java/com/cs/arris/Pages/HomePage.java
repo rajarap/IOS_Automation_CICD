@@ -861,7 +861,6 @@ public class HomePage extends ParentClass implements Page {
 				
 			String selector = "**/XCUIElementTypeCell[`label == \""+ssidentity+", Secure network, Signal strength 3 of 3 bars\"`]";
 			super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
-			super.pause(5);
 				////XCUIElementTypeButton[@name="Settings"]
 			//**/XCUIElementTypeButton[`label == "Settings"`]
 			click(settings);
