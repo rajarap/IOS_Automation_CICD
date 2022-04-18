@@ -61,7 +61,7 @@ public class AddSatelliteAddNewSatellitePage1 extends ParentClass implements Pag
 	@Override
 	public boolean isAt() {
 		if (addSatelliteTitle2.isDisplayed()) {
-			utils.log().info("On ADD NEW SATELLITE Page 1");
+			utils.log().info("On ADD NEW SATELLITE Page 1 - Each Satellite expands your network coverage.");
 			return true;
 		} else {
 			utils.log().info("Not on ADD NEW SATELLITE Page 1");

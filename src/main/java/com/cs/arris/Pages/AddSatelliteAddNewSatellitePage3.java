@@ -61,7 +61,7 @@ public class AddSatelliteAddNewSatellitePage3 extends ParentClass implements Pag
 	@Override
 	public boolean isAt() {
 		if (addSatelliteTitle3.isDisplayed()) {
-			utils.log().info("On ADD NEW SATELLITE3 Page");
+			utils.log().info("On ADD NEW SATELLITE 3 Page - To continue with satellite install, please connect to your network. Please connect through the WiFi settings of your mobile device.");
 			return true;
 		} else {
 			utils.log().info("Not on ADD NEW SATELLITE3 Page");
