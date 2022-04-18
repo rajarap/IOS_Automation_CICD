@@ -976,7 +976,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					
 					//Congratulations Page
 					try {
-						super.waitForVisibility(new AddSatelliteCongratulationsPage().continueButton);
+//						super.waitForVisibility(new AddSatelliteCongratulationsPage().continueButton);
 						if(new AddSatelliteCongratulationsPage().isAt()) {
 							new AddSatelliteCongratulationsPage().clickContinueButton();
 							super.pause(40);

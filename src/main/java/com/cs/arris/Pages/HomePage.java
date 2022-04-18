@@ -851,19 +851,22 @@ public class HomePage extends ParentClass implements Page {
 	{
 		try
 		{
+			utils.log().info("Opening System Preferences on iPhone");
 			super.getDriver().activateApp("com.apple.Preferences");
 			super.swipeDown();
 				
 			if(wifiLink.isDisplayed())
 				click(wifiLink);
-				
+			utils.log().info("Clicked on Wifi link and waiting for 10 seconds for the max network to be displayed");
 			super.pause(10);
 				
 			String selector = "**/XCUIElementTypeCell[`label == \""+ssidentity+", Secure network, Signal strength 3 of 3 bars\"`]";
 			super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
+			utils.log().info("Selected max network SSID : " + ssidentity);
 				////XCUIElementTypeButton[@name="Settings"]
 			//**/XCUIElementTypeButton[`label == "Settings"`]
 			click(settings);
+			utils.log().info("Clicked on Settings link");
 			super.getDriver().activateApp("com.arris.sbcBeta");
 		}catch(Exception e) {}
 	}
