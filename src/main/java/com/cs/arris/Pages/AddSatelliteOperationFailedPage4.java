@@ -44,6 +44,17 @@ public class AddSatelliteOperationFailedPage4 extends ParentClass implements Pag
 		}
 	}
 	
+	public boolean clickBackButton() {
+		if (backButton.isDisplayed()) {
+			click(backButton);
+			utils.log().info("Clicked on Back Button");
+			return true;
+		} else {
+			utils.log().info("Back Button is not displayed");
+			return false;
+		}
+	}
+	
 	public void relaunchApp() {
 		new KillAndRelaunchApp().killApp();
 		new KillAndRelaunchApp().relaunchApp();
