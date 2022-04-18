@@ -322,8 +322,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						if(new AddSatelliteAddNewSatellitePage2().isAt()) 
 						{											
 							new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
-							utils.log().info("Waiting for 60 seconds ");
-							super.pause(60);
+							utils.log().info("Waiting for 80 seconds ");
+							super.pause(80);
 							
 							try {
 								if(new AddSatelliteOperationFailedPage4().isAt()) {
@@ -395,6 +395,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						
 						if(new AddSatelliteAddNewSatellitePage3().isAt()) 
 						{
+							new HomePage().connectToSSID(this.ssidName);
+							utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
+			  				super.pause(60);
+			  									
 							new AddSatelliteAddNewSatellitePage3().clickNextButton(); //To continue with satellite install, please connect to arris-5550 network. Please connect through the WiFi settings of your mobile device.
 							utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
 			  				super.pause(60);
