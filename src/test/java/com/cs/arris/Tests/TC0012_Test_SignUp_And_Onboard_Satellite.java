@@ -341,17 +341,23 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 									}
 								}
 							}catch(Exception e) {
-								utils.log().info("Clicking on Cancel button on Add Satellite Operation Failed page and proceed to home page");
-								new AddSatelliteOperationFailedPage4().clickCancelButton();
-								super.pause(5);
-								if(new HomePage().isAt()) {
-								 	super.pause(5);
-								 	new TapSevenTimes().tapSeven();
-								 	super.pause(3);
-								 	new SevenTapEmail().enterEmailAddress();
-								 	super.pause(3); 
-								 	new SevenTapEmail().clickSendButton();
-								}
+							 	super.pause(5);
+							 	new TapSevenTimes().tapSeven();
+							 	super.pause(3);
+							 	new SevenTapEmail().enterEmailAddress();
+							 	super.pause(3); 
+							 	new SevenTapEmail().clickSendButton();
+//								utils.log().info("Clicking on Cancel button on Add Satellite Operation Failed page and proceed to home page");
+//								new AddSatelliteOperationFailedPage4().clickCancelButton();
+//								super.pause(5);
+//								if(new HomePage().isAt()) {
+//								 	super.pause(5);
+//								 	new TapSevenTimes().tapSeven();
+//								 	super.pause(3);
+//								 	new SevenTapEmail().enterEmailAddress();
+//								 	super.pause(3); 
+//								 	new SevenTapEmail().clickSendButton();
+//								}
 							}
 							
 							try	{
@@ -375,23 +381,29 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						}
 						
 					} catch (Exception e) {
-						utils.log().info("Clicking on Cancel button on Add Satellite Page 2 and proceed to home page");
-						new AddSatelliteAddNewSatellitePage2().clickCancelButton();
-						 if(new HomePage().isAt()) {
-							 	super.pause(10);
-							 	new TapSevenTimes().tapSeven();
-							 	super.pause(3);
-							 	new SevenTapEmail().enterEmailAddress();
-							 	super.pause(3); 
-							 	new SevenTapEmail().clickSendButton();
-						 }
+//						utils.log().info("Clicking on Cancel button on Add Satellite Page 2 and proceed to home page");
+//						new AddSatelliteAddNewSatellitePage2().clickCancelButton();
+//						 if(new HomePage().isAt()) {
+//							 	super.pause(10);
+//							 	new TapSevenTimes().tapSeven();
+//							 	super.pause(3);
+//							 	new SevenTapEmail().enterEmailAddress();
+//							 	super.pause(3); 
+//							 	new SevenTapEmail().clickSendButton();
+//						 }
+					 	super.pause(5);
+					 	new TapSevenTimes().tapSeven();
+					 	super.pause(3);
+					 	new SevenTapEmail().enterEmailAddress();
+					 	super.pause(3); 
+					 	new SevenTapEmail().clickSendButton();
 					}
 					
 					
 					//3
 					try {
 						
-						//super.waitForVisibility(new AddSatelliteAddNewSatellitePage3().nextButton);
+						super.waitForVisibility(new AddSatelliteAddNewSatellitePage3().nextButton);
 						
 						if(new AddSatelliteAddNewSatellitePage3().isAt()) 
 						{
@@ -961,7 +973,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					try {
 						if(new AddSatelliteRegisteringDeviceFailedPage().isAt()) {
 							new AddSatelliteRegisteringDeviceFailedPage().clickContinueButton();
-							}
+							super.pause(60);
+						}
 					}catch(Exception e) {
 						super.pause(10);
 					 	new TapSevenTimes().tapSeven();
