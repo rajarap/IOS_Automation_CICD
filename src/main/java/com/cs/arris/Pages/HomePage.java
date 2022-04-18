@@ -877,8 +877,9 @@ public class HomePage extends ParentClass implements Page {
 			super.swipeDown();
 				
 			String networkNameXpath = "//XCUIElementTypeStaticText[@name=\""+ssidentity+"\"]";
+			utils.log().info("Identified network name based on xpath  ");
 			super.networkName = super.getDriver().findElement(MobileBy.xpath(networkNameXpath)).getText();
-			
+			utils.log().info("Network Name is : " + super.networkName);
 			super.pause(5);
 			super.getDriver().activateApp("com.arris.sbcBeta");
 		}catch(Exception e) {}

@@ -320,18 +320,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						super.waitForVisibility(new AddSatelliteAddNewSatellitePage2().nextButton);
 						
 						if(new AddSatelliteAddNewSatellitePage2().isAt()) 
-						{						
-//							new HomePage().checkConnectedWifiNetworkName(ssidName);
-//							
-//							if(! super.networkName.equals(this.ssidName))
-//							{
-//								new HomePage().connectToSSID(this.ssidName);
-//								utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize on the homepage");
-//					  			super.pause(120);
-//							}else {
-//								utils.log().info("Already connected to " + this.ssidName + " home network");
-//							}
-							
+						{											
 							new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
 							utils.log().info("Waiting for 60 seconds ");
 							super.pause(60);
@@ -400,23 +389,62 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					
 					//3
 					try {
-						if(new AddSatelliteAddNewSatellitePage3().isAt()) {
-							
-							new HomePage().checkConnectedWifiNetworkName(ssidName);
-							
-							if(! super.networkName.equals(this.ssidName))
-							{
-								new HomePage().connectToSSID(this.ssidName);
-								utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize on the homepage");
-					  			super.pause(60);
-							}else {
-								utils.log().info("Already connected to " + this.ssidName + " home network");
-							}
-							
+						
+						super.waitForVisibility(new AddSatelliteAddNewSatellitePage3().nextButton);
+						
+						if(new AddSatelliteAddNewSatellitePage3().isAt()) 
+						{
 							new AddSatelliteAddNewSatellitePage3().clickNextButton(); //To continue with satellite install, please connect to arris-5550 network. Please connect through the WiFi settings of your mobile device.
 							utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
 			  				super.pause(60);
+			  				
+			  				try {
+								if(new AddSatelliteOperationFailedPage4().isAt()) {
+									utils.log().info("Adding Satellite operation failed. Please try again. If this problem persists please contact our support team.");
+									
+									new HomePage().connectToSSID(this.ssidName);
+									utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
+					  				super.pause(60);
+									
+									utils.log().info("Clicking on Back button on Add Satellite Operation Failed page ");
+									new AddSatelliteOperationFailedPage4().clickBackButton();
+									
+									if(new AddSatelliteAddNewSatellitePage1().isAt()) {
+										new AddSatelliteAddNewSatellitePage1().clickNextButton();
+									}
+									
+								}
+							}catch(Exception e) {
+								utils.log().info("Clicking on Cancel button on Add Satellite Operation Failed page and proceed to home page");
+								new AddSatelliteOperationFailedPage4().clickCancelButton();
+								if(new HomePage().isAt()) {
+								 	super.pause(10);
+								 	new TapSevenTimes().tapSeven();
+								 	super.pause(3);
+								 	new SevenTapEmail().enterEmailAddress();
+								 	super.pause(3); 
+								 	new SevenTapEmail().clickSendButton();
+								}
 							}
+							
+							try	{
+								if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
+								{
+									new HomePage().connectToSSID(this.ssidName);
+									utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
+					  				super.pause(60);
+					  				
+					  				if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
+					  				{
+					  					new AddSatelliteConnectedToNonMaxNetworkPage().clickTryAgainButton();
+					  				} else {
+					  					new AddSatelliteConnectedToNonMaxNetworkPage().clickTroubleShootButton();
+					  					super.pause(3);
+					  					new AddSatelliteConnectedToNonMaxNetworkTroubleShootProceedPage().clickProceedButton();
+					  				}
+								}
+							}catch(Exception e) {}
+						}
 					} catch (Exception e) {
 						utils.log().info("Clicking on Cancel button on Add Satellite Page 3 and proceed to home page");
 						new AddSatelliteAddNewSatellitePage3().clickCancelButton();
@@ -475,8 +503,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						if(new AddSatellitePlugInYourSatellitePage().isAt())
 						{
 							new AddSatellitePlugInYourSatellitePage().clickNextButton();
-							utils.log().info("Waiting for 60 seconds to establish connection with bluetooth");
-							super.pause(60);
+							utils.log().info("Waiting for 120 seconds to establish connection with bluetooth");
+							super.pause(120);
 						}
 						
 						try {
@@ -518,8 +546,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						if(new AddSatelliteSuccessfullyConnectedPage().isAt())
 						{
 							new AddSatelliteSuccessfullyConnectedPage().clickNextButton();
-							utils.log().info("Waiting for 60 seconds to connect your max router to the internet");
-							super.pause(60);
+							utils.log().info("Waiting for 120 seconds to connect your max router to the internet");
+							super.pause(120);
 						}
 						
 						try {
@@ -637,7 +665,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					try {
 						if(new AddSatelliteCongratulationsPage().isAt()) {
 							new AddSatelliteCongratulationsPage().clickContinueButton();
-							super.pause(30);
+							super.pause(35);
 							}
 					}catch(Exception e) {
 						super.pause(10);
@@ -940,7 +968,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					try {
 						if(new AddSatelliteCongratulationsPage().isAt()) {
 							new AddSatelliteCongratulationsPage().clickContinueButton();
-							super.pause(30);
+							super.pause(35);
 							}
 					}catch(Exception e) {
 						super.pause(10);
@@ -976,3 +1004,43 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 
 }
 
+
+
+
+
+////3
+//try {
+//	
+//	super.waitForVisibility(new AddSatelliteAddNewSatellitePage3().nextButton);
+//	
+//	if(new AddSatelliteAddNewSatellitePage3().isAt()) 
+//	{
+//		new HomePage().checkConnectedWifiNetworkName(ssidName);
+//		
+//		if(! super.networkName.equals(this.ssidName))
+//		{
+//			utils.log().info("Network and SSID name are not same ");
+//			new HomePage().connectToSSID(this.ssidName);
+//			utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize on the homepage");
+//  			super.pause(60);
+//		}else {
+//			utils.log().info("Already connected to " + this.ssidName + " home network");
+//		}
+//		
+//		new AddSatelliteAddNewSatellitePage3().clickNextButton(); //To continue with satellite install, please connect to arris-5550 network. Please connect through the WiFi settings of your mobile device.
+//		utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
+//			super.pause(60);
+//	}
+//	
+//} catch (Exception e) {
+//	utils.log().info("Clicking on Cancel button on Add Satellite Page 3 and proceed to home page");
+//	new AddSatelliteAddNewSatellitePage3().clickCancelButton();
+//	 if(new HomePage().isAt()) {
+//		 	super.pause(10);
+//		 	new TapSevenTimes().tapSeven();
+//		 	super.pause(3);
+//		 	new SevenTapEmail().enterEmailAddress();
+//		 	super.pause(3); 
+//		 	new SevenTapEmail().clickSendButton();
+//	 }
+//}
