@@ -221,16 +221,16 @@ public class ParentClass
 	@BeforeSuite
 	public void beforeSuite(String platform, String device) throws Exception
 	{
-//		setConfigProperties();
-//		ThreadContext.put("ROUTINGKEY", "ServerLogs");
-////		server = getAppiumService();
-//		if(!checkIfAppiumServerIsRunnning(4723)) {
-//			server.start();
-//			server.clearOutPutStreams();
-//			System.out.println("***************   Appium server started   **************");
-//			utils.log().info("Appium server started");
-//		} else {
-//			utils.log().info("Appium server already running");}
+		setConfigProperties();
+		ThreadContext.put("ROUTINGKEY", "ServerLogs");
+		server = getAppiumService();
+		if(!checkIfAppiumServerIsRunnning(4723)) {
+			server.start();
+			server.clearOutPutStreams();
+			System.out.println("***************   Appium server started   **************");
+			utils.log().info("Appium server started");
+		} else {
+			utils.log().info("Appium server already running");}
 	
 		this.pltName = platform;
 		this.dvcName = device;
