@@ -184,16 +184,16 @@ public class DevicesPage extends ParentClass implements Page {
 						utils.log().info("Device Image is not displayed");
 					}
 
-					try {
-						if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_List_Screen_Button_Expand["+i+"]\"]").isDisplayed())
-							utils.log().info("Expand Button Image is displayed");
-					} catch (Exception exp) {
-						utils.log().info("Expand button is not available");
-					}
+//					try {
+//						if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_List_Screen_Button_Expand["+i+"]\"]").isDisplayed())
+//							utils.log().info("Expand Button Image is displayed");
+//					} catch (Exception exp) {
+//						utils.log().info("Expand button is not available");
+//					}
 
 					try {
-						if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_List_Screen_Label_Device["+i+"]\"]").isDisplayed())
-							utils.log().info("Device Name: " + super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_List_Screen_Label_Device["+i+"]\"]").getText());
+						if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_List_Screen_Button_DeviceName["+i+"]\"]").isDisplayed())
+							utils.log().info("Device Name: " + super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_List_Screen_Button_DeviceName["+i+"]\"]").getText());
 					} catch (Exception exp) {
 						utils.log().info("Device Name is not available ");
 					}
@@ -271,7 +271,7 @@ public class DevicesPage extends ParentClass implements Page {
 					utils.log().info("****************************************************");
 					utils.log().info("                                                    ");
 				}
-				if (i >= 5)
+				if (i >= 4)
 					super.swipeUp();
 			}
 			return true;
@@ -282,6 +282,7 @@ public class DevicesPage extends ParentClass implements Page {
 	}
 
 	// To verify the details of online devices
+	@SuppressWarnings("unchecked")
 	public boolean verifyOfflineDeviceDetails() {
 		try {
 			this.getOfflineDevicesCount();
@@ -319,7 +320,7 @@ public class DevicesPage extends ParentClass implements Page {
 						utils.log().info("****************************************************");
 						utils.log().info("                                                    ");
 					}
-					if (i >= 7)
+					if (i >= 5)
 						super.swipeUp();
 				}
 			} else {

@@ -185,17 +185,18 @@ public class ParentalControlUserProfileAddDevicePage extends ParentClass impleme
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean selectADeviceForUserProfile() {
 		utils.log().info("                                           ");
 		utils.log().info("*******************************************");
 		utils.log().info("Select A Device From the List of Devices   ");
 		utils.log().info("*******************************************");
 
-		String selector = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable";
-		int size = super.getDriver().findElements(MobileBy.iOSClassChain(selector)).size();
+//		String selector = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable";
+//		int size = super.getDriver().findElements(MobileBy.iOSClassChain(selector)).size();
 		
 			try {
-				for (int i = 1; i <= size ; i++) {
+				for (int i = 1; i <= 1 ; i++) {
 //					utils.log().info("Selected Device : " + i);
 //					utils.log().info("-----------------------");
 
@@ -218,8 +219,8 @@ public class ParentalControlUserProfileAddDevicePage extends ParentClass impleme
 							utils.log().info("Clicked the check box to select the device for the user ");}
 						else
 							utils.log().info("Check box is not available ");
-							utils.log().info("****************************************************");
-							utils.log().info("                                                    ");
+							utils.log().info("***************************");
+							utils.log().info("                           ");
 					}
 				}
 				return true;

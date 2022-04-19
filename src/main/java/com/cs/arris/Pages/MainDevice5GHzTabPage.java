@@ -124,11 +124,14 @@ public class MainDevice5GHzTabPage extends ParentClass implements Page {
 	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_HeaderLabel_Connected\"])[1]")
 	public MobileElement connectedDevicesCountText;
 	
-	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[@name=\"Device_Detail_Screen_HeaderView_Connected\"])[1]")
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name=\"Device_Detail_Screen_HeaderImage_Connected\"])[1]")
 	public MobileElement connectedDevicesExpandButton;
+	
+//	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[@name=\"Device_Detail_Screen_HeaderView_Connected\"])[1]")
+//	public MobileElement connectedDevicesExpandButton;
 
 //	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name == \"Device_Detail_Screen_HeaderImage_Connected\"`][1]")
-//	public MobileElement connectedDevicesExpandImage;
+//	public MobileElement connectedDevicesExpandButton;
 
 	// ====================Connected Devices=====================
 
@@ -471,13 +474,14 @@ public class MainDevice5GHzTabPage extends ParentClass implements Page {
 		if (allDevicesCount > 0) {
 			
 			click(connectedDevicesExpandButton);
+			super.swipeUp();
 							
 			for (int i = 1; i <= allDevicesCount; i++) {
 				utils.log().info("Connected Device  : " + i);
 				utils.log().info("--------------------------");
 				
 				List<MobileElement> entity = (List<MobileElement>) super.getDriver().findElementsByXPath(
-				"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+ i++ +"]");
+				"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
 
 						for (MobileElement e : entity) {
 							try {
@@ -563,7 +567,7 @@ public class MainDevice5GHzTabPage extends ParentClass implements Page {
 					click(connectedDevicesExpandButton);
 					return true;
 				} else {
-					utils.log().info("Currently there are no devices connected to the main Router ");
+					utils.log().info("Currently there are no 5.0GHz devices connected to the main Router ");
 					click(connectedDevicesExpandButton);
 					return true;
 				}

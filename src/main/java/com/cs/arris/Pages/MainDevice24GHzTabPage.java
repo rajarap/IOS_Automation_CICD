@@ -480,7 +480,7 @@ public class MainDevice24GHzTabPage extends ParentClass implements Page {
 					utils.log().info("--------------------------");
 					
 					List<MobileElement> entity = (List<MobileElement>) super.getDriver().findElementsByXPath(
-							"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+ i++ +"]");
+							"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
 
 							for (MobileElement e : entity) {
 								try {
@@ -566,7 +566,7 @@ public class MainDevice24GHzTabPage extends ParentClass implements Page {
 						click(connectedDevicesExpandButton);
 						return true;
 					} else {
-						utils.log().info("Currently there are no devices connected to the main Router ");
+						utils.log().info("Currently there are no 2.4GHz devices connected to the main Router ");
 						click(connectedDevicesExpandButton);
 						return true;
 					}

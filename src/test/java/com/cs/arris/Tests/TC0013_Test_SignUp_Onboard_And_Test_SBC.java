@@ -646,17 +646,18 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			SoftAssert softfeatures6 = new SoftAssert();
 			softfeatures6.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().clickCopyPasswordButton());
 			softfeatures6.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().clickCopyPasswordOKButton());
+			softfeatures6.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().clickBackButton());
 			
 			softfeatures6.assertAll();
 		}
 		
-		@Test(priority = 26)
-		public void Verify_Amazon_Alexa_Skills_Link() {
-			SoftAssert softfeatures7 = new SoftAssert();
-			softfeatures7.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().clickAlexaSkillsLink());
-			
-			softfeatures7.assertAll();
-		}
+//		@Test(priority = 26)
+//		public void Verify_Amazon_Alexa_Skills_Link() {
+//			SoftAssert softfeatures7 = new SoftAssert();
+//			softfeatures7.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().clickAlexaSkillsLink());
+//			
+//			softfeatures7.assertAll();
+//		}
 //		
 //		@Test(priority = 27)
 //		public void Verify_Please_Tap_Here_Link() {
@@ -666,18 +667,18 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 //			softfeatures6.assertAll();
 //		}
 //			
-		@Test(priority = 28, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
-		public void Verify_Amazon_Feature_Help_Page() {
-			SoftAssert softfeatures11 = new SoftAssert();
-			softfeatures11.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().clickHelpIcon());
-			
-			if(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().getAFFSHelpPageObject().isAt())
-				softfeatures11.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().getAFFSHelpPageObject().clickCloseButton());
-			
-			softfeatures11.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().clickBackButton());
-			
-			softfeatures11.assertAll();
-		}
+//		@Test(priority = 28, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+//		public void Verify_Amazon_Feature_Help_Page() {
+//			SoftAssert softfeatures11 = new SoftAssert();
+//			softfeatures11.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().clickHelpIcon());
+//			
+//			if(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().getAFFSHelpPageObject().isAt())
+//				softfeatures11.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().getAFFSHelpPageObject().clickCloseButton());
+//			
+//			softfeatures11.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().clickBackButton());
+//			
+//			softfeatures11.assertAll();
+//		}
 //		
 //		@Test(priority = 29, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
 //		public void Verify_Enable_AFFS_Feature() 
@@ -830,13 +831,13 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				softmain2.assertAll();
 			}
 			
-			@Test(priority = 36, dependsOnMethods    = { "Verify_SignUp_And_Onboard", "Verify_Main_Device_UI_On_All_Tab_Page" })
-			public void Verify_LED_Settings_UI_On_All_Tab() {
-				SoftAssert softmain3 = new SoftAssert();
-				softmain3.assertTrue(new MainDeviceAllTabPage().verifyUIOnLedSettings());
-				
-				softmain3.assertAll();
-			}
+//			@Test(priority = 36, dependsOnMethods    = { "Verify_SignUp_And_Onboard", "Verify_Main_Device_UI_On_All_Tab_Page" })
+//			public void Verify_LED_Settings_UI_On_All_Tab() {
+//				SoftAssert softmain3 = new SoftAssert();
+//				softmain3.assertTrue(new MainDeviceAllTabPage().verifyUIOnLedSettings());
+//				
+//				softmain3.assertAll();
+//			}
 			
 			@Test(priority = 37, dependsOnMethods = { "Verify_SignUp_And_Onboard",  "Verify_LED_Settings_UI_On_All_Tab"})
 			public void Verify_Decrease_LED_Settings_On_All_Tab_Page() {
@@ -883,6 +884,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			public void Verify_Edit_Main_Router_Name_On_All_Tab_Page() {
 				SoftAssert softmain9 = new SoftAssert();
 				softmain9.assertTrue(new MainDeviceAllTabPage().clickMainDeviceEditIcon());
+				
 				if(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().isAt())
 				{
 				//	softmain9.assertTrue(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().verifyUIOnEditDeviceNameDialog());
@@ -893,13 +895,6 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					if(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().successTitle.isDisplayed())
 						softmain9.assertTrue(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().clickOkButton());
 					
-//					softmain9.assertTrue(new MainDeviceAllTabPage().clickMainDeviceEditIcon());
-//					softmain9.assertTrue(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().editMainDeviceName2());
-//					softmain9.assertTrue(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().clickSaveButton());
-//					super.pause(5);
-//					
-//					if(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().successTitle.isDisplayed())
-//						softmain9.assertTrue(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().clickOkButton());
 				}
 				
 				softmain9.assertAll();
@@ -963,6 +958,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			@Test(priority = 48, dependsOnMethods = { "Verify_SignUp_And_Onboard",  "Verify_Main_Device_UI_On_5GHz_Tab_Page"})
 			public void Verify_Devices_Count_Validation_On_5GHz_Tab_Page() {
 				SoftAssert softmain15 = new SoftAssert();
+				super.pause(5);
 				softmain15.assertTrue(new MainDeviceAllTabPage().get5GHzPageObject().GHz5Tabvalidations());
 				
 			softmain15.assertAll();
@@ -1406,7 +1402,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softcontrol7.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().clickAddDeviceLink());
 					super.pause(5);
 					if(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().isAt()) {
-						softcontrol7.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().verifyDevicesInAddDevicePage());
+//						softcontrol7.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().verifyDevicesInAddDevicePage());
 						
 						utils.log().info("Clicking on Add Device button without selecting any device");
 						softcontrol7.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().clickAddDeviceButton());
@@ -1429,21 +1425,21 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softcontrol7.assertAll();
 				}
 				
-				@Test(priority = 85, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
-				public void Verify_Add_Device_Help_Page() {
-					SoftAssert softcontrol8 = new SoftAssert();
-					softcontrol8.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().clickAddDeviceLink());
-					super.pause(25);
-					if(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().isAt()) 
-						softcontrol8.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().clickHelpIcon());
-					
-					if (new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().getParentalAddDeviceHelpPageObject().isAt()) 
-						softcontrol8.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().getParentalAddDeviceHelpPageObject().clickCloseButton());
-					
-					softcontrol8.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().clickBackButton());
-					super.pause(5);
-					softcontrol8.assertAll();
-				}
+//				@Test(priority = 85, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
+//				public void Verify_Add_Device_Help_Page() {
+//					SoftAssert softcontrol8 = new SoftAssert();
+//					softcontrol8.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().clickAddDeviceLink());
+//					super.pause(25);
+//					if(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().isAt()) 
+//						softcontrol8.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().clickHelpIcon());
+//					
+//					if (new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().getParentalAddDeviceHelpPageObject().isAt()) 
+//						softcontrol8.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().getParentalAddDeviceHelpPageObject().clickCloseButton());
+//					
+//					softcontrol8.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().clickBackButton());
+//					super.pause(5);
+//					softcontrol8.assertAll();
+//				}
 				
 //				@Test(priority = 86, dependsOnMethods = {"Verify_SignUp_And_Onboard" , "Verify_User_Profile_Page"})
 //				public void Verify_Devices_Associated_With_User_Profile() {
@@ -1456,23 +1452,23 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 //					softcontrol9.assertAll();
 //				}
 				
-//				@Test(priority = 87, dependsOnMethods = {"Verify_SignUp_And_Onboard" , "Verify_User_Profile_Page"})
-//				public void Verify_Add_Rule_Help_Page() {
-//					SoftAssert softcontrol10 = new SoftAssert();
-//					softcontrol10.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().clickAddRuleLink());
-//					
-//					if(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().isAt()) {
-//						softcontrol10.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().clickHelpIcon());
-//						softcontrol10.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().getParentalAddRuleHelpPageObject().clickCloseButton());
-//						softcontrol10.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().clickAddScheduleButton());}
-//						
-//					softcontrol10.assertAll();
-//				}
+				@Test(priority = 87, dependsOnMethods = {"Verify_SignUp_And_Onboard" , "Verify_User_Profile_Page"})
+				public void Verify_Add_Rule_Page() {
+					SoftAssert softcontrol10 = new SoftAssert();
+					softcontrol10.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().clickAddRuleLink());
+					
+					if(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().isAt()) {
+						softcontrol10.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().clickHelpIcon());
+						softcontrol10.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().getParentalAddRuleHelpPageObject().clickCloseButton());
+						softcontrol10.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().clickAddScheduleButton());}
+						
+					softcontrol10.assertAll();
+				}
 				
 				@Test(priority = 88, dependsOnMethods = {"Verify_SignUp_And_Onboard" , "Verify_User_Profile_Page"})
 				public void Verify_Add_EveryDay_Schedule_To_Rule() {
 					SoftAssert softcontrol11 = new SoftAssert();
-					softcontrol11.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().clickAddRuleLink());
+//					softcontrol11.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().clickAddRuleLink());
 					if(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().getInternetBlockingScheduleDialogObject().isAt()) 
 					//	softcontrol11.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().getInternetBlockingScheduleDialogObject().verifyUIOnAddInternetBlockingScheduleDialog());
 					
@@ -1702,16 +1698,13 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					super.pause(10);
 					super.swipeDown();
 					softnetwork1.assertTrue(new HomePage().clickTapHereToTurnON());
-					
-					try
-					{
-						if(new HomePage().getSkipTutorialPageObject().isAt())
-							softnetwork1.assertTrue(new HomePage().getSkipTutorialPageObject().tapSkip());
-					}catch(Exception e) { utils.log().info("Skip Tutorial Page did not appear");}
+					super.pause(5);
+					softnetwork1.assertTrue(new HomePage().getSkipTutorialPageObject().tapSkip());
+
 					
 					
 					if(new HomePage().getNetworkOtptimizationPageObject().isAt()) {
-						softnetwork1.assertTrue(new HomePage().getNetworkOtptimizationPageObject().verifyNetworkOptimizationPageUI());
+					//	softnetwork1.assertTrue(new HomePage().getNetworkOtptimizationPageObject().verifyNetworkOptimizationPageUI());
 						softnetwork1.assertTrue(new HomePage().getNetworkOtptimizationPageObject().clickOptimizationIcon());
 					}
 					
@@ -1723,9 +1716,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					SoftAssert softnetwork2 = new SoftAssert();
 						
 					if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) {
-						softnetwork2.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().verifyNetworkOptimizationSettingsPageUI());
+					//	softnetwork2.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().verifyNetworkOptimizationSettingsPageUI());
 						softnetwork2.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().enableHealthOptimization());
-						softnetwork2.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().verifyNetworkOptimizationSettingsEnabledPageUI());
+					//	softnetwork2.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().verifyNetworkOptimizationSettingsEnabledPageUI());
 					}
 						
 					softnetwork2.assertAll();
@@ -2415,13 +2408,13 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getLeaseTimeAppliedChangesDialogObject().isAt())
 						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getLeaseTimeAppliedChangesDialogObject().clickOKButton());
 					
-//					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickTimeUnitButton());
-//					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().isAt())
-//						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().clickForeverRadioButton());
-//					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().verifyLeaseTimeWithForeverTimeUnit());
-//					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickSaveLeaseTimeButton());
-//					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getLeaseTimeAppliedChangesDialogObject().isAt())
-//						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getLeaseTimeAppliedChangesDialogObject().clickOKButton());
+					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickTimeUnitButton());
+					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().isAt())
+						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().clickForeverRadioButton());
+					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().verifyLeaseTimeWithForeverTimeUnit());
+					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickSaveLeaseTimeButton());
+					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getLeaseTimeAppliedChangesDialogObject().isAt())
+						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getLeaseTimeAppliedChangesDialogObject().clickOKButton());
 					
 					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickTimeUnitButton());
 					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().isAt())
@@ -2431,6 +2424,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getLeaseTimeAppliedChangesDialogObject().clickOKButton());
 					
 					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickBackButton());
+					
 					try{
 						if(new NetworkPage().getAppRatingPageObject().isAt())
 							new NetworkPage().getAppRatingPageObject().clickRemindMeLaterLink();
@@ -2573,8 +2567,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					super.swipeUp();
 					softnet37.assertTrue(new NetworkPage().clickTimeZone());
 					if(new NetworkPage().getTimeZoneSettingsPageObject().isAt())
-						softnet37.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().verifyUIOnTimeZonePage());
-					softnet37.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickAtlanticTimeZone());
+						//softnet37.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().verifyUIOnTimeZonePage());
+					softnet37.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickHawaiiTimeZone());
 					softnet37.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickSaveButton());
 					softnet37.assertAll();
 				}
@@ -2589,6 +2583,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().getTimeZoneHelpPageObject().clickCloseButton());
 					softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickBackButton());
 					softnet38.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
+					softnet38.assertTrue(new NetworkPage().getFooterIconsPageObject().clickHomeButton());
 					softnet38.assertAll();
 				}
 				
@@ -2628,13 +2623,15 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								if(new AddSatelliteAddNewSatellitePage1().isAt()) 
 								{
 									new AddSatelliteAddNewSatellitePage1().clickNextButton();// Each satellite expands your network
-									utils.log().info("Waiting for 40 seconds ");
-									super.pause(40);
+									utils.log().info("Waiting for 60 seconds ");
+									super.pause(60);
 									
 									try
 									{
 										if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 										{
+											utils.log().info("Connected to a non max network");
+											utils.log().info("Trying to re-establish connection with max router");
 											new HomePage().connectToSSID(this.ssidName);
 											utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize on the homepage");
 							  				super.pause(120);
@@ -2675,8 +2672,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 									
 								try {
 									if(new AddSatelliteOperationFailedPage4().isAt()) {
-										utils.log().info("Adding Satellite operation failed. Trying to re-establish connection with max router");
-										
+										utils.log().info("Adding Satellite operation failed");
+										utils.log().info("Trying to re-establish connection with max router");
 										new HomePage().connectToSSID(this.ssidName);
 										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
 							  			super.pause(120);
@@ -2695,10 +2692,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								try	{
 									if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 									{
-										utils.log().info("Connected to a non max network. Trying to re-establish connection with max router");
+										utils.log().info("Connected to a non max network");
+										utils.log().info("Trying to re-establish connection with max router");
 										new HomePage().connectToSSID(this.ssidName);
-										utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
-							  			super.pause(60);
+										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+							  			super.pause(120);
 							  				
 							  			if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
 							  			{
@@ -2729,14 +2727,14 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								if(new AddSatelliteAddNewSatellitePage3().isAt()) 
 								{  									
 									new AddSatelliteAddNewSatellitePage3().clickNextButton(); //To continue with satellite install, please connect to arris-5550 network. Please connect through the WiFi settings of your mobile device.
-									utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
-					  				super.pause(60);
+									utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+					  				super.pause(120);
 								}
 					  				
 					  			try {
 									if(new AddSatelliteOperationFailedPage4().isAt()) {
 										utils.log().info("Adding Satellite operation failed.");
-											
+										utils.log().info("Trying to re-establish connection with max router");
 										new HomePage().connectToSSID(this.ssidName);
 										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
 							  			super.pause(120);
@@ -2753,7 +2751,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								try	{
 									if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 									{
-										utils.log().info("Connected to a non max network. Trying to re-establish connection with your max router network");
+										utils.log().info("Connected to a non max network");
+										utils.log().info("Trying to re-establish connection with max router");
 										new HomePage().connectToSSID(this.ssidName);
 										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
 							  			super.pause(120);
@@ -2830,10 +2829,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								try	{
 									if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 									{
-										utils.log().info("Connected to a non max network. Trying to re-establish connection with your max router network");
+										utils.log().info("Connected to a non max network");
+										utils.log().info("Trying to re-establish connection with max router");
 										new HomePage().connectToSSID(this.ssidName);
 										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
-						  				super.pause(120);
+							  			super.pause(120);
 						  				
 						  				if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
 						  				{
@@ -2849,8 +2849,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								try {
 									if (new BlueToothConnectionFailedPage().isAt()) {
 										new BlueToothConnectionFailedPage().clickTryAgainbutton();
-										utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-										super.pause(60);}
+										utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+										super.pause(120);}
 								} catch (Exception e5) {
 								}
 								
@@ -2862,8 +2862,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 									if (new BlueToothConnectionFailedProceedPage().isAt()) 
 										new BlueToothConnectionFailedProceedPage().clickProceedButton();
 									
-									utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-									super.pause(60);
+									utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+									super.pause(120);
 								} catch (Exception e6) {}
 
 							} catch (Exception e) {
@@ -2873,7 +2873,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 							 	new SevenTapEmail().enterEmailAddress();
 							 	super.pause(3); 
 							 	new SevenTapEmail().clickSendButton();
-								  Assert.fail("Satellite 1 Onboarding - Unable to plug in your mAX Router and connect to your Mobile Device due to blue tooth connection failure");
+								  Assert.fail("Satellite 1 Onboarding - Unable to connect to your Mobile Device due to blue tooth connection failure");
 								  new KillAndRelaunchApp().killApp();
 								  new KillAndRelaunchApp().relaunchApp();
 							}
@@ -2893,16 +2893,16 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 									if (new BlueToothConnectionFailedPage().isAt()) 
 									{
 										new BlueToothConnectionFailedPage().clickTryAgainbutton();
-										utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-										super.pause(60);
+										utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+										super.pause(120);
 										
 										super.waitForVisibility(new AddSatelliteSuccessfullyConnectedPage().nextButton);
 										
 										if(new AddSatelliteSuccessfullyConnectedPage().isAt())
 										{
 											new AddSatelliteSuccessfullyConnectedPage().clickNextButton();
-											utils.log().info("Waiting for 60 seconds to connect your max router to the internet");
-											super.pause(60);
+											utils.log().info("Waiting for 120 seconds to connect your max router to the internet");
+											super.pause(120);
 										}
 									}
 								} catch (Exception e5) {}
@@ -2915,16 +2915,16 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 									if (new BlueToothConnectionFailedProceedPage().isAt()) 
 									{
 										new BlueToothConnectionFailedProceedPage().clickProceedButton();
-										utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-										super.pause(60);
+										utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+										super.pause(120);
 										
 										super.waitForVisibility(new AddSatelliteSuccessfullyConnectedPage().nextButton);
 										
 										if(new AddSatelliteSuccessfullyConnectedPage().isAt())
 										{
 											new AddSatelliteSuccessfullyConnectedPage().clickNextButton();
-											utils.log().info("Waiting for 60 seconds to connect your max router to the internet");
-											super.pause(60);
+											utils.log().info("Waiting for 120 seconds to connect your max router to the internet");
+											super.pause(120);
 										}
 									}
 								} catch (Exception e6) {}
@@ -3072,9 +3072,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 									{
 										if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 										{
+											utils.log().info("Connected to a non max network");
+											utils.log().info("Trying to re-establish connection with max router");
 											new HomePage().connectToSSID(this.ssidName);
-											utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize on the homepage");
-							  				super.pause(120);
+											utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+								  			super.pause(120);
 							  				
 							  				if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
 							  				{
@@ -3146,15 +3148,15 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								if(new AddSatellitePlugInYourSatellitePage().isAt())
 								{
 									new AddSatellitePlugInYourSatellitePage().clickNextButton();
-									utils.log().info("Waiting for 60 seconds to establish connection with bluetooth");
-									super.pause(60);
+									utils.log().info("Waiting for 120 seconds to establish connection with bluetooth");
+									super.pause(120);
 								}
 								
 								try {
 									if (new BlueToothConnectionFailedPage().isAt()) {
 										new BlueToothConnectionFailedPage().clickTryAgainbutton();
-										utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-										super.pause(60);}
+										utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+										super.pause(120);}
 								} catch (Exception e5) {
 								}
 								
@@ -3166,8 +3168,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 									if (new BlueToothConnectionFailedProceedPage().isAt()) 
 										new BlueToothConnectionFailedProceedPage().clickProceedButton();
 									
-									utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-									super.pause(60);
+									utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+									super.pause(120);
 								} catch (Exception e6) {}
 
 							} catch (Exception e) {
@@ -3177,7 +3179,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 							 	new SevenTapEmail().enterEmailAddress();
 							 	super.pause(3); 
 							 	new SevenTapEmail().clickSendButton();
-								Assert.fail("Satellite 1 Onboarding - Unable to plug in your mAX Router and connect to your Mobile Device due to blue tooth connection failure");
+								Assert.fail("Satellite 1 Onboarding - Unable to connect to your Mobile Device due to blue tooth connection failure");
 								new KillAndRelaunchApp().killApp();
 								new KillAndRelaunchApp().relaunchApp();
 							}
@@ -3190,24 +3192,24 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								if(new AddSatelliteSuccessfullyConnectedPage().isAt())
 								{
 									new AddSatelliteSuccessfullyConnectedPage().clickNextButton();
-									utils.log().info("Waiting for 60 seconds to connect your max router to the internet");
-									super.pause(60);
+									utils.log().info("Waiting for 120 seconds to connect your max router to the internet");
+									super.pause(120);
 								}
 								
 								try {
 									if (new BlueToothConnectionFailedPage().isAt()) 
 									{
 										new BlueToothConnectionFailedPage().clickTryAgainbutton();
-										utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-										super.pause(60);
+										utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+										super.pause(120);
 										
 										super.waitForVisibility(new AddSatelliteSuccessfullyConnectedPage().nextButton);
 										
 										if(new AddSatelliteSuccessfullyConnectedPage().isAt())
 										{
 											new AddSatelliteSuccessfullyConnectedPage().clickNextButton();
-											utils.log().info("Waiting for 60 seconds to connect your max router to the internet");
-											super.pause(60);
+											utils.log().info("Waiting for 120 seconds to connect your max router to the internet");
+											super.pause(120);
 										}
 									}
 								} catch (Exception e5) {}
@@ -3220,16 +3222,16 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 									if (new BlueToothConnectionFailedProceedPage().isAt()) 
 									{
 										new BlueToothConnectionFailedProceedPage().clickProceedButton();
-										utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-										super.pause(60);
+										utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+										super.pause(120);
 										
 										super.waitForVisibility(new AddSatelliteSuccessfullyConnectedPage().nextButton);
 										
 										if(new AddSatelliteSuccessfullyConnectedPage().isAt())
 										{
 											new AddSatelliteSuccessfullyConnectedPage().clickNextButton();
-											utils.log().info("Waiting for 60 seconds to connect your max router to the internet");
-											super.pause(60);
+											utils.log().info("Waiting for 120 seconds to connect your max router to the internet");
+											super.pause(120);
 										}
 									}
 								} catch (Exception e6) {}
@@ -3405,19 +3407,19 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnet43.assertAll();
 				}
 				
-				@Test(priority = 167, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_Port_Forwarding_Settings"})
-				public void Verify_General_Settings_Port_Forwarding_Add_Rule_Settings_Page() 
-				{
-					SoftAssert softnet44 = new SoftAssert();
-					new NetworkPage().getGeneralSettingsPageObject().clickPortForwardingink();
-//					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().isAt())
-//					{
-//						//super.getDriver().hideKeyboard();
-////						softnet44.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().verifyUIOnPortForwardingAddRulePage());
-//						//softnet44.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().clickCloseButton());
-//					}
-					softnet44.assertAll();
-				}
+//				@Test(priority = 167, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_Port_Forwarding_Settings"})
+//				public void Verify_General_Settings_Port_Forwarding_Add_Rule_Settings_Page() 
+//				{
+//					SoftAssert softnet44 = new SoftAssert();
+//					new NetworkPage().getGeneralSettingsPageObject().clickPortForwardingink();
+////					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().isAt())
+////					{
+////						//super.getDriver().hideKeyboard();
+//////						softnet44.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().verifyUIOnPortForwardingAddRulePage());
+////						//softnet44.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().clickCloseButton());
+////					}
+//					softnet44.assertAll();
+//				}
 				
 				@Test(priority = 168, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_Port_Forwarding_Settings"})
 				public void Verify_General_Settings_Port_Forwarding_Add_Rules() 
@@ -3425,8 +3427,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					SoftAssert softnet45 = new SoftAssert();
 //					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().isAt()) 
 //					{
-					for(int i = 1 ; i <=3 ; i++)
-					{
+//					for(int i = 1 ; i <=3 ; i++)
+//					{
 						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().clickAddRuleButton());
 						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().enterPortRuleName());
 						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().selectTCP());
@@ -3478,7 +3480,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 							}catch(Exception e) {
 									utils.log().info("Port Rule Edit Failed Dialog did not appear");
 							}
-					}
+//					}
 					softnet45.assertAll();
 				}
 			

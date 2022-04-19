@@ -33,8 +33,8 @@ public class EditMainDeviceNameDialog extends ParentClass implements Page
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[@name=\"Edit_Device_Name_Screen_TextField_Device\"]") //Enter Device Name
 	public MobileElement enterDeviceName;
 	
-//	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Edit_Device_Name_Screen_Button\"]") 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"SAVE CHANGES\"`]") 
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Edit_Device_Name_Screen_Button\"]") 
+//	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"SAVE CHANGES\"`]") 
 	public MobileElement saveButton; 
 	
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Edit_Device_Name_Screen_Button_Close\"]") 

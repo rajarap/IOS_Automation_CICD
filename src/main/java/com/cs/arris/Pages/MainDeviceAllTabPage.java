@@ -121,10 +121,12 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 	
 
 	// ====================Connected Devices=====================
-	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_HeaderLabel_Connected\"])[1]")
+//	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_HeaderLabel_Connected\"])[1]")
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_HeaderLabel_Connected\"])[2]")
 	public MobileElement connectedDevicesCountText;
 	
-	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[@name=\"Device_Detail_Screen_HeaderView_Connected\"])[1]")
+//	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[@name=\"Device_Detail_Screen_HeaderView_Connected\"])[1]")
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name=\"Device_Detail_Screen_HeaderImage_Connected\"])[2]")
 	public MobileElement connectedDevicesExpandButton;
 
 //	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name == \"Device_Detail_Screen_HeaderImage_Connected\"`][1]")
@@ -566,14 +568,15 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 			if (allDevicesCount > 0) {
 				
 				click(connectedDevicesExpandButton);
+				super.swipeUp();
 								
-				for (int i = 1; i <= allDevicesCount; i++) {
-					
+				for (int i = 1; i <= allDevicesCount; i++) 
+				{
 					utils.log().info("Connected Device  : " + i);
 					utils.log().info("--------------------------");
 					
 					List<MobileElement> entity = (List<MobileElement>) super.getDriver().findElementsByXPath(
-					"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+ i++ +"]");
+					"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
 
 					for (MobileElement e : entity) {
 						try {
@@ -666,6 +669,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 	}
 
 	public boolean verifyMainRouterDetails() {
+		super.swipeUp();
 		try {
 			
 			click(routerDetailsButton);
@@ -679,7 +683,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 			try {
 				if (channelLabel.isDisplayed() && fiveGhzDeviceCount.isDisplayed()) 
 					this.fiveGhzDevice = fiveGhzDeviceCount.getText();
-				utils.log().info("Channel 1 : " + this.fiveGhzDevice);
+				utils.log().info("Channel 1 : " + this.fiveGhzDeviceCount);
 			} catch (Exception e) {
 				utils.log().info("Channel 5GHz count details is not displayed ");
 			}
@@ -687,7 +691,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 			try {
 				if (channelLabel.isDisplayed() && twoFourGhzDeviceCount.isDisplayed())
 					this.twoFourGhzDevice = twoFourGhzDeviceCount.getText();
-				utils.log().info("Channel 2 : " + this.twoFourGhzDevice);
+				utils.log().info("Channel 2 : " + this.twoFourGhzDeviceCount);
 			} catch (Exception e) {
 				utils.log().info("Channel 2.4GHz count details is not displayed ");
 			}
@@ -742,11 +746,11 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 			}
 
 			click(routerDetailsButton);
-//			super.swipeDown();
+			super.swipeDown();
 			return true;
 			
 		} catch (Exception e) {
-			utils.log().info("Issue when verifying Main Router Details");
+			utils.log().info("Could not get Main Router Details");
 			return false;
 		}
 	}
