@@ -555,7 +555,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			softburger9.assertAll();
 		}
 		
-		@Test(priority = 18)
+		@Test(priority = 18, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
 		public void Verify_Hamburger_Surfboard_Help_UI_Page() {
 		utils.log().info("                                        ");
 		utils.log().info("****************************************");
