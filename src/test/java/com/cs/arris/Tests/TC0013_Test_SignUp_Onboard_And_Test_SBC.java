@@ -337,16 +337,19 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				super.pause(5);
 			softhome2.assertAll();
 			}catch (Exception e) {
-				new TapSevenTimes().tapSeven();
-				super.pause(3);
-				new SevenTapEmail().enterEmailAddress();
-				super.pause(3);
-				new SevenTapEmail().clickSendButton();
-				Assert.fail();
+				super.pause(10);
+			 	new TapSevenTimes().tapSeven();
+			 	super.pause(3);
+			 	new SevenTapEmail().enterEmailAddress();
+			 	super.pause(3); 
+			 	new SevenTapEmail().clickSendButton();
+			 	Assert.fail("Failure in Add Device Functionality ");
+				new KillAndRelaunchApp().killApp();
+				new KillAndRelaunchApp().relaunchApp();
 			}
 	  }
 	  
-		@Test(priority = 3, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+		@Test(priority = 3, dependsOnMethods = { "Verify_Add_Device_Menu" })
 		public void Verify_Device_Details_Page() {
 			SoftAssert softhome4 = new SoftAssert();
 			try {
@@ -362,7 +365,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			softhome4.assertAll();
 		}
 		
-		@Test(priority = 4, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+		@Test(priority = 4, dependsOnMethods = { "Verify_Add_Device_Menu" })
 		public void Verify_Specifications_Page() {
 			SoftAssert softhome5 = new SoftAssert();
 			softhome5.assertTrue(new AddDeviceHomePage().clickSpecificationsText());
@@ -373,7 +376,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			softhome5.assertAll();
 		}
 		
-		@Test(priority = 5, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+		@Test(priority = 5, dependsOnMethods = { "Verify_Add_Device_Menu" })
 		public void Verify_Add_Additional_Device() {
 			SoftAssert softhome6 = new SoftAssert();
 			if(new AddDeviceHomePage().isAt())
@@ -388,7 +391,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			softhome6.assertAll();
 		}
 		
-		@Test(priority = 6, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+		@Test(priority = 6, dependsOnMethods = { "Verify_Add_Device_Menu" })
 		public void Verify_Notifications_Page() {
 			SoftAssert softhome7 = new SoftAssert();
 			if(new AddDeviceHomePage().isAt())
@@ -400,7 +403,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			softhome7.assertAll();
 		}
 		
-		@Test(priority = 7, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+		@Test(priority = 7, dependsOnMethods = { "Verify_Add_Device_Menu" })
 		public void Verify_User_Guide_Page() {
 			SoftAssert softhome8 = new SoftAssert();
 			if(new AddDeviceHomePage().isAt())
@@ -413,7 +416,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			softhome8.assertAll();
 		}
 		
-		@Test(priority = 8, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+		@Test(priority = 8, dependsOnMethods = { "Verify_Add_Device_Menu" })
 		public void Verify_FAQ_Page() {
 			SoftAssert softhome9 = new SoftAssert();
 			softhome9.assertTrue(new AddDeviceHomePage().getAddDeviceFooterIconsPageObject().clickFAQButton());
@@ -425,7 +428,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			softhome9.assertAll();
 		}
 		
-		@Test(priority = 9, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+		@Test(priority = 9, dependsOnMethods = { "Verify_Add_Device_Menu" })
 		public void Verify_Remove_Device_Page() {
 			SoftAssert softhome10 = new SoftAssert();
 			if(new AddDeviceHomePage().isAt())
@@ -2232,7 +2235,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					//	AssertJUnit.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANIPReservationPageObject().getLANIPReservationDialogObject().verifyUIOnReserveLANIP());
 						softnet20.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANIPReservationPageObject().getLANIPReservationDialogObject().enterRuleName());
 						softnet20.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANIPReservationPageObject().getLANIPReservationDialogObject().enterIPAddress());
-						softnet20.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANIPReservationPageObject().getLANIPReservationDialogObject().selectADevice(2));
+						softnet20.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANIPReservationPageObject().getLANIPReservationDialogObject().selectADevice(1));
 						softnet20.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANIPReservationPageObject().getLANIPReservationDialogObject().clickSaveButton());
 						softnet20.assertAll();
 					}
@@ -2665,10 +2668,12 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								super.waitForVisibility(new AddSatelliteAddNewSatellitePage2().nextButton);
 								
 								if(new AddSatelliteAddNewSatellitePage2().isAt()) 
-								{											
-									new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
+								{	
+									utils.log().info("Trying to re-establish connection with max router");
+									new HomePage().connectToSSID(this.ssidName);
 									utils.log().info("Waiting for 120 seconds ");
 									super.pause(120);
+									new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
 								}
 									
 								try {
@@ -3339,11 +3344,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				
 				
 				
-				@Test(priority = 162, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Network_UI_Page"})
+				@Test(priority = 163, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Network_UI_Page"})
 				public void Verify_General_Settings_UI_Page() 
 				{
 					SoftAssert softnet39 = new SoftAssert();
-					new HomePage().getFooterIconsPageObject().clickNetworkButton();
 					new NetworkPage().clickNetworkSettingsExpandButton();
 					new NetworkPage().clickGeneralSettings(); 
 					try{
@@ -3355,7 +3359,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnet39.assertAll();
 				}
 				
-				@Test(priority = 163, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_UI_Page"})
+				@Test(priority = 164, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_UI_Page"})
 				public void Verify_General_Settings_UPnP_Settings() 
 				{
 					SoftAssert softnet40 = new SoftAssert();
@@ -3377,7 +3381,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnet40.assertAll();
 				}
 				
-				@Test(priority = 164, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_UI_Page"})
+				@Test(priority = 165, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_UI_Page"})
 				public void Verify_General_Settings_IPv6_Enable_Settings() 
 				{
 					SoftAssert softnet39 = new SoftAssert();
@@ -3387,7 +3391,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnet39.assertAll();
 				}
 				
-				@Test(priority = 165, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_UI_Page"})
+				@Test(priority = 166, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_UI_Page"})
 				public void Verify_General_Settings_Bridge_Mode_Settings() 
 				{
 					SoftAssert softnet42 = new SoftAssert();
@@ -3398,7 +3402,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnet42.assertAll();
 				}
 				
-				@Test(priority = 166, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_UI_Page"})
+				@Test(priority = 167, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_UI_Page"})
 				public void Verify_General_Settings_Port_Forwarding_Settings() 
 				{
 					SoftAssert softnet43 = new SoftAssert();
@@ -3438,7 +3442,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().enterExternalPortStart());
 						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().enterExternalPortEnd());
 						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().enterIPAddress());
-//						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().clickSaveButton());
+						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().clickSaveButton());
 						
 						try {
 							if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().allFieldsAreMandatoryError.isDisplayed()) {
@@ -3470,9 +3474,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().clickSaveButton());}
 							}catch(Exception e) {}
 							
-							utils.log().info("All Port details are valid");
-							softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().clickSaveButton());
-							super.pause(15);
+//							utils.log().info("All Port details are valid");
+//							softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().clickSaveButton());
+//							super.pause(15);
 							
 						try {
 							if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().getPortRuleEditFailedDialogObject().isAt()) 
@@ -3603,7 +3607,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 //					softnet48.assertAll();
 //				}
 						
-				@Test(priority = 171, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Network_UI_Page"})
+				@Test(priority = 162, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Network_UI_Page"})
 				public void Verify_Extended_WiFi_Settings_Page() 
 				{
 					new NetworkPage().getFooterIconsPageObject().clickNetworkButton(); 
@@ -3630,7 +3634,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnet50.assertAll();
 				}
 
-				@Test(priority = 174, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
+				@Test(priority = 169, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
 				public void Verify_New_Guest_WiFi_Network() 
 				{
 					SoftAssert softnet49 = new SoftAssert();

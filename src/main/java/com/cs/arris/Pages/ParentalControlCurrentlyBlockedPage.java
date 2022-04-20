@@ -58,6 +58,7 @@ public class ParentalControlCurrentlyBlockedPage extends ParentClass implements 
 
 	
 	
+	@SuppressWarnings("unchecked")
 	public boolean verifyInternetPausedUserProfiles() {
 		try {
 			utils.log().info("*********************************************************************");

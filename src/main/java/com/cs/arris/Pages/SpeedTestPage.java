@@ -298,7 +298,7 @@ public class SpeedTestPage extends ParentClass implements Page
 	public boolean clickRunSpeedTestButton() {
 		if (runSpeedTestAgainButton.isDisplayed()) {
 			click(runSpeedTestAgainButton);
-			utils.log().info("Clicked Run Speed Test Agaibn Button");
+			utils.log().info("Clicked Run Speed Test Again Button");
 			return true;
 		} else {
 			utils.log().info("Run Speed Test Again Button is not displayed");

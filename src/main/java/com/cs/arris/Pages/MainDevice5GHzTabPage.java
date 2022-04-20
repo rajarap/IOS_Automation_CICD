@@ -124,11 +124,11 @@ public class MainDevice5GHzTabPage extends ParentClass implements Page {
 	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_HeaderLabel_Connected\"])[1]")
 	public MobileElement connectedDevicesCountText;
 	
-	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name=\"Device_Detail_Screen_HeaderImage_Connected\"])[1]")
-	public MobileElement connectedDevicesExpandButton;
-	
-//	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[@name=\"Device_Detail_Screen_HeaderView_Connected\"])[1]")
+//	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name=\"Device_Detail_Screen_HeaderImage_Connected\"])[1]")
 //	public MobileElement connectedDevicesExpandButton;
+	
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[@name=\"Device_Detail_Screen_HeaderView_Connected\"])[1]")
+	public MobileElement connectedDevicesExpandButton;
 
 //	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name == \"Device_Detail_Screen_HeaderImage_Connected\"`][1]")
 //	public MobileElement connectedDevicesExpandButton;

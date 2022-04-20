@@ -370,17 +370,17 @@ public class NetworkLANDHCPLeaseTimePage extends ParentClass implements Page {
 	public boolean verifySameLeaseTimeForAnyUnit() {
 		utils.log().info("                                            ");
 		utils.log().info("********************************************");
-		utils.log().info("Verifying Same Lease Time for Any Time Unit ");
+		utils.log().info("Enterning Lease Time for Minute Time Unit   ");
 		utils.log().info("********************************************");
 		
 		// First select the Minutes option in the Test
 
 		this.enterLeaseTime("2000");
 		this.clickSaveLeaseTimeButton();
-		utils.log().info("Enter Lease Time between 1 and 35791395 and applied the changes successfully");
-		utils.log().info("Entered Same Lease Time and clicked Save Button");
-		this.enterLeaseTime("2000");
-		this.clickSaveLeaseTimeButton();
+//		utils.log().info("Enter Lease Time between 1 and 35791395 and applied the changes successfully");
+//		utils.log().info("Entered Same Lease Time and clicked Save Button");
+//		this.enterLeaseTime("2000");
+//		this.clickSaveLeaseTimeButton();
 		
 		//NetworkLANDHCPLeaseTimeAppliedSameChangesDialog - Click OK button
 		
