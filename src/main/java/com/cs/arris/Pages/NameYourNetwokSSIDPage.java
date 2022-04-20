@@ -74,43 +74,42 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 			try {
 				String acc = "Done";
 				super.getDriver().findElement(MobileBy.AccessibilityId(acc)).click();
-			} catch (Exception e) {
-				utils.log().info("Clicked on Done Button 1");
-			}
+			} catch (Exception e) {}
 
 			try {
 				String pred = "label == \"Done\"";
 				super.getDriver().findElement(MobileBy.iOSNsPredicateString(pred)).click();
-			} catch (Exception e) {
-				utils.log().info("Clicked on Done Button 2");
-			}
+			} catch (Exception e) {}
 
 			try {
 				String selector = "**/XCUIElementTypeButton[`label == \"Done\"`]";
 				super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
-			} catch (Exception e) {
-				utils.log().info("Clicked on Done Button 3");
-			}
+			} catch (Exception e) {}
 
 			try {
 				click(doneLink);
 				utils.log().info("Name Your Network Page  - Clicked on Done Button");
-			} catch (Exception e) {
-				utils.log().info("Clicked on Done Button 4");
-			}
+			} catch (Exception e) {}
+			
+			try {
+				iosDriver = (IOSDriver<?>) super.getDriver();
+				iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
+				super.pause(3);
+			} catch (Exception e) {}
 	}
 
 	public void clickNextButton()
 	{
+		clickDoneLink();
 //		iosDriver = (IOSDriver<?>) super.getDriver();
 //		iosDriver.hideKeyboard("Done");
 //		//String selector = "**/XCUIElementTypeButton[`label == \"NEXT\"`]";
 //		iosDriver.hideKeyboard(iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]"));
 //		iosDriver.hideKeyboard(HideKeyboardStrategy.PRESS_KEY, "Done");
 		
-		iosDriver = (IOSDriver<?>) super.getDriver();
-		iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
-		super.pause(3);
+//		iosDriver = (IOSDriver<?>) super.getDriver();
+//		iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
+//		super.pause(3);
 //		super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"BOBA_Network_Connect_Screen_Button\"]").click();
 		click(nextButton);
 		utils.log().info("Name Your Network Page  - Clicked on Next Button");

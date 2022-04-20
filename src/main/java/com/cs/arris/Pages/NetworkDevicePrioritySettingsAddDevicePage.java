@@ -161,6 +161,7 @@ public class NetworkDevicePrioritySettingsAddDevicePage extends ParentClass impl
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean selectDeviceFromList() {
 		utils.log().info("                                     ");
 		utils.log().info("*************************************");
@@ -181,15 +182,16 @@ public class NetworkDevicePrioritySettingsAddDevicePage extends ParentClass impl
 
 					for (MobileElement e : entity) 
 					{
-						if (e.findElementByXPath("//XCUIElementTypeImage[@name=\"Network_Add_Device_Screen_Image_Device["+i+"]\"]").isDisplayed())
+						if (super.getDriver().findElementByXPath("//XCUIElementTypeImage[@name=\"Network_Add_Device_Screen_Image_Device["+i+"]\"]").isDisplayed())
 							utils.log().info("Device Image is displayed");
 
-						if ((e.findElementByXPath("//XCUIElementTypeStaticText[@name=\"Network_Add_Device_Screen_Label_Device["+i+"]\"]").isDisplayed()))
-							utils.log().info("Device Name : " + e.findElementByXPath("//XCUIElementTypeStaticText[@name=\"Network_Add_Device_Screen_Label_Device["+i+"]\"]").getText() + " is displayed");
+						if ((super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Network_Add_Device_Screen_Label_Device["+i+"]\"]").isDisplayed()))
+							utils.log().info("Device Name : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Network_Add_Device_Screen_Label_Device["+i+"]\"]").getText() + " is displayed");
 
-						if (e.findElementByXPath("//XCUIElementTypeImage[@name=\"Network_Add_Device_Screen_Button_CheckBox["+i+"]\"]").isDisplayed())
+						if (super.getDriver().findElementByXPath("//XCUIElementTypeImage[@name=\"Network_Add_Device_Screen_Button_CheckBox["+i+"]\"]").isDisplayed())
 							utils.log().info("Checkbox is displayed");
-						click(e.findElementByXPath("//XCUIElementTypeImage[@name=\"Network_Add_Device_Screen_Button_CheckBox["+i+"]\"]"));
+						
+						click(super.getDriver().findElementByXPath("//XCUIElementTypeImage[@name=\"Network_Add_Device_Screen_Button_CheckBox["+i+"]\"]"));
 						utils.log().info("Clicked on checkbox");
 					}
 			}

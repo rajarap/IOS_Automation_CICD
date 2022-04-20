@@ -1322,32 +1322,32 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					super.pause(5);
 					
 					if(new ParentalControlWithProfilesPage().isAt()) {
-						for(int i = 1; i <= 4; i++)	{
+						for(int i = 1; i <= 3; i++)	{
 							softcontrol3.assertTrue(new ParentalControlWithProfilesPage().clickAddProfilesLink());
-							super.pause(2);
+//							super.pause(2);
 							softcontrol3.assertTrue(new ParentalControlWithProfilesPage().getAddProfileDialogObject().enterProfileName());
-							super.pause(2);
+//							super.pause(2);
 							softcontrol3.assertTrue(new ParentalControlWithProfilesPage().getAddProfileDialogObject().clickCreateProfileButton());
-							super.pause(3);
+//							super.pause(3);
 							
-							try {
-								if(new ParentalControlWithProfilesPage().getAddProfileDialogObject().profileNameExists.isDisplayed())
-									softcontrol3.assertTrue(new ParentalControlWithProfilesPage().getAddProfileDialogObject().clickCloseIcon());
-								if(i == 4)
-								{
-									softcontrol3.assertTrue(new ParentalControlWithProfilesPage().clickAddProfilesLink());
-									super.pause(2);
-									softcontrol3.assertTrue(new ParentalControlWithProfilesPage().getAddProfileDialogObject().enterProfileName());
-									super.pause(2);
-									softcontrol3.assertTrue(new ParentalControlWithProfilesPage().getAddProfileDialogObject().clickCreateProfileButton());
-									super.pause(3);
-								}
-							}catch(Exception e) {}
+//							try {
+//								if(new ParentalControlWithProfilesPage().getAddProfileDialogObject().profileNameExists.isDisplayed())
+//									softcontrol3.assertTrue(new ParentalControlWithProfilesPage().getAddProfileDialogObject().clickCloseIcon());
+//								if(i == 4)
+//								{
+//									softcontrol3.assertTrue(new ParentalControlWithProfilesPage().clickAddProfilesLink());
+//									super.pause(2);
+//									softcontrol3.assertTrue(new ParentalControlWithProfilesPage().getAddProfileDialogObject().enterProfileName());
+//									super.pause(2);
+//									softcontrol3.assertTrue(new ParentalControlWithProfilesPage().getAddProfileDialogObject().clickCreateProfileButton());
+//									super.pause(3);
+//								}
+//							}catch(Exception e) {}
 						}
 					}
 					
-					softcontrol3.assertTrue(new ParentalControlWithProfilesPage().deleteUserProfile());
-					super.pause(5);
+//					softcontrol3.assertTrue(new ParentalControlWithProfilesPage().deleteUserProfile());
+//					super.pause(5);
 //					softcontrol3.assertTrue(new ParentalControlWithProfilesPage().verifyUIForGlobalSettingsOnProfilesPage());
 //					softcontrol3.assertTrue(new ParentalControlWithProfilesPage().verifyUserProfile());
 					
@@ -2020,7 +2020,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnet2.assertTrue(new HomePage().getFooterIconsPageObject().clickNetworkButton());
 					super.pause(5);
 	//				softnet2.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
-	//				softnet2.assertTrue(new NetworkPage().verifyUIOnNetworkPage());
+					softnet2.assertTrue(new NetworkPage().verifyUIOfMainWifi());
 					softnet2.assertAll();
 				}
 
@@ -2081,8 +2081,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				public void Verify_WAN_Settings_WAN_IP_Configuration_IPv4_Static_UI_Page() {
 					SoftAssert softnet8 = new SoftAssert();
 					softnet8.assertTrue(new NetworkPage().getWANSettingsPageObject().getWANIPv4ConfigurationPageObject().verifyUIOnWANIPv4Static());
-					softnet8.assertTrue(new NetworkPage().getWANSettingsPageObject().getWANIPv4ConfigurationPageObject().validationOnWANIPv4Static_MandatoryFields());
-					softnet8.assertTrue(new NetworkPage().getWANSettingsPageObject().getWANIPv4ConfigurationPageObject().validationOnWANIPv4Static_InvalidWANIPAddress());
+//					softnet8.assertTrue(new NetworkPage().getWANSettingsPageObject().getWANIPv4ConfigurationPageObject().validationOnWANIPv4Static_MandatoryFields());
+//					softnet8.assertTrue(new NetworkPage().getWANSettingsPageObject().getWANIPv4ConfigurationPageObject().validationOnWANIPv4Static_InvalidWANIPAddress());
 					softnet8.assertAll();
 				}
 
@@ -2280,7 +2280,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					SoftAssert softnet24 = new SoftAssert();
 					softnet24.assertTrue(new NetworkPage().getLANSettingsPageObject().clickLANSubnetLink());
 					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().isAt()) {
-						softnet24.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyUIOnLANSubnetConfigurationPage());
+					//	softnet24.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyUIOnLANSubnetConfigurationPage());
 						softnet24.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyDHCPIPAddressRangeForSelectedSubnet());
 					}
 					softnet24.assertAll();
@@ -2365,8 +2365,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					SoftAssert softnet28 = new SoftAssert();	
 						if(new NetworkPage().getLANSettingsPageObject().isAt())
 							softnet28.assertTrue(new NetworkPage().getLANSettingsPageObject().clickDHCPLeaseTimeLink());
-						if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().isAt())
-							softnet28.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().verifyUIOnLANLeaseTimePage());
+//						if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().isAt())
+//							softnet28.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().verifyUIOnLANLeaseTimePage());
 						softnet28.assertAll();
 				}
 				
@@ -2375,10 +2375,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				{
 					SoftAssert softnet29 = new SoftAssert();
 					
-					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickTimeUnitButton());
-					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().isAt()){
-						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().verifyUIOnLANEditLeaseTimePage());
-						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().clickCloseButton());}
+//					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickTimeUnitButton());
+//					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().isAt()){
+//						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().verifyUIOnLANEditLeaseTimePage());
+//						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().clickCloseButton());}
 
 					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickTimeUnitButton());
 					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().isAt())
@@ -2412,9 +2412,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().isAt())
 						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().clickForeverRadioButton());
 					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().verifyLeaseTimeWithForeverTimeUnit());
-					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickSaveLeaseTimeButton());
-					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getLeaseTimeAppliedChangesDialogObject().isAt())
-						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getLeaseTimeAppliedChangesDialogObject().clickOKButton());
+//					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickSaveLeaseTimeButton());
+//					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getLeaseTimeAppliedChangesDialogObject().isAt())
+//						softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getLeaseTimeAppliedChangesDialogObject().clickOKButton());
 					
 					softnet29.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().clickTimeUnitButton());
 					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANDHCPLeaseTimePageObject().getEditTimeUnitPageObject().isAt())
@@ -2454,85 +2454,86 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 //						softnet30.assertAll();
 //				}
 				
-//				@Test(priority = 151, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
-//				public void Verify_Device_Priority_Settings_UI_Page() 
+				@Test(priority = 151, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
+				public void Verify_Device_Priority_Settings_UI_Page() 
+				{
+					SoftAssert softnet31 = new SoftAssert();
+					softnet31.assertTrue(new NetworkPage().clickDevicePrioritySettings());
+					try{
+						if(new NetworkPage().getAppRatingPageObject().isAt())
+							new NetworkPage().getAppRatingPageObject().clickRemindMeLaterLink();
+					}catch(Exception e) {
+						utils.log().info("App Rating Dialog did not appear");
+					}
+					
+					if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().isAt())
+					{
+						softnet31.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().enableDevicePrioritySettings());
+						super.pause(5);
+						try{
+							if(new NetworkPage().getAppRatingPageObject().isAt())
+								new NetworkPage().getAppRatingPageObject().clickRemindMeLaterLink();
+						}catch(Exception e) {
+							utils.log().info("App Rating Dialog did not appear");
+						}
+						
+	//					softnet31.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().verifyUIOnDevicePrioritySettingsPage());
+						softnet31.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickAddDeviceButton());
+						super.pause(25);
+					}
+					softnet31.assertAll();
+				}
+				
+//				@Test(priority = 152, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Device_Priority_Settings_UI_Page"})
+//				public void Verify_Device_Priority_Settings_Add_Device_UI_Page() 
 //				{
-//					SoftAssert softnet31 = new SoftAssert();
-//					softnet31.assertTrue(new NetworkPage().clickDevicePrioritySettings());
-//					try{
-//						if(new NetworkPage().getAppRatingPageObject().isAt())
-//							new NetworkPage().getAppRatingPageObject().clickRemindMeLaterLink();
-//					}catch(Exception e) {
-//						utils.log().info("App Rating Dialog did not appear");
+//					SoftAssert softnet32 = new SoftAssert();
+//					if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().isAt()) {
+//						softnet32.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().verifyUIOnAddDevicePage());
+//						softnet32.assertAll();
 //					}
-//					
-//					if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().isAt())
-//					{
-//						softnet31.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().enableDevicePrioritySettings());
-//						try{
-//							if(new NetworkPage().getAppRatingPageObject().isAt())
-//								new NetworkPage().getAppRatingPageObject().clickRemindMeLaterLink();
-//						}catch(Exception e) {
-//							utils.log().info("App Rating Dialog did not appear");
-//						}
-//						
-//	//					softnet31.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().verifyUIOnDevicePrioritySettingsPage());
-//						softnet31.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickAddDeviceButton());
-//						super.pause(25);
-//					}
-//					softnet31.assertAll();
 //				}
-//				
-////				@Test(priority = 152, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Device_Priority_Settings_UI_Page"})
-////				public void Verify_Device_Priority_Settings_Add_Device_UI_Page() 
-////				{
-////					SoftAssert softnet32 = new SoftAssert();
-////					if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().isAt()) {
-////						softnet32.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().verifyUIOnAddDevicePage());
-////						softnet32.assertAll();
-////					}
-////				}
-//				
-//				@Test(priority = 153, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
-//				public void Verify_Device_Priority_Settings_Add_Device_Page() 
-//				{
-//					SoftAssert softnet33 = new SoftAssert();
-////					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().verifyDeviceListForPrioritization());
-//					utils.log().info("Clicking on Add Device button without selecting a device ");
-//					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().clickAddDeviceButton());
-//					
-//					if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().addDeviceErrorMessage.isDisplayed())
-//						utils.log().info(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().addDeviceErrorMessage.getText() + " error message is displayed");
-//
-//					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().selectDeviceFromList());
-//					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().clickAddDeviceButton());
-//					super.pause(3);
-//					
-//					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickAddDeviceButton());
-//					super.pause(5);
-//					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().selectDeviceFromList());
-//					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().clickAddDeviceButton());
-//					super.pause(5);
-//
-//					softnet33.assertAll();
-//				}
-//
-//				@Test(priority = 154, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Device_Priority_Settings_Add_Device_Page"})
-//				public void Verify_Device_Priority_Settings_Added_Device_Page() 
-//				{
-//					SoftAssert softnet34 = new SoftAssert();
-//					if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().isAt())
-//					{
-//	//					softnet34.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().verifyUIOnNetworkPrioritizedDevices());
-//						softnet34.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().verifyTwoDevicesWithHighestPriority());
-//						
-//						if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddedTwoHighestPriorityDevicesDialogObject().isAt())
-//							softnet34.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddedTwoHighestPriorityDevicesDialogObject().clickOkButton());
-//						super.pause(3);
-//					}
-//					softnet34.assertAll();
-//				}
-//				
+				
+				@Test(priority = 153, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
+				public void Verify_Device_Priority_Settings_Add_Device_Page() 
+				{
+					SoftAssert softnet33 = new SoftAssert();
+//					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().verifyDeviceListForPrioritization());
+					utils.log().info("Clicking on Add Device button without selecting a device ");
+					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().clickAddDeviceButton());
+					
+					if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().addDeviceErrorMessage.isDisplayed())
+						utils.log().info(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().addDeviceErrorMessage.getText() + " error message is displayed");
+
+					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().selectDeviceFromList());
+					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().clickAddDeviceButton());
+					super.pause(3);
+					
+					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickAddDeviceButton());
+					super.pause(5);
+					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().selectDeviceFromList());
+					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().clickAddDeviceButton());
+					super.pause(5);
+
+					softnet33.assertAll();
+				}
+
+				@Test(priority = 154, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Device_Priority_Settings_Add_Device_Page"})
+				public void Verify_Device_Priority_Settings_Added_Device_Page() 
+				{
+					SoftAssert softnet34 = new SoftAssert();
+					if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().isAt())
+					{
+	//					softnet34.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().verifyUIOnNetworkPrioritizedDevices());
+						softnet34.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().verifyTwoDevicesWithHighestPriority());
+						
+						if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddedTwoHighestPriorityDevicesDialogObject().isAt())
+							softnet34.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddedTwoHighestPriorityDevicesDialogObject().clickOkButton());
+						super.pause(3);
+					}
+					softnet34.assertAll();
+				}
+				
 //				@Test(priority = 155, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Device_Priority_Settings_Add_Device_Page"})
 //				public void Verify_Device_Priority_Settings_Add_Device_Help_Page() 
 //				{
@@ -2546,19 +2547,19 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 //					softnet35.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().clickBackButton());
 //					softnet35.assertAll();
 //			}
-//				
-//				@Test(priority = 156, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Device_Priority_Settings_UI_Page"})
-//				public void Verify_Device_Priority_Settings_Help_Page() 
-//				{
-//					SoftAssert softnet36 = new SoftAssert();
-//					softnet36.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickHelpButton());
-//					
-//					if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getDevicePriorityHelpPageObject().isAt())
-//						softnet36.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getDevicePriorityHelpPageObject().clickCloseButton());
-//					
-//					softnet36.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickBackButton());
-//					softnet36.assertAll();
-//				}
+				
+				@Test(priority = 156, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Device_Priority_Settings_UI_Page"})
+				public void Verify_Device_Priority_Settings_Help_Page() 
+				{
+					SoftAssert softnet36 = new SoftAssert();
+					softnet36.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickHelpButton());
+					
+					if(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getDevicePriorityHelpPageObject().isAt())
+						softnet36.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getDevicePriorityHelpPageObject().clickCloseButton());
+					
+					softnet36.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickBackButton());
+					softnet36.assertAll();
+				}
 				
 				@Test(priority = 157, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Network_UI_Page"})
 				public void Verify_Time_Zone_Settings_UI_Page() 
@@ -2666,8 +2667,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								if(new AddSatelliteAddNewSatellitePage2().isAt()) 
 								{											
 									new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
-									utils.log().info("Waiting for 80 seconds ");
-									super.pause(80);
+									utils.log().info("Waiting for 120 seconds ");
+									super.pause(120);
 								}
 									
 								try {
@@ -3358,8 +3359,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				public void Verify_General_Settings_UPnP_Settings() 
 				{
 					SoftAssert softnet40 = new SoftAssert();
-					softnet40.assertTrue(new NetworkPage().getGeneralSettingsPageObject().disableUPnP());
-					super.pause(5);
+//					softnet40.assertTrue(new NetworkPage().getGeneralSettingsPageObject().disableUPnP());
+//					super.pause(5);
 					try{
 						if(new NetworkPage().getAppRatingPageObject().isAt())
 							new NetworkPage().getAppRatingPageObject().clickRemindMeLaterLink();
@@ -3367,8 +3368,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						utils.log().info("App Rating Dialog did not appear");
 					}
 					
-					softnet40.assertTrue(new NetworkPage().getGeneralSettingsPageObject().enableUPnP());
-					super.pause(15);
+//					softnet40.assertTrue(new NetworkPage().getGeneralSettingsPageObject().enableUPnP());
+//					super.pause(15);
 					softnet40.assertTrue(new NetworkPage().getGeneralSettingsPageObject().clickUPNPInfoIcon());
 					
 					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsUPnPInfoDialogObject().isAt())
@@ -3425,8 +3426,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				public void Verify_General_Settings_Port_Forwarding_Add_Rules() 
 				{
 					SoftAssert softnet45 = new SoftAssert();
-//					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().isAt()) 
-//					{
+					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().isAt()) 
+					{
 //					for(int i = 1 ; i <=3 ; i++)
 //					{
 						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().clickAddRuleButton());
@@ -3437,10 +3438,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().enterExternalPortStart());
 						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().enterExternalPortEnd());
 						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().enterIPAddress());
-						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().clickSaveButton());
+//						softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().clickSaveButton());
 						
 						try {
-						if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().allFieldsAreMandatoryError.isDisplayed()) {
+							if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().allFieldsAreMandatoryError.isDisplayed()) {
 							softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().enterPortRuleName());
 							softnet45.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingAddRulePageObject().clickSaveButton());}
 							}catch(Exception e) {}
@@ -3480,7 +3481,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 							}catch(Exception e) {
 									utils.log().info("Port Rule Edit Failed Dialog did not appear");
 							}
-//					}
+				}
 					softnet45.assertAll();
 				}
 			
@@ -3582,29 +3583,30 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 ////					softnet47.assertAll();
 ////				}
 //				
-				@Test(priority = 170, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_Port_Forwarding_Settings"})
-				public void Verify_General_Settings_Port_Forwarding_Help_Page() 
-				{
-					SoftAssert softnet48 = new SoftAssert();
-					softnet48.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().clickHelpButton());
-					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingHelpPageObject().isAt())
-						softnet48.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingHelpPageObject().clickCloseButton());
-					
-					softnet48.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().clickBackButton());
-					try{
-						if(new NetworkPage().getAppRatingPageObject().isAt())
-							new NetworkPage().getAppRatingPageObject().clickRemindMeLaterLink();
-					}catch(Exception e) {
-						utils.log().info("App Rating Dialog did not appear");
-					}
-					softnet48.assertTrue(new NetworkPage().getGeneralSettingsPageObject().clickBackButton());
-					softnet48.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
-					softnet48.assertAll();
-				}
+//				@Test(priority = 170, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_General_Settings_Port_Forwarding_Settings"})
+//				public void Verify_General_Settings_Port_Forwarding_Help_Page() 
+//				{
+//					SoftAssert softnet48 = new SoftAssert();
+//					softnet48.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().clickHelpButton());
+//					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingHelpPageObject().isAt())
+//						softnet48.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().getPortForwardingHelpPageObject().clickCloseButton());
+//					
+//					softnet48.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().clickBackButton());
+//					try{
+//						if(new NetworkPage().getAppRatingPageObject().isAt())
+//							new NetworkPage().getAppRatingPageObject().clickRemindMeLaterLink();
+//					}catch(Exception e) {
+//						utils.log().info("App Rating Dialog did not appear");
+//					}
+//					softnet48.assertTrue(new NetworkPage().getGeneralSettingsPageObject().clickBackButton());
+//					softnet48.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
+//					softnet48.assertAll();
+//				}
 						
 				@Test(priority = 171, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Network_UI_Page"})
 				public void Verify_Extended_WiFi_Settings_Page() 
 				{
+					new NetworkPage().getFooterIconsPageObject().clickNetworkButton(); 
 					SoftAssert softnet50 = new SoftAssert();
 					softnet50.assertTrue(new NetworkPage().clickExtendedWifiSettingsExpandButton());
 					

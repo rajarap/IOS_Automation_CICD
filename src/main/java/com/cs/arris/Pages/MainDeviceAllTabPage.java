@@ -576,7 +576,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 					utils.log().info("--------------------------");
 					
 					List<MobileElement> entity = (List<MobileElement>) super.getDriver().findElementsByXPath(
-					"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
+					"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+ i++ +"]");
 
 					for (MobileElement e : entity) {
 						try {
@@ -683,7 +683,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 			try {
 				if (channelLabel.isDisplayed() && fiveGhzDeviceCount.isDisplayed()) 
 					this.fiveGhzDevice = fiveGhzDeviceCount.getText();
-				utils.log().info("Channel 1 : " + this.fiveGhzDeviceCount);
+				utils.log().info("Channel 1 : " + this.fiveGhzDevice);
 			} catch (Exception e) {
 				utils.log().info("Channel 5GHz count details is not displayed ");
 			}
@@ -691,7 +691,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 			try {
 				if (channelLabel.isDisplayed() && twoFourGhzDeviceCount.isDisplayed())
 					this.twoFourGhzDevice = twoFourGhzDeviceCount.getText();
-				utils.log().info("Channel 2 : " + this.twoFourGhzDeviceCount);
+				utils.log().info("Channel 2 : " + this.twoFourGhzDevice);
 			} catch (Exception e) {
 				utils.log().info("Channel 2.4GHz count details is not displayed ");
 			}

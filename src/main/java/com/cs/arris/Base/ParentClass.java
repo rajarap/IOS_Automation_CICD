@@ -326,6 +326,7 @@ public class ParentClass
 		  try {
 				utils.log().info("Factory Resetting MainAP");
 				SerialComPortCommunicator.resetMAXRouter("/dev/tty.usbserial-142330");
+				utils.log().info("Waiting for 60 seconds to Factory reset the MainAP");
 				pause(60);
 		  }catch(Exception e) {utils.log().info("Issue in Factory reset of MainAP");}
 		  

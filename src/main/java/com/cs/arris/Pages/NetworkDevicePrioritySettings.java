@@ -228,6 +228,7 @@ public class NetworkDevicePrioritySettings extends ParentClass implements Page {
 			return false;}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean verifyTwoDevicesWithHighestPriority() {
 		utils.log().info("                                   ");
 		utils.log().info("***********************************");
@@ -243,16 +244,16 @@ public class NetworkDevicePrioritySettings extends ParentClass implements Page {
 			super.getDriver().findElementsByXPath("//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
 
 			for (MobileElement e : entity) {
-				if (e.findElementByXPath("//XCUIElementTypeImage[@name=\"Device_Priority_Screen_Image_Device["+i+"]\"]").isDisplayed())
+				if (super.getDriver().findElementByXPath("//XCUIElementTypeImage[@name=\"Device_Priority_Screen_Image_Device["+i+"]\"]").isDisplayed())
 					utils.log().info("Device Image is displayed");
 			
-				if (e.findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Priority_Screen_Label_Device["+i+"]\"]").isDisplayed())
-					utils.log().info("Device Name: " + e.findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Priority_Screen_Label_Device["+i+"]\"]").getText());
+				if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Priority_Screen_Label_Device["+i+"]\"]").isDisplayed())
+					utils.log().info("Device Name: " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Priority_Screen_Label_Device["+i+"]\"]").getText());
 				
 				try
 				{
-					if (e.findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Priority_Screen_Button_Highest["+i+"]\"]").isDisplayed()) {			
-							click(e.findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Priority_Screen_Button_Highest["+i+"]\"]"));
+					if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Priority_Screen_Button_Highest["+i+"]\"]").isDisplayed()) {			
+							click(super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Priority_Screen_Button_Highest["+i+"]\"]"));
 							super.pause(15);
 							utils.log().info("Highest Priority Radion Button option is selected");
 						}

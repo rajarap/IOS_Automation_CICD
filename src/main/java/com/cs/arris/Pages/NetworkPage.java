@@ -776,6 +776,54 @@ public class NetworkPage extends ParentClass implements Page {
 		}
 	}
 	
+	public boolean verifyUIOfMainWifi() {
+		utils.log().info("                             ");
+		utils.log().info("*****************************");
+		utils.log().info("Verifying Main Wi-Fi Network ");
+		utils.log().info("*****************************");
+		try {
+			try {
+				if (expandButton.isDisplayed()) {
+					//utils.log().info("Main Wi-Fi expand button is displayed");
+					click(expandButton);} 
+			} catch (Exception e) {
+				utils.log().info("Main Wi-Fi expand button is not displayed");
+			}
+			
+			try {
+				if (mainWifiLabel.isDisplayed())
+					utils.log().info("Main Wi-Fi Network Label is displayed ");
+			} catch (Exception e) {
+				utils.log().info("Main Wi-Fi Network Label is not displayed");
+			}
+
+			try {
+				if (networkNameSSIDLabel.isDisplayed() && ssidName.isDisplayed())
+					utils.log().info(networkNameSSIDLabel.getText() + " : " + ssidName.getText());
+			} catch (Exception e) {
+				utils.log().info("Network SSID Name is not displayed");
+			}
+
+			try {
+				if (passwordLabel.isDisplayed() && showPassword.isDisplayed())
+					utils.log().info(passwordLabel.getText() + " : " + showPassword.getText());
+			} catch (Exception e) {
+				utils.log().info("SSID Password is not displayed");
+			}
+
+			try {
+				if (showPasswordIcon.isDisplayed()) {
+					utils.log().info("Show Password Icon is displayed ");
+					click(expandButton);}
+			} catch (Exception e) {
+				utils.log().info("Show Password Icon is not displayed");
+			}
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
 	public void verifyGuestWifiNetwork() {
 
 		try {
