@@ -118,6 +118,7 @@ com/cs/arris/Pages/NetworkGeneralSettingsBridgeModeInfoDialog.class
 com/cs/arris/Pages/AddSatelliteAddNewSatellitePage3.class
 com/cs/arris/Pages/ConnectToBlueToothDialog.class
 com/cs/arris/Pages/SystemFirmwareUpdatePage.class
+com/cs/arris/Pages/BlueToothConnectionFailedProceedPage.class
 com/cs/arris/Pages/TurnOnBluetoothDialog.class
 com/cs/arris/Pages/AddSatelliteRegisteringDeviceFailedPage.class
 com/cs/arris/Pages/NetworkGeneralSettingsHelpPage.class
@@ -175,6 +176,7 @@ com/cs/arris/Utilities/BTPairing.class
 com/cs/arris/Pages/HomeNetworkHealthOptimizationConnectedDevicesPage.class
 com/cs/arris/Pages/NetworkTimeZoneSettingsHelpPage.class
 com/cs/arris/Pages/ConnectMaxRouterToMobileDevicePage.class
+com/cs/arris/Pages/BlueToothConnectionFailedTroubleShootPage.class
 com/cs/arris/Pages/NetworkLANDHCPLeaseNoChangesUpdatedDialog.class
 com/cs/arris/Pages/EditDeviceNameDialog.class
 com/cs/arris/Pages/NetworkWANIPConfigurationIPv4Page.class
@@ -215,6 +217,7 @@ com/cs/arris/Pages/AddDeviceHamburgerMenuPage.class
 com/cs/arris/Pages/ErrorCode_0000_1016_Maximum_Verification_Attempts_Exceeded.class
 com/cs/arris/Pages/AddSatellitePlacementTipsPage2.class
 com/cs/arris/Pages/WhosHomeMonitoringHelpPage.class
+com/cs/arris/Pages/AddSatelliteConnectedToNonMaxNetworkTroubleShootProceedPage.class
 com/cs/arris/Pages/NetworkOptimizationDialog2.class
 com/cs/arris/Pages/AddDeviceRegistrationFailedPage.class
 com/cs/arris/Pages/BlankBlockedDevicesPage.class

@@ -244,8 +244,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 	  }
 	  
 	  
-	  @Test(priority = 172, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
-		public void Verify_Install_Additional_Satellite_Page() 
+		@Test(priority = 160, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+		public void Verify_Install_Left_Satellite_Page() 
 		{
 		    utils.log().info("                            ");
 			utils.log().info("****************************");
@@ -278,13 +278,15 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						if(new AddSatelliteAddNewSatellitePage1().isAt()) 
 						{
 							new AddSatelliteAddNewSatellitePage1().clickNextButton();// Each satellite expands your network
-							utils.log().info("Waiting for 40 seconds ");
-							super.pause(40);
+							utils.log().info("Waiting for 60 seconds ");
+							super.pause(60);
 							
 							try
 							{
 								if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 								{
+									utils.log().info("Connected to a non max network");
+									utils.log().info("Trying to re-establish connection with max router");
 									new HomePage().connectToSSID(this.ssidName);
 									utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize on the homepage");
 					  				super.pause(120);
@@ -319,14 +321,18 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						if(new AddSatelliteAddNewSatellitePage2().isAt()) 
 						{											
 							new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
-							utils.log().info("Waiting for 80 seconds ");
-							super.pause(80);
+							utils.log().info("Waiting for 120 seconds ");
+							super.pause(120);
+//							utils.log().info("Trying to re-establish connection with max router");
+//							new HomePage().connectToSSID(this.ssidName);
+//							utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+//				  			super.pause(120);
 						}
 							
 						try {
 							if(new AddSatelliteOperationFailedPage4().isAt()) {
-								utils.log().info("Adding Satellite operation failed. Trying to re-establish connection with max router");
-								
+							//	utils.log().info("Adding Satellite operation failed");
+								utils.log().info("Trying to re-establish connection with max router");
 								new HomePage().connectToSSID(this.ssidName);
 								utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
 					  			super.pause(120);
@@ -345,10 +351,11 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						try	{
 							if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 							{
-								utils.log().info("Connected to a non max network. Trying to re-establish connection with max router");
+								utils.log().info("Connected to a non max network");
+								utils.log().info("Trying to re-establish connection with max router");
 								new HomePage().connectToSSID(this.ssidName);
-								utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
-					  			super.pause(60);
+								utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+					  			super.pause(120);
 					  				
 					  			if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
 					  			{
@@ -373,20 +380,19 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					
 					//3
 					try {
-						
 						super.waitForVisibility(new AddSatelliteAddNewSatellitePage3().nextButton);
 						
 						if(new AddSatelliteAddNewSatellitePage3().isAt()) 
 						{  									
 							new AddSatelliteAddNewSatellitePage3().clickNextButton(); //To continue with satellite install, please connect to arris-5550 network. Please connect through the WiFi settings of your mobile device.
-							utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
-			  				super.pause(60);
+							utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+			  				super.pause(120);
 						}
 			  				
 			  			try {
 							if(new AddSatelliteOperationFailedPage4().isAt()) {
 								utils.log().info("Adding Satellite operation failed.");
-									
+								utils.log().info("Trying to re-establish connection with max router");
 								new HomePage().connectToSSID(this.ssidName);
 								utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
 					  			super.pause(120);
@@ -403,7 +409,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						try	{
 							if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 							{
-								utils.log().info("Connected to a non max network. Trying to re-establish connection with your max router network");
+								utils.log().info("Connected to a non max network");
+								utils.log().info("Trying to re-establish connection with max router");
 								new HomePage().connectToSSID(this.ssidName);
 								utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
 					  			super.pause(120);
@@ -480,10 +487,11 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						try	{
 							if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 							{
-								utils.log().info("Connected to a non max network. Trying to re-establish connection with your max router network");
+								utils.log().info("Connected to a non max network");
+								utils.log().info("Trying to re-establish connection with max router");
 								new HomePage().connectToSSID(this.ssidName);
 								utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
-				  				super.pause(120);
+					  			super.pause(120);
 				  				
 				  				if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
 				  				{
@@ -499,8 +507,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						try {
 							if (new BlueToothConnectionFailedPage().isAt()) {
 								new BlueToothConnectionFailedPage().clickTryAgainbutton();
-								utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-								super.pause(60);}
+								utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+								super.pause(120);}
 						} catch (Exception e5) {
 						}
 						
@@ -512,8 +520,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							if (new BlueToothConnectionFailedProceedPage().isAt()) 
 								new BlueToothConnectionFailedProceedPage().clickProceedButton();
 							
-							utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-							super.pause(60);
+							utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+							super.pause(120);
 						} catch (Exception e6) {}
 
 					} catch (Exception e) {
@@ -523,7 +531,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	new SevenTapEmail().enterEmailAddress();
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
-						  Assert.fail("Satellite 1 Onboarding - Unable to plug in your mAX Router and connect to your Mobile Device due to blue tooth connection failure");
+						  Assert.fail("Satellite 1 Onboarding - Unable to connect to your Mobile Device due to blue tooth connection failure");
 						  new KillAndRelaunchApp().killApp();
 						  new KillAndRelaunchApp().relaunchApp();
 					}
@@ -543,16 +551,16 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							if (new BlueToothConnectionFailedPage().isAt()) 
 							{
 								new BlueToothConnectionFailedPage().clickTryAgainbutton();
-								utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-								super.pause(60);
+								utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+								super.pause(120);
 								
 								super.waitForVisibility(new AddSatelliteSuccessfullyConnectedPage().nextButton);
 								
 								if(new AddSatelliteSuccessfullyConnectedPage().isAt())
 								{
 									new AddSatelliteSuccessfullyConnectedPage().clickNextButton();
-									utils.log().info("Waiting for 60 seconds to connect your max router to the internet");
-									super.pause(60);
+									utils.log().info("Waiting for 120 seconds to connect your max router to the internet");
+									super.pause(120);
 								}
 							}
 						} catch (Exception e5) {}
@@ -565,16 +573,16 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							if (new BlueToothConnectionFailedProceedPage().isAt()) 
 							{
 								new BlueToothConnectionFailedProceedPage().clickProceedButton();
-								utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-								super.pause(60);
+								utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+								super.pause(120);
 								
 								super.waitForVisibility(new AddSatelliteSuccessfullyConnectedPage().nextButton);
 								
 								if(new AddSatelliteSuccessfullyConnectedPage().isAt())
 								{
 									new AddSatelliteSuccessfullyConnectedPage().clickNextButton();
-									utils.log().info("Waiting for 60 seconds to connect your max router to the internet");
-									super.pause(60);
+									utils.log().info("Waiting for 120 seconds to connect your max router to the internet");
+									super.pause(120);
 								}
 							}
 						} catch (Exception e6) {}
@@ -677,12 +685,14 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					  Assert.fail("Satellite 1 Onboarding - failed");
 					  new KillAndRelaunchApp().killApp();
 					  new KillAndRelaunchApp().relaunchApp();
-				}
+				}  
+			
 		}
 
 		
-		@Test(priority = 173, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
-		public void Verify_Install_Right_Satellite_Page() {
+		@Test(priority = 161, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+		public void Verify_Install_Right_Satellite_Page() 
+		{
 			utils.log().info("                             ");
 			utils.log().info("*****************************");
 			utils.log().info("Test: Install Satellite2     ");
@@ -720,9 +730,11 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							{
 								if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 								{
+									utils.log().info("Connected to a non max network");
+									utils.log().info("Trying to re-establish connection with max router");
 									new HomePage().connectToSSID(this.ssidName);
-									utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize on the homepage");
-					  				super.pause(120);
+									utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
+						  			super.pause(120);
 					  				
 					  				if(new AddSatelliteConnectedToNonMaxNetworkPage().tryAgainStaticText.isDisplayed()) 
 					  				{
@@ -794,15 +806,15 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						if(new AddSatellitePlugInYourSatellitePage().isAt())
 						{
 							new AddSatellitePlugInYourSatellitePage().clickNextButton();
-							utils.log().info("Waiting for 60 seconds to establish connection with bluetooth");
-							super.pause(60);
+							utils.log().info("Waiting for 120 seconds to establish connection with bluetooth");
+							super.pause(120);
 						}
 						
 						try {
 							if (new BlueToothConnectionFailedPage().isAt()) {
 								new BlueToothConnectionFailedPage().clickTryAgainbutton();
-								utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-								super.pause(60);}
+								utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+								super.pause(120);}
 						} catch (Exception e5) {
 						}
 						
@@ -814,8 +826,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							if (new BlueToothConnectionFailedProceedPage().isAt()) 
 								new BlueToothConnectionFailedProceedPage().clickProceedButton();
 							
-							utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-							super.pause(60);
+							utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+							super.pause(120);
 						} catch (Exception e6) {}
 
 					} catch (Exception e) {
@@ -825,7 +837,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	new SevenTapEmail().enterEmailAddress();
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
-						Assert.fail("Satellite 1 Onboarding - Unable to plug in your mAX Router and connect to your Mobile Device due to blue tooth connection failure");
+						Assert.fail("Satellite 1 Onboarding - Unable to connect to your Mobile Device due to blue tooth connection failure");
 						new KillAndRelaunchApp().killApp();
 						new KillAndRelaunchApp().relaunchApp();
 					}
@@ -838,24 +850,24 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						if(new AddSatelliteSuccessfullyConnectedPage().isAt())
 						{
 							new AddSatelliteSuccessfullyConnectedPage().clickNextButton();
-							utils.log().info("Waiting for 60 seconds to connect your max router to the internet");
-							super.pause(60);
+							utils.log().info("Waiting for 120 seconds to connect your max router to the internet");
+							super.pause(120);
 						}
 						
 						try {
 							if (new BlueToothConnectionFailedPage().isAt()) 
 							{
 								new BlueToothConnectionFailedPage().clickTryAgainbutton();
-								utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-								super.pause(60);
+								utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+								super.pause(120);
 								
 								super.waitForVisibility(new AddSatelliteSuccessfullyConnectedPage().nextButton);
 								
 								if(new AddSatelliteSuccessfullyConnectedPage().isAt())
 								{
 									new AddSatelliteSuccessfullyConnectedPage().clickNextButton();
-									utils.log().info("Waiting for 60 seconds to connect your max router to the internet");
-									super.pause(60);
+									utils.log().info("Waiting for 120 seconds to connect your max router to the internet");
+									super.pause(120);
 								}
 							}
 						} catch (Exception e5) {}
@@ -868,16 +880,16 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							if (new BlueToothConnectionFailedProceedPage().isAt()) 
 							{
 								new BlueToothConnectionFailedProceedPage().clickProceedButton();
-								utils.log().info("Waiting for 60 seconds trying to establish connection with bluetooth");
-								super.pause(60);
+								utils.log().info("Waiting for 120 seconds trying to establish connection with bluetooth");
+								super.pause(120);
 								
 								super.waitForVisibility(new AddSatelliteSuccessfullyConnectedPage().nextButton);
 								
 								if(new AddSatelliteSuccessfullyConnectedPage().isAt())
 								{
 									new AddSatelliteSuccessfullyConnectedPage().clickNextButton();
-									utils.log().info("Waiting for 60 seconds to connect your max router to the internet");
-									super.pause(60);
+									utils.log().info("Waiting for 120 seconds to connect your max router to the internet");
+									super.pause(120);
 								}
 							}
 						} catch (Exception e6) {}
@@ -979,6 +991,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 				  new KillAndRelaunchApp().killApp();
 				  new KillAndRelaunchApp().relaunchApp();
 			}
+		
 		}
 		
 		private void performFactoryReset(String satelliteName, String usbserial) {

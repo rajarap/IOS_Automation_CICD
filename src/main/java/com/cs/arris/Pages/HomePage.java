@@ -863,8 +863,6 @@ public class HomePage extends ParentClass implements Page {
 			String selector = "**/XCUIElementTypeCell[`label == \""+ssidentity+", Secure network, Signal strength 3 of 3 bars\"`]";
 			super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
 			utils.log().info("Selected max network SSID : " + ssidentity);
-				////XCUIElementTypeButton[@name="Settings"]
-			//**/XCUIElementTypeButton[`label == "Settings"`]
 			click(settings);
 			utils.log().info("Clicked on Settings link");
 			super.getDriver().activateApp("com.arris.sbcBeta");
@@ -1176,3 +1174,6 @@ public boolean verifyRightRouterDetails() {
 //			return false;
 //		}
 //	}
+
+////XCUIElementTypeButton[@name="Settings"]
+//**/XCUIElementTypeButton[`label == "Settings"`]

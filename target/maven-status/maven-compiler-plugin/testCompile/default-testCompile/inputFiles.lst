@@ -18,6 +18,7 @@
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/test/java/com/cs/arris/Workflows/UserSignUpWorkflow.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/test/java/com/cs/arris/Tests/TC005_Login_And_Test_Device_Signal_Strength_Leader_Board_Page.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/test/java/com/cs/arris/Workflows/TC53_Login_And_Verify_DevicesPage_Workflow.java
+/Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/test/java/com/cs/arris/Tests/TC0013_Test_SignUp_Onboard_And_Test_SBC.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/test/java/com/cs/arris/Tests/SampleTest.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/test/java/com/cs/arris/Workflows/TC61_Login_And_Verify_ParentalControl_Workflow.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/test/java/com/cs/arris/Workflows/TC60_Login_And_Verify_HamburgerMenuAndSettingsAboutHelpPage_Workflow.java

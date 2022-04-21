@@ -9,6 +9,7 @@ import com.cs.arris.Utilities.Direction;
 import com.cs.arris.Utilities.SwipeActions;
 import com.cs.arris.Utilities.TestUtils;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AndroidBy;
@@ -146,7 +147,7 @@ public class NetworkGeneralSettingsPortFowardingAddRulePage extends ParentClass 
 		}
 	}
 	public boolean clickSaveButton() {
-		click(doneLink);
+		clickDoneLink();
 		if (saveChangesButton.isDisplayed()) {
 			click(saveChangesButton);
 			utils.log().info("Clicked on Save Changes Button");
@@ -155,6 +156,39 @@ public class NetworkGeneralSettingsPortFowardingAddRulePage extends ParentClass 
 			utils.log().info("Save Changes button is not displayed");
 			return false;
 		}
+	}
+	
+	public void clickDoneLink()
+	{
+			iosDriver = (IOSDriver<?>) super.getDriver();
+			
+			try {
+				String acc = "Done";
+				iosDriver.findElement(MobileBy.AccessibilityId(acc)).click();
+				super.pause(3);
+			} catch (Exception e) {}
+
+			try {
+				String pred = "label == \"Done\"";
+				iosDriver.findElement(MobileBy.iOSNsPredicateString(pred)).click();
+				super.pause(3);
+			} catch (Exception e) {}
+
+			try {
+				String selector = "**/XCUIElementTypeButton[`label == \"Done\"`]";
+				iosDriver.findElement(MobileBy.iOSClassChain(selector)).click();
+				super.pause(3);
+			} catch (Exception e) {}
+
+			try {
+				click(doneLink);
+				utils.log().info("Name Your Network Page  - Clicked on Done Button");
+			} catch (Exception e) {}
+			
+			try {
+				iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
+				super.pause(3);
+			} catch (Exception e) {}
 	}
 
 	public boolean verifyUIOnPortForwardingAddRulePage() {

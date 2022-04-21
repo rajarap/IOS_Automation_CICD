@@ -1,4 +1,5 @@
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/WhosHomeMonitoringPage.java
+/Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/BlueToothConnectionFailedProceedPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/HamburgerHelpPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/Error_0001_1201_Bluetooth_Pairing_Failed_Page.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AddSatelliteFailureToAddSatellitePage.java
@@ -89,6 +90,7 @@
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/HomeNetworkHealthOptimizationISPSpeedRatePage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Utilities/Direction.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/CongratulationsPage.java
+/Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/BlueToothConnectionFailedTroubleShootPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AddDeviceHomePage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/HomeNetowrkDevicesWifiClientConnectionHealthPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AFFSHelpPage.java
@@ -252,6 +254,7 @@
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/NetworkWANDNSConfigurationIPv4Page.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AddDeviceFooterIconsPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/WhosHomeRemoveMemberDialog.java
+/Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/AddSatelliteConnectedToNonMaxNetworkTroubleShootProceedPage.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/NetworkLANDHCPIPRangeBetween1And255AlertDialog.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/NetworkOptimizationDialog.java
 /Users/rm2652/Documents/SBC-IOS-CICD-Main2-Current/sbc-ios-cicd/src/main/java/com/cs/arris/Pages/MainDeviceEthernetTabPage.java

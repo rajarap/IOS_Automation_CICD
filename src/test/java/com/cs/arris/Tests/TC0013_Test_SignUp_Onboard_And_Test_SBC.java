@@ -2668,17 +2668,15 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								super.waitForVisibility(new AddSatelliteAddNewSatellitePage2().nextButton);
 								
 								if(new AddSatelliteAddNewSatellitePage2().isAt()) 
-								{	
-									utils.log().info("Trying to re-establish connection with max router");
-									new HomePage().connectToSSID(this.ssidName);
+								{											
+									new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
 									utils.log().info("Waiting for 120 seconds ");
 									super.pause(120);
-									new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
 								}
 									
 								try {
 									if(new AddSatelliteOperationFailedPage4().isAt()) {
-										utils.log().info("Adding Satellite operation failed");
+									//	utils.log().info("Adding Satellite operation failed");
 										utils.log().info("Trying to re-establish connection with max router");
 										new HomePage().connectToSSID(this.ssidName);
 										utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
@@ -2727,7 +2725,6 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 							
 							//3
 							try {
-								
 								super.waitForVisibility(new AddSatelliteAddNewSatellitePage3().nextButton);
 								
 								if(new AddSatelliteAddNewSatellitePage3().isAt()) 

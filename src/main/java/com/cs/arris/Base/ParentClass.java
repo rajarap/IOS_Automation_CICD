@@ -324,23 +324,13 @@ public class ParentClass
 	  
 	  public void factoryReset() {
 		  try {
-				utils.log().info("Factory Resetting MainAP");
+				utils.log().info("Factory Resetting MainAP - Waiting for 60 seconds to reset the MainAP");
 				SerialComPortCommunicator.resetMAXRouter("/dev/tty.usbserial-142330");
-				utils.log().info("Waiting for 60 seconds to Factory reset the MainAP");
 				pause(60);
-		  }catch(Exception e) {utils.log().info("Issue in Factory reset of MainAP");}
+		  }catch(Exception e) {utils.log().info("Could not Factory reset MainAP");}
 		  
 	  }
-	  
-//	  public void rebootDevice() {
-//		  try {
-//			    utils.log().info("Restarting Android Device");
-//				SerialComPortCommunicator.restartAndroidDevice();
-//				pause(90);
-//		  }catch(Exception e) {utils.log().info("Issue in rebooting device");}
-//		  
-//	  }
-	  
+	   
 	  public void loadTestData(String filePath)
 	  {
 			//load the json file and assign strings object to strings ThreadLocal

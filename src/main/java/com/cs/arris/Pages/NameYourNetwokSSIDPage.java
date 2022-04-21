@@ -71,28 +71,32 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 	
 	public void clickDoneLink()
 	{
+			iosDriver = (IOSDriver<?>) super.getDriver();
+			
 			try {
 				String acc = "Done";
-				super.getDriver().findElement(MobileBy.AccessibilityId(acc)).click();
+				iosDriver.findElement(MobileBy.AccessibilityId(acc)).click();
+				super.pause(3);
 			} catch (Exception e) {}
 
 			try {
 				String pred = "label == \"Done\"";
-				super.getDriver().findElement(MobileBy.iOSNsPredicateString(pred)).click();
+				iosDriver.findElement(MobileBy.iOSNsPredicateString(pred)).click();
+				super.pause(3);
 			} catch (Exception e) {}
 
 			try {
 				String selector = "**/XCUIElementTypeButton[`label == \"Done\"`]";
-				super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
+				iosDriver.findElement(MobileBy.iOSClassChain(selector)).click();
+				super.pause(3);
 			} catch (Exception e) {}
 
-			try {
-				click(doneLink);
-				utils.log().info("Name Your Network Page  - Clicked on Done Button");
-			} catch (Exception e) {}
+//			try {
+//				click(doneLink);
+//				utils.log().info("Name Your Network Page  - Clicked on Done Button");
+//			} catch (Exception e) {}
 			
 			try {
-				iosDriver = (IOSDriver<?>) super.getDriver();
 				iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
 				super.pause(3);
 			} catch (Exception e) {}
@@ -106,11 +110,11 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 //		//String selector = "**/XCUIElementTypeButton[`label == \"NEXT\"`]";
 //		iosDriver.hideKeyboard(iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]"));
 //		iosDriver.hideKeyboard(HideKeyboardStrategy.PRESS_KEY, "Done");
-		
-//		iosDriver = (IOSDriver<?>) super.getDriver();
-//		iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
-//		super.pause(3);
 //		super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"BOBA_Network_Connect_Screen_Button\"]").click();
+//			iosDriver = (IOSDriver<?>) super.getDriver();
+//			iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
+//			super.pause(3);
+		
 		click(nextButton);
 		utils.log().info("Name Your Network Page  - Clicked on Next Button");
 	}
