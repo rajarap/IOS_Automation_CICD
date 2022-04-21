@@ -74,46 +74,51 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 			iosDriver = (IOSDriver<?>) super.getDriver();
 			
 			try {
+				utils.log().info("Inside clickDoneLink1");
 				String acc = "Done";
 				iosDriver.findElement(MobileBy.AccessibilityId(acc)).click();
+				utils.log().info("Name Your Network Page  - Clicked on Done Button identified by accessiblity id");
 				super.pause(3);
 			} catch (Exception e) {}
 
 			try {
+				utils.log().info("Inside clickDoneLink2");
 				String pred = "label == \"Done\"";
 				iosDriver.findElement(MobileBy.iOSNsPredicateString(pred)).click();
+				utils.log().info("Name Your Network Page  - Clicked on Done Button identified by Predicate string");
 				super.pause(3);
 			} catch (Exception e) {}
 
 			try {
+				utils.log().info("Inside clickDoneLink3");
 				String selector = "**/XCUIElementTypeButton[`label == \"Done\"`]";
 				iosDriver.findElement(MobileBy.iOSClassChain(selector)).click();
+				utils.log().info("Name Your Network Page  - Clicked on Done Button identified by iOS Chain Class");
 				super.pause(3);
 			} catch (Exception e) {}
 
-//			try {
-//				click(doneLink);
-//				utils.log().info("Name Your Network Page  - Clicked on Done Button");
-//			} catch (Exception e) {}
-			
 			try {
-				iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
+				utils.log().info("Inside clickDoneLink4");
+				click(doneLink);
+				utils.log().info("Name Your Network Page  - Clicked on Done Button identified by xpath");
 				super.pause(3);
+				utils.log().info("Name Your Network Page  - Clicked on Done Button");
 			} catch (Exception e) {}
-	}
+		}
 
 	public void clickNextButton()
 	{
 		clickDoneLink();
-//		iosDriver = (IOSDriver<?>) super.getDriver();
+		
 //		iosDriver.hideKeyboard("Done");
 //		//String selector = "**/XCUIElementTypeButton[`label == \"NEXT\"`]";
 //		iosDriver.hideKeyboard(iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]"));
 //		iosDriver.hideKeyboard(HideKeyboardStrategy.PRESS_KEY, "Done");
 //		super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"BOBA_Network_Connect_Screen_Button\"]").click();
-//			iosDriver = (IOSDriver<?>) super.getDriver();
-//			iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
-//			super.pause(3);
+		
+//		iosDriver = (IOSDriver<?>) super.getDriver();
+//		iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
+//		super.pause(3);
 		
 		click(nextButton);
 		utils.log().info("Name Your Network Page  - Clicked on Next Button");

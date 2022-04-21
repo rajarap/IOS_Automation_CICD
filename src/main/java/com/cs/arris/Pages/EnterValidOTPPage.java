@@ -65,7 +65,7 @@ public class EnterValidOTPPage   extends ParentClass implements Page
 //		for (int i = 0; i < passcode.length() ; i++) {
 //			sendKeys(otpCode, Character.toString(passcode.charAt(i)));
 			
-			utils.log().info("Obtaining OTP from mail7.io...");
+			utils.log().info("Obtaining OTP ...");
 			passCode = new EmailTest().getValidOTP(email); 
 			
 			utils.log().info("Entering valid OTP..." + passCode);
