@@ -72,7 +72,6 @@ public class EmailTest extends ParentClass{
 			driver.get("https://www.mailinator.com");
 			super.pause(2);
 			driver.findElement(By.xpath("//*[@id=\"search\"]")).sendKeys(emailId);
-//			driver.findElement(By.xpath("/html/body/div[1]/header[2]/div[1]/div/div/div/div/input")).sendKeys(emailId);
 			super.pause(2);
 			driver.findElement(By.xpath("//*[@id=\"site-header\"]/div[1]/div/div/div[1]/div/button")).click(); //GO button
 			super.pause(5);
