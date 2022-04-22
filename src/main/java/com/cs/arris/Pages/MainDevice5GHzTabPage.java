@@ -474,7 +474,7 @@ public class MainDevice5GHzTabPage extends ParentClass implements Page {
 		if (allDevicesCount > 0) {
 			
 			click(connectedDevicesExpandButton);
-			super.pause(10);
+			super.pause(30);
 							
 			for (int i = 1; i <= allDevicesCount; i++) {
 				utils.log().info("Connected Device  : " + i);

@@ -460,6 +460,7 @@ public boolean verifyUIOnLedSettings() {
 			if (allDevicesCount > 0) {
 				
 			//	click(connectedDevicesExpandButton);
+				super.pause(20);
 								
 				for (int i = 1; i <= allDevicesCount; i++) {
 					

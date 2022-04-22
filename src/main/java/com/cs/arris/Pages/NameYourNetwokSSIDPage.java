@@ -108,21 +108,29 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 
 	public void clickNextButton()
 	{
-
 		
-//		iosDriver.hideKeyboard("Done");
 //		//String selector = "**/XCUIElementTypeButton[`label == \"NEXT\"`]";
 //		iosDriver.hideKeyboard(iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]"));
 //		iosDriver.hideKeyboard(HideKeyboardStrategy.PRESS_KEY, "Done");
 //		super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"BOBA_Network_Connect_Screen_Button\"]").click();
 		
 		iosDriver = (IOSDriver<?>) super.getDriver();
-		iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
-		super.pause(3);
-//		click(doneLink);
-//		super.pause(3);
+		
+		try {
+			iosDriver.hideKeyboard("Done");
+			utils.log().info("Name Your Network Page  - Clicked on Done Button iosDriver.hideKeyboard(\"Done\")");
+		}catch(Exception e) {}
+		
+		try {
+			iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
+			utils.log().info("Name Your Network Page  - Clicked on Done Button iosDriver.findElementByXPath(\"//XCUIElementTypeButton[@name=\\\"Done\\\"]\").click()");
+		}catch(Exception e) {}
+		
 		click(nextButton);
+		
 		utils.log().info("Name Your Network Page  - Clicked on Next Button");
+		super.pause(3);
+		
 	}
 	
 	

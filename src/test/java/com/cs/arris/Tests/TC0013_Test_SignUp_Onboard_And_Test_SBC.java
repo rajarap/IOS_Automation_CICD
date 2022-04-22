@@ -51,7 +51,6 @@ import com.cs.arris.Pages.AppRatingDialog;
 import com.cs.arris.Pages.BlueToothConnectionFailedPage;
 import com.cs.arris.Pages.BlueToothConnectionFailedProceedPage;
 import com.cs.arris.Pages.BlueToothConnectionFailedTroubleShootPage;
-import com.cs.arris.Pages.BlueToothConnectionFailedTroubleShootProceedPage;
 //import com.cs.arris.Pages.BandSteeringModeAlertInfoDialog;
 import com.cs.arris.Pages.CodeVerifiedPage;
 import com.cs.arris.Pages.CongratulationsPage;
@@ -810,7 +809,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			@Test(priority = 48, dependsOnMethods = { "Verify_SignUp_And_Onboard",  "Verify_Main_Device_UI_On_5GHz_Tab_Page"})
 			public void Verify_Devices_Count_Validation_On_5GHz_Tab_Page() {
 				SoftAssert softmain15 = new SoftAssert();
-				super.pause(5);
+				super.pause(20);
 				softmain15.assertTrue(new MainDeviceAllTabPage().get5GHzPageObject().GHz5Tabvalidations());
 				
 			softmain15.assertAll();
@@ -835,6 +834,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			@Test(priority = 57, dependsOnMethods = { "Verify_SignUp_And_Onboard",  "Verify_Main_Device_UI_On_24GHz_Tab_Page"})
 			public void Verify_Devices_Count_Validation_On_24GHz_Tab_Page() {
 				SoftAssert softmain24 = new SoftAssert();
+				super.pause(20);
 				softmain24.assertTrue(new MainDeviceAllTabPage().get24GHzPageObject().GHz24Tabvalidations());
 				softmain24.assertAll();
 			}
@@ -857,6 +857,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			@Test(priority = 66, dependsOnMethods = { "Verify_SignUp_And_Onboard",  "Verify_Main_Device_UI_On_Ethernet_Tab_Page"})
 			public void Verify_Devices_Count_Validation_On_Ethernet_Tab_Page() {
 				SoftAssert softmain33 = new SoftAssert();
+				super.pause(20);
 				softmain33.assertTrue(new MainDeviceAllTabPage().getEthernetPageObject().ethernetTabvalidations());
 				
 				softmain33.assertAll();
@@ -1045,7 +1046,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				public void Verify_Add_Rule_Page() {
 					SoftAssert softcontrol10 = new SoftAssert();
 					softcontrol10.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().clickAddRuleLink());
-					
+					super.pause(40);
 					if(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().isAt()) {
 						softcontrol10.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().clickHelpIcon());
 						softcontrol10.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().getParentalAddRuleHelpPageObject().clickCloseButton());
@@ -1982,25 +1983,28 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					super.swipeUp();
 					softnet37.assertTrue(new NetworkPage().clickTimeZone());
 					if(new NetworkPage().getTimeZoneSettingsPageObject().isAt())
-						//softnet37.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().verifyUIOnTimeZonePage());
+						softnet37.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().verifyUIOnTimeZonePage());
 					softnet37.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickHawaiiTimeZone());
 					softnet37.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickSaveButton());
+					super.pause(10);
+					softnet37.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
+					softnet37.assertTrue(new NetworkPage().getFooterIconsPageObject().clickHomeButton());
 					softnet37.assertAll();
 				}
 				
-				@Test(priority = 158, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Time_Zone_Settings_UI_Page"})
-				public void Verify_Time_Zone_Settings_Help_Page() 
-				{
-					SoftAssert softnet38 = new SoftAssert();
-					softnet38.assertTrue(new NetworkPage().clickTimeZone());
-					softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickHelpButton());
-					if (new NetworkPage().getTimeZoneSettingsPageObject().getTimeZoneHelpPageObject().isAt())
-						softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().getTimeZoneHelpPageObject().clickCloseButton());
-					softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickBackButton());
-					softnet38.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
-					softnet38.assertTrue(new NetworkPage().getFooterIconsPageObject().clickHomeButton());
-					softnet38.assertAll();
-				}
+//				@Test(priority = 158, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Time_Zone_Settings_UI_Page"})
+//				public void Verify_Time_Zone_Settings_Help_Page() 
+//				{
+//					SoftAssert softnet38 = new SoftAssert();
+//					softnet38.assertTrue(new NetworkPage().clickTimeZone());
+//					softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickHelpButton());
+//					if (new NetworkPage().getTimeZoneSettingsPageObject().getTimeZoneHelpPageObject().isAt())
+//						softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().getTimeZoneHelpPageObject().clickCloseButton());
+//					softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickBackButton());
+//					softnet38.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
+//					softnet38.assertTrue(new NetworkPage().getFooterIconsPageObject().clickHomeButton());
+//					softnet38.assertAll();
+//				}
 				
 				
 				

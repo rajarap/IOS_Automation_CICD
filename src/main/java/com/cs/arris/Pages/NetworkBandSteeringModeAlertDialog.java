@@ -75,10 +75,10 @@ public class NetworkBandSteeringModeAlertDialog extends ParentClass implements P
 	@Override
 	public boolean isAt() {
 		if (alertTitle.isDisplayed()) {
-			utils.log().info("On 5GHz Wideband Mode Alert Dialog");
+			utils.log().info("On Band Steering Mode Alert Dialog");
 			return true;
 		} else {
-			utils.log().info("Not on 5GHz Wideband Mode Alert Dialog");
+			utils.log().info("Not on Band Steering Mode Alert Dialog");
 			return false;
 		}
 	}

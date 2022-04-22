@@ -168,7 +168,10 @@ public class HomePage extends ParentClass implements Page {
 	@iOSXCUITFindBy (xpath = "//XCUIElementTypeButton[@name=\"Mesh_Home_Screen_Button_More\"]")
 	public MobileElement moreLink; 
 	
-	@iOSXCUITFindBy (xpath = "//XCUIElementTypeCell[@name=\"Wi-Fi\"]")
+//	@iOSXCUITFindBy (xpath = "//XCUIElementTypeCell[@name=\"Wi-Fi\"]")
+//	public MobileElement wifiLink;
+	
+	@iOSXCUITFindBy (xpath = "//XCUIElementTypeStaticText[@name=\"WIFI\"]")
 	public MobileElement wifiLink;
 
 //	@iOSXCUITFindBy (xpath = "//XCUIElementTypeCell[@name=\""+arris65443+", Secure network, Signal strength 3 of 3 bars\"]/XCUIElementTypeOther[2]/XCUIElementTypeOther")
@@ -857,13 +860,15 @@ public class HomePage extends ParentClass implements Page {
 				
 			if(wifiLink.isDisplayed())
 				click(wifiLink);
-			utils.log().info("Clicked on Wifi link and waiting for 10 seconds for the max network to be displayed");
-			super.pause(10);
+			utils.log().info("Clicked on Wifi link and waiting for 15 seconds for the max network to be displayed");
+			super.pause(15);
 				
-			String selector = "**/XCUIElementTypeCell[`label == \""+ssidentity+", Secure network, Signal strength 3 of 3 bars\"`]";
+//			String selector = "**/XCUIElementTypeCell[`label == \""+ssidentity+", Secure network, Signal strength 3 of 3 bars\"`]";
+			String selector = "**/XCUIElementTypeCell[`label == \""+ssidentity+"`]";
 			super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
 			utils.log().info("Selected max network SSID : " + ssidentity);
-			click(settings);
+			super.getDriver().findElement(MobileBy.xpath("//XCUIElementTypeButton[@name=\"Settings\"]")).click();
+//			click(settings);
 			utils.log().info("Clicked on Settings link");
 			super.getDriver().activateApp("com.arris.sbcBeta");
 		}catch(Exception e) {}

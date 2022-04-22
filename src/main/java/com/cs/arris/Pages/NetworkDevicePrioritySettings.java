@@ -254,7 +254,7 @@ public class NetworkDevicePrioritySettings extends ParentClass implements Page {
 				{
 					if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Priority_Screen_Button_Highest["+i+"]\"]").isDisplayed()) {			
 							click(super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Priority_Screen_Button_Highest["+i+"]\"]"));
-							super.pause(15);
+							super.pause(20);
 							utils.log().info("Highest Priority Radion Button option is selected");
 						}
 				}catch(Exception exp) {
