@@ -50,10 +50,10 @@ public class AddDeviceAccessCameraDialog extends ParentClass implements Page {
 	public boolean clickEnterManuallyButton() {
 		if (enterManuallyButton.isDisplayed()) {
 			click(enterManuallyButton);
-			utils.log().info("Clicked on Enter Manully Button");
+			utils.log().info("Clicked on Enter Manually Button");
 			return true;
 		} else {
-			utils.log().info("Enter Manully Button is not displayed");
+			utils.log().info("Enter Manually Button is not displayed");
 			return false;
 		}
 	}

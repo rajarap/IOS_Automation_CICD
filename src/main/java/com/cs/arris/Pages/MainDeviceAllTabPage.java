@@ -568,8 +568,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 			if (allDevicesCount > 0) {
 				
 				click(connectedDevicesExpandButton);
-				super.swipeUp();
-								
+				super.pause(40);								
 				for (int i = 1; i <= allDevicesCount; i++) 
 				{
 					utils.log().info("Connected Device  : " + i);

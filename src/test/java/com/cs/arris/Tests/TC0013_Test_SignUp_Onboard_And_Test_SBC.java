@@ -51,6 +51,7 @@ import com.cs.arris.Pages.AppRatingDialog;
 import com.cs.arris.Pages.BlueToothConnectionFailedPage;
 import com.cs.arris.Pages.BlueToothConnectionFailedProceedPage;
 import com.cs.arris.Pages.BlueToothConnectionFailedTroubleShootPage;
+import com.cs.arris.Pages.BlueToothConnectionFailedTroubleShootProceedPage;
 //import com.cs.arris.Pages.BandSteeringModeAlertInfoDialog;
 import com.cs.arris.Pages.CodeVerifiedPage;
 import com.cs.arris.Pages.CongratulationsPage;
@@ -247,7 +248,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  try {
 		  			if(new HomePage().cloudIcon.isDisplayed() || new HomePage().remoteAccessNotAvailableLink.isDisplayed())
 		  				new HomePage().connectToSSID(this.ssidName);
-		  			utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize on the homepage");
+		  			utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize");
 		  			super.pause(120);
 		  		}catch(Exception e) {};
 		  		
@@ -783,20 +784,20 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				softmain8.assertAll();
 			}
 			
-			@Test(priority = 42, dependsOnMethods = { "Verify_SignUp_And_Onboard",  "Verify_Main_Device_UI_On_All_Tab_Page"})
-			public void Verify_Edit_Main_Router_Name_On_All_Tab_Page() {
-				SoftAssert softmain9 = new SoftAssert();
-				softmain9.assertTrue(new MainDeviceAllTabPage().clickMainDeviceEditIcon());
-				
-				if(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().isAt())
-				{
-					softmain9.assertTrue(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().editMainDeviceName());
-					softmain9.assertTrue(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().clickSaveButton());
-					super.pause(5);				
-				}
-				
-				softmain9.assertAll();
-			}
+//			@Test(priority = 42, dependsOnMethods = { "Verify_SignUp_And_Onboard",  "Verify_Main_Device_UI_On_All_Tab_Page"})
+//			public void Verify_Edit_Main_Router_Name_On_All_Tab_Page() {
+//				SoftAssert softmain9 = new SoftAssert();
+//				softmain9.assertTrue(new MainDeviceAllTabPage().clickMainDeviceEditIcon());
+//				
+//				if(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().isAt())
+//				{
+//					softmain9.assertTrue(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().editMainDeviceName());
+//					softmain9.assertTrue(new MainDeviceAllTabPage().getEditMainDeviceNameDialogObject().clickSaveButton());
+//					super.pause(5);				
+//				}
+//				
+//				softmain9.assertAll();
+//			}
 			
 			@Test(priority = 44, dependsOnMethods = { "Verify_SignUp_And_Onboard"})
 			public void Verify_Main_Device_UI_On_5GHz_Tab_Page() {
@@ -1022,18 +1023,19 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				public void Verify_Add_Device_To_User_Profile() {
 					SoftAssert softcontrol7 = new SoftAssert();
 					softcontrol7.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().clickAddDeviceLink());
-					super.pause(5);
+					super.pause(40);
+					
 					if(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().isAt()) {
 						
 						utils.log().info("Clicking on Add Device button without selecting any device");
 						softcontrol7.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().clickAddDeviceButton());
-						
+						super.pause(40);
 						if(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().alertTitle.isDisplayed()) {
 							utils.log().info("An Alert message - " + new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().alertTitle.getText()+ "  is displayed");
 						}
 						softcontrol7.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().selectADeviceForUserProfile());
 						softcontrol7.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddDevicePageObject().clickAddDeviceButton());
-						super.pause(5);
+						super.pause(20);
 					}
 					
 					softcontrol7.assertAll();
@@ -1913,7 +1915,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						}
 						
 						softnet31.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickAddDeviceButton());
-						super.pause(25);
+						super.pause(40);
 					}
 					softnet31.assertAll();
 				}
@@ -1932,13 +1934,13 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 
 					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().selectDeviceFromList());
 					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().clickAddDeviceButton());
-					super.pause(3);
+					super.pause(40);
 					
 					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickAddDeviceButton());
-					super.pause(5);
+					super.pause(40);
 					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().selectDeviceFromList());
 					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().clickAddDeviceButton());
-					super.pause(5);
+					super.pause(40);
 
 					softnet33.assertAll();
 				}
@@ -2777,7 +2779,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					}
 					
 					softnet40.assertTrue(new NetworkPage().getGeneralSettingsPageObject().clickUPNPInfoIcon());
-					
+					super.pause(10);
 					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsUPnPInfoDialogObject().isAt())
 						softnet40.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsUPnPInfoDialogObject().clickCloseButton());
 					softnet40.assertAll();
@@ -2788,6 +2790,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				{
 					SoftAssert softnet39 = new SoftAssert();
 					softnet39.assertTrue(new NetworkPage().getGeneralSettingsPageObject().clickIPv6InfoIcon());
+					super.pause(10);
 					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsIPv6EnableInfoDialogObject().isAt())
 						softnet39.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsIPv6EnableInfoDialogObject().clickCloseButton());
 					softnet39.assertAll();
@@ -2798,7 +2801,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				{
 					SoftAssert softnet42 = new SoftAssert();
 					softnet42.assertTrue(new NetworkPage().getGeneralSettingsPageObject().clickBridgeModeInfoIcon());
-					
+					super.pause(10);
 					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsBridgeModeInfoDialogObject().isAt())
 						softnet42.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsBridgeModeInfoDialogObject().clickCloseButton());
 					softnet42.assertAll();
@@ -2809,6 +2812,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				{
 					SoftAssert softnet43 = new SoftAssert();
 					new NetworkPage().getGeneralSettingsPageObject().clickPortForwardingink();
+					super.pause(10);
 //					if(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().isAt())
 //						softnet43.assertTrue(new NetworkPage().getGeneralSettingsPageObject().getNetworkGeneralSettingsPortForwardingPageObject().verifyUIOnPortForwardingPage());
 					softnet43.assertAll();
