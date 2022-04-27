@@ -1794,7 +1794,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					SoftAssert softnet2 = new SoftAssert();
 					softnet2.assertTrue(new HomePage().getFooterIconsPageObject().clickNetworkButton());
 					super.pause(5);
-					softnet2.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
+//					softnet2.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
 					softnet2.assertTrue(new NetworkPage().verifyUIOfMainWifi());
 					softnet2.assertAll();
 				}
