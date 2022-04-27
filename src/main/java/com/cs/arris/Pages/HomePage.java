@@ -866,12 +866,13 @@ public class HomePage extends ParentClass implements Page {
 			if(super.getDriver().findElement(MobileBy.iOSClassChain(wifiLink)).isDisplayed())
 				super.getDriver().findElement(MobileBy.iOSClassChain(wifiLink)).click();
 				
-			utils.log().info("Clicked on Wifi link and waiting for 15 seconds for the max network to be displayed");
-			super.pause(15);
+			utils.log().info("Clicked on Wifi link and waiting for 10 seconds for the max network to be displayed");
+			super.pause(10);
 				
 //			String selector = "**/XCUIElementTypeCell[`label == \""+ssidentity+", Secure network, Signal strength 3 of 3 bars\"`]";
 			String selector = "**/XCUIElementTypeStaticText[`label == \""+ssidentity+"\"`]";
 			super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
+			utils.log().info("Clicked on max network SSID " + ssidentity);
 			super.pause(5);
 
 			click(settings1);
