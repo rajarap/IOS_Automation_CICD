@@ -894,6 +894,14 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			softfeatures6.assertAll();
 		}
 		
+		@Test(priority = 26, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+		public void Verify_AlexaSkills_Link() {
+			SoftAssert softfeatures6 = new SoftAssert();
+			softfeatures6.assertTrue(new HomePage().getHamburgerMenuPageObject().getAmazonFeaturesPageObject().clickAlexaSkillsLink());
+			
+			softfeatures6.assertAll();
+		}
+		
 	  
 		  @Test(priority = 31, dependsOnMethods = { "Verify_SignUp_And_Onboard"})
 			public void Verify_Speed_Test_Page() {
@@ -1233,6 +1241,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 							softcontrol3.assertTrue(new ParentalControlWithProfilesPage().clickAddProfilesLink());
 							softcontrol3.assertTrue(new ParentalControlWithProfilesPage().getAddProfileDialogObject().enterProfileName());
 							softcontrol3.assertTrue(new ParentalControlWithProfilesPage().getAddProfileDialogObject().clickCreateProfileButton());
+							super.pause(3);
 						}
 					}
 					
@@ -1363,9 +1372,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				@Test(priority = 92, dependsOnMethods = {"Verify_SignUp_And_Onboard" , "Verify_User_Profile_Page"})
 				public void Verify_Add_Custom_Schedule_Select_DOW() {
 					SoftAssert softcontrol15 = new SoftAssert();
-					softcontrol15.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().getInternetBlockingScheduleDialogObject().clickSunday());
-					softcontrol15.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().getInternetBlockingScheduleDialogObject().clickTuesday());
+					softcontrol15.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().getInternetBlockingScheduleDialogObject().clickMonday());
 					softcontrol15.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().getInternetBlockingScheduleDialogObject().clickThrusday());
+					softcontrol15.assertTrue(new ParentalControlWithProfilesPage().getUserProfilePageObject().getParentalUserProfileAddRulePageObject().getInternetBlockingScheduleDialogObject().clickSaturday());
 
 					softcontrol15.assertAll();
 					}
@@ -1804,6 +1813,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				@Test(priority = 125, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Network_UI_Page"})
 				public void Verify_WAN_Settings_UI_Page() {
 					SoftAssert softnet5 = new SoftAssert();
+					super.pause(5);
 					softnet5.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
 					super.swipeUp();
 					softnet5.assertTrue(new NetworkPage().clickWANSettings());
@@ -2257,7 +2267,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					utils.log().info("****************************");
 				
 					SoftAssert softsatellite1 = new SoftAssert();
-					
+					new HomePage().getFooterIconsPageObject().clickHomeButton();
 					performFactoryReset("Satellite1", "/dev/tty.usbserial-142310");
 					  
 						try {

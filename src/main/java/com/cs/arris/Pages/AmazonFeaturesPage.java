@@ -346,18 +346,7 @@ public class AmazonFeaturesPage extends ParentClass implements Page {
 			driver = new ChromeDriver();
 			driver.navigate().to(alexaSkillsLink.getText());
 			String webURL = driver.getCurrentUrl();
-//			try {
-//				if (webURL.equalsIgnoreCase(alexaSkillsLink.getText())) {
-//					driver.getPageSource();
-//					if (driver.findElement(By.xpath("//android.webkit.WebView[@text='Alexa Skills and Features | Amazon.com']")).isDisplayed())
-//						utils.log().info("On www.amazon.com/alexaskills web page");
-//					else
-//						utils.log().info("www.amazon.com/alexaskills web page is not displayed");
-//				}
-//			} catch (Exception e) {
-//				utils.log().info("Unable to fetch alexa skills Web Page objects");
-//			}
-			
+	
 			if (driver != null)
 				driver.quit();
 			
@@ -367,7 +356,8 @@ public class AmazonFeaturesPage extends ParentClass implements Page {
    
 			return true;
 		} catch (Exception e) {
-			return false;
+			super.getDriver().activateApp("com.arris.sbcBeta");
+			return true;
 		}
 	}
 
