@@ -125,8 +125,9 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 //	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_HeaderLabel_Connected\"])[2]")
 	public MobileElement connectedDevicesCountText;
 	
-	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[@name=\"Device_Detail_Screen_HeaderView_Connected\"])[1]")
+//	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[@name=\"Device_Detail_Screen_HeaderView_Connected\"])[1]")
 //	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name=\"Device_Detail_Screen_HeaderImage_Connected\"])[2]")
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name=\"Device_Detail_Screen_HeaderImage_Connected\"])[1]")
 	public MobileElement connectedDevicesExpandButton;
 
 //	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name == \"Device_Detail_Screen_HeaderImage_Connected\"`][1]")
@@ -423,6 +424,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public boolean clickDeviceNameEditIcon() {
 		this.getAllDevicesCount();
 		try {
@@ -568,7 +570,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 			if (allDevicesCount > 0) {
 				
 				click(connectedDevicesExpandButton);
-				super.pause(40);								
+							
 				for (int i = 1; i <= allDevicesCount; i++) 
 				{
 					utils.log().info("Connected Device  : " + i);
@@ -577,9 +579,10 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 					List<MobileElement> entity = (List<MobileElement>) super.getDriver().findElementsByXPath(
 					"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
 
-					for (MobileElement e : entity) {
+					for (MobileElement e : entity) 
+					{
 						try {
-							if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Detail_Screen_Button_Device["+i+"]\"]").isDisplayed())
+							if (super.getDriver().findElementByXPath("//XCUIElementTypeImage[@name=\"Device_Detail_Screen_Image_Device["+i+"]\"]").isDisplayed())
 								utils.log().info("Device Image is displayed");
 						} catch (Exception exp) {
 							utils.log().info("Device Image is not displayed ");	}
@@ -657,8 +660,9 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 					if(i >= 1)
 						super.swipeConnectedDevices(Direction.UP);
 				}
-				click(connectedDevicesExpandButton);
 				super.swipeDown();
+				super.pause(5);
+				click(connectedDevicesExpandButton);
 				return true;
 			} else {
 				utils.log().info("Currently there are no devices connected to the main Router ");
@@ -802,11 +806,11 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 		    switch (dir) {
 		        case LEFT: 
 			            action.press(PointOption.point(286, 449)).waitAction( WaitOptions.waitOptions(Duration.ofMillis(1300)))
-		                    .moveTo(PointOption.point(185, 449)).release().perform();
+		                    .moveTo(PointOption.point(200, 449)).release().perform();
 			            scrollObject.put("direction", dir.name().toLowerCase());
 			            break;
 		        case RIGHT: 
-		            	action.press(PointOption.point(185, 449)).waitAction( WaitOptions.waitOptions(Duration.ofMillis(1300)))
+		            	action.press(PointOption.point(200, 449)).waitAction( WaitOptions.waitOptions(Duration.ofMillis(1300)))
                     		.moveTo(PointOption.point(286, 449)).release().perform();
 		            scrollObject.put("direction", dir.name().toLowerCase());
 		            break;

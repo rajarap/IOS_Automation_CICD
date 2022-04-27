@@ -127,7 +127,9 @@ public class MainDevice5GHzTabPage extends ParentClass implements Page {
 //	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name=\"Device_Detail_Screen_HeaderImage_Connected\"])[1]")
 //	public MobileElement connectedDevicesExpandButton;
 	
-	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[@name=\"Device_Detail_Screen_HeaderView_Connected\"])[1]")
+//	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[@name=\"Device_Detail_Screen_HeaderView_Connected\"])[1]")
+//	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name=\"Device_Detail_Screen_HeaderImage_Connected\"])[2]")
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name=\"Device_Detail_Screen_HeaderImage_Connected\"])[1]")
 	public MobileElement connectedDevicesExpandButton;
 
 //	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name == \"Device_Detail_Screen_HeaderImage_Connected\"`][1]")
@@ -485,7 +487,7 @@ public class MainDevice5GHzTabPage extends ParentClass implements Page {
 
 						for (MobileElement e : entity) {
 							try {
-								if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Detail_Screen_Button_Device["+i+"]\"]").isDisplayed())
+								if (super.getDriver().findElementByXPath("//XCUIElementTypeImage[@name=\"Device_Detail_Screen_Image_Device["+i+"]\"]").isDisplayed())
 									utils.log().info("Device Image is displayed");
 							} catch (Exception exp) {
 								utils.log().info("Device Image is not displayed ");	}
@@ -564,6 +566,7 @@ public class MainDevice5GHzTabPage extends ParentClass implements Page {
 							super.swipeConnectedDevices(Direction.UP);
 					}
 					super.swipeDown();
+					super.pause(5);
 					click(connectedDevicesExpandButton);
 					return true;
 				} else {

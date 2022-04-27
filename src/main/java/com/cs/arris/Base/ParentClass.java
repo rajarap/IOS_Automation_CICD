@@ -91,7 +91,7 @@ public class ParentClass
 	
 	TestUtils utils = new TestUtils();
 	public AppiumDriver<MobileElement> driver;
-	public IOSDriver<?> iosDriver;
+	public IOSDriver<MobileElement> iosDriver;
 	public DesiredCapabilities desiredCapabilities ;
 	public URL url;
 	public InputStream inputStream = null;
@@ -268,11 +268,7 @@ public class ParentClass
 
 				desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, getProps().getProperty("iOSBundleId"));
 				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 900);
-				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, getProps().getProperty("timeout"));
-				//desiredCapabilities.setCapability(MobileCapabilityType.APP, getProps().getProperty("iOSAppLocation"));
-				//desiredCapabilities.setCapability(IOSMobileCapabilityType.XCODE_ORG_ID, getProps().getProperty("xcodeOrgId"));
-				//desiredCapabilities.setCapability(IOSMobileCapabilityType.UPDATE_WDA_BUNDLEID, getProps().getProperty("updatedWDABundleId"));
-				//desiredCapabilities.setCapability(IOSMobileCapabilityType.XCODE_SIGNING_ID, getProps().getProperty("xcodeSigningId"));	
+//				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, getProps().getProperty("timeout"));
 				setDriver(new IOSDriver<MobileElement>(url, desiredCapabilities));
 				getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 				utils.log().info("iOS Driver is set to the Thread Local context " + getDriver().getPlatformName());
@@ -519,21 +515,7 @@ public class ParentClass
 	  w.click();
   }
 	  
-//	  public String getText(MobileElement e, String msg) {
-//		  String txt = null;
-//		  switch(getPlatformName()) {
-//		  case "Android":
-//			  txt = getAttribute(e, "text");
-//			  break;
-//		  case "iOS":
-//			  txt = getAttribute(e, "label");
-//			  break;
-//		  }
-//		  utils.log().info(msg + txt);
-//		  ExtentReport.getTest().log(Status.INFO, msg);
-//		  return txt;
-//	  }
-	  
+   
 //	  public MobileElement scrollToElement() 
 //	  {	  
 //			return (MobileElement) ((FindsByAndroidUIAutomator<?>) getDriver()).findElementByAndroidUIAutomator(
@@ -735,6 +717,18 @@ public class ParentClass
 			return portRuleName;
 		}
 		
+//		public void generateEmailId()
+//		{
+//			Random r = new Random();
+//			int low = 1;
+//			int high = 99999;
+//			
+//			int result = r.nextInt(high-low) + low;
+//			String temp = String.valueOf(result);
+//			utils.log().info("Mail-Id :" + "user" + temp + "@mailinator.com");
+//			mail7EmailId= "user"+ temp;
+//		}
+		
 		public void generateEmailId()
 		{
 			Random r = new Random();
@@ -743,7 +737,7 @@ public class ParentClass
 			
 			int result = r.nextInt(high-low) + low;
 			String temp = String.valueOf(result);
-			utils.log().info("Mail-Id :" + "user" + temp + "@mailinator.com");
+			utils.log().info("Mail-Id :" + "user" + temp + "@mail7.io");
 			mail7EmailId= "user"+ temp;
 		}
 		
@@ -915,7 +909,9 @@ public class ParentClass
 		            startX = (int) (size.width * 0.08);
 		            endX = (int) (size.width * 0.70);
 		            action.press(PointOption.point(184, 660)).waitAction( WaitOptions.waitOptions(Duration.ofMillis(1300)))
-		                    .moveTo(PointOption.point(184, 626)).release().perform();
+		            .moveTo(PointOption.point(184, 626)).release().perform();
+		            action.press(PointOption.point(184, 660)).waitAction( WaitOptions.waitOptions(Duration.ofMillis(1300)))
+                    .moveTo(PointOption.point(184, 626)).release().perform();
 
 		            break;
 		    }

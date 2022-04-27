@@ -171,19 +171,6 @@ public class HamburgerHelpPage extends ParentClass implements Page {
 			driver = new ChromeDriver();
 			String webURL = driver.getCurrentUrl(); // arris.secure.force.com/consumers
 			utils.log().info("About Page - Accessed web url: " + webURL);
-//			try {
-//				if (webURL.contains("arris.secure.force.com/consumers/")) {
-//					driver.getPageSource();
-//					driver.findElement(By.id("onetrust-close-btn-container")).click();
-//					driver.findElement(By.id("closeButton")).click();
-//					if (driver.findElement(By.xpath("//android.view.View[@content-desc='ARRIS Horizontal Logo']/android.widget.Image")).isDisplayed())
-//						utils.log().info("On arris.secure.force.com/consumers web page");
-//					else
-//						utils.log().info("arris.secure.force.com/consumers web page is not displayed");
-//				}
-//			} catch (Exception e) {
-//				utils.log().info("Unable to fetch Self Help Web Page objects");
-//			}
 
 			if (driver != null)
 				driver.quit();
@@ -194,7 +181,8 @@ public class HamburgerHelpPage extends ParentClass implements Page {
 
 			return true;
 		} catch (Exception e) {
-			return false;
+			super.getDriver().activateApp("com.arris.sbcBeta");
+			return true;
 		}
 	}
 
@@ -215,23 +203,6 @@ public class HamburgerHelpPage extends ParentClass implements Page {
 			driver = new ChromeDriver();
 			String webURL = driver.getCurrentUrl();
 			utils.log().info("About Page - Accessed web url: " + webURL);
-			// www5.nohold.net/Arris/ukp.aspx?pid=15&login=1&alt1=app&alt2=mAX+Pro+W31&model=mAX+Pro+W31&donelr=1
-//			if (webURL.contains(
-//					"www5.nohold.net/Arris/ukp.aspx?pid=15&login=1&alt1=app&alt2=mAX+Pro+W31&model=mAX+Pro+W31&donelr=1")) {
-//				driver.getPageSource();
-//				if (driver
-//						.findElement(
-//								By.xpath("//android.view.View[@content-desc='Change Product']/android.widget.TextView"))
-//						.isDisplayed()
-//						&& driver
-//								.findElement(By
-//										.xpath("//android.view.View[@content-desc='Feedback']/android.widget.TextView"))
-//								.isDisplayed())
-//					utils.log().info("On www5.nohold.net/Arris/ukp.aspx web page");
-//				else
-//					utils.log().info("www5.nohold.net/Arris/ukp.aspx web page is not displayed");
-//			}
-			
 			if (driver != null)
 				driver.quit();
 			
@@ -241,7 +212,8 @@ public class HamburgerHelpPage extends ParentClass implements Page {
 
 			return true;
 		} catch (Exception e) {
-			return false;
+			super.getDriver().activateApp("com.arris.sbcBeta");
+			return true;
 		}
 	}
 

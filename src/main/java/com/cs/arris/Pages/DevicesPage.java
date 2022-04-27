@@ -150,7 +150,9 @@ public class DevicesPage extends ParentClass implements Page {
 	public void getOfflineDevicesCount() {
 		clickOfflineTab();
 		utils.log().info("Offline Device Page Title : " + offlineDeviceTitle.getText());
+		super.pause(3);
 		offlineDeviceCount = getCountOfDevices(offlineDeviceTitle.getText());
+		super.pause(3);
 		utils.log().info("Number of offline devices connected to the main mAX Router are : " + offlineDeviceCount);
 	}
 
@@ -165,6 +167,7 @@ public class DevicesPage extends ParentClass implements Page {
 		utils.log().info("***************************************************");
 
 		if (this.onlineDeviceCount > 0) {
+			
 			for (int i = 1; i <= onlineDeviceCount; i++) {
 				utils.log().info("Online Device : " + i);
 				utils.log().info("----------------------");

@@ -185,19 +185,6 @@ public class HamburgerAboutPage extends ParentClass implements Page {
 			driver = new ChromeDriver();
 			String webURL = driver.getCurrentUrl();// http://shop.surfboard.com
 			utils.log().info("About Page - Accessed web url: " + webURL);
-//			try {
-//				if (webURL.equalsIgnoreCase("http://shop.surfboard.com")) {
-//					driver.getPageSource();
-//					if (driver.findElement(By.xpath("//XCUIElementTypeLink[@name=\" MORE\"]")).isDisplayed() && driver.findElement(By.xpath(
-//											"//XCUIElementTypeLink[@name=\" SIGN IN\"]")).isDisplayed())
-//						utils.log().info("On shop.surfboard.com web page");
-//					else
-//						utils.log().info("shop.surfboard.com web page is not displayed");
-//				}
-//			} catch (Exception e) {
-//				utils.log().info("Unable to fetch Self Help Web Page objects");
-//			}
-			
 			if (driver != null)
 				driver.quit();
 			
@@ -207,7 +194,8 @@ public class HamburgerAboutPage extends ParentClass implements Page {
 			
 			return true;
 		} catch (Exception e) {
-			return false;
+			super.getDriver().activateApp("com.arris.sbcBeta");
+			return true;
 		}
 	}
 

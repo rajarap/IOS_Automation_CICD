@@ -10,16 +10,15 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.pagefactory.AndroidBy;
-import io.appium.java_client.pagefactory.AndroidFindAll;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSXCUITBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import io.appium.java_client.touch.offset.PointOption;
+
 
 public class NameYourNetwokSSIDPage extends ParentClass implements Page
 {
 	public TestUtils utils = new TestUtils();
+	public TouchAction action = new TouchAction(getDriver());
 	
 	@iOSXCUITFindBy(xpath="//XCUIElementTypeButton[@name=\"BOBAHelp\"]")
 	public MobileElement helpIcon;
@@ -69,9 +68,10 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	public void clickDoneLink()
 	{
-			iosDriver = (IOSDriver<?>) super.getDriver();
+			iosDriver = (IOSDriver<MobileElement>) super.getDriver();
 			
 			try {
 				utils.log().info("Inside clickDoneLink1");
@@ -113,24 +113,32 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 //		iosDriver.hideKeyboard(iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]"));
 //		iosDriver.hideKeyboard(HideKeyboardStrategy.PRESS_KEY, "Done");
 //		super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"BOBA_Network_Connect_Screen_Button\"]").click();
+
+
 		
-		iosDriver = (IOSDriver<?>) super.getDriver();
+//		iosDriver = (IOSDriver<MobileElement>) super.getDriver();
+//		iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
+		try {
+			super.getDriver().findElement(MobileBy.iOSClassChain("**/XCUIElementTypeButton[`label == \"Done\"`]")).click();
+		} catch (Exception e) {}
 		
 		try {
-			iosDriver.hideKeyboard("Done");
-			utils.log().info("Name Your Network Page  - Clicked on Done Button iosDriver.hideKeyboard(\"Done\")");
-		}catch(Exception e) {}
+			tapDone();
+		} catch (Exception e) {}
 		
-		try {
-			iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
-			utils.log().info("Name Your Network Page  - Clicked on Done Button iosDriver.findElementByXPath(\"//XCUIElementTypeButton[@name=\\\"Done\\\"]\").click()");
-		}catch(Exception e) {}
-		
-		click(nextButton);
-		
-		utils.log().info("Name Your Network Page  - Clicked on Next Button");
 		super.pause(3);
+		click(nextButton);
+		utils.log().info("Name Your Network Page  - Clicked on Next Button");
 		
+	}
+	
+	public void tapDone()
+	{
+		int endX = 339;
+		int endY = 787;
+		PointOption p = new PointOption();
+		p.withCoordinates(endX, endY);
+		action.tap(p).perform();
 	}
 	
 	

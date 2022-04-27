@@ -85,13 +85,14 @@ public class SignupPage  extends ParentClass implements Page
 		utils.log().info("SigUp Page - Entered users last name");
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void clickSignupButton()
 	{
 		
 //		iosDriver.hideKeyboard(iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]"));
 //		iosDriver.hideKeyboard(HideKeyboardStrategy.PRESS_KEY, "Done");
 		
-		iosDriver = (IOSDriver<?>) super.getDriver();
+		iosDriver = (IOSDriver<MobileElement>) super.getDriver();
 		iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
 		click(signupButton);
 		utils.log().info("SignUp Page - Clicked on Sign Up Button");

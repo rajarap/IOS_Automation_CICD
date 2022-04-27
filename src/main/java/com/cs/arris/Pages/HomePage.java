@@ -2,6 +2,7 @@ package com.cs.arris.Pages;
 
 import java.util.Set;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -180,6 +181,9 @@ public class HomePage extends ParentClass implements Page {
 	@iOSXCUITFindBy (xpath = "//XCUIElementTypeButton[@name=\"Settings\"]")
 	public MobileElement settings;
 	
+	@iOSXCUITFindBy (iOSClassChain = "**/XCUIElementTypeButton[`label == \"Settings\"`]")
+	public MobileElement settings1;
+	
 	//Amazon Features in home page
 	
 	@iOSXCUITFindBy (iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"New Amazon Feature is available in this SW Release [Click for info]\"`]")
@@ -333,7 +337,7 @@ public class HomePage extends ParentClass implements Page {
 
 	public void getSSIDName() {
 		String ssidname = ssidName.getText();
-		utils.log().info("You are connected to your router " + ssidname + " home network....Happy Surfing");
+		utils.log().info("You are connected to your max router network " + ssidname );
 	}
 
 //	public void clickOkButton() {
@@ -858,18 +862,19 @@ public class HomePage extends ParentClass implements Page {
 			super.getDriver().activateApp("com.apple.Preferences");
 			super.swipeDown();
 				
-			if(wifiLink.isDisplayed())
-				click(wifiLink);
+			String wifiLink = "**/XCUIElementTypeStaticText[`label == \"Wi-Fi\"`]";
+			if(super.getDriver().findElement(MobileBy.iOSClassChain(wifiLink)).isDisplayed())
+				super.getDriver().findElement(MobileBy.iOSClassChain(wifiLink)).click();
+				
 			utils.log().info("Clicked on Wifi link and waiting for 15 seconds for the max network to be displayed");
 			super.pause(15);
 				
 //			String selector = "**/XCUIElementTypeCell[`label == \""+ssidentity+", Secure network, Signal strength 3 of 3 bars\"`]";
-			String selector = "**/XCUIElementTypeCell[`label == \""+ssidentity+"`]";
+			String selector = "**/XCUIElementTypeStaticText[`label == \""+ssidentity+"\"`]";
 			super.getDriver().findElement(MobileBy.iOSClassChain(selector)).click();
-			utils.log().info("Selected max network SSID : " + ssidentity);
-			super.getDriver().findElement(MobileBy.xpath("//XCUIElementTypeButton[@name=\"Settings\"]")).click();
-//			click(settings);
-			utils.log().info("Clicked on Settings link");
+			super.pause(5);
+
+			click(settings1);
 			super.getDriver().activateApp("com.arris.sbcBeta");
 		}catch(Exception e) {}
 	}
@@ -911,7 +916,7 @@ public class HomePage extends ParentClass implements Page {
 	
 	public boolean verifyLeftRouterDetails() {
 		utils.log().info("***************************");
-		utils.log().info("Details of Left Satellite  ");
+		utils.log().info("Details of Satellite  1    ");
 		utils.log().info("***************************");
 		try {
 			if (leftRouter.isDisplayed()) 
@@ -933,7 +938,7 @@ public class HomePage extends ParentClass implements Page {
 
 public boolean verifyRightRouterDetails() {
 	utils.log().info("***************************");
-	utils.log().info("Details of Right Satellite  ");
+	utils.log().info("Details of Satellite 2     ");
 	utils.log().info("***************************");
 	try {
 		if (rightRouter.isDisplayed()) 

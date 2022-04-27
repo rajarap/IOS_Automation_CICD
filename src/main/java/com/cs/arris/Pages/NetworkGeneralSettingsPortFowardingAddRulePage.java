@@ -158,9 +158,10 @@ public class NetworkGeneralSettingsPortFowardingAddRulePage extends ParentClass 
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void clickDoneLink()
 	{
-			iosDriver = (IOSDriver<?>) super.getDriver();
+			iosDriver = (IOSDriver<MobileElement>) super.getDriver();
 			
 			try {
 				String acc = "Done";
