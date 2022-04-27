@@ -133,6 +133,7 @@ public class DeviceSignalStrengthLeaderBoardPage extends ParentClass implements 
 	}
 
 
+	@SuppressWarnings("unchecked")
 	public boolean verifySignalStrengthForDevices() {
 
 			utils.log().info("                                             ");
@@ -205,6 +206,7 @@ public class DeviceSignalStrengthLeaderBoardPage extends ParentClass implements 
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public boolean verifySignalStrengthStrongToWeak() {
 
 			utils.log().info("****************************************************************");
@@ -216,7 +218,7 @@ public class DeviceSignalStrengthLeaderBoardPage extends ParentClass implements 
 			
 			size = super.getDeviceSignalStrengthCount(countOfDevices.getText());
 			utils.log().info("Bit Rate Device count is : " + size);
-			
+			super.pause(5);
 			click(signalStrengthOptions);
 			click(selectStrongToWeak);
 			
@@ -281,6 +283,7 @@ public class DeviceSignalStrengthLeaderBoardPage extends ParentClass implements 
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean verifySignalStrengthWeakToStrong() {
 
 			utils.log().info("****************************************************************");
@@ -292,7 +295,7 @@ public class DeviceSignalStrengthLeaderBoardPage extends ParentClass implements 
 			
 			size = super.getDeviceSignalStrengthCount(countOfDevices.getText());
 			utils.log().info("Bit Rate Device count is : " + size);
-			
+			super.pause(5);
 			click(signalStrengthOptions);
 			click(selectWeakToStrong);
 			

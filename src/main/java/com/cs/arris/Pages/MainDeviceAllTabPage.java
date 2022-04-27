@@ -264,16 +264,19 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 	public void getAllDevicesCount() {
 		allDevicesCount = super.getAllCountOfDevices(connectedDevicesCountText.getText());
 		utils.log().info("Number of online devices connected to the main mAX Router is : " + allDevicesCount);
+		super.pause(5);
 	}
 
 	public void get5GHzDevicesCount() {
 		fiveGHzDevicesCount = super.get5GHzCountOfDevices(fiveGhzDeviceCount.getText());
 		utils.log().info("Number of 5GHz devices connected to the main mAX Router is : " + fiveGHzDevicesCount);
+		super.pause(5);
 	}
 
 	public void get24GHzDevicesCount() {
 		twoFourGHzDevicesCount = super.get24GHzCountOfDevices(twoFourGhzDeviceCount.getText());
 		utils.log().info("Number of 2.4GHz devices connected to the main mAX Router is : " + twoFourGHzDevicesCount);
+		super.pause(5);
 	}
 	
 	public void clickLEDExpandButton()
@@ -581,6 +584,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 
 					for (MobileElement e : entity) 
 					{
+						super.pause(5);
 						try {
 							if (super.getDriver().findElementByXPath("//XCUIElementTypeImage[@name=\"Device_Detail_Screen_Image_Device["+i+"]\"]").isDisplayed())
 								utils.log().info("Device Image is displayed");
@@ -674,6 +678,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 	public boolean verifyMainRouterDetails() {
 		super.swipeUp();
 		try {
+			super.pause(5);
 			
 			click(routerDetailsButton);
 			
