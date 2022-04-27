@@ -12,6 +12,7 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import io.appium.java_client.remote.HideKeyboardStrategy;
 import io.appium.java_client.touch.offset.PointOption;
 
 
@@ -123,7 +124,15 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 		} catch (Exception e) {}
 		
 		try {
-			tapDone();
+			((IOSDriver) super.getDriver()).hideKeyboard(HideKeyboardStrategy.PRESS_KEY, "Done");
+		} catch (Exception e) {}
+		
+		
+		try {
+			tapDone1();
+			tapDone2();
+			tapDone3();
+			tapDone4();
 		} catch (Exception e) {}
 		
 		super.pause(3);
@@ -132,10 +141,37 @@ public class NameYourNetwokSSIDPage extends ParentClass implements Page
 		
 	}
 	
-	public void tapDone()
+	public void tapDone1()
 	{
 		int endX = 339;
 		int endY = 787;
+		PointOption p = new PointOption();
+		p.withCoordinates(endX, endY);
+		action.tap(p).perform();
+	}
+	
+	public void tapDone2()
+	{
+		int endX = 345;
+		int endY = 484;
+		PointOption p = new PointOption();
+		p.withCoordinates(endX, endY);
+		action.tap(p).perform();
+	}
+	
+	public void tapDone3()
+	{
+		int endX = 345;
+		int endY = 496;
+		PointOption p = new PointOption();
+		p.withCoordinates(endX, endY);
+		action.tap(p).perform();
+	}
+	
+	public void tapDone4()
+	{
+		int endX = 345;
+		int endY = 521;
 		PointOption p = new PointOption();
 		p.withCoordinates(endX, endY);
 		action.tap(p).perform();

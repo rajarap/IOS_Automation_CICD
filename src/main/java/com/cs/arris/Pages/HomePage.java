@@ -875,6 +875,7 @@ public class HomePage extends ParentClass implements Page {
 			super.pause(5);
 
 			click(settings1);
+			utils.log().info("Clicked on Settings link");
 			super.getDriver().activateApp("com.arris.sbcBeta");
 		}catch(Exception e) {}
 	}

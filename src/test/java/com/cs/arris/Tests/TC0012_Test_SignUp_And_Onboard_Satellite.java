@@ -154,6 +154,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  
 			  new SiginPage().clickSignUpButton();
 			  email = new SignupPage().getEmailAddress();  //userXXXX
+//	  new SignupPage().enterValidEmailAddress(email+"@mailinator.com");
 			  new SignupPage().enterValidEmailAddress(email+"@mail7.io");
 			  new SignupPage().enterFirstName(firstName);
 			  new SignupPage().enterLastName(lastName);
@@ -186,12 +187,12 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  new OptimizeYourNetworkPage().clickSkipOptimizeButton();
 			  new SetupHomeNetworkPage().clickNextButton();
 			  new UnPackYourBoxPage().clickNextButton();
-			  new PlugInMaxRouterPage().clickNextButton();
-			  super.pause(2);
+			  new PlugInMaxRouterPage().clickNextButton();;
+			  super.pause(3);
 			  new ConnectToBlueToothDialog().clickOkButton();
-			  super.pause(15);
+			  super.pause(60);
 			  new ConnectMaxRouterToMobileDevicePage().clickNextButton();
-			  super.pause(55);
+			  super.pause(60);
 			  new ConnectMaxRouterToInternetPage().clickNextButton();
 			  super.pause(10);
 			  new SystemFirmwareUpdatePage().clickNextButton();
@@ -202,7 +203,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  new NameYourNetwokSSIDPage().clickNextButton();
 			  super.pause(60);
 			  new ConnectionToWifiNeededPage().clickJoinButton();
-			  super.pause(30);
+			  super.pause(40);
 			  new CongratulationsPage().clickContinueButton();
 			  super.pause(5);
 			  new SetUpYourWiFiManagementPage().clickskipTutorialButton();
@@ -216,7 +217,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  new InstallAdditionalSatellitePage().clickInstallLaterButton();
 			  super.pause(5);
 			  new NetworkOptimizationDialog().clickOkButton();
-			  super.pause(40);
+			  utils.log().info("Waiting for 60 seconds");
+			  super.pause(60);
 			  
 			  try {
 				  if(new HomePage().getAppRatingDialogObject().isAt())
@@ -224,13 +226,22 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  }catch(Exception e) {}
 			  
 			  try {
-		  			if(new HomePage().cloudIcon.isDisplayed() || new HomePage().remoteAccessNotAvailableLink.isDisplayed())
-		  				new HomePage().connectToSSID(this.ssidName);
-		  			utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize on the homepage");
+		  		if(new HomePage().cloudIcon.isDisplayed()) {
+		  			new HomePage().connectToSSID(this.ssidName);
+		  			utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize");
 		  			super.pause(120);
-		  		}catch(Exception e) {};
+		  		}
+		  	 }catch(Exception e) {};
 		  		
-			  new HomePage().getSSIDName();  
+			 try {
+			  	if(new HomePage().remoteAccessNotAvailableLink.isDisplayed()) {
+			  		new HomePage().connectToSSID(this.ssidName);
+			  		utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize");
+			  		super.pause(120);
+			  	}
+			}catch(Exception e) {};
+		  		
+			new HomePage().getSSIDName();  
 
 		  }catch(Exception e) {
 			  super.pause(120);
@@ -659,7 +670,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 
 						if(new AddSatelliteCongratulationsPage().isAt()) {
 							new AddSatelliteCongratulationsPage().clickContinueButton();
-							super.pause(40);
+							super.pause(60);
 							}
 					}catch(Exception e) {
 						super.pause(10);
@@ -964,7 +975,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					try {
 						if(new AddSatelliteCongratulationsPage().isAt()) {
 							new AddSatelliteCongratulationsPage().clickContinueButton();
-							super.pause(40);
+							super.pause(60);
 							}
 					}catch(Exception e) {
 						super.pause(10);
