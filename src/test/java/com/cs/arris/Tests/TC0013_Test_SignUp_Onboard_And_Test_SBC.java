@@ -1112,6 +1112,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			@Test(priority = 44, dependsOnMethods = { "Verify_SignUp_And_Onboard"})
 			public void Verify_Main_Device_UI_On_5GHz_Tab_Page() {
 				SoftAssert softmain11 = new SoftAssert();		
+				super.swipeDown();
+				super.pause(5);	
 				softmain11.assertTrue(new MainDeviceAllTabPage().click5GhzTab());
 				
 				softmain11.assertAll();
@@ -1137,6 +1139,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			@Test(priority = 53, dependsOnMethods = { "Verify_SignUp_And_Onboard"})
 			public void Verify_Main_Device_UI_On_24GHz_Tab_Page() {
 				SoftAssert softmain20 = new SoftAssert();
+				super.swipeDown();
+				super.pause(5);	
 				softmain20.assertTrue(new MainDeviceAllTabPage().click24GhzTab());
 
 				softmain20.assertAll();
@@ -1161,6 +1165,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			@Test(priority = 62, dependsOnMethods = { "Verify_SignUp_And_Onboard"})
 			public void Verify_Main_Device_UI_On_Ethernet_Tab_Page() {
 				SoftAssert softmain29 = new SoftAssert();
+				super.swipeDown();
+				super.pause(5);	
 				softmain29.assertTrue(new MainDeviceAllTabPage().clickEthernetTab());	
 				softmain29.assertAll();
 			}

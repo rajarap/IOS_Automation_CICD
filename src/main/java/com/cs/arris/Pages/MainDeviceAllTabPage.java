@@ -573,11 +573,13 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 			if (allDevicesCount > 0) {
 				
 				click(connectedDevicesExpandButton);
+				
 							
 				for (int i = 1; i <= allDevicesCount; i++) 
 				{
 					utils.log().info("Connected Device  : " + i);
 					utils.log().info("--------------------------");
+					super.pause(5);
 					
 					List<MobileElement> entity = (List<MobileElement>) super.getDriver().findElementsByXPath(
 					"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");

@@ -482,7 +482,6 @@ public class ParentClass
 	  }
 	   
 	  public void click(MobileElement e) {
-		  refreshElement(e);
 		  waitForVisibility(e);
 		  e.click();
 	  }

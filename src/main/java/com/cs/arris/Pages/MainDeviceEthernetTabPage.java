@@ -469,6 +469,7 @@ public boolean verifyUIOnLedSettings() {
 					
 					utils.log().info("Connected Device  : " + i);
 					utils.log().info("--------------------------");
+					super.pause(5);	
 					
 					List<MobileElement> entity = (List<MobileElement>) super.getDriver().findElementsByXPath(
 					"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
