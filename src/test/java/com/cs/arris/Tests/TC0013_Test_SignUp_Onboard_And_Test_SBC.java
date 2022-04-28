@@ -253,25 +253,12 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  new SystemFirmwareUpdatePage().clickNextButton();
 			  super.pause(30);
 			  new SomethingWentWrongPage().clickContinueButton();
-			  
-			  try {
-				  new NameYourNetwokSSIDPage().enterSSIDName(this.ssidName);
-				  new NameYourNetwokSSIDPage().enterSSIDPassword(this.ssidpass);
-				  new NameYourNetwokSSIDPage().clickNextButton();
-				  super.pause(60);
-				  new ConnectionToWifiNeededPage().clickJoinButton();
-				  super.pause(40);
-
-			  }catch(Exception e) {
-				  new TapSevenTimes().tapSeven();
-				  super.pause(5);
-				  new SevenTapEmail().enterEmailAddress();
-				  super.pause(5);
-				  new SevenTapEmail().clickSendButton();
-				  Assert.fail("Main AP Onboarding - Unable to create your max network. This may be due to poor internet connection or issue in the app.");
-				  new KillAndRelaunchApp().killApp();
-			  }
-			  
+			  new NameYourNetwokSSIDPage().enterSSIDName(this.ssidName);
+			  new NameYourNetwokSSIDPage().enterSSIDPassword(this.ssidpass);
+			  new NameYourNetwokSSIDPage().clickNextButton();
+			  super.pause(60);
+			  new ConnectionToWifiNeededPage().clickJoinButton();
+			  super.pause(60);
 			  new CongratulationsPage().clickContinueButton();
 			  super.pause(5);
 			  new SetUpYourWiFiManagementPage().clickskipTutorialButton();
