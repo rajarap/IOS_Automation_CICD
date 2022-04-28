@@ -163,13 +163,13 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  new GetStartedPage().clickGetStartedButton();
 			  new GrantPermissionsPage().clickContinueButton();
 			  new DeviceLocationPage().clickAllowWhileUsingAppLink();
-			  super.pause(5);
+			  super.pause(3);
 			  new AccessResourcesOnDevicePage().clickOkButton();
 			  new SelectYourDevicePage().selectSurfboardMaxOption();
 			  new SelectYourDevicePage().clickNextButton();
 			  new SelectYourDevicePage2().selectMaxProAX11000RadioButton();
 			  new SelectYourDevicePage2().clickNextButton();
-			  super.pause(5);
+			  super.pause(3);
 			  
 			  new SiginPage().clickSignUpButton();
 			  email = new SignupPage().getEmailAddress();  //userXXXX
@@ -181,11 +181,14 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  super.pause(5);
 			  new SignupPage().clickAgreeTermsAndConditionsCheckBox();
 			  super.pause(5);
-			  if(new TermsAndConditionsPage().isAt()) {
+			  if(new TermsAndConditionsPage().isAt()) 
+			  {
 				for(int i=1; i<=5; i++) {
 					super.swipeUp();
 				}
-				  if(new TermsAndConditionsPage().understandAndAgreeButton.isEnabled()) {
+				try {
+					if(new TermsAndConditionsPage().understandAndAgreeButton.isEnabled()) 
+					{
 						new TermsAndConditionsPage().clickUnderstandAndAgreeButton();
 						super.pause(3);
 			            new SignupPage().clickSignupButton();	
@@ -203,23 +206,45 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						 new CodeVerifiedPage().getCodeVerifiedText();
 						 new CodeVerifiedPage().clickNextButton();
 				  }
+				}catch(Exception e) {
+					  super.pause(120);
+					  new TapSevenTimes().tapSeven();
+					  super.pause(5);
+					  new SevenTapEmail().enterEmailAddress();
+					  super.pause(5);
+					  new SevenTapEmail().clickSendButton();
+					  Assert.fail("Main AP Onboarding -Failed to retrieve OTP.  This may be due to non-acceissiblity of 3rd party website or may be due to non-availability of internet connection");
+					  new KillAndRelaunchApp().killApp();}
 			  }
+
 			  new OptimizeYourNetworkPage().clickSkipOptimizeButton();
 			  new SetupHomeNetworkPage().clickNextButton();
 			  new UnPackYourBoxPage().clickNextButton();
+			  
 			  try {
 				  new PlugInMaxRouterPage().clickNextButton();
 				  super.pause(3);
 				  new ConnectToBlueToothDialog().clickOkButton();
 				  super.pause(60);
-				  
+				  		  
 				  try {
 					  if(new BlueToothConnectionFailedPage().isAt()) {
 						  new BlueToothConnectionFailedPage().clickTryAgainbutton();
 						  super.pause(60);
 					  }
 				  }catch(Exception e) {}
-			  }catch(Exception e) {}
+				  
+			  }catch(Exception e) {
+				  super.pause(120);
+				  new TapSevenTimes().tapSeven();
+				  super.pause(5);
+				  new SevenTapEmail().enterEmailAddress();
+				  super.pause(5);
+				  new SevenTapEmail().clickSendButton();
+				  Assert.fail("Main AP Onboarding - Either multiple devices were found or blue tooth connection failed");
+				  new KillAndRelaunchApp().killApp();
+			  }
+
 
 			  new ConnectMaxRouterToMobileDevicePage().clickNextButton();
 			  super.pause(60);
@@ -228,12 +253,24 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  new SystemFirmwareUpdatePage().clickNextButton();
 			  super.pause(30);
 			  new SomethingWentWrongPage().clickContinueButton();
-			  new NameYourNetwokSSIDPage().enterSSIDName(this.ssidName);
-			  new NameYourNetwokSSIDPage().enterSSIDPassword(this.ssidpass);
-			  new NameYourNetwokSSIDPage().clickNextButton();
-			  super.pause(60);
-			  new ConnectionToWifiNeededPage().clickJoinButton();
-			  super.pause(40);
+			  try {
+				  new NameYourNetwokSSIDPage().enterSSIDName(this.ssidName);
+				  new NameYourNetwokSSIDPage().enterSSIDPassword(this.ssidpass);
+				  new NameYourNetwokSSIDPage().clickNextButton();
+				  super.pause(60);
+				  new ConnectionToWifiNeededPage().clickJoinButton();
+				  super.pause(40);
+
+			  }catch(Exception e) {
+				  new TapSevenTimes().tapSeven();
+				  super.pause(5);
+				  new SevenTapEmail().enterEmailAddress();
+				  super.pause(5);
+				  new SevenTapEmail().clickSendButton();
+				  Assert.fail("Main AP Onboarding - Unable to create your max network. This may be due to poor internet connection or issue in the app.");
+				  new KillAndRelaunchApp().killApp();
+			  }
+			  
 			  new CongratulationsPage().clickContinueButton();
 			  super.pause(5);
 			  new SetUpYourWiFiManagementPage().clickskipTutorialButton();
@@ -258,16 +295,16 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  try {
 		  		if(new HomePage().cloudIcon.isDisplayed()) {
 		  			new HomePage().connectToSSID(this.ssidName);
-		  			utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize");
-		  			super.pause(120);
+		  			utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
+		  			super.pause(60);
 		  		}
 		  	 }catch(Exception e) {};
 		  		
 			 try {
 			  	if(new HomePage().remoteAccessNotAvailableLink.isDisplayed()) {
 			  		new HomePage().connectToSSID(this.ssidName);
-			  		utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize");
-			  		super.pause(120);
+			  		utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
+			  		super.pause(60);
 			  	}
 			}catch(Exception e) {};
 		  		
