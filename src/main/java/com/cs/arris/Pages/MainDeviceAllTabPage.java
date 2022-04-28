@@ -364,6 +364,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 	public boolean click5GhzTab() {
 		if (fiveGhzTab.isDisplayed()) {
 			click(fiveGhzTab);
+			click(fiveGhzTab);
 			utils.log().info("Clicked on 5GHz tab ");
 			return true;
 		} else {
@@ -375,6 +376,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 	public boolean click24GhzTab() {
 		if (twentyFourGhzTab.isDisplayed()) {
 			click(twentyFourGhzTab);
+			click(twentyFourGhzTab);
 			utils.log().info("Clicked on 2.4GHz tab ");
 			return true;
 		} else {
@@ -385,6 +387,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 
 	public boolean clickEthernetTab() {
 		if (ethernetTab.isDisplayed()) {
+			click(ethernetTab);
 			click(ethernetTab);
 			utils.log().info("Clicked on Ethernet tab ");
 			return true;
@@ -829,7 +832,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 		        getDriver().executeScript("mobile:swipe", scrollObject);
 		        Thread.sleep(ANIMATION_TIME); 
 		    } catch (Exception e) {
-		        System.err.println("mobileSwipeElementIOS(): FAILED\n" + e.getMessage());
+		       // System.err.println("mobileSwipeElementIOS(): FAILED\n" + e.getMessage());
 		    }
 		}
 	

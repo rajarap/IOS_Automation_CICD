@@ -734,6 +734,18 @@ public class ParentClass
 //			mail7EmailId= "user"+ temp;
 //		}
 		
+//		public void generateEmailId()
+//		{
+//			Random r = new Random();
+//			int low = 1;
+//			int high = 99999;
+//			
+//			int result = r.nextInt(high-low) + low;
+//			String temp = String.valueOf(result);
+//			utils.log().info("Mail-Id :" + "user" + temp + "@mail7.io");
+//			mail7EmailId= "user"+ temp;
+//		}
+		
 		public void generateEmailId()
 		{
 			Random r = new Random();
@@ -742,7 +754,7 @@ public class ParentClass
 			
 			int result = r.nextInt(high-low) + low;
 			String temp = String.valueOf(result);
-			utils.log().info("Mail-Id :" + "user" + temp + "@mail7.io");
+			utils.log().info("Mail-Id :" + "auser" + temp + "@mailsac.com");
 			mail7EmailId= "user"+ temp;
 		}
 		

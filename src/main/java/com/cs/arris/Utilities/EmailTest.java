@@ -18,33 +18,33 @@ public class EmailTest extends ParentClass{
 	public String otpCode;
 		
 	//mail7.io
-	public String getValidOTP(String emailId) 
-	{
-		utils.log().info("Get Valid OTP for : " + emailId);
-		 
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-			  
-		driver.manage().window().maximize();
-		super.pause(5);
-		driver.get("https://mail7.io");
-		super.pause(5);
-		driver.findElement(By.xpath("/html/body/main/section[2]/div/form/div[1]/input[1]")).sendKeys(emailId); 
-		super.pause(5);
-		driver.findElement(By.xpath("/html/body/main/section[2]/div/form/div[1]/input[2]")).click();  //Go to inbox
-		super.pause(5);
-		driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div/div/div/div/main/div/div/ul[2]/li/div[2]/div[1]/b")).click();
-		super.pause(5);
-		driver.switchTo().frame(0);
-		content = driver.findElement(By.xpath("/html/body")).getText(); 
-		driver.switchTo().defaultContent();
-		driver.findElement(By.xpath("//*[@id=\"message\"]/div[1]/a/div/span")).click();
-	    otpCode = getOTPCode(content);
-		super.pause(3);
-		utils.log().info("OTP CODE : " + otpCode);
-		driver.close();
-		return otpCode;
-	}
+//	public String getValidOTP(String emailId) 
+//	{
+//		utils.log().info("Get Valid OTP for : " + emailId);
+//		 
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver();
+//			  
+//		driver.manage().window().maximize();
+//		super.pause(5);
+//		driver.get("https://mail7.io");
+//		super.pause(5);
+//		driver.findElement(By.xpath("/html/body/main/section[2]/div/form/div[1]/input[1]")).sendKeys(emailId); 
+//		super.pause(5);
+//		driver.findElement(By.xpath("/html/body/main/section[2]/div/form/div[1]/input[2]")).click();  //Go to inbox
+//		super.pause(5);
+//		driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div/div/div/div/main/div/div/ul[2]/li/div[2]/div[1]/b")).click();
+//		super.pause(5);
+//		driver.switchTo().frame(0);
+//		content = driver.findElement(By.xpath("/html/body")).getText(); 
+//		driver.switchTo().defaultContent();
+//		driver.findElement(By.xpath("//*[@id=\"message\"]/div[1]/a/div/span")).click();
+//	    otpCode = getOTPCode(content);
+//		super.pause(3);
+//		utils.log().info("OTP CODE : " + otpCode);
+//		driver.close();
+//		return otpCode;
+//	}
 		//Mailinator
 //		public String getValidOTP(String emailId) 
 //		{
@@ -73,6 +73,35 @@ public class EmailTest extends ParentClass{
 //			driver.close();
 //			return otpCode;
 //		}
+		
+		//Mailsac
+		public String getValidOTP(String emailId) 
+		{
+			utils.log().info("Get Valid OTP for : " + emailId);
+			 
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+				  
+			driver.manage().window().maximize();
+			super.pause(5);
+			driver.get("https://mailsac.com/");
+			super.pause(2);
+			driver.findElement(By.xpath("/html/body/div/div[3]/div[1]/div[2]/div/input[1]")).sendKeys(emailId);
+			super.pause(2);
+			driver.findElement(By.xpath("/html/body/div/div[3]/div[1]/div[2]/div/button")).click(); //Check the mail button
+			super.pause(5);
+			driver.findElement(By.xpath("/html/body/div/div[3]/div[1]/div/div[2]/div/table/tbody/tr[2]/td[3]/strong")).click();
+			super.pause(5);
+			//driver.switchTo().frame("html_msg_body");
+			content = driver.findElement(By.xpath("/html/body/div/div[3]/div[1]/div/div[2]/div/table/tbody/tr[2]/td[2]/div[2]")).getText(); 
+			driver.switchTo().defaultContent();
+			driver.findElement(By.xpath("/html/body/div/div[3]/div[1]/div/div[2]/div/table/tbody/tr[2]/td[2]/div[1]/button[1]")).click(); //delete the mail
+		    otpCode = getOTPCode(content);
+			super.pause(3);
+			utils.log().info("OTP CODE : " + otpCode);
+			driver.close();
+			return otpCode;
+		}
 				  
 		private String getOTPCode(String content) 
 		{
