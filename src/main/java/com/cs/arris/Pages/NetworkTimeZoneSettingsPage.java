@@ -233,52 +233,52 @@ public class NetworkTimeZoneSettingsPage extends ParentClass implements Page {
 			if (midwayIslandLabel.isDisplayed())
 				utils.log().info("Midway Island, Samoa (GMT-11:00) option is displayed");
 
-			if (midwayIslandCheckBox.isDisplayed())
-				utils.log().info("Midway Island, Samoa (GMT-11:00) checkbox is displayed");
+//			if (midwayIslandCheckBox.isDisplayed())
+//				utils.log().info("Midway Island, Samoa (GMT-11:00) checkbox is displayed");
 
 			if (hawaiiLabel.isDisplayed())
 				utils.log().info("Hawaii (GMT-10:00) option is displayed");
 
-			if (hawaiiCheckBox.isDisplayed())
-				utils.log().info("Hawaii (GMT-10:00) checkbox is displayed");
+//			if (hawaiiCheckBox.isDisplayed())
+//				utils.log().info("Hawaii (GMT-10:00) checkbox is displayed");
 
 			if (alaskaLabel.isDisplayed())
 				utils.log().info("Alaska (GMT-09:00) option is displayed");
 
-			if (alaskaCheckBox.isDisplayed())
-				utils.log().info("Alaska (GMT-09:00) checkbox is displayed");
+//			if (alaskaCheckBox.isDisplayed())
+//				utils.log().info("Alaska (GMT-09:00) checkbox is displayed");
 
 			if (pacificLabel.isDisplayed())
 				utils.log().info("Pacific Time, Tijuana (GMT-08:00) option is displayed");
 
-			if (pacificCheckBox.isDisplayed())
-				utils.log().info("Pacific Time, Tijuana (GMT-08:00) checkbox is displayed");
+//			if (pacificCheckBox.isDisplayed())
+//				utils.log().info("Pacific Time, Tijuana (GMT-08:00) checkbox is displayed");
 
 			if (mountainTimeLabel.isDisplayed())
 				utils.log().info("Mountain Time (GMT-07:00) option is displayed");
 
-			if (mountainTimeCheckBox.isDisplayed())
-				utils.log().info("Mountain Time (GMT-07:00) checkbox is displayed");
+//			if (mountainTimeCheckBox.isDisplayed())
+//				utils.log().info("Mountain Time (GMT-07:00) checkbox is displayed");
 
 			if (centralTimeLabel.isDisplayed())
 				utils.log().info("Central Time (GMT-06:00) option is displayed");
 			
 			super.swipeUp();
 
-			if (centralTimeCheckBox.isDisplayed())
-				utils.log().info("Central Time (GMT-06:00) checkbox is displayed");
+//			if (centralTimeCheckBox.isDisplayed())
+//				utils.log().info("Central Time (GMT-06:00) checkbox is displayed");
 
 			if (easternTimeLabel.isDisplayed())
 				utils.log().info("Eastern Time (GMT-05:00) option is displayed");
 
-			if (easternTimeCheckBox.isDisplayed())
-				utils.log().info("Eastern Time (GMT-05:00) checkbox is displayed");
+//			if (easternTimeCheckBox.isDisplayed())
+//				utils.log().info("Eastern Time (GMT-05:00) checkbox is displayed");
 
 			if (atlanticLabel.isDisplayed())
 				utils.log().info("Atlantic Time (GMT-04:00) option is displayed");
 
-			if (atlanticCheckBox.isDisplayed())
-				utils.log().info("Atlantic Time (GMT-04:00) checkbox is displayed");
+//			if (atlanticCheckBox.isDisplayed())
+//				utils.log().info("Atlantic Time (GMT-04:00) checkbox is displayed");
 
 			return true;
 		} catch (Exception e) {

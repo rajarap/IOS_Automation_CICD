@@ -78,13 +78,13 @@ public class HomeSpeedTestHistoryPage extends ParentClass implements Page
 						utils.log().info("Device Name : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_Phone["+i+"]\"]").getText());
 						utils.log().info("Router Name : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_Device["+i+"]\"]").getText());
 						utils.log().info("Internet Name : "	+ super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_Internet["+i+"]\"]").getText());
-						utils.log().info("Wifi Download Text : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_PhoneDownloadTitle["+i+"]\"]").getText());
+					//	utils.log().info("Wifi Download Text : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_PhoneDownloadTitle["+i+"]\"]").getText());
 						utils.log().info("Wifi Download Speed: " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_PhoneDownload["+i+"]\"]").getText());
-						utils.log().info("Wifi Upload Text : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_PhoneUploadTitle["+i+"]\"]").getText());
+					//	utils.log().info("Wifi Upload Text : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_PhoneUploadTitle["+i+"]\"]").getText());
 						utils.log().info("Wifi Upload Speed: " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_PhoneUpload["+i+"]\"]").getText());
-						utils.log().info("Internet Download Text : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_InternetDownloadTitle["+i+"]\"]").getText());
+					//	utils.log().info("Internet Download Text : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_InternetDownloadTitle["+i+"]\"]").getText());
 						utils.log().info("Internet Download Speed: " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_InternetDownload["+i+"]\"]").getText());
-						utils.log().info("Internet Upload Text	: " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_InternetUploadTitle["+i+"]\"]").getText());
+					//	utils.log().info("Internet Upload Text	: " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_InternetUploadTitle["+i+"]\"]").getText());
 						utils.log().info("Internet Upload Speed : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Speed_History_Screen_Label_InternetUpload["+i+"]\"]").getText());
 						
 						utils.log().info("************************************");

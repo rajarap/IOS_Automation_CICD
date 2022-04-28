@@ -589,7 +589,6 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 
 					for (MobileElement e : entity) 
 					{
-						super.pause(5);
 						try {
 							if (super.getDriver().findElementByXPath("//XCUIElementTypeImage[@name=\"Device_Detail_Screen_Image_Device["+i+"]\"]").isDisplayed())
 								utils.log().info("Device Image is displayed");
@@ -670,7 +669,6 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 						super.swipeConnectedDevices(Direction.UP);
 				}
 				super.swipeDown();
-				super.pause(5);
 				click(connectedDevicesExpandButton);
 				return true;
 			} else {

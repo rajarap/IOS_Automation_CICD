@@ -450,7 +450,7 @@ public class ParentClass
 		  Wait<WebDriver> wait = new FluentWait<WebDriver>(getDriver())
 		  .withTimeout(Duration.ofSeconds(120))
 		  .pollingEvery(Duration.ofSeconds(3))
-		  .ignoring(NoSuchElementException.class);
+		  .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
 		  
 		  wait.until(ExpectedConditions.visibilityOf(e));
 		  }
