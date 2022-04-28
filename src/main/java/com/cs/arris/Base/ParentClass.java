@@ -266,10 +266,8 @@ public class ParentClass
 				desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, getProps().getProperty("iOSPlatformVersion"));
 				desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, getProps().getProperty("iOSAutomationName"));
 				desiredCapabilities.setCapability(MobileCapabilityType.UDID, getProps().getProperty("iOSUDID"));
-
 				desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, getProps().getProperty("iOSBundleId"));
 				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 900);
-//		desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, getProps().getProperty("timeout"));
 				setDriver(new IOSDriver<MobileElement>(url, desiredCapabilities));
 				getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 				getDriver().manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
@@ -484,6 +482,7 @@ public class ParentClass
 	  }
 	   
 	  public void click(MobileElement e) {
+		  refreshElement(e);
 		  waitForVisibility(e);
 		  e.click();
 	  }
@@ -516,6 +515,11 @@ public class ParentClass
 	  waitForVisibility(w);
 	  w.click();
   }
+	  
+	  public void refreshElement(MobileElement e) {
+		  Wait<WebDriver> wait = new WebDriverWait(getDriver(), 30);
+		  wait.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf(e)));
+	  }
 	  
    
 //	  public MobileElement scrollToElement() 

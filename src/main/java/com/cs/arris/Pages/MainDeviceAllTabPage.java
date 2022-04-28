@@ -807,7 +807,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 		public void mobileSwipeSeekBar(Direction dir) {
 		    final int ANIMATION_TIME = 200; // ms
 		    final HashMap<String, String> scrollObject = new HashMap<String, String>();
-		    MobileElement element = (MobileElement) getDriver().findElement(MobileBy.iOSClassChain("**/XCUIElementTypeSlider[`name == \"Device_Detail_Screen_Slider\"`]"));
+		    MobileElement element = (MobileElement) super.getDriver().findElement(MobileBy.iOSClassChain("**/XCUIElementTypeSlider[`name == \"Device_Detail_Screen_Slider\"`]"));
 		    switch (dir) {
 		        case LEFT: 
 			            action.press(PointOption.point(286, 449)).waitAction( WaitOptions.waitOptions(Duration.ofMillis(1300)))
