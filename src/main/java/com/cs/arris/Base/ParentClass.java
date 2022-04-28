@@ -267,9 +267,9 @@ public class ParentClass
 				desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, getProps().getProperty("iOSAutomationName"));
 				desiredCapabilities.setCapability(MobileCapabilityType.UDID, getProps().getProperty("iOSUDID"));
 				desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, getProps().getProperty("iOSBundleId"));
-				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 900);
+				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 300);
 				setDriver(new IOSDriver<MobileElement>(url, desiredCapabilities));
-				getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+				getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				getDriver().manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 				utils.log().info("iOS Driver is set to the Thread Local context " + getDriver().getPlatformName());
 				utils.log().info(getPlatformName() + " driver initialized: "); 
