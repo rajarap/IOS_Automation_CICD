@@ -25,6 +25,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -270,7 +271,7 @@ public class ParentClass
 				desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 900);
 //		desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, getProps().getProperty("timeout"));
 				setDriver(new IOSDriver<MobileElement>(url, desiredCapabilities));
-				getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+				getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 				getDriver().manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 				utils.log().info("iOS Driver is set to the Thread Local context " + getDriver().getPlatformName());
 				utils.log().info(getPlatformName() + " driver initialized: "); 
@@ -451,8 +452,8 @@ public class ParentClass
 		  Wait<WebDriver> wait = new FluentWait<WebDriver>(getDriver())
 		  .withTimeout(Duration.ofSeconds(120))
 		  .pollingEvery(Duration.ofSeconds(3))
-		  .ignoring(NoSuchElementException.class);
-
+		  .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
+		  
 		  wait.until(ExpectedConditions.visibilityOf(e));
 		  }
 	  
