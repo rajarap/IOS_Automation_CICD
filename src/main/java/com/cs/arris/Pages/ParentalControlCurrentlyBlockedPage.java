@@ -73,6 +73,7 @@ public class ParentalControlCurrentlyBlockedPage extends ParentClass implements 
 				"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
 				
 				for (MobileElement e : entity) {
+					super.pause(5);
 						if (super.getDriver().findElementByXPath("//XCUIElementTypeImage[@name=\"Parental_Control_Screen_Image_BlockedProfile["+i+"]\"]").isDisplayed()) {
 							utils.log().info("Profile Image is displayed");
 					} else {

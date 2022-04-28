@@ -54,6 +54,7 @@ public class HomeSpeedTestHistoryPage extends ParentClass implements Page
 	     return speedTestPage;
 	  }
 	 
+		@SuppressWarnings("unchecked")
 		public boolean verifyHomeSpeedTestHistory() {
 			try {
 				utils.log().info("                                     ");
@@ -68,6 +69,7 @@ public class HomeSpeedTestHistoryPage extends ParentClass implements Page
 					"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
 					
 					for (MobileElement m : entity) {
+						super.pause(5);
 						utils.log().info("                         ");
 						utils.log().info("Speed Test History : " + i);
 						utils.log().info("-------------------------");

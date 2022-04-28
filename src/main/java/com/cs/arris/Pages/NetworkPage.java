@@ -281,6 +281,7 @@ public class NetworkPage extends ParentClass implements Page {
 	}
 
 	public boolean clickTestConnectionSpeedButton() {
+		super.pause(5);
 		if (testMyConnectionSpeedButton.isDisplayed()) {
 			click(testMyConnectionSpeedButton);
 			utils.log().info("Clicked on Test Your Connection Speed button");
