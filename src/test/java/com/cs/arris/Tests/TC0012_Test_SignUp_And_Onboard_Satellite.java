@@ -768,7 +768,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						  new KillAndRelaunchApp().relaunchApp();
 						  super.pause(20);
 					}
-
+					super.pause(10);
 					new HomePage().verifyLeftRouterDetails();
 
 					softsatellite1.assertAll();
@@ -1096,6 +1096,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						  super.pause(20);
 					}
 
+					super.pause(10);
 					new HomePage().verifyRightRouterDetails();
 
 					softsatellite2.assertAll();

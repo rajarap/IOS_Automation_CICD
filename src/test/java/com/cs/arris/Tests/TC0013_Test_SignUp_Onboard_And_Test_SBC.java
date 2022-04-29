@@ -2828,6 +2828,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								  super.pause(20);
 							}
 
+							super.pause(10);
 							new HomePage().verifyLeftRouterDetails();
 
 							softsatellite1.assertAll();
@@ -3155,6 +3156,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								  super.pause(20);
 							}
 
+							super.pause(10);
 							new HomePage().verifyRightRouterDetails();
 
 							softsatellite2.assertAll();
