@@ -70,6 +70,7 @@ import com.cs.arris.Pages.HomeSpeedTestHistoryPage;
 import com.cs.arris.Pages.InstallAdditionalSatellitePage;
 import com.cs.arris.Pages.MailErrorLogsPage;
 import com.cs.arris.Pages.MainDeviceAllTabPage;
+import com.cs.arris.Pages.MultipleDevicesFoundPage;
 //import com.cs.arris.Pages.MaximumVerificationReachedPage;
 import com.cs.arris.Pages.NameYourNetwokSSIDPage;
 import com.cs.arris.Pages.NetworkOptimizationDialog;
@@ -2398,8 +2399,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								if(new AddSatelliteAddNewSatellitePage1().isAt()) 
 								{
 									new AddSatelliteAddNewSatellitePage1().clickNextButton();// Each satellite expands your network
-									utils.log().info("Waiting for 60 seconds ");
-									super.pause(60);
+									super.pause(25);
+//									utils.log().info("Waiting for 60 seconds ");
+//									super.pause(60);
 									
 									try
 									{
@@ -2445,30 +2447,29 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								if(new AddSatelliteAddNewSatellitePage2().isAt()) 
 								{											
 									new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
-									utils.log().info("Waiting for 60 seconds ");
-									super.pause(60);
+									super.pause(25);
 								}
 									
-								try {
-									if(new AddSatelliteOperationFailedPage4().isAt()) {
-									//	utils.log().info("Adding Satellite operation failed");
-										utils.log().info("Trying to re-establish connection with max router network");
-										new HomePage().connectToSSID(this.ssidName);
-										utils.log().info("Waiting for 120 seconds to establish a connection with the max router network");
-							  			super.pause(120);
-									}
-								}catch(Exception e) {
-									super.pause(5);
-									new TapSevenTimes().tapSeven();
-									super.pause(3);
-									new SevenTapEmail().enterEmailAddress();
-									super.pause(3); 
-									new SevenTapEmail().clickSendButton();
-									  new KillAndRelaunchApp().killApp();
-									  super.pause(5);
-									  new KillAndRelaunchApp().relaunchApp();
-									  super.pause(20);
-								}
+//								try {
+//									if(new AddSatelliteOperationFailedPage4().isAt()) {
+//									//	utils.log().info("Adding Satellite operation failed");
+//										utils.log().info("Trying to re-establish connection with max router network");
+//										new HomePage().connectToSSID(this.ssidName);
+//										utils.log().info("Waiting for 120 seconds to establish a connection with the max router network");
+//							  			super.pause(120);
+//									}
+//								}catch(Exception e) {
+//									super.pause(5);
+//									new TapSevenTimes().tapSeven();
+//									super.pause(3);
+//									new SevenTapEmail().enterEmailAddress();
+//									super.pause(3); 
+//									new SevenTapEmail().clickSendButton();
+//									  new KillAndRelaunchApp().killApp();
+//									  super.pause(5);
+//									  new KillAndRelaunchApp().relaunchApp();
+//									  super.pause(20);
+//								}
 								
 
 								try	{
@@ -2510,10 +2511,13 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								super.waitForVisibility(new AddSatelliteAddNewSatellitePage3().nextButton);
 								
 								if(new AddSatelliteAddNewSatellitePage3().isAt()) 
-								{  									
+								{  		
+									utils.log().info("Trying to re-establish connection with max router network");
+									new HomePage().connectToSSID(this.ssidName);
+									utils.log().info("Waiting for 120 seconds to establish a connection with the max router network");
+						  			super.pause(120);
 									new AddSatelliteAddNewSatellitePage3().clickNextButton(); //To continue with satellite install, please connect to arris-5550 network. Please connect through the WiFi settings of your mobile device.
-									utils.log().info("Waiting for 60 seconds");
-					  				super.pause(60);
+					  				super.pause(25);
 								}
 					  				
 					  			try {
@@ -2622,6 +2626,13 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 									utils.log().info("Waiting for 120 seconds to establish connection with your max router bluetooth");
 									super.pause(120);
 								}
+								
+								//Add code for multiple devices found
+								try {
+									if(new MultipleDevicesFoundPage().isAt()) {
+										Assert.fail("Main AP Onboarding - Multiple devices were found");
+									}
+								} catch (Exception e5) {}
 								
 								try	{
 									if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
