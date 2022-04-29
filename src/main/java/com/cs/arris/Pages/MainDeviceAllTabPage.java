@@ -669,6 +669,7 @@ public class MainDeviceAllTabPage extends ParentClass implements Page {
 						super.swipeConnectedDevices(Direction.UP);
 				}
 				super.swipeDown();
+				super.pause(5);
 				click(connectedDevicesExpandButton);
 				return true;
 			} else {

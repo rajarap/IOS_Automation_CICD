@@ -920,10 +920,10 @@ public class HomePage extends ParentClass implements Page {
 		utils.log().info("***************************");
 		utils.log().info("Details of Satellite  1    ");
 		utils.log().info("***************************");
-		try {
-			if (leftRouter.isDisplayed()) 
-				utils.log().info("Left Router Image is displayed");
-		}catch(Exception e) {utils.log().info("Left Router Image is not displayed");} 
+//		try {
+//			if (leftRouter.isDisplayed()) 
+//				utils.log().info("Left Router Image is displayed");
+//		}catch(Exception e) {utils.log().info("Left Router Image is not displayed");} 
 		
 		try {
 			if (leftRouterName.isDisplayed()) 
@@ -942,10 +942,10 @@ public boolean verifyRightRouterDetails() {
 	utils.log().info("***************************");
 	utils.log().info("Details of Satellite 2     ");
 	utils.log().info("***************************");
-	try {
-		if (rightRouter.isDisplayed()) 
-			utils.log().info("Right Router Image is displayed");
-	}catch(Exception e) {utils.log().info("Right Router Image is not displayed");} 
+//	try {
+//		if (rightRouter.isDisplayed()) 
+//			utils.log().info("Right Router Image is displayed");
+//	}catch(Exception e) {utils.log().info("Right Router Image is not displayed");} 
 	
 	try {
 		if (rightRouterName.isDisplayed()) 
