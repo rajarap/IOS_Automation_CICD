@@ -248,24 +248,12 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  new SystemFirmwareUpdatePage().clickNextButton();
 			  super.pause(30);
 			  new SomethingWentWrongPage().clickContinueButton();
-			  try {
-				  new NameYourNetwokSSIDPage().enterSSIDName(this.ssidName);
-				  new NameYourNetwokSSIDPage().enterSSIDPassword(this.ssidpass);
-				  new NameYourNetwokSSIDPage().clickNextButton();
-				  super.pause(60);
-				  new ConnectionToWifiNeededPage().clickJoinButton();
-				  super.pause(40);
-
-			  }catch(Exception e) {
-				  new TapSevenTimes().tapSeven();
-				  super.pause(5);
-				  new SevenTapEmail().enterEmailAddress();
-				  super.pause(5);
-				  new SevenTapEmail().clickSendButton();
-				  Assert.fail("Main AP Onboarding - Unable to create your max network. This may be due to poor internet connection or issue in the app.");
-				  new KillAndRelaunchApp().killApp();
-			  }
-			  
+			  new NameYourNetwokSSIDPage().enterSSIDName(this.ssidName);
+			  new NameYourNetwokSSIDPage().enterSSIDPassword(this.ssidpass);
+			  new NameYourNetwokSSIDPage().clickNextButton();
+			  super.pause(60);
+			  new ConnectionToWifiNeededPage().clickJoinButton();
+			  super.pause(60);
 			  new CongratulationsPage().clickContinueButton();
 			  super.pause(5);
 			  new SetUpYourWiFiManagementPage().clickskipTutorialButton();
@@ -279,8 +267,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  new InstallAdditionalSatellitePage().clickInstallLaterButton();
 			  super.pause(5);
 			  new NetworkOptimizationDialog().clickOkButton();
-			  utils.log().info("Waiting for 60 seconds");
-			  super.pause(60);
+			  utils.log().info("Waiting for 120 seconds");
+			  super.pause(120);
 			  
 			  try {
 				  if(new HomePage().getAppRatingDialogObject().isAt())
@@ -290,16 +278,16 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  try {
 		  		if(new HomePage().cloudIcon.isDisplayed()) {
 		  			new HomePage().connectToSSID(this.ssidName);
-		  			utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
-		  			super.pause(60);
+		  			utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize");
+		  			super.pause(120);
 		  		}
 		  	 }catch(Exception e) {};
 		  		
 			 try {
 			  	if(new HomePage().remoteAccessNotAvailableLink.isDisplayed()) {
 			  		new HomePage().connectToSSID(this.ssidName);
-			  		utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
-			  		super.pause(60);
+			  		utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize");
+			  		super.pause(120);
 			  	}
 			}catch(Exception e) {};
 		  		
@@ -316,468 +304,317 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			  new KillAndRelaunchApp().killApp();}
 	  }
 	  
-	  @Test(priority = 2, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
-		public void Verify_Add_Device_Menu() {
-			utils.log().info("                                             ");
-			utils.log().info("*********************************************");
-			utils.log().info("Test: Hamburger Menu - Add and Remove Device ");
-			utils.log().info("*********************************************");
-			
-			SoftAssert softhome2 = new SoftAssert();
-			try{
-				new HomePage().getFooterIconsPageObject().clickHomeButton();
-			
-				if(new HomePage().isAt())
-					softhome2.assertTrue(new HomePage().clickNavigationButton());
-			
-				if(new HomePage().getHamburgerMenuPageObject().isAt())
-					softhome2.assertTrue(new HomePage().getHamburgerMenuPageObject().clickAddDeviceButton());
+		@Test(priority = 105, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
+		public void Verify_Network_Health_Page() {
+		utils.log().info("                            ");
+		utils.log().info("*****************************");
+		utils.log().info("Test: Network Health Feature ");
+		utils.log().info("*****************************");
+			SoftAssert softnetwork1 = new SoftAssert();
+			new HomePage().getFooterIconsPageObject().clickHomeButton();
+			super.pause(5);
+			softnetwork1.assertTrue(new HomePage().clickTapHereToTurnON());
+			super.pause(5);
 			try {
-				if(new AddDeviceSelectDevice1Page().isAt()) {
-					softhome2.assertTrue(new AddDeviceSelectDevice1Page().selectISPCableRadioButton());
-					softhome2.assertTrue(new AddDeviceSelectDevice1Page().clickNextButton());}
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed when selecting a device");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				if(new AppRatingDialog().isAt())
+					new AppRatingDialog().clickRemindMeLaterLink();
+			}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			
+			softnetwork1.assertTrue(new HomePage().getSkipTutorialPageObject().tapSkip());
+			
+			super.pause(5);
+			if(new HomePage().getNetworkOtptimizationPageObject().isAt()) {
+				softnetwork1.assertTrue(new HomePage().getNetworkOtptimizationPageObject().clickOptimizationIcon());
 			}
 			
-			try {
-				if(new AddDeviceSelectDevice2Page().isAt()) {
-					softhome2.assertTrue(new AddDeviceSelectDevice2Page().selectT25RadioButton());
-					softhome2.assertTrue(new AddDeviceSelectDevice2Page().clickNextButton());
-				super.pause(5);}
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed when selecting a device on  SELECT YOUR DEVICE BELOW Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+			softnetwork1.assertAll();
+		}
+		
+		@Test(priority = 106, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Network_Optimization_Settings_Page() {
+			SoftAssert softnetwork2 = new SoftAssert();
+			super.pause(5);	
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) {
+				softnetwork2.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().enableHealthOptimization());
 			}
+				
+			softnetwork2.assertAll();
+		}
+		
+		@Test(priority = 107, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Connected_Device_Signal_Strength_Sensitivity_Medium() {
+			SoftAssert softnetwork3 = new SoftAssert();
+			super.swipeDown();
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				softnetwork3.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickConnectedDeviceSignalButton());
 			
-			try {
-				if(new AddDeviceStepsForActivationPage().isAt())
-					softhome2.assertTrue(new AddDeviceStepsForActivationPage().clickStartButton());
-				super.pause(5);
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on STEPS FOR ACTIVATION - LET'S START Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-			
-			try {
-				if(new AddDeviceLetsStartWithDeviceConnectionPage().isAt())
-					softhome2.assertTrue(new AddDeviceLetsStartWithDeviceConnectionPage().clickNextButton());
-				super.pause(5);
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on LET'S START WITH DEVICE CONNECTION Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-			
-			try {
-				if(new AddDeviceChooseInternetServiceProviderPage().isAt())
-					softhome2.assertTrue(new AddDeviceChooseInternetServiceProviderPage().clickNextButton());
-				super.pause(5);
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on CHOOSE YOUR INTERNET SERVICE PROVIDER Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-			
-			try {
-				if(new AddDeviceActivateYourDeviceWithServiceProviderPage().isAt())
-					softhome2.assertTrue(new AddDeviceActivateYourDeviceWithServiceProviderPage().clickSkipButton());
-				super.pause(5);
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on ACTIVATE YOUR DEVICE WITH SERVICE PROVIDER Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-			
-			try {
-				if(new AddDeviceEstablishingConnectionPage().isAt())
-					softhome2.assertTrue(new AddDeviceEstablishingConnectionPage().clickOnlineButton());
-				super.pause(5);
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on ESTABLISHING CONNECTION Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-			
-			try {
-				if(new AddDeviceSuccessPage().isAt())
-					softhome2.assertTrue(new AddDeviceSuccessPage().clickNextButton());
-				super.pause(5);
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on SUCCESS Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-			
-			try {
-				if(new AddDeviceScanBarCodePage().isAt())
-					softhome2.assertTrue(new AddDeviceScanBarCodePage().clickScanButton());
-				super.pause(5);
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on SCAN BAR CODE TO CONTINUE Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-			
-			try {
-				if(new AddDeviceAccessCameraDialog().isAt())
-					softhome2.assertTrue(new AddDeviceAccessCameraDialog().clickEnterManuallyButton());
-				super.pause(5);
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on APPLICATION WOULD LIKE TO ACCESS THE CAMERA Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-			
-			try {
-				if(new AddDeviceEnterMACAddressManuallyPage().isAt()) {
-					softhome2.assertTrue(new AddDeviceEnterMACAddressManuallyPage().enterSerialNumber());
-					softhome2.assertTrue(new AddDeviceEnterMACAddressManuallyPage().enterMACAddress());
-					softhome2.assertTrue(new AddDeviceEnterMACAddressManuallyPage().clickNextButton());
-					super.pause(15);}
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on ENTER S/N AND HFC MAC ADDRESS MANUALLY IN UPPERCASE Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-	 
-			try {
-					softhome2.assertTrue(new AddDeviceRegistrationFailedPage().clickContinueButton());
-					super.pause(10);
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on REGISTRATION OF YOUR DEVICE FAILED Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-			
-			try {
-				if(new AddDeviceCongratulationsPage().isAt())
-					softhome2.assertTrue(new AddDeviceCongratulationsPage().clickContinueButton());
-				super.pause(5);
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on CONGRATULATIONS Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-			
-			softhome2.assertAll();
-			}catch (Exception e) {
-			 	Assert.fail("Failure in Add Device Functionality ");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
-			}
-	  }
-	  
-		@Test(priority = 3, dependsOnMethods = { "Verify_Add_Device_Menu" })
-		public void Verify_Device_Details_Page() {
-			SoftAssert softhome4 = new SoftAssert();
-			try {
+			try {				
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().isAt()) 
+					softnetwork3.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().verifyConnectedDevicesPageUI());
+				softnetwork3.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().clickBackButton());
 				
 				try {
-					if(new AddDeviceHomePage().protectionCloseIcon.isDisplayed())
-						softhome4.assertTrue(new AddDeviceHomePage().clickProtectionCloseIcon());
-				}catch(Exception e) {}
-				
-				softhome4.assertTrue(new AddDeviceHomePage().clickDeviceDetailsText());
-				
-				if(new AddDeviceHomePage().getDeviceDetailsPageObject().isAt()) {
-					softhome4.assertTrue(new AddDeviceHomePage().getDeviceDetailsPageObject().verifyDeviceDetailsUI());
-					//softhome4.assertTrue(new AddDeviceHomePage().getDeviceDetailsPageObject().clickCloseButton());
-					softhome4.assertTrue(new AddDeviceHomePage().getAddDeviceFooterIconsPageObject().clickHomeButton());
-				}
-				softhome4.assertAll();
-				
-			}catch (Exception e) {
-				super.pause(10);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on Device Details Page");
-				new KillAndRelaunchApp().killApp();
-				super.pause(5);
-				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
-			}
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
+			
+			softnetwork3.assertAll();
 		}
 		
-		@Test(priority = 4, dependsOnMethods = { "Verify_Add_Device_Menu" })
-		public void Verify_Specifications_Page() {
-			SoftAssert softhome5 = new SoftAssert();
-			
-			try {
-				softhome5.assertTrue(new AddDeviceHomePage().clickSpecificationsText());
-				super.pause(5);
-				if(new AddDeviceHomePage().getDeviceSpecificationsPageObject().isAt())
-					softhome5.assertTrue(new AddDeviceHomePage().getDeviceSpecificationsPageObject().clickBackButton());
+		@Test(priority = 108, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Satellite_Signal_Strength_Sensitivity_Medium() {
+			SoftAssert softnetwork4 = new SoftAssert();
 				
-				softhome5.assertAll();
-			}catch (Exception e) {
-				Assert.fail("Add Device - Failed on Specifications Page");
-				new KillAndRelaunchApp().killApp();
-				super.pause(5);
-				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			}
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				softnetwork4.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteSignalButton());
+			
+			try {				
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().isAt()) 
+					softnetwork4.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().verifySatelliteSignalStrengthsPageUI());
+				softnetwork4.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().clickBackButton());
+				try {
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
+				
+				softnetwork4.assertAll();
 		}
 		
-		@Test(priority = 5, dependsOnMethods = { "Verify_Add_Device_Menu" })
-		public void Verify_Add_Additional_Device() {
-			SoftAssert softhome6 = new SoftAssert();
+		@Test(priority = 109, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Satellite_Link_Rate_Sensitivity_Medium() {
+			SoftAssert softnetwork5 = new SoftAssert();
+			super.swipeUp();
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				softnetwork5.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteLinkRateButton());
 			
-			try {
-				if(new AddDeviceHomePage().isAt())
-					softhome6.assertTrue(new AddDeviceHomePage().clickNavigationButton());
-					
-				if(new AddDeviceHomePage().getHamburgerMenuObject().isAt())
-					softhome6.assertTrue(new AddDeviceHomePage().getHamburgerMenuObject().clickAddDeviceButton());
-					
-				if(new AddDeviceHomePage().getMaxTwoDevicesDialogObject().isAt())
-					softhome6.assertTrue(new AddDeviceHomePage().getMaxTwoDevicesDialogObject().clickOkButton());
+			try {				
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().isAt()) 
+					softnetwork5.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().verifySatelliteLinkRatePageUI());
+				softnetwork5.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().clickBackButton());
+				try {
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
 				
-				softhome6.assertAll();
-				
-			}catch (Exception e) {
-				Assert.fail("Add Device - Failed on Adding additional device Page");
-				new KillAndRelaunchApp().killApp();
-				super.pause(5);
-				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			}
+				softnetwork5.assertAll();
 		}
 		
-		@Test(priority = 6, dependsOnMethods = { "Verify_Add_Device_Menu" })
-		public void Verify_Notifications_Page() {
-			SoftAssert softhome7 = new SoftAssert();
+		@Test(priority = 110, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_ISP_Speed_Link_Rate_Sensitivity_Medium() {
+			SoftAssert softnetwork6 = new SoftAssert();
+			super.swipeUp();
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				softnetwork6.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickISPSpeedRateButton());
+			
+			try {		
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().isAt()) 
+					softnetwork6.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().verifyISPSpeedRatePageUI());
+				softnetwork6.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().clickBackButton());
+				
+				try {
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
+				softnetwork6.assertAll();
+		}
+		
+		@Test(priority = 111, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Connected_Device_Signal_Strength_Sensitivity_High() {
+			SoftAssert softnetwork7 = new SoftAssert();
+			super.swipeDown();
+			
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().tapHigh();
+			softnetwork7.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickConnectedDeviceSignalButton());
 			
 			try {
-				if(new AddDeviceHomePage().isAt())
-					softhome7.assertTrue(new AddDeviceHomePage().clickNotificationsIcon());
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().isAt()) 
+					softnetwork7.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().verifyConnectedDevicesPageUI());
+				softnetwork7.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().clickBackButton());
+				try {
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
 				
-				if(new AddDeviceHomePage().getNotificationsPageObject().isAt())
-					softhome7.assertTrue(new AddDeviceHomePage().getNotificationsPageObject().clickBackButton());
+			softnetwork7.assertAll();
+		}
+		
+		@Test(priority = 112, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Satellite_Signal_Strength_Sensitivity_High() {
+			SoftAssert softnetwork8 = new SoftAssert();
 				
-				softhome7.assertAll();
-			}catch (Exception e) {
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed on Notifications Page");
-				new KillAndRelaunchApp().killApp();
-				super.pause(5);
-				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
-			}
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				softnetwork8.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteSignalButton());
+			
+			try {
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().isAt()) 
+					softnetwork8.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().verifySatelliteSignalStrengthsPageUI());
+				softnetwork8.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().clickBackButton());
+				try {
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
+			
+			softnetwork8.assertAll();
+		}
+		
+		@Test(priority = 113, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Satellite_Link_Rate_Sensitivity_High() {
+			SoftAssert softnetwork9 = new SoftAssert();
+			super.swipeUp();
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				softnetwork9.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteLinkRateButton());
+			
+			try {		
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().isAt()) 
+					softnetwork9.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().verifySatelliteLinkRatePageUI());
+				softnetwork9.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().clickBackButton());
+				try {
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
+				
+				softnetwork9.assertAll();
+		}
+		
+		@Test(priority = 114, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_ISP_Speed_Link_Rate_Sensitivity_High() {
+			SoftAssert softnetwork10 = new SoftAssert();
+			super.swipeUp();
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				softnetwork10.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickISPSpeedRateButton());
+			
+			try {
+		
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().isAt()) 
+					softnetwork10.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().verifyISPSpeedRatePageUI());
+				softnetwork10.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().clickBackButton());
+				try {
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
+			
+				softnetwork10.assertAll();
+		}
+		
+		@Test(priority = 115, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Connected_Device_Signal_Strength_Sensitivity_Low() {
+			SoftAssert softnetwork11 = new SoftAssert();
+			super.swipeDown();
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().tapLow();
+			softnetwork11.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickConnectedDeviceSignalButton());
+			
+			try {				
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().isAt()) 
+					softnetwork11.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().verifyConnectedDevicesPageUI());
+				softnetwork11.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().clickBackButton());
+				try {
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
+				
+				softnetwork11.assertAll();
+		}
+		
+		@Test(priority = 116, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Satellite_Signal_Strength_Sensitivity_Low() {
+			SoftAssert softnetwork12 = new SoftAssert();
+				
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				softnetwork12.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteSignalButton());
+			
+			try {
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().isAt()) 
+					softnetwork12.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().verifySatelliteSignalStrengthsPageUI());
+				softnetwork12.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().clickBackButton());
+				try {
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
+				
+				softnetwork12.assertAll();
+		}
+		
+		@Test(priority = 117, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Satellite_Link_Rate__Sensitivity_Low() {
+			SoftAssert softnetwork13 = new SoftAssert();
+			super.swipeUp();
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				softnetwork13.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteLinkRateButton());
+			
+			try {				
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().isAt()) 
+					softnetwork13.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().verifySatelliteLinkRatePageUI());
+				softnetwork13.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().clickBackButton());
+				try {
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
+				
+				softnetwork13.assertAll();
+		}
+		
+		@Test(priority = 118, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_ISP_Speed_Link_Rate_Sensitivity_Low() {
+			SoftAssert softnetwork14 = new SoftAssert();
+			super.swipeUp();
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				softnetwork14.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickISPSpeedRateButton());
+			
+			try {				
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().isAt()) 
+					softnetwork14.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().verifyISPSpeedRatePageUI());
+				softnetwork14.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().clickBackButton());
+				
+				try {
+					if(new AppRatingDialog().isAt())
+						new AppRatingDialog().clickRemindMeLaterLink();
+				}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+			}catch(Exception e){}
+				
+				if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+					new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().tapMedium();
+				
+				new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickBackButton();
+				
+				softnetwork14.assertAll();
+		}
+		
+		@Test(priority = 119, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Network_Optimization_Recommendations() {
+			SoftAssert softnetwork15 = new SoftAssert();
+				super.swipeDown();
+			if(new HomePage().getNetworkOtptimizationPageObject().isAt()) 
+				softnetwork15.assertTrue(new HomePage().getNetworkOtptimizationPageObject().verifyNetworkAfterOptimization());	
+			
+			softnetwork15.assertAll();
+		}
+		
+		@Test(priority = 120, dependsOnMethods = { "Verify_Network_Health_Page" })
+		public void Verify_Disabled_Network_Optimization_Settings() {
+			SoftAssert softnetwork16 = new SoftAssert();
+			
+			new HomePage().getNetworkOtptimizationPageObject().clickOptimizationIcon();
+				
+			if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
+				softnetwork16.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().disableHealthOptimization());
+			super.pause(3);
+			softnetwork16.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickBackButton());
+			softnetwork16.assertTrue(new HomePage().getNetworkOtptimizationPageObject().clickBackButton());
 
-		}
-		
-		@Test(priority = 7, dependsOnMethods = { "Verify_Add_Device_Menu" })
-		public void Verify_User_Guide_Page() {
-			SoftAssert softhome8 = new SoftAssert();
-			
-			try {
-				if(new AddDeviceHomePage().isAt())
-					softhome8.assertTrue(new AddDeviceHomePage().getAddDeviceFooterIconsPageObject().clickUserGuideButton());
-				super.pause(3);
-
-				if(new AddDeviceHomePage().getUserGuidePageObject().isAt())
-					super.swipeUp();
-
-				softhome8.assertAll();
-				
-			} catch (Exception e) {
-				Assert.fail("Add Device - Failed on UserGuide Page");
-				new KillAndRelaunchApp().killApp();
-				super.pause(5);
-				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			}
-		}
-		
-		@Test(priority = 8, dependsOnMethods = { "Verify_Add_Device_Menu" })
-		public void Verify_FAQ_Page() {
-			SoftAssert softhome9 = new SoftAssert();
-			try {
-				softhome9.assertTrue(new AddDeviceHomePage().getAddDeviceFooterIconsPageObject().clickFAQButton());
-				super.pause(3);
-				
-				if(new AddDeviceHomePage().getFAQPageObject().isAt())
-					super.swipeUp();
-				softhome9.assertTrue(new AddDeviceHomePage().getAddDeviceFooterIconsPageObject().clickHomeButton());
-				softhome9.assertAll();
-				
-			} catch (Exception e) {
-				Assert.fail("Add Device - Failed on FAQ Page");
-				new KillAndRelaunchApp().killApp();
-				super.pause(5);
-				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			}
-
-		}
-		
-		@Test(priority = 9, dependsOnMethods = { "Verify_Add_Device_Menu" })
-		public void Verify_Remove_Device_Page() {
-			SoftAssert softhome10 = new SoftAssert();
-			
-			try {
-				if(new AddDeviceHomePage().isAt())
-					softhome10.assertTrue(new AddDeviceHomePage().clickNavigationButton());
-					
-				if(new AddDeviceHomePage().getHamburgerMenuObject().isAt())
-					softhome10.assertTrue(new AddDeviceHomePage().getHamburgerMenuObject().clickRemoveDeviceButton());
-				
-				if(new AddDeviceHomePage().getRemoveDevicePageObject().isAt()) {
-					softhome10.assertTrue(new AddDeviceHomePage().getRemoveDevicePageObject().selectDeviceToRemove());
-					softhome10.assertTrue(new AddDeviceHomePage().getRemoveDevicePageObject().clickNextButton());
-					super.pause(10);}
-					
-				softhome10.assertAll();
-			} catch (Exception e) {
-				Assert.fail("Add Device - Failed on FAQ Page");
-				new KillAndRelaunchApp().killApp();
-				super.pause(5);
-				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
-			 	new TapSevenTimes().tapSeven();
-			 	super.pause(3);
-			 	new SevenTapEmail().enterEmailAddress();
-			 	super.pause(3); 
-			 	new SevenTapEmail().clickSendButton();
-			}
+			softnetwork16.assertAll();
 		}
 	  
 	  
@@ -790,7 +627,7 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			utils.log().info("****************************");
 		
 			SoftAssert softsatellite1 = new SoftAssert();
-			
+			new HomePage().getFooterIconsPageObject().clickHomeButton();
 			performFactoryReset("Satellite1", "/dev/tty.usbserial-142310");
 			  
 				try {
@@ -846,6 +683,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						new SevenTapEmail().enterEmailAddress();
 						super.pause(3); 
 						new SevenTapEmail().clickSendButton();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 
 					}
 					
@@ -858,8 +699,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						if(new AddSatelliteAddNewSatellitePage2().isAt()) 
 						{											
 							new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
-							utils.log().info("Waiting for 120 seconds ");
-							super.pause(120);
+							utils.log().info("Waiting for 60 seconds ");
+							super.pause(60);
 						}
 							
 						try {
@@ -877,10 +718,13 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							new SevenTapEmail().enterEmailAddress();
 							super.pause(3); 
 							new SevenTapEmail().clickSendButton();
+							  new KillAndRelaunchApp().killApp();
+							  super.pause(5);
+							  new KillAndRelaunchApp().relaunchApp();
+							  super.pause(20);
 						}
 						
-						
-							
+
 						try	{
 							if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 							{
@@ -908,8 +752,12 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	new SevenTapEmail().enterEmailAddress();
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
-					
+				
 					
 					//3
 					try {
@@ -918,8 +766,8 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						if(new AddSatelliteAddNewSatellitePage3().isAt()) 
 						{  									
 							new AddSatelliteAddNewSatellitePage3().clickNextButton(); //To continue with satellite install, please connect to arris-5550 network. Please connect through the WiFi settings of your mobile device.
-							utils.log().info("Waiting for 120 seconds to establish a connection with the max network");
-			  				super.pause(120);
+							utils.log().info("Waiting for 60 seconds");
+			  				super.pause(60);
 						}
 			  				
 			  			try {
@@ -937,6 +785,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							 new SevenTapEmail().enterEmailAddress();
 							 super.pause(3); 
 							 new SevenTapEmail().clickSendButton();
+							  new KillAndRelaunchApp().killApp();
+							  super.pause(5);
+							  new KillAndRelaunchApp().relaunchApp();
+							  super.pause(20);
 						}
 							
 						try	{
@@ -966,6 +818,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 						new SevenTapEmail().enterEmailAddress();
 						super.pause(3); 
 						new SevenTapEmail().clickSendButton();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					//Unpack your satellite
@@ -983,8 +839,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 						Assert.fail("Satellite 1 Onboarding - Failed at Unpack your satellite");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					//Help Place your satellite
@@ -1003,8 +861,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 						Assert.fail("Satellite 1 Onboarding - Failed at We did like to help you place your satellite");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					//Plug in your satellite
@@ -1066,7 +926,9 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	new SevenTapEmail().clickSendButton();
 						  Assert.fail("Satellite 1 Onboarding - Unable to connect to your Mobile Device due to blue tooth connection failure");
 						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
 						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					//Successfully Connected (to Bluetooth) Page
@@ -1128,8 +990,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 						Assert.fail("Satellite 1 Onboarding - Unable to connect Max Router to your Mobile Device due to blue tooth connection failure");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					
@@ -1150,8 +1014,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 						Assert.fail("Satellite 1 Onboarding - Unable to connect your max router to the Internet");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					
@@ -1169,8 +1035,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 					 	Assert.fail("Satellite 1 Onboarding - Unable to update firmware on Satellite 1 ");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					//Registration Failed Page
@@ -1187,8 +1055,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 					 	Assert.fail("Satellite 1 Onboarding - Failure to add Satellite ");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					//Congratulations Page
@@ -1206,8 +1076,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 					 	Assert.fail("Satellite 1 Onboarding - Failed at Congratulations Page" );
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 
 					new HomePage().verifyLeftRouterDetails();
@@ -1217,7 +1089,9 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 				} catch (Exception e) {		
 					  Assert.fail("Satellite 1 Onboarding - failed");
 					  new KillAndRelaunchApp().killApp();
+					  super.pause(5);
 					  new KillAndRelaunchApp().relaunchApp();
+					  super.pause(20);
 				}  
 			
 		}
@@ -1290,6 +1164,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 							 	new SevenTapEmail().enterEmailAddress();
 							 	super.pause(3); 
 							 	new SevenTapEmail().clickSendButton();
+								  new KillAndRelaunchApp().killApp();
+								  super.pause(5);
+								  new KillAndRelaunchApp().relaunchApp();
+								  super.pause(20);
 						 }
 					}
 			  		
@@ -1309,8 +1187,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 						Assert.fail("Satellite 1 Onboarding - Failed at Unpack your satellite");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					//Help Place your satellite
@@ -1329,8 +1209,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 						Assert.fail("Satellite 1 Onboarding - Failed at We did like to help you place your satellite");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					//Plug in your satellite
@@ -1371,8 +1253,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 						Assert.fail("Satellite 1 Onboarding - Unable to connect to your Mobile Device due to blue tooth connection failure");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					
@@ -1435,8 +1319,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 						Assert.fail("Satellite 1 Onboarding - Unable to connect Max Router to your Mobile Device due to blue tooth connection failure");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					
@@ -1457,8 +1343,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 						Assert.fail("Satellite 1 Onboarding - Unable to connect your max router to the Internet");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					//Firmware update page
@@ -1475,8 +1363,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 					 	Assert.fail("Satellite 1 Onboarding - Unable to update firmware on Satellite 1 ");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					//Registration Failed Page
@@ -1493,8 +1383,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 					 	Assert.fail("Satellite 1 Onboarding - Failure to add Satellite ");
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 					
 					//Congratulations Page
@@ -1511,8 +1403,10 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 					 	super.pause(3); 
 					 	new SevenTapEmail().clickSendButton();
 					 	Assert.fail("Satellite 1 Onboarding - Failed at Congratulations Page" );
-						new KillAndRelaunchApp().killApp();
-						new KillAndRelaunchApp().relaunchApp();
+						  new KillAndRelaunchApp().killApp();
+						  super.pause(5);
+						  new KillAndRelaunchApp().relaunchApp();
+						  super.pause(20);
 					}
 
 					new HomePage().verifyRightRouterDetails();
@@ -1522,7 +1416,9 @@ public class TC0012_Test_SignUp_And_Onboard_Satellite extends ParentClass
 			} catch (Exception e) {
 				  Assert.fail("Satellite 2 Onboarding - failed");
 				  new KillAndRelaunchApp().killApp();
+				  super.pause(5);
 				  new KillAndRelaunchApp().relaunchApp();
+				  super.pause(20);
 			}
 		
 		}

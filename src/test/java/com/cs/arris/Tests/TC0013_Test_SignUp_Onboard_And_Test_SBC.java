@@ -1577,10 +1577,14 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					super.pause(5);
 					softnetwork1.assertTrue(new HomePage().clickTapHereToTurnON());
 					super.pause(5);
+					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+					
 					softnetwork1.assertTrue(new HomePage().getSkipTutorialPageObject().tapSkip());
-
 					
-					
+					super.pause(5);
 					if(new HomePage().getNetworkOtptimizationPageObject().isAt()) {
 						softnetwork1.assertTrue(new HomePage().getNetworkOtptimizationPageObject().clickOptimizationIcon());
 					}
@@ -1591,7 +1595,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				@Test(priority = 106, dependsOnMethods = { "Verify_Network_Health_Page" })
 				public void Verify_Network_Optimization_Settings_Page() {
 					SoftAssert softnetwork2 = new SoftAssert();
-						
+					super.pause(5);	
 					if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) {
 						softnetwork2.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().enableHealthOptimization());
 					}

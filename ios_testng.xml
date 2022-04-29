@@ -11,12 +11,11 @@
 	<parameter name="platform" value="iOS" />
 	<parameter name="device" value="iPhone" />
 	
-	<test name="Signup_Onboard_And_Test_SBC">
+	<test name="Signup_And_Onboard_Satellite">
 		<classes>
-			<class name="com.cs.arris.Tests.TC0013_Test_SignUp_Onboard_And_Test_SBC" />
+			<class name="com.cs.arris.Tests.TC0012_Test_SignUp_And_Onboard_Satellite" />
 		</classes>
 	</test> 
-	
      
 </suite> 
 

@@ -12,11 +12,12 @@ public class TapSevenTimes extends ParentClass{
 	
 	@SuppressWarnings("rawtypes")
 	public void tapSeven() {
-		int x = 252;
-		int y = 459;
+		int x = 187;
+		int y = 458;
 		PointOption p = new PointOption();
 		p.withCoordinates(x, y);
 		utils.log().info("Tapping 7 times");
+		
 		for(int i=1; i <= 7; i++) {
 			action.tap(p).release().perform();
 		}
