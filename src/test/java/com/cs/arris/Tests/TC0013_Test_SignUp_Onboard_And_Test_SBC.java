@@ -1533,7 +1533,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					if(new ParentalControlWithProfilesPage().isAt()) {
 						softcontrol22.assertTrue(new ParentalControlWithProfilesPage().disablePauseAllProfiles());
 						softcontrol22.assertTrue(new ParentalControlWithProfilesPage().clickYesResumeInternetButton());
-						super.pause(80);
+						super.pause(60);
 					}
 					softcontrol22.assertAll();
 				}
@@ -1610,6 +1610,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					super.swipeDown();
 					if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
 						softnetwork3.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickConnectedDeviceSignalButton());
+					super.pause(10);
+					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					
 					try {				
 						if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().isAt()) 
@@ -1632,6 +1637,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
 						softnetwork4.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteSignalButton());
 					
+					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+					
 					try {				
 						if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().isAt()) 
 							softnetwork4.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().verifySatelliteSignalStrengthsPageUI());
@@ -1652,6 +1662,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
 						softnetwork5.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteLinkRateButton());
 					
+					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+					
 					try {				
 						if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().isAt()) 
 							softnetwork5.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().verifySatelliteLinkRatePageUI());
@@ -1671,6 +1686,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					super.swipeUp();
 					if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
 						softnetwork6.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickISPSpeedRateButton());
+					
+					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					
 					try {		
 						if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().isAt()) 
@@ -1695,6 +1715,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnetwork7.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickConnectedDeviceSignalButton());
 					
 					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+					
+					try {
 						if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().isAt()) 
 							softnetwork7.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().verifyConnectedDevicesPageUI());
 						softnetwork7.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().clickBackButton());
@@ -1713,6 +1738,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						
 					if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
 						softnetwork8.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteSignalButton());
+					
+					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					
 					try {
 						if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().isAt()) 
@@ -1734,6 +1764,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
 						softnetwork9.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteLinkRateButton());
 					
+					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+					
 					try {		
 						if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().isAt()) 
 							softnetwork9.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().verifySatelliteLinkRatePageUI());
@@ -1753,6 +1788,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					super.swipeUp();
 					if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
 						softnetwork10.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickISPSpeedRateButton());
+					
+					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					
 					try {
 				
@@ -1776,6 +1816,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().tapLow();
 					softnetwork11.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickConnectedDeviceSignalButton());
 					
+					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+					
 					try {				
 						if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().isAt()) 
 							softnetwork11.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().verifyConnectedDevicesPageUI());
@@ -1797,6 +1842,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						softnetwork12.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteSignalButton());
 					
 					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+					
+					try {
 						if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().isAt()) 
 							softnetwork12.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().verifySatelliteSignalStrengthsPageUI());
 						softnetwork12.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().clickBackButton());
@@ -1815,6 +1865,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					super.swipeUp();
 					if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
 						softnetwork13.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickSatelliteLinkRateButton());
+					
+					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					
 					try {				
 						if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().isAt()) 
@@ -1835,6 +1890,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					super.swipeUp();
 					if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().isAt()) 
 						softnetwork14.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().clickISPSpeedRateButton());
+					
+					try {
+						if(new AppRatingDialog().isAt())
+							new AppRatingDialog().clickRemindMeLaterLink();
+					}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					
 					try {				
 						if(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().isAt()) 
@@ -2399,7 +2459,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								if(new AddSatelliteAddNewSatellitePage1().isAt()) 
 								{
 									new AddSatelliteAddNewSatellitePage1().clickNextButton();// Each satellite expands your network
-									super.pause(25);
+//									super.pause(25);
 //									utils.log().info("Waiting for 60 seconds ");
 //									super.pause(60);
 									
@@ -2447,7 +2507,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								if(new AddSatelliteAddNewSatellitePage2().isAt()) 
 								{											
 									new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
-									super.pause(25);
+									super.pause(60);
 								}
 									
 //								try {
