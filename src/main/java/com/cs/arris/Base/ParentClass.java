@@ -927,8 +927,8 @@ public class ParentClass
 		            endX = (int) (size.width * 0.70);
 		            action.press(PointOption.point(184, 660)).waitAction( WaitOptions.waitOptions(Duration.ofMillis(1300)))
 		            .moveTo(PointOption.point(184, 626)).release().perform();
-		            action.press(PointOption.point(184, 660)).waitAction( WaitOptions.waitOptions(Duration.ofMillis(1300)))
-                    .moveTo(PointOption.point(184, 626)).release().perform();
+//		            action.press(PointOption.point(184, 660)).waitAction( WaitOptions.waitOptions(Duration.ofMillis(1300)))
+//                    .moveTo(PointOption.point(184, 626)).release().perform();
 
 		            break;
 		    }

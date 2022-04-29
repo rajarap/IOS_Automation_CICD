@@ -272,8 +272,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  new InstallAdditionalSatellitePage().clickInstallLaterButton();
 			  super.pause(5);
 			  new NetworkOptimizationDialog().clickOkButton();
-			  utils.log().info("Waiting for 60 seconds");
-			  super.pause(60);
+			  utils.log().info("Waiting for 120 seconds");
+			  super.pause(120);
 			  
 			  try {
 				  if(new HomePage().getAppRatingDialogObject().isAt())
@@ -283,16 +283,16 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  try {
 		  		if(new HomePage().cloudIcon.isDisplayed()) {
 		  			new HomePage().connectToSSID(this.ssidName);
-		  			utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
-		  			super.pause(60);
+		  			utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize");
+		  			super.pause(120);
 		  		}
 		  	 }catch(Exception e) {};
 		  		
 			 try {
 			  	if(new HomePage().remoteAccessNotAvailableLink.isDisplayed()) {
 			  		new HomePage().connectToSSID(this.ssidName);
-			  		utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
-			  		super.pause(60);
+			  		utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize");
+			  		super.pause(120);
 			  	}
 			}catch(Exception e) {};
 		  		
@@ -1532,7 +1532,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					if(new ParentalControlWithProfilesPage().isAt()) {
 						softcontrol22.assertTrue(new ParentalControlWithProfilesPage().disablePauseAllProfiles());
 						softcontrol22.assertTrue(new ParentalControlWithProfilesPage().clickYesResumeInternetButton());
-						super.pause(60);
+						super.pause(80);
 					}
 					softcontrol22.assertAll();
 				}
@@ -2441,8 +2441,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								if(new AddSatelliteAddNewSatellitePage2().isAt()) 
 								{											
 									new AddSatelliteAddNewSatellitePage2().clickNextButton(); //Your network is being configured for satellite install.
-									utils.log().info("Waiting for 120 seconds ");
-									super.pause(120);
+									utils.log().info("Waiting for 60 seconds ");
+									super.pause(60);
 								}
 									
 								try {
@@ -2508,7 +2508,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								if(new AddSatelliteAddNewSatellitePage3().isAt()) 
 								{  									
 									new AddSatelliteAddNewSatellitePage3().clickNextButton(); //To continue with satellite install, please connect to arris-5550 network. Please connect through the WiFi settings of your mobile device.
-									utils.log().info("Waiting for 60 seconds to establish a connection with the max network");
+									utils.log().info("Waiting for 60 seconds");
 					  				super.pause(60);
 								}
 					  				
@@ -3324,44 +3324,67 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnet50.assertAll();
 				}
 
-				@Test(priority = 124, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
-				public void Verify_New_Guest_WiFi_Network() 
-				{
-					SoftAssert softnet49 = new SoftAssert();
-					
-//					new HomePage().getFooterIconsPageObject().clickNetworkButton();
-					super.pause(5);
-					softnet49.assertTrue(new NetworkPage().enableGuestWifiNetwork());
-					
-					try{
-						if(new NetworkPage().getAppRatingPageObject().isAt())
-							new NetworkPage().getAppRatingPageObject().clickRemindMeLaterLink();
-					}catch(Exception e) {
-						utils.log().info("App Rating Dialog did not appear");
-					}
-	
-					try {
-						if(new NetworkPage().getEnableGuestNetworkDialogObject().isAt()) {
-							super.pause(5);
-							softnet49.assertTrue(new NetworkPage().getEnableGuestNetworkDialogObject().enterGuestNetworkName());
-							softnet49.assertTrue(new NetworkPage().getEnableGuestNetworkDialogObject().enterGuestNetworkPassword());
-							softnet49.assertTrue(new NetworkPage().getEnableGuestNetworkDialogObject().clickSaveChangesButton());
-				
-							if(new NetworkPage().getEnableGuestNetworkAlertDialogObject().isAt())
-								softnet49.assertTrue(new NetworkPage().getEnableGuestNetworkAlertDialogObject().clickOkButton());
-							}
-							super.pause(20);
-							try {
-								if(new ConnectionToWifiNeededPage().joinButton.isDisplayed())
-									new ConnectionToWifiNeededPage().clickJoinButton();
-							}catch(Exception e) {}
-			
-							utils.log().info("Waiting for 120 seconds to create guest wifi connection");
-							super.pause(120);
-					}catch(Exception e) {utils.log().info("Enable Guest Network Page did not appear");}
-
-					softnet49.assertAll();
-				}
+//				@Test(priority = 124, dependsOnMethods = {"Verify_SignUp_And_Onboard"})
+//				public void Verify_New_Guest_WiFi_Network() 
+//				{
+//					SoftAssert softnet49 = new SoftAssert();
+//					
+////					new HomePage().getFooterIconsPageObject().clickNetworkButton();
+//					super.pause(5);
+//					softnet49.assertTrue(new NetworkPage().enableGuestWifiNetwork());
+//					
+//					try{
+//						if(new NetworkPage().getAppRatingPageObject().isAt())
+//							new NetworkPage().getAppRatingPageObject().clickRemindMeLaterLink();
+//					}catch(Exception e) {
+//						utils.log().info("App Rating Dialog did not appear");
+//					}
+//	
+//					try {
+//						if(new NetworkPage().getEnableGuestNetworkDialogObject().isAt()) {
+//							super.pause(5);
+//							softnet49.assertTrue(new NetworkPage().getEnableGuestNetworkDialogObject().enterGuestNetworkName());
+//							softnet49.assertTrue(new NetworkPage().getEnableGuestNetworkDialogObject().enterGuestNetworkPassword());
+//							softnet49.assertTrue(new NetworkPage().getEnableGuestNetworkDialogObject().clickSaveChangesButton());
+//				
+//							if(new NetworkPage().getEnableGuestNetworkAlertDialogObject().isAt())
+//								softnet49.assertTrue(new NetworkPage().getEnableGuestNetworkAlertDialogObject().clickOkButton());
+//							}
+//							super.pause(30);
+//							try {
+//								if(new NetworkPage().joinButton.isDisplayed())
+//									new NetworkPage().clickJoinButton();
+//							}catch(Exception e) {}
+//			
+//							utils.log().info("Waiting for 120 seconds to create guest wifi connection");
+//							super.pause(120);
+//							
+//							try{
+//								if(new NetworkPage().getAppRatingPageObject().isAt())
+//									new NetworkPage().getAppRatingPageObject().clickRemindMeLaterLink();
+//							}catch(Exception e) {
+//								utils.log().info("App Rating Dialog did not appear");
+//							}
+//							  
+//							  try {
+//						  		if(new HomePage().cloudIcon.isDisplayed()) {
+//						  			new HomePage().connectToSSID(this.ssidName);
+//						  			utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
+//						  			super.pause(60);
+//						  		}
+//						  	 }catch(Exception e) {};
+//						  		
+//							 try {
+//							  	if(new HomePage().remoteAccessNotAvailableLink.isDisplayed()) {
+//							  		new HomePage().connectToSSID(this.ssidName);
+//							  		utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
+//							  		super.pause(60);
+//							  	}
+//							}catch(Exception e) {};
+//					}catch(Exception e) {utils.log().info("Enable Guest Network Page did not appear");}
+//
+//					softnet49.assertAll();
+//				}
 				
 				private void performFactoryReset(String satelliteName, String usbserial) {
 					  try {
