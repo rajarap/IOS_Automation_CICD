@@ -574,8 +574,8 @@ public class ParentalControlWithProfilesPage extends ParentClass implements Page
 			int value = Integer.parseInt(str);
 			if(value == 1)
 			{
-				click(super.getDriver().findElement(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch[`name == \"Parental_Control_Screen_Switch_PauseAll\"`]")));
-				//super.getDriver().findElement(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch[`name == \"Parental_Control_Screen_Switch_PauseAll\"`]")).click();
+				//click(super.getDriver().findElement(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch[`name == \"Parental_Control_Screen_Switch_PauseAll\"`]")));
+				super.getDriver().findElement(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch[`name == \"Parental_Control_Screen_Switch_PauseAll\"`]")).click();
 				utils.log().info("Parental Control Global Settings. Pause All Profiles is disabled");
 			}else {
 				utils.log().info("Parental Control Global Settings. Pause All Profiles is already disabled");

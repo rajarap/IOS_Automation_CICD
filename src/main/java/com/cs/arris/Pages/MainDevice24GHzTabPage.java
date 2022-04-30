@@ -463,121 +463,223 @@ public class MainDevice24GHzTabPage extends ParentClass implements Page {
 	}
 	
 	
+//	// To verify the details of all connected devices
+//		@SuppressWarnings("unchecked")
+//		public boolean verifyConnectedDeviceDetails() {
+//			utils.log().info("                                                       ");
+//			utils.log().info("********************************************************");
+//			utils.log().info("Details of 2.4GHz Devices Connected to the Main Router  ");
+//			utils.log().info("********************************************************");
+//
+//			this.getAllDevicesCount();
+//			
+//			if (allDevicesCount > 0) {
+//				
+//				click(connectedDevicesExpandButton);
+//				super.pause(20);
+//								
+//				for (int i = 1; i <= allDevicesCount; i++) {
+//					utils.log().info("Connected Device  : " + i);
+//					utils.log().info("--------------------------");
+//					super.pause(5);	
+//					
+//					List<MobileElement> entity = (List<MobileElement>) super.getDriver().findElementsByXPath(
+//							"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
+//
+//							for (MobileElement e : entity) {
+//								try {
+//									if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Detail_Screen_Button_Device["+i+"]\"]").isDisplayed())
+//										utils.log().info("Device Image is displayed");
+//								} catch (Exception exp) {
+//									utils.log().info("Device Image is not displayed ");	}
+//
+//								try {
+//									if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Detail_Screen_Button_DeviceName["+i+"]\"]").isDisplayed())
+//										utils.log().info("Device Name : " + super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Detail_Screen_Button_DeviceName["+i+"]\"]").getText());
+//								} catch (Exception exp) {
+//									utils.log().info("Device Name is not available ");}
+//
+//								try {
+//									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Speed["+i+"]\"]").isDisplayed()) 
+//										utils.log().info("Device Signal Strength : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Speed["+i+"]\"]").getText());
+//								} catch (Exception exp) {
+//									utils.log().info("Device Signal Strength data is not available ");}
+//
+//								try {
+//									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Download["+i+"]\"]").isDisplayed()) 
+//										utils.log().info("Device Download Speed : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Download["+i+"]\"]").getText());
+//								} catch (Exception exp) {
+//									utils.log().info("Device Download Speed data is not available ");
+//								}
+//
+//								try {
+//									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Upload["+i+"]\"]").isDisplayed())
+//										utils.log().info("Device Upload Speed : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Upload["+i+"]\"]").getText());
+//								} catch (Exception exp) {
+//									utils.log().info("Device Upload Speed data is not available ");
+//								}
+//
+//								try {
+//									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_IPTitle["+i+"]\"]").isDisplayed()
+//											&& super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_IP["+i+"]\"]").isDisplayed()) 
+//										utils.log().info(super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_IPTitle["+i+"]\"]").getText()
+//												+ " : "
+//												+ super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_IP["+i+"]\"]").getText());
+//								} catch (Exception exp) {
+//									utils.log().info("IP Address Details are not available or displayed ");
+//								}
+//
+//								try {
+//									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_MacTitle["+i+"]\"]").isDisplayed()
+//											&& super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Mac["+i+"]\"]").isDisplayed()) 
+//										utils.log().info(super.getDriver().findElementByXPath(
+//												"//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_MacTitle["+i+"]\"]").getText()
+//												+ " : "
+//												+ super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Mac["+i+"]\"]").getText());
+//								} catch (Exception exp) {
+//									utils.log().info("MAC Address Details are not available or displayed ");
+//								}
+//
+//								try {
+//									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_ChannelTitle["+i+"]\"]").isDisplayed()
+//											&& super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Channel["+i+"]\"]").isDisplayed()) 
+//										utils.log().info(super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_ChannelTitle["+i+"]\"]").getText()
+//												+ " : "
+//												+ super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Channel["+i+"]\"]").getText());
+//								} catch (Exception exp) {
+//									utils.log().info("Channel Details are not available or displayed ");
+//								}
+//
+//								try {
+//									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_RSSITitle["+i+"]\"]").isDisplayed()
+//											&& super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_RSSI["+i+"]\"]").isDisplayed()) 
+//										utils.log().info(super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_RSSITitle["+i+"]\"]")	.getText()
+//												+ " : "
+//												+ super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_RSSI["+i+"]\"]").getText());
+//								} catch (Exception exp) {
+//									utils.log().info("RSSI Details are not available or displayed ");
+//								}
+//
+//								utils.log().info("****************************************************");
+//								utils.log().info("                                                    ");
+//							}
+//							if(i >= 1)
+//								super.swipeConnectedDevices(Direction.UP);
+//						}
+//						super.swipeDown();
+//						super.pause(5);
+//						click(connectedDevicesExpandButton);
+//						return true;
+//					} else {
+//						utils.log().info("Currently there are no 2.4GHz devices connected to the main Router ");
+//						click(connectedDevicesExpandButton);
+//						return true;
+//					}
+//			}
+
 	// To verify the details of all connected devices
-		@SuppressWarnings("unchecked")
-		public boolean verifyConnectedDeviceDetails() {
-			utils.log().info("                                                       ");
-			utils.log().info("********************************************************");
-			utils.log().info("Details of 2.4GHz Devices Connected to the Main Router  ");
-			utils.log().info("********************************************************");
+	@SuppressWarnings("unchecked")
+	public boolean verifyConnectedDeviceDetails() {
+		utils.log().info("                                                       ");
+		utils.log().info("********************************************************");
+		utils.log().info("Details of 2.4GHz Devices Connected to the Main Router  ");
+		utils.log().info("********************************************************");
 
-			this.getAllDevicesCount();
+		this.getAllDevicesCount();
+		
+		if (allDevicesCount > 0) {
 			
-			if (allDevicesCount > 0) {
+			//click(connectedDevicesExpandButton);
+			super.getDriver().findElement(MobileBy.iOSClassChain("**/XCUIElementTypeImage[`name == \"Device_Detail_Screen_HeaderImage_Connected\"`][1]")).click();
+							
+			for (int i = 1; i <= allDevicesCount; i++) {
+				utils.log().info("Connected Device  : " + i);
+				utils.log().info("--------------------------");
+				super.pause(5);	
 				
-				click(connectedDevicesExpandButton);
-				super.pause(20);
-								
-				for (int i = 1; i <= allDevicesCount; i++) {
-					utils.log().info("Connected Device  : " + i);
-					utils.log().info("--------------------------");
-					super.pause(5);	
-					
-					List<MobileElement> entity = (List<MobileElement>) super.getDriver().findElementsByXPath(
-							"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
+				List<MobileElement> entity = (List<MobileElement>) super.getDriver().findElementsByXPath(
+						"//XCUIElementTypeApplication[@name=\"SBC Test\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]");
 
-							for (MobileElement e : entity) {
-								try {
-									if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Detail_Screen_Button_Device["+i+"]\"]").isDisplayed())
-										utils.log().info("Device Image is displayed");
-								} catch (Exception exp) {
-									utils.log().info("Device Image is not displayed ");	}
-
-								try {
-									if (super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Detail_Screen_Button_DeviceName["+i+"]\"]").isDisplayed())
-										utils.log().info("Device Name : " + super.getDriver().findElementByXPath("//XCUIElementTypeButton[@name=\"Device_Detail_Screen_Button_DeviceName["+i+"]\"]").getText());
-								} catch (Exception exp) {
-									utils.log().info("Device Name is not available ");}
-
-								try {
-									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Speed["+i+"]\"]").isDisplayed()) 
-										utils.log().info("Device Signal Strength : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Speed["+i+"]\"]").getText());
-								} catch (Exception exp) {
-									utils.log().info("Device Signal Strength data is not available ");}
-
-								try {
-									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Download["+i+"]\"]").isDisplayed()) 
-										utils.log().info("Device Download Speed : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Download["+i+"]\"]").getText());
-								} catch (Exception exp) {
-									utils.log().info("Device Download Speed data is not available ");
+						for (MobileElement e : entity) {
+							try {
+								if (super.getDriver().findElement(MobileBy.iOSClassChain("**/XCUIElementTypeImage[`name == \"Device_Detail_Screen_Image_Device["+i+"]\"`]")).isDisplayed())
+									utils.log().info("Device Image is displayed");
+							} catch (Exception exp) {
+								utils.log().info("Device Image is not displayed ");	
 								}
 
-								try {
-									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Upload["+i+"]\"]").isDisplayed())
-										utils.log().info("Device Upload Speed : " + super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Upload["+i+"]\"]").getText());
-								} catch (Exception exp) {
-									utils.log().info("Device Upload Speed data is not available ");
+							try {
+								if (super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Button_DeviceName["+i+"]")).isDisplayed())
+									utils.log().info("Device Name : " + super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Button_DeviceName["+i+"]")).getText());
+							} catch (Exception exp) {
+								utils.log().info("Device Name is not available ");
 								}
 
-								try {
-									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_IPTitle["+i+"]\"]").isDisplayed()
-											&& super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_IP["+i+"]\"]").isDisplayed()) 
-										utils.log().info(super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_IPTitle["+i+"]\"]").getText()
-												+ " : "
-												+ super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_IP["+i+"]\"]").getText());
-								} catch (Exception exp) {
-									utils.log().info("IP Address Details are not available or displayed ");
-								}
+							try {
+								if (super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_Speed["+i+"]")).isDisplayed()) 
+									utils.log().info("Device Signal Strength : " + super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_Speed["+i+"]")).getText());
+							} catch (Exception exp) {
+								utils.log().info("Device Signal Strength data is not available ");}
 
-								try {
-									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_MacTitle["+i+"]\"]").isDisplayed()
-											&& super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Mac["+i+"]\"]").isDisplayed()) 
-										utils.log().info(super.getDriver().findElementByXPath(
-												"//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_MacTitle["+i+"]\"]").getText()
-												+ " : "
-												+ super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Mac["+i+"]\"]").getText());
-								} catch (Exception exp) {
-									utils.log().info("MAC Address Details are not available or displayed ");
-								}
-
-								try {
-									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_ChannelTitle["+i+"]\"]").isDisplayed()
-											&& super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Channel["+i+"]\"]").isDisplayed()) 
-										utils.log().info(super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_ChannelTitle["+i+"]\"]").getText()
-												+ " : "
-												+ super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_Channel["+i+"]\"]").getText());
-								} catch (Exception exp) {
-									utils.log().info("Channel Details are not available or displayed ");
-								}
-
-								try {
-									if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_RSSITitle["+i+"]\"]").isDisplayed()
-											&& super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_RSSI["+i+"]\"]").isDisplayed()) 
-										utils.log().info(super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_RSSITitle["+i+"]\"]")	.getText()
-												+ " : "
-												+ super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_Detail_Screen_Label_RSSI["+i+"]\"]").getText());
-								} catch (Exception exp) {
-									utils.log().info("RSSI Details are not available or displayed ");
-								}
-
-								utils.log().info("****************************************************");
-								utils.log().info("                                                    ");
+							try {
+								if (super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_Download["+i+"]")).isDisplayed()) 
+									utils.log().info("Device Download Speed : " + super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_Download["+i+"]")).getText());
+							} catch (Exception exp) {
+								utils.log().info("Device Download Speed data is not available ");
 							}
-							if(i >= 1)
-								super.swipeConnectedDevices(Direction.UP);
+
+							try {
+								if (super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_Upload["+i+"]")).isDisplayed()) 
+									utils.log().info("Device Upload Speed : " + super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_Upload["+i+"]")).getText());
+							} catch (Exception exp) {
+								utils.log().info("Device Upload Speed data is not available ");
+							}
+
+							try {
+								if (super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_IP["+i+"]")).isDisplayed()) 
+									utils.log().info("IP Address : " + super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_IP["+i+"]")).getText());
+							} catch (Exception exp) {
+								utils.log().info("IP Address Details are not available or displayed ");
+							}
+
+							try {
+								if (super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_Channel["+i+"]")).isDisplayed()) 
+									utils.log().info("Channel : " + super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_Channel["+i+"]")).getText());
+							} catch (Exception exp) {
+								utils.log().info("Channel Details are not available or displayed ");
+							}
+
+							try {
+								if (super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_Mac["+i+"]")).isDisplayed()) 
+									utils.log().info("MAC Address : " + super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_Mac["+i+"]")).getText());
+							} catch (Exception exp) {
+								utils.log().info("MAC Address Details are not available or displayed ");
+							}
+
+							try {
+								if (super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_RSSI["+i+"]")).isDisplayed()) 
+									utils.log().info("RSSI : " + super.getDriver().findElement(MobileBy.AccessibilityId("Device_Detail_Screen_Label_RSSI["+i+"]")).getText());
+							} catch (Exception exp) {
+								utils.log().info("RSSI Details are not available or displayed ");
+							}
+
+							utils.log().info("****************************************************");
+							utils.log().info("                                                    ");
 						}
-						super.swipeDown();
-						super.pause(5);
-						click(connectedDevicesExpandButton);
-						return true;
-					} else {
-						utils.log().info("Currently there are no 2.4GHz devices connected to the main Router ");
-						click(connectedDevicesExpandButton);
-						return true;
+						if(i >= 1)
+							super.swipeConnectedDevices(Direction.UP);
 					}
-			}
-
-
+					super.swipeDown();
+					//click(connectedDevicesExpandButton);
+					super.getDriver().findElement(MobileBy.iOSClassChain("**/XCUIElementTypeImage[`name == \"Device_Detail_Screen_HeaderImage_Connected\"`][1]")).click();
+					return true;
+				} else {
+					utils.log().info("Currently there are no 2.4GHz devices connected to the main Router ");
+					//click(connectedDevicesExpandButton);
+					super.getDriver().findElement(MobileBy.iOSClassChain("**/XCUIElementTypeImage[`name == \"Device_Detail_Screen_HeaderImage_Connected\"`][1]")).click();
+					return true;
+				}
+		}
 
 		public boolean verifyMainRouterDetails() {
 			try {

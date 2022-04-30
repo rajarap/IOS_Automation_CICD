@@ -164,7 +164,7 @@ public class HomePage extends ParentClass implements Page {
 	//RAT
 	
 	@iOSXCUITFindBy (xpath = "//XCUIElementTypeStaticText[@name=\"Mesh_Home_Screen_Label_Error\"]")
-	public MobileElement remoteAccessNotAvailableLink; 
+	public MobileElement remoteAccessNotAvailableLink;  //Remote access to your Network is currently unavailable.
 	
 	@iOSXCUITFindBy (xpath = "//XCUIElementTypeButton[@name=\"Mesh_Home_Screen_Button_More\"]")
 	public MobileElement moreLink; 

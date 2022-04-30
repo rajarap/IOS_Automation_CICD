@@ -11,16 +11,16 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
-public class MultipleDevicesFoundPage extends ParentClass implements Page
+public class InternetConnectionNotAvailablePage extends ParentClass implements Page
 {
 	public TestUtils utils = new TestUtils();
 	
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"OB_Error_Screen_TitleLabel\"]")
-	public MobileElement multipleDevicesFoundTitle;
+	public MobileElement internetConnectionNotAvailableTitle;
 	
-	//It appears that 2 or more routers are turned on at the same time. Unplug one of your mAX devices to prevent confusion during setup.
+	//Internet connection is currently NOT available on your mobile device.
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"OB_Error_Screen_SubTitleLabel\"]")
-	public MobileElement multipleDevicesFoundSubTitle;
+	public MobileElement internetConnectionNotAvailableSubTitle;
 
 	//0013-1203
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"OB_Error_Screen_Label\"]")
@@ -29,7 +29,7 @@ public class MultipleDevicesFoundPage extends ParentClass implements Page
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"TRY AGAIN\"]")
 	public MobileElement tryAgain;
 	
-	public MultipleDevicesFoundPage()
+	public InternetConnectionNotAvailablePage()
 	{
 		PageFactory.initElements(new AppiumFieldDecorator(super.getDriver()), this);
 	}
@@ -44,11 +44,11 @@ public class MultipleDevicesFoundPage extends ParentClass implements Page
 	
 	@Override
 	public boolean isAt() {
-		if(multipleDevicesFoundSubTitle.isDisplayed()) {
-			utils.log().info("MULTIPLE DEVICES FOUND - It appears that 2 or more routers are turned on at the same time.");
+		if(internetConnectionNotAvailableSubTitle.isDisplayed()) {
+			utils.log().info("ON Internet connection is currently NOT available on your mobile device page");
 			return true;
 		}else {
-			utils.log().info("No MULTIPLE DEVICES FOUND");
+	//		utils.log().info("No MULTIPLE DEVICES FOUND");
 			return false;
 		}
 	}

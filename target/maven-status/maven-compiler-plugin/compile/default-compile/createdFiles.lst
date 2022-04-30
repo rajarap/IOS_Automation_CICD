@@ -56,6 +56,7 @@ com/cs/arris/Pages/AboutViewLicensesPage.class
 com/cs/arris/Pages/RebootYouRouterDialog.class
 com/cs/arris/Pages/ErrorCode_0000_1506_Warranty_Support_Page.class
 com/cs/arris/Pages/AddDeviceNotificationsPage.class
+com/cs/arris/Pages/MultipleDevicesFoundPage.class
 com/cs/arris/Reports/ExtentReport.class
 com/cs/arris/Pages/FAQHelpPage.class
 com/cs/arris/Pages/AddSatelliteDeviceFullyNotConfigured.class
