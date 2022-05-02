@@ -714,7 +714,7 @@ public class TC02_Medium_Test extends ParentClass
 			SoftAssert softspeedtest5 = new SoftAssert();
 			if(new HomePage().isAt()) 
 				super.swipeUp();
-			softspeedtest5.assertTrue(new HomePage().clickSpeedTestHistoryImage());
+			softspeedtest5.assertTrue(new HomePage().clickSpeedTestHistory());
 			
 			if(new HomeSpeedTestHistoryPage().isAt())
 				softspeedtest5.assertTrue(new HomeSpeedTestHistoryPage().verifyHomeSpeedTestHistory());

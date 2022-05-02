@@ -171,27 +171,18 @@ public class HamburgerAboutPage extends ParentClass implements Page {
 	public boolean clickGetAnotherMaxRouterButton() {
 		try {
 			click(getAnotherMaxRouterButton);
-			super.pause(5);
 			utils.log().info("About Page - Clicked on Get Another Max Router button");
-
+			super.pause(5);
+			
 			Set<String> allContext = super.getDriver().getContextHandles();
 			for (String context : allContext) {
 				if (context.contains("WEBVIEW"))
 					super.getDriver().context(context);
 			}
 			utils.log().info("Switched to WEBVIEW");
-
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-			String webURL = driver.getCurrentUrl();// http://shop.surfboard.com
-			utils.log().info("About Page - Accessed web url: " + webURL);
-			if (driver != null)
-				driver.quit();
-			
 			super.getDriver().context("NATIVE_APP");
 			utils.log().info("Switched to NATIVE_APP View");
 			super.getDriver().activateApp("com.arris.sbcBeta");
-			
 			return true;
 		} catch (Exception e) {
 			super.getDriver().activateApp("com.arris.sbcBeta");

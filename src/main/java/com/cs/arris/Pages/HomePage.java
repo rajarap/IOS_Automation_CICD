@@ -712,9 +712,21 @@ public class HomePage extends ParentClass implements Page {
 		}
 	}
 
-	public boolean clickSpeedTestHistoryImage() {
-		if (speedTestHistoryImage.isDisplayed()) {
-			speedTestHistoryImage.click();
+//	public boolean clickSpeedTestHistoryImage() {
+//		if (speedTestHistoryImage.isDisplayed()) {
+//			speedTestHistoryImage.click();
+//			utils.log().info("Home Page - Clicked on Speed Test History");
+//			return true;
+//		} else {
+//			utils.log().info("Home Page - Speed Test History is either not visible or is not present on the DOM");
+//			return false;
+//		}
+//	}
+	
+	public boolean clickSpeedTestHistory() {
+		if (speedTestHistoryText.isDisplayed()) {
+			super.pause(3);
+			speedTestHistoryText.click();
 			utils.log().info("Home Page - Clicked on Speed Test History");
 			return true;
 		} else {

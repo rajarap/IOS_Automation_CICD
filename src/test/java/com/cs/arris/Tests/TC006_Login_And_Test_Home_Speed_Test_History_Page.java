@@ -188,7 +188,7 @@ public class TC006_Login_And_Test_Home_Speed_Test_History_Page extends ParentCla
 		public void Verify_Home_Speed_Test_History_Page() {
 			SoftAssert softspeedtest5 = new SoftAssert();
 			if(new HomePage().isAt()) 
-				AssertJUnit.assertTrue(new HomePage().clickSpeedTestHistoryImage());
+				AssertJUnit.assertTrue(new HomePage().clickSpeedTestHistory());
 			
 			if(new HomeSpeedTestHistoryPage().isAt())
 				AssertJUnit.assertTrue(new HomeSpeedTestHistoryPage().verifyHomeSpeedTestHistory());

@@ -274,8 +274,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  new InstallAdditionalSatellitePage().clickInstallLaterButton();
 			  super.pause(5);
 			  new NetworkOptimizationDialog().clickOkButton();
-			  utils.log().info("Waiting for 120 seconds");
-			  super.pause(120);
+			  utils.log().info("Waiting for 60 seconds");
+			  super.pause(60);
 			  
 			  try {
 				  if(new HomePage().getAppRatingDialogObject().isAt())
@@ -762,7 +762,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					
 				if(new AddDeviceHomePage().getHamburgerMenuObject().isAt())
 					softhome10.assertTrue(new AddDeviceHomePage().getHamburgerMenuObject().clickRemoveDeviceButton());
-				
+
 				if(new AddDeviceHomePage().getRemoveDevicePageObject().isAt()) {
 					softhome10.assertTrue(new AddDeviceHomePage().getRemoveDevicePageObject().selectDeviceToRemove());
 					softhome10.assertTrue(new AddDeviceHomePage().getRemoveDevicePageObject().clickNextButton());
@@ -1051,7 +1051,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				if(new HomePage().isAt()) 
 					super.swipeUp();
 				super.pause(5);
-				softspeedtest5.assertTrue(new HomePage().clickSpeedTestHistoryImage());
+				softspeedtest5.assertTrue(new HomePage().clickSpeedTestHistory());
 				
 				if(new HomeSpeedTestHistoryPage().isAt())
 					softspeedtest5.assertTrue(new HomeSpeedTestHistoryPage().verifyHomeSpeedTestHistory());
@@ -2347,7 +2347,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						}
 						
 						softnet31.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickAddDeviceButton());
-						super.pause(40);
+						super.pause(15);
 					}
 					softnet31.assertAll();
 				}
@@ -2366,13 +2366,13 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 
 					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().selectDeviceFromList());
 					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().clickAddDeviceButton());
-					super.pause(40);
+					super.pause(15);
 					
 					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().clickAddDeviceButton());
-					super.pause(40);
+					super.pause(15);
 					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().selectDeviceFromList());
 					softnet33.assertTrue(new NetworkPage().getNetworkDevicePrioritySettingsPageObject().getAddDevicePriorityPageObject().clickAddDeviceButton());
-					super.pause(40);
+					super.pause(15);
 
 					softnet33.assertAll();
 				}
@@ -2483,7 +2483,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 										if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 										{
 											utils.log().info("Connected to a non max network");
-											utils.log().info("Trying to re-establish connection with max router");
+											utils.log().info("Re-establishing connection with max router network");
 											new HomePage().connectToSSID(this.ssidName);
 											utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize on the homepage");
 							  				super.pause(120);
@@ -2528,7 +2528,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 //								try {
 //									if(new AddSatelliteOperationFailedPage4().isAt()) {
 //									//	utils.log().info("Adding Satellite operation failed");
-//										utils.log().info("Trying to re-establish connection with max router network");
+//										utils.log().info("Re-establishing connection with max router network");
 //										new HomePage().connectToSSID(this.ssidName);
 //										utils.log().info("Waiting for 120 seconds to establish a connection with the max router network");
 //							  			super.pause(120);
@@ -2551,7 +2551,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 									if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 									{
 										utils.log().info("Connected to a non max network");
-										utils.log().info("Trying to re-establish connection with max router network");
+										utils.log().info("Re-establishing connection with max router network");
 										new HomePage().connectToSSID(this.ssidName);
 										utils.log().info("Waiting for 120 seconds to establish a connection with the max router network");
 							  			super.pause(120);
@@ -2587,7 +2587,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								
 								if(new AddSatelliteAddNewSatellitePage3().isAt()) 
 								{  		
-									utils.log().info("Trying to re-establish connection with max router network");
+									utils.log().info("Re-establishing connection with max router network");
 									new HomePage().connectToSSID(this.ssidName);
 									utils.log().info("Waiting for 120 seconds to establish a connection with the max router network");
 						  			super.pause(120);
@@ -2598,7 +2598,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					  			try {
 									if(new AddSatelliteOperationFailedPage4().isAt()) {
 										utils.log().info("Adding Satellite operation failed.");
-										utils.log().info("Trying to re-establish connection with max router network");
+										utils.log().info("Re-establishing connection with max router network");
 										new HomePage().connectToSSID(this.ssidName);
 										utils.log().info("Waiting for 120 seconds to establish a connection with the max router network");
 							  			super.pause(120);
@@ -2620,7 +2620,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 									if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 									{
 										utils.log().info("Connected to a non max network");
-										utils.log().info("Trying to re-establish connection with max router network");
+										utils.log().info("Re-establishing connection with max router network");
 										new HomePage().connectToSSID(this.ssidName);
 										utils.log().info("Waiting for 120 seconds to establish a connection with the max router network");
 							  			super.pause(120);
@@ -2713,7 +2713,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 									if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 									{
 										utils.log().info("Connected to a non max network");
-										utils.log().info("Trying to re-establish connection with max router network");
+										utils.log().info("Re-establishing connection with max router network");
 										new HomePage().connectToSSID(this.ssidName);
 										utils.log().info("Waiting for 120 seconds to establish a connection with the max router network");
 							  			super.pause(120);
@@ -2970,7 +2970,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 										if(new AddSatelliteConnectedToNonMaxNetworkPage().isAt())
 										{
 											utils.log().info("Connected to a non max network");
-											utils.log().info("Trying to re-establish connection with max router network");
+											utils.log().info("Re-establishing connection with max router network");
 											new HomePage().connectToSSID(this.ssidName);
 											utils.log().info("Waiting for 120 seconds to establish a connection with the max router network");
 								  			super.pause(120);

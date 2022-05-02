@@ -187,7 +187,7 @@ public class TC003_Login_And_Test_Home_Page extends ParentClass
 			@Test(priority = 5)
 			public void Verify_Home_Speed_Test_History_Navigation() {
 				SoftAssert softhome4 = new SoftAssert();
-				AssertJUnit.assertTrue(new HomePage().clickSpeedTestHistoryImage());
+				AssertJUnit.assertTrue(new HomePage().clickSpeedTestHistory());
 				if(new HomePage().getBlankSpeedTestHistoryPageObject().isAt())
 					AssertJUnit.assertTrue(new HomePage().getBlankSpeedTestHistoryPageObject().clickCloseIcon());
 				softhome4.assertAll();

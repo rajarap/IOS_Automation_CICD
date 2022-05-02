@@ -166,19 +166,9 @@ public class HamburgerHelpPage extends ParentClass implements Page {
 					super.getDriver().context(context);
 			}
 			utils.log().info("Switched to WEBVIEW");
-
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-			String webURL = driver.getCurrentUrl(); // arris.secure.force.com/consumers
-			utils.log().info("About Page - Accessed web url: " + webURL);
-
-			if (driver != null)
-				driver.quit();
-			
 			super.getDriver().context("NATIVE_APP");
 			utils.log().info("Switched to NATIVE_APP View");
 			super.getDriver().activateApp("com.arris.sbcBeta");
-
 			return true;
 		} catch (Exception e) {
 			super.getDriver().activateApp("com.arris.sbcBeta");
@@ -198,18 +188,9 @@ public class HamburgerHelpPage extends ParentClass implements Page {
 					super.getDriver().context(context);
 			}
 			utils.log().info("Switched to WEBVIEW");
-
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-			String webURL = driver.getCurrentUrl();
-			utils.log().info("About Page - Accessed web url: " + webURL);
-			if (driver != null)
-				driver.quit();
-			
 			super.getDriver().context("NATIVE_APP");
 			utils.log().info("Switched to NATIVE_APP View");
 			super.getDriver().activateApp("com.arris.sbcBeta");
-
 			return true;
 		} catch (Exception e) {
 			super.getDriver().activateApp("com.arris.sbcBeta");
