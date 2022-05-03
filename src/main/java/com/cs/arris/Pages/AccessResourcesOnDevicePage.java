@@ -41,8 +41,8 @@ public class AccessResourcesOnDevicePage extends ParentClass implements Page
 	public void clickOkButton() 
 	{
 		try {
-			click(okButton);
 			utils.log().info("Connect Device To Local Network - Clicked " + okButton.getText());
+			click(okButton);
 		} catch (Exception e) {
 			//utils.log().info("Connect Device To Local Network - OK button is not displayed");
 		}

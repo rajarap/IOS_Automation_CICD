@@ -48,7 +48,7 @@ public class BlueToothConnectionFailedPage extends ParentClass implements Page
 	        	utils.log().info("On Bluetooth Connection failed Page");
 	        	return true;
 	      }else{
-	        	utils.log().info("Not on Bluetooth Connection failed Page");
+//	        	utils.log().info("Not on Bluetooth Connection failed Page");
 	        	return false;}
 	}
 	

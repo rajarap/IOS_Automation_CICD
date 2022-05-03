@@ -130,6 +130,7 @@ com/cs/arris/Pages/AddDeviceCongratulationsPage.class
 com/cs/arris/Pages/MainDeviceEthernetTabPage.class
 com/cs/arris/Pages/BTConnectionsPage.class
 com/cs/arris/Pages/AddSatelliteSuccessfullyConnectedToInternetPage.class
+com/cs/arris/Pages/InternetConnectionNotAvailablePage.class
 com/cs/arris/Pages/AmazonWiFiSimpleSetupDialog.class
 com/cs/arris/Pages/NetworkLANIPReservationHelpPage.class
 com/cs/arris/Pages/SomethingWentWrongPage.class

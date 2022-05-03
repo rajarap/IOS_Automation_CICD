@@ -160,64 +160,102 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
   
 	  @Test(priority = 1)
 	  public void Verify_SignUp_And_Onboard()
-	  { 
+	  {
 		  try {
-			  new GetStartedPage().clickGetStartedButton();
-			  new GrantPermissionsPage().clickContinueButton();
-			  new DeviceLocationPage().clickAllowWhileUsingAppLink();
-			  super.pause(3);
-			  new AccessResourcesOnDevicePage().clickOkButton();
-			  new SelectYourDevicePage().selectSurfboardMaxOption();
-			  new SelectYourDevicePage().clickNextButton();
-			  new SelectYourDevicePage2().selectMaxProAX11000RadioButton();
-			  new SelectYourDevicePage2().clickNextButton();
-			  super.pause(3);
-			  
-			  new SiginPage().clickSignUpButton();
-			  email = new SignupPage().getEmailAddress();  //userXXXX
-//			  new SignupPage().enterValidEmailAddress(email+"@mailinator.com");
-//			  new SignupPage().enterValidEmailAddress(email+"@mail7.io");
-			  new SignupPage().enterValidEmailAddress(email+"@mailsac.com");
-			  new SignupPage().enterFirstName(firstName);
-			  new SignupPage().enterLastName(lastName);
-			  super.pause(5);
-			  new SignupPage().clickAgreeTermsAndConditionsCheckBox();
-			  super.pause(5);
-			  if(new TermsAndConditionsPage().isAt()) 
-			  {
-				for(int i=1; i<=5; i++) {
-					super.swipeUp();
-				}
-				try {
-					if(new TermsAndConditionsPage().understandAndAgreeButton.isEnabled()) 
-					{
-						new TermsAndConditionsPage().clickUnderstandAndAgreeButton();
-						super.pause(3);
-			            new SignupPage().clickSignupButton();	
-			            super.pause(3);
-			            new EnterValidOTPPage().enterInValidPassCode("123456");
-			            super.pause(3);
-			            Assert.assertTrue(new EnterValidOTPPage().verifyInvalidPassCodeMessage());
-						 new EnterValidOTPPage().clickResendLink();
-						 new ResendOTPDialog().clickOKButton();
-						 super.pause(15);
-						 new EnterValidOTPPage().clearPassCodeText();
-						 super.pause(5);
-						 new EnterValidOTPPage().enterValidPassCode(email);
-						 super.pause(3);
-						 new CodeVerifiedPage().getCodeVerifiedText();
-						 new CodeVerifiedPage().clickNextButton();
-				  }
-				}catch(Exception e) {
-					  super.pause(120);
-					  new TapSevenTimes().tapSeven();
-					  super.pause(5);
-					  new SevenTapEmail().enterEmailAddress();
-					  super.pause(5);
-					  new SevenTapEmail().clickSendButton();
-					  Assert.fail("Main AP Onboarding -Failed to retrieve OTP.  This may be due to non-acceissiblity of 3rd party website or may be due to non-availability of internet connection");
-					  new KillAndRelaunchApp().killApp();}
+			  try {
+				  new GetStartedPage().clickGetStartedButton();
+				  new GrantPermissionsPage().clickContinueButton();
+				  new DeviceLocationPage().clickAllowWhileUsingAppLink();
+				  super.pause(3);
+				  new AccessResourcesOnDevicePage().clickOkButton();
+				  new SelectYourDevicePage().selectSurfboardMaxOption();
+				  new SelectYourDevicePage().clickNextButton();
+				  new SelectYourDevicePage2().selectMaxProAX11000RadioButton();
+				  new SelectYourDevicePage2().clickNextButton();
+				  super.pause(3);
+				  
+				  	try {
+				  		if(new InternetConnectionNotAvailablePage().isAt())
+				  			{
+				  				utils.log().info("Checking if Internet connection is available on your mobile device");
+				  				new InternetConnectionNotAvailablePage().enableWifi();
+				  				new InternetConnectionNotAvailablePage().clickTryAgaineButton();
+				  				super.pause(5);
+					
+							 	new GetStartedPage().clickGetStartedButton();
+							 	new GrantPermissionsPage().clickContinueButton();
+							 	new DeviceLocationPage().clickAllowWhileUsingAppLink();
+							 	super.pause(3);
+							 	new AccessResourcesOnDevicePage().clickOkButton();
+							 	new SelectYourDevicePage().selectSurfboardMaxOption();
+							 	new SelectYourDevicePage().clickNextButton();
+							 	new SelectYourDevicePage2().selectMaxProAX11000RadioButton();
+							 	new SelectYourDevicePage2().clickNextButton();
+							 	super.pause(3);
+				  			}
+				  	}catch(Exception e1) {}
+				  	
+			  }catch(Exception e2) {
+				  super.pause(10);
+				  new TapSevenTimes().tapSeven();
+				  super.pause(3);
+				  new SevenTapEmail().enterEmailAddress();
+				  super.pause(3); 
+				  new SevenTapEmail().clickSendButton();
+				  Assert.fail("Internet connection is not available either on your MainAP router or on your mobile device");
+				  new KillAndRelaunchApp().killApp();
 			  }
+			  
+			  try 
+			  {
+				  new SiginPage().clickSignUpButton();
+				  email = new SignupPage().getEmailAddress();  //userXXXX
+//			  	new SignupPage().enterValidEmailAddress(email+"@mailinator.com");
+//			 	 new SignupPage().enterValidEmailAddress(email+"@mail7.io");
+				  new SignupPage().enterValidEmailAddress(email+"@mailsac.com");
+				  new SignupPage().enterFirstName(firstName);
+				  new SignupPage().enterLastName(lastName);
+				  super.pause(5);
+				  new SignupPage().clickAgreeTermsAndConditionsCheckBox();
+				  super.pause(5);
+			  
+				  if(new TermsAndConditionsPage().isAt()) 
+				  {
+					  for(int i=1; i<=5; i++) {
+						  super.swipeUp();
+					  }
+					  try 
+					  {
+						  if(new TermsAndConditionsPage().understandAndAgreeButton.isEnabled()) 
+						  {
+							  new TermsAndConditionsPage().clickUnderstandAndAgreeButton();
+							  super.pause(3);
+							  new SignupPage().clickSignupButton();	
+							  super.pause(3);
+							  new EnterValidOTPPage().enterInValidPassCode("123456");
+							  super.pause(3);
+							  Assert.assertTrue(new EnterValidOTPPage().verifyInvalidPassCodeMessage());
+							  new EnterValidOTPPage().clickResendLink();
+							  new ResendOTPDialog().clickOKButton();
+							  super.pause(15);
+							  new EnterValidOTPPage().clearPassCodeText();
+							  super.pause(5);
+							  new EnterValidOTPPage().enterValidPassCode(email);
+							  super.pause(3);
+							  new CodeVerifiedPage().getCodeVerifiedText();
+							  new CodeVerifiedPage().clickNextButton();
+						  }
+					  }catch(Exception e) {}
+				  }
+			  }catch(Exception e) {
+				  new TapSevenTimes().tapSeven();
+				  super.pause(5);
+				  new SevenTapEmail().enterEmailAddress();
+				  super.pause(5);
+				  new SevenTapEmail().clickSendButton();
+				  Assert.fail("Main AP Onboarding - This may be due to non-accessiblity of 3rd party website to retrieve OTP or may be due to non-availability of internet connection");
+				  new KillAndRelaunchApp().killApp();}
+
 
 			  new OptimizeYourNetworkPage().clickSkipOptimizeButton();
 			  new SetupHomeNetworkPage().clickNextButton();
@@ -225,25 +263,30 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  
 			  try {
 				  new PlugInMaxRouterPage().clickNextButton();
-				  super.pause(3);
+				  super.pause(5);
 				  new ConnectToBlueToothDialog().clickOkButton();
 				  super.pause(60);
-				  		  
-				  try {
-					  if(new BlueToothConnectionFailedPage().isAt()) {
-						  new BlueToothConnectionFailedPage().clickTryAgainbutton();
-						  super.pause(30);
-					  }
-				  }catch(Exception e) {}
+				  
+				  	try {
+				  		if(new MultipleDevicesFoundPage().isAt()) 
+				  				Assert.fail("Multiple devices emitting bluetooth signals");
+				  		} catch (Exception e5) {}
+
+				  
+				  	try {
+				  		if(new BlueToothConnectionFailedPage().isAt()) {
+				  			new BlueToothConnectionFailedPage().clickTryAgainbutton();
+				  			super.pause(30);}
+				  		}catch(Exception e) {}
 				  
 			  }catch(Exception e) {
 				  super.pause(120);
+				  Assert.fail("Main AP Onboarding - Either Multiple devices were found or bluetooth connection failed");
 				  new TapSevenTimes().tapSeven();
 				  super.pause(5);
 				  new SevenTapEmail().enterEmailAddress();
 				  super.pause(5);
 				  new SevenTapEmail().clickSendButton();
-				  Assert.fail("Main AP Onboarding - Either multiple devices were found or blue tooth connection failed");
 				  new KillAndRelaunchApp().killApp();
 			  }
 
@@ -254,7 +297,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  super.pause(10);
 			  new SystemFirmwareUpdatePage().clickNextButton();
 			  super.pause(30);
-			  new SomethingWentWrongPage().clickContinueButton();
+			  try {
+				  new SomethingWentWrongPage().clickContinueButton();
+			  }catch(Exception e) {}
 			  new NameYourNetwokSSIDPage().enterSSIDName(this.ssidName);
 			  new NameYourNetwokSSIDPage().enterSSIDPassword(this.ssidpass);
 			  new NameYourNetwokSSIDPage().clickNextButton();
@@ -283,20 +328,20 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  }catch(Exception e) {}
 			  
 			  try {
-		  		if(new HomePage().cloudIcon.isDisplayed()) {
+		  		if(new HomePage().cloudIcon.isDisplayed() || new HomePage().remoteAccessNotAvailableLink.isDisplayed()) {
 		  			new HomePage().connectToSSID(this.ssidName);
-		  			utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
-		  			super.pause(60);
+		  			utils.log().info("Waiting for 120 seconds for the Wifi connection to stabilize");
+		  			super.pause(120);
 		  		}
 		  	 }catch(Exception e) {};
 		  		
-			 try {
-			  	if(new HomePage().remoteAccessNotAvailableLink.isDisplayed()) {
-			  		new HomePage().connectToSSID(this.ssidName);
-			  		utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
-			  		super.pause(60);
-			  	}
-			}catch(Exception e) {};
+//			 try {
+//			  	if(new HomePage().remoteAccessNotAvailableLink.isDisplayed()) {
+//			  		new HomePage().connectToSSID(this.ssidName);
+//			  		utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
+//			  		super.pause(60);
+//			  	}
+//			}catch(Exception e) {};
 		  		
 			new HomePage().getSSIDName();  
 
@@ -307,9 +352,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  new SevenTapEmail().enterEmailAddress();
 			  super.pause(5);
 			  new SevenTapEmail().clickSendButton();
-			  Assert.fail("Main AP Onboarding - Unable to onboard your Main Max Router ");
-			  new KillAndRelaunchApp().killApp();}
+			  Assert.fail("Main AP Onboarding - Unable to onboard your MainAP Router ");
+			  new KillAndRelaunchApp().killApp();
+			  }
 	  }
+
 	  
   
 	  @Test(priority = 2, dependsOnMethods = { "Verify_SignUp_And_Onboard" })
@@ -322,6 +369,14 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			SoftAssert softhome2 = new SoftAssert();
 			try{
 				new HomePage().getFooterIconsPageObject().clickHomeButton();
+				
+				  try {
+				  		if(new HomePage().cloudIcon.isDisplayed() || new HomePage().remoteAccessNotAvailableLink.isDisplayed()) {
+				  			new HomePage().connectToSSID(this.ssidName);
+				  			utils.log().info("Waiting for 60 seconds for the Wifi connection to stabilize");
+				  			super.pause(60);
+				  		}
+				  	 }catch(Exception e) {};
 			
 				if(new HomePage().isAt())
 					softhome2.assertTrue(new HomePage().clickNavigationButton());
@@ -330,6 +385,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softhome2.assertTrue(new HomePage().getHamburgerMenuPageObject().clickAddDeviceButton());
 			try {
 				if(new AddDeviceSelectDevice1Page().isAt()) {
+					super.pause(10);
 					softhome2.assertTrue(new AddDeviceSelectDevice1Page().selectISPCableRadioButton());
 					softhome2.assertTrue(new AddDeviceSelectDevice1Page().clickNextButton());}
 			}catch (Exception e) {
@@ -341,23 +397,30 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed when selecting a device");
 				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
+				  super.pause(10);
 				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				  super.pause(10);
 			}
 			
 			try {
 				if(new AddDeviceSelectDevice2Page().isAt()) {
 					softhome2.assertTrue(new AddDeviceSelectDevice2Page().selectT25RadioButton());
 					softhome2.assertTrue(new AddDeviceSelectDevice2Page().clickNextButton());
+					super.pause(5);
 				}
-				super.pause(5);
+
+					try {
+						if(new InternetConnectionNotAvailablePage().isAt()) {
+							utils.log().info("Internet connection is currently not available to proceed further");
+							utils.log().info("Waiting for 120 seconds");
+							super.pause(120);
+							new InternetConnectionNotAvailablePage().clickTryAgaineButton();
+							new AddDeviceSelectDevice2Page().clickBackButton();
+							new AddDeviceSelectDevice1Page().clickNextButton();
+							softhome2.assertTrue(new AddDeviceSelectDevice2Page().selectT25RadioButton());
+							softhome2.assertTrue(new AddDeviceSelectDevice2Page().clickNextButton());}
+					}catch(Exception e1) {}
 				
-				try {
-					if(new InternetConnectionNotAvailablePage().isAt()) {
-						Assert.fail("Internet connection is not available to proceed further");
-					}
-				}catch(Exception e1) {}
 			}catch (Exception e) {
 				super.pause(10);
 			 	new TapSevenTimes().tapSeven();
@@ -365,11 +428,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	new SevenTapEmail().enterEmailAddress();
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
-			 	Assert.fail("Add Device - Failed when select a device or Internet connection is not available");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+			 	Assert.fail("Add Device - Failed when selecting a device or Internet connection is not available");
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 			
 			try {
@@ -384,10 +447,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on STEPS FOR ACTIVATION - LET'S START Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 			
 			try {
@@ -402,10 +465,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on LET'S START WITH DEVICE CONNECTION Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 			
 			try {
@@ -420,10 +483,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on CHOOSE YOUR INTERNET SERVICE PROVIDER Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 			
 			try {
@@ -438,10 +501,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on ACTIVATE YOUR DEVICE WITH SERVICE PROVIDER Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 			
 			try {
@@ -456,10 +519,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on ESTABLISHING CONNECTION Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 			
 			try {
@@ -474,10 +537,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on SUCCESS Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 			
 			try {
@@ -492,10 +555,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on SCAN BAR CODE TO CONTINUE Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 			
 			try {
@@ -510,10 +573,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on APPLICATION WOULD LIKE TO ACCESS THE CAMERA Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 			
 			try {
@@ -530,10 +593,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on ENTER S/N AND HFC MAC ADDRESS MANUALLY IN UPPERCASE Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 	 
 			try {
@@ -547,10 +610,10 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on REGISTRATION OF YOUR DEVICE FAILED Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 			
 			try {
@@ -565,19 +628,20 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	super.pause(3); 
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on CONGRATULATIONS Page");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 			
 			softhome2.assertAll();
+			
 			}catch (Exception e) {
 			 	Assert.fail("Failure in Add Device Functionality ");
-				  new KillAndRelaunchApp().killApp();
-				  super.pause(5);
-				  new KillAndRelaunchApp().relaunchApp();
-				  super.pause(20);
+				new KillAndRelaunchApp().killApp();
+				super.pause(10);
+				new KillAndRelaunchApp().relaunchApp();
+				super.pause(10);
 			}
 	  }
 	  
@@ -609,9 +673,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on Device Details Page");
 				new KillAndRelaunchApp().killApp();
-				super.pause(5);
+				super.pause(10);
 				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
+				super.pause(10);
 			}
 		}
 		
@@ -629,9 +693,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			}catch (Exception e) {
 				Assert.fail("Add Device - Failed on Specifications Page");
 				new KillAndRelaunchApp().killApp();
-				super.pause(5);
+				super.pause(10);
 				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
+				super.pause(10);
 			 	new TapSevenTimes().tapSeven();
 			 	super.pause(3);
 			 	new SevenTapEmail().enterEmailAddress();
@@ -659,9 +723,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			}catch (Exception e) {
 				Assert.fail("Add Device - Failed on Adding additional device Page");
 				new KillAndRelaunchApp().killApp();
-				super.pause(5);
+				super.pause(10);
 				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
+				super.pause(10);
 			 	new TapSevenTimes().tapSeven();
 			 	super.pause(3);
 			 	new SevenTapEmail().enterEmailAddress();
@@ -690,9 +754,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			 	new SevenTapEmail().clickSendButton();
 			 	Assert.fail("Add Device - Failed on Notifications Page");
 				new KillAndRelaunchApp().killApp();
-				super.pause(5);
+				super.pause(10);
 				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
+				super.pause(10);
 			}
 
 		}
@@ -714,9 +778,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			} catch (Exception e) {
 				Assert.fail("Add Device - Failed on UserGuide Page");
 				new KillAndRelaunchApp().killApp();
-				super.pause(5);
+				super.pause(10);
 				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
+				super.pause(10);
 			 	new TapSevenTimes().tapSeven();
 			 	super.pause(3);
 			 	new SevenTapEmail().enterEmailAddress();
@@ -740,9 +804,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			} catch (Exception e) {
 				Assert.fail("Add Device - Failed on FAQ Page");
 				new KillAndRelaunchApp().killApp();
-				super.pause(5);
+				super.pause(10);
 				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
+				super.pause(10);
 			 	new TapSevenTimes().tapSeven();
 			 	super.pause(3);
 			 	new SevenTapEmail().enterEmailAddress();
@@ -772,9 +836,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			} catch (Exception e) {
 				Assert.fail("Add Device - Failed on FAQ Page");
 				new KillAndRelaunchApp().killApp();
-				super.pause(5);
+				super.pause(10);
 				new KillAndRelaunchApp().relaunchApp();
-				super.pause(15);
+				super.pause(10);
 			 	new TapSevenTimes().tapSeven();
 			 	super.pause(3);
 			 	new SevenTapEmail().enterEmailAddress();

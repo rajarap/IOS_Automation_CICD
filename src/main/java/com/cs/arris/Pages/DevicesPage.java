@@ -223,45 +223,40 @@ public class DevicesPage extends ParentClass implements Page {
 					}
 
 					try {
-						if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_IPAddressTitle["+i+"]\"]").isDisplayed()  &&  
-								super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_IPAddress["+i+"]\"]").isDisplayed())
-							utils.log().info(super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_IPAddressTitle["+i+"]\"]").getText() + " : " + 
+						if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_IPAddress["+i+"]\"]").isDisplayed())
+							utils.log().info("IPAddress : " + 
 								super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_IPAddress["+i+"]\"]").getText());
 					} catch (Exception exp) {
 						utils.log().info("Device IP Label and IP Address are not available ");
 					}
 
 					try {
-						if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_MacTitle["+i+"]\"]").isDisplayed() &&
-								super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_Mac["+i+"]\"]").isDisplayed())
-							utils.log().info(super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_MacTitle["+i+"]\"]").getText() + " : " +
+						if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_Mac["+i+"]\"]").isDisplayed())
+							utils.log().info("MAC Address : " +
 									super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_Mac["+i+"]\"]").getText());
 					} catch (Exception exp) {
 						utils.log().info("MAC Address Label and MAC Address is not displayed");
 					}
 
 					try {
-						if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_ChannelTitle["+i+"]\"]").isDisplayed() &&
-								super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_Channel["+i+"]\"]").isDisplayed())
-							utils.log().info(super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_ChannelTitle["+i+"]\"]").getText() + " : " +
+						if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_Channel["+i+"]\"]").isDisplayed())
+							utils.log().info("Channel : " +
 									super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_Channel["+i+"]\"]").getText());
 					} catch (Exception exp) {
 						utils.log().info("Channel Label and Device Channel Number is not displayed");
 					}
 
 					try {
-						if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_StatusTitle["+i+"]\"]").isDisplayed() &&
-								super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_Status["+i+"]\"]").isDisplayed())
-							utils.log().info(super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_StatusTitle["+i+"]\"]").getText() + " : " +
+						if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_Status["+i+"]\"]").isDisplayed())
+							utils.log().info("Status : " +
 									super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_Status["+i+"]\"]").getText());
 					} catch (Exception exp) {
 						utils.log().info("Status Label and Device Status is not displayed");
 					}
 
 					try {
-						if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_RSSITitle["+i+"]\"]").isDisplayed() &&
-								super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_RSSI["+i+"]\"]").isDisplayed())
-							utils.log().info(super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_RSSITitle["+i+"]\"]").getText() + " : " +
+						if (super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_RSSI["+i+"]\"]").isDisplayed())
+							utils.log().info("RSSI : " +
 									super.getDriver().findElementByXPath("//XCUIElementTypeStaticText[@name=\"Device_List_Screen_Label_RSSI["+i+"]\"]").getText());
 					} catch (Exception exp) {
 						utils.log().info("RSSI Label and RSSI data is not displayed");

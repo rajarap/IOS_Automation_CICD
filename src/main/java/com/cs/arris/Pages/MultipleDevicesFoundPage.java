@@ -44,11 +44,11 @@ public class MultipleDevicesFoundPage extends ParentClass implements Page
 	
 	@Override
 	public boolean isAt() {
-		if(multipleDevicesFoundSubTitle.isDisplayed()) {
+		if(multipleDevicesFoundTitle.isDisplayed()) {
 			utils.log().info("MULTIPLE DEVICES FOUND - It appears that 2 or more routers are turned on at the same time.");
 			return true;
 		}else {
-			utils.log().info("No MULTIPLE DEVICES FOUND");
+//			utils.log().info("No MULTIPLE DEVICES FOUND");
 			return false;
 		}
 	}

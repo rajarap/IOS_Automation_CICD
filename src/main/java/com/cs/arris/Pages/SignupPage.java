@@ -94,7 +94,9 @@ public class SignupPage  extends ParentClass implements Page
 		
 		iosDriver = (IOSDriver<MobileElement>) super.getDriver();
 		iosDriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Done\"]").click();
-		click(signupButton);
+		
+		if(signupButton.isDisplayed())
+			click(signupButton);
 		utils.log().info("SignUp Page - Clicked on Sign Up Button");
 	}
 	

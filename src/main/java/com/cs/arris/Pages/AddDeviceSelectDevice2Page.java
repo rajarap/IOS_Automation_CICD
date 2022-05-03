@@ -160,10 +160,10 @@ public class AddDeviceSelectDevice2Page extends ParentClass implements Page {
 	@Override
 	public boolean isAt() {
 		if (selectDeviceTitle.isDisplayed()) {
-			utils.log().info("On Add Device - Select You Device Below 2 Page");
+			utils.log().info("On Add Device - Select Your Device Below 2 Page");
 			return true;
 		} else {
-			utils.log().info("Not on  Add Device - Select You Device Below 2 Page");
+			utils.log().info("Not on  Add Device - Select Your Device Below 2 Page");
 			return false;
 		}
 	}
