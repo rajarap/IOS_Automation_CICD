@@ -1652,6 +1652,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork3.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					}catch(Exception e){}
 					
@@ -1677,6 +1678,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork4.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					}catch(Exception e){}
 						
@@ -1702,7 +1704,9 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork5.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
+
 					}catch(Exception e){}
 						
 						softnetwork5.assertAll();
@@ -1728,6 +1732,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork6.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					}catch(Exception e){}
 						softnetwork6.assertAll();
@@ -1754,6 +1759,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork7.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					}catch(Exception e){}
 						
@@ -1779,6 +1785,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork8.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					}catch(Exception e){}
 					
@@ -1804,6 +1811,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork9.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					}catch(Exception e){}
 						
@@ -1830,6 +1838,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork10.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					}catch(Exception e){}
 					
@@ -1856,6 +1865,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork11.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getConnectedDevicesPageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					}catch(Exception e){}
 						
@@ -1881,6 +1891,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork12.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteSignalPageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					}catch(Exception e){}
 						
@@ -1906,6 +1917,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork13.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getSatelliteLinkRatePageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					}catch(Exception e){}
 						
@@ -1932,6 +1944,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 						try {
 							if(new AppRatingDialog().isAt())
 								new AppRatingDialog().clickRemindMeLaterLink();
+							softnetwork14.assertTrue(new HomePage().getNetworkOtptimizationPageObject().getOptimizationSettinsPageObject().getISPSpeedRatePageObject().clickBackButton());
 						}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 					}catch(Exception e){}
 						
@@ -2190,68 +2203,68 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnet24.assertAll();
 				}
 				
-				@Test(priority = 145, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_LAN_Settings_LAN_Subnet_DHCP_Range_Configuration_Page"})
-				public void Verify_Edit_LAN_Subnet_DHCP_Range_Configuration_Page() 
-				{
-					SoftAssert softnet25 = new SoftAssert();
-					super.pause(5);
-					
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().EditDHCPIPAddressRangeForFirstSubnet());
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
-					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().isAt())
-						softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().clickCloseButton());
-					
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().EditDHCPIPAddressRangeForSecondSubnet());
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
-					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().isAt())
-						softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().clickCloseButton());
-					
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().EditDHCPIPAddressRangeForThirdSubnet());
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
-					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().isAt())
-						softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().clickCloseButton());
-					
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyLANDHCPRangeBetween1And255());
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
-					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterDHCPRangeBtw1And255.getText() + " is displayed");
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyLANDHCPRangeBetween1And2552());
-					
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyLANDHCPRangeWithEmptySuffix());
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
-					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterValidDHCPRangeBtw1And255.getText() + " is displayed");
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyLANDHCPRangeWithEmptySuffix2());
-					
-					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickResetToDefaultButton());
-					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().isAt())
-						softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().clickCloseButton());
-
-					softnet25.assertAll();
-				}
-				
-				@Test(priority = 146, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_LAN_Settings_LAN_Subnet_DHCP_Range_Configuration_Page"})
-				public void Edit_LAN_Subnet_Configuration_Octets() 
-				{
-					SoftAssert softnet26 = new SoftAssert();
-					super.pause(5);
-					
-					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyFirstLANSubnetConfigurationWithInvalidOctet());
-					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
-					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterValidIPAddressText1.getText() + " is displayed");
-					
-					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifySecondLANSubnetConfigurationWithInvalidOctet());
-					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
-					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterValidIPAddressText2.getText() + " is displayed");
-
-					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyThirdLANSubnetConfigurationWithInvalidOctet());
-					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
-					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterValidIPAddressText3.getText() + " is displayed");
-					
-					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyThirdLANSubnetConfigurationWithSecondInvalidOctet());
-					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
-					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterValidIPAddressTex16_31.getText() + " is displayed");
-					
-					softnet26.assertAll();
-				}
+//				@Test(priority = 145, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_LAN_Settings_LAN_Subnet_DHCP_Range_Configuration_Page"})
+//				public void Verify_Edit_LAN_Subnet_DHCP_Range_Configuration_Page() 
+//				{
+//					SoftAssert softnet25 = new SoftAssert();
+//					super.pause(5);
+//					
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().EditDHCPIPAddressRangeForFirstSubnet());
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
+//					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().isAt())
+//						softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().clickCloseButton());
+//					
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().EditDHCPIPAddressRangeForSecondSubnet());
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
+//					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().isAt())
+//						softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().clickCloseButton());
+//					
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().EditDHCPIPAddressRangeForThirdSubnet());
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
+//					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().isAt())
+//						softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().clickCloseButton());
+//					
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyLANDHCPRangeBetween1And255());
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
+//					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterDHCPRangeBtw1And255.getText() + " is displayed");
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyLANDHCPRangeBetween1And2552());
+//					
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyLANDHCPRangeWithEmptySuffix());
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
+//					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterValidDHCPRangeBtw1And255.getText() + " is displayed");
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyLANDHCPRangeWithEmptySuffix2());
+//					
+//					softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickResetToDefaultButton());
+//					if(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().isAt())
+//						softnet25.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().getLANDHCPChangeRangeIPDialogObject().clickCloseButton());
+//
+//					softnet25.assertAll();
+//				}
+//				
+//				@Test(priority = 146, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_LAN_Settings_LAN_Subnet_DHCP_Range_Configuration_Page"})
+//				public void Edit_LAN_Subnet_Configuration_Octets() 
+//				{
+//					SoftAssert softnet26 = new SoftAssert();
+//					super.pause(5);
+//					
+//					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyFirstLANSubnetConfigurationWithInvalidOctet());
+//					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
+//					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterValidIPAddressText1.getText() + " is displayed");
+//					
+//					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifySecondLANSubnetConfigurationWithInvalidOctet());
+//					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
+//					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterValidIPAddressText2.getText() + " is displayed");
+//
+//					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyThirdLANSubnetConfigurationWithInvalidOctet());
+//					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
+//					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterValidIPAddressText3.getText() + " is displayed");
+//					
+//					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().verifyThirdLANSubnetConfigurationWithSecondInvalidOctet());
+//					softnet26.assertTrue(new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().clickSaveButton());
+//					utils.log().info("Validation Message : " + new NetworkPage().getLANSettingsPageObject().getNetworkLANSubnetDHCPLRangePageObject().enterValidIPAddressTex16_31.getText() + " is displayed");
+//					
+//					softnet26.assertAll();
+//				}
 				
 				@Test(priority = 147, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_LAN_Settings_LAN_Subnet_DHCP_Range_Configuration_Page"})
 				public void Verify_LAN_Settings_LAN_Subnet_DHCP_Range_Configuration_Help_Page() 
@@ -2432,24 +2445,24 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 					softnet37.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickHawaiiTimeZone());
 					softnet37.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickSaveButton());
 					super.pause(10);
-//					softnet37.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
-//					softnet37.assertTrue(new NetworkPage().getFooterIconsPageObject().clickHomeButton());
+					softnet37.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
+					softnet37.assertTrue(new NetworkPage().getFooterIconsPageObject().clickHomeButton());
 					softnet37.assertAll();
 				}
 				
-				@Test(priority = 158, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Time_Zone_Settings_UI_Page"})
-				public void Verify_Time_Zone_Settings_Help_Page() 
-				{
-					SoftAssert softnet38 = new SoftAssert();
-					softnet38.assertTrue(new NetworkPage().clickTimeZone());
-					softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickHelpButton());
-					if (new NetworkPage().getTimeZoneSettingsPageObject().getTimeZoneHelpPageObject().isAt())
-						softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().getTimeZoneHelpPageObject().clickCloseButton());
-					softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickBackButton());
-					softnet38.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
-					softnet38.assertTrue(new NetworkPage().getFooterIconsPageObject().clickHomeButton());
-					softnet38.assertAll();
-				}
+//				@Test(priority = 158, dependsOnMethods = {"Verify_SignUp_And_Onboard", "Verify_Time_Zone_Settings_UI_Page"})
+//				public void Verify_Time_Zone_Settings_Help_Page() 
+//				{
+//					SoftAssert softnet38 = new SoftAssert();
+//					softnet38.assertTrue(new NetworkPage().clickTimeZone());
+//					softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickHelpButton());
+//					if (new NetworkPage().getTimeZoneSettingsPageObject().getTimeZoneHelpPageObject().isAt())
+//						softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().getTimeZoneHelpPageObject().clickCloseButton());
+//					softnet38.assertTrue(new NetworkPage().getTimeZoneSettingsPageObject().clickBackButton());
+//					softnet38.assertTrue(new NetworkPage().clickNetworkSettingsExpandButton());
+//					softnet38.assertTrue(new NetworkPage().getFooterIconsPageObject().clickHomeButton());
+//					softnet38.assertAll();
+//				}
 				
 				
 				
@@ -3061,17 +3074,16 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								//Add code for multiple devices found
 								try {
 									if(new MultipleDevicesFoundPage().isAt()) {
-										Assert.fail("Main AP Onboarding - Multiple devices were found to be turned on at the same time");
+										Assert.fail("Satellite 2 Onboarding - Multiple devices were found to be turned on at the same time");
+										super.pause(10);
+									 	new TapSevenTimes().tapSeven();
+									 	super.pause(3);
+									 	new SevenTapEmail().enterEmailAddress();
+									 	super.pause(3); 
+									 	new SevenTapEmail().clickSendButton();
+										new KillAndRelaunchApp().killApp();
 									}
-								} catch (Exception e5) {
-									super.pause(10);
-								 	new TapSevenTimes().tapSeven();
-								 	super.pause(3);
-								 	new SevenTapEmail().enterEmailAddress();
-								 	super.pause(3); 
-								 	new SevenTapEmail().clickSendButton();
-									new KillAndRelaunchApp().killApp();
-								}
+								} catch (Exception e5) {}
 								
 								
 								try {
@@ -3079,8 +3091,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 										new BlueToothConnectionFailedPage().clickTryAgainbutton();
 										utils.log().info("Waiting for 120 seconds trying to establish connection with your max router bluetooth");
 										super.pause(120);}
-								} catch (Exception e5) {
-								}
+								} catch (Exception e5) {}
 								
 								
 								try {
