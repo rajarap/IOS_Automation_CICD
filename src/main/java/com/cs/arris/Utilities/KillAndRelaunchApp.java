@@ -16,10 +16,12 @@ public class KillAndRelaunchApp extends ParentClass{
 		
 	public void killApp() {
 		super.getDriver().terminateApp("com.arris.sbcBeta");
+		super.pause(10);
 	}
 	
 	public void relaunchApp() {
 		super.getDriver().activateApp("com.arris.sbcBeta");
+		super.pause(10);
 	}
 
 
