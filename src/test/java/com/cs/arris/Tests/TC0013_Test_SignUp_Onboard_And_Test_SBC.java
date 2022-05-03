@@ -231,7 +231,16 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 							  new TermsAndConditionsPage().clickUnderstandAndAgreeButton();
 							  super.pause(3);
 							  new SignupPage().clickSignupButton();	
-							  super.pause(3);
+							  super.pause(5);
+							  
+							  try {
+								  if(new SignupPage().requestTimedOut1.isDisplayed())
+									  utils.log().info("SignUp Request has been timed out. Wait for 120 seconds and try again");
+									  super.pause(120);
+									  new SignupPage().clickSignupButton();	
+									  super.pause(5);
+							  }catch(Exception e) {}
+							  
 							  new EnterValidOTPPage().enterInValidPassCode("123456");
 							  super.pause(3);
 							  Assert.assertTrue(new EnterValidOTPPage().verifyInvalidPassCodeMessage());
@@ -253,7 +262,7 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 				  new SevenTapEmail().enterEmailAddress();
 				  super.pause(5);
 				  new SevenTapEmail().clickSendButton();
-				  Assert.fail("Main AP Onboarding - This may be due to non-accessiblity of 3rd party website to retrieve OTP or may be due to non-availability of internet connection");
+				  Assert.fail("Main AP Onboarding - This may be due to non-accessiblity of 3rd party website to retrieve OTP or may be due to non-availability of internet connection or sign-up request has been timed out");
 				  new KillAndRelaunchApp().killApp();}
 
 
@@ -298,7 +307,8 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 			  new SystemFirmwareUpdatePage().clickNextButton();
 			  super.pause(30);
 			  try {
-				  new SomethingWentWrongPage().clickContinueButton();
+				  if(new SomethingWentWrongPage().continueButton.isDisplayed())
+					  new SomethingWentWrongPage().clickContinueButton();
 			  }catch(Exception e) {}
 			  new NameYourNetwokSSIDPage().enterSSIDName(this.ssidName);
 			  new NameYourNetwokSSIDPage().enterSSIDPassword(this.ssidpass);

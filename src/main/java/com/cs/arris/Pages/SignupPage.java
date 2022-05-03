@@ -60,6 +60,14 @@ public class SignupPage  extends ParentClass implements Page
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Create_Your_Account_Screen_Button_SignIn\"]") 
 	public MobileElement signinButton;
 	
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Create_Your_Account_Screen_Label_GenerateErrors\"]") 
+	public MobileElement requestTimedOut1;
+	
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"The request timed out.\"`]") 
+	public MobileElement requestTimedOut2;
+	
+	
+	
 
 	public SignupPage()
 	{
