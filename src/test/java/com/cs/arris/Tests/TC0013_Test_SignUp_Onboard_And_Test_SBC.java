@@ -2938,6 +2938,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 								new KillAndRelaunchApp().killApp();
 								new KillAndRelaunchApp().relaunchApp();
 							}
+							
+							try {
+								if(new AppRatingDialog().isAt())
+									new AppRatingDialog().clickRemindMeLaterLink();
+							}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 
 							new HomePage().verifyLeftRouterDetails();
 
@@ -3250,6 +3255,11 @@ public class TC0013_Test_SignUp_Onboard_And_Test_SBC extends ParentClass
 							 	Assert.fail("Satellite 1 Onboarding - Failed at Congratulations Page" );
 								new KillAndRelaunchApp().killApp();
 							}
+							
+							try {
+								if(new AppRatingDialog().isAt())
+									new AppRatingDialog().clickRemindMeLaterLink();
+							}catch(Exception e){utils.log().info("App Rating Dialog did not appear");}
 
 							new HomePage().verifyRightRouterDetails();
 
