@@ -98,7 +98,7 @@ public class InternetConnectionNotAvailablePage extends ParentClass implements P
 	@Override
 	public boolean isAt() {
 		if(internetConnectionNotAvailableTitle.isDisplayed()) {
-			utils.log().info("on Internet connection is currently not available on your mobile device page");
+			utils.log().info("on Internet connection is currently not available on your mobile device");
 			return true;
 		}else {
 			return false;

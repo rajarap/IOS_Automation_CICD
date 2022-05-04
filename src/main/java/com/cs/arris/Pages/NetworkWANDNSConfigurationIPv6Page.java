@@ -222,13 +222,13 @@ public class NetworkWANDNSConfigurationIPv6Page extends ParentClass implements P
 //			} catch (Exception e) {
 //				utils.log().info("IPv6 Tab is not displayed");
 //			}
-
-			try {
-				if (dnsIPv4Tab.isDisplayed())
-					utils.log().info("IPv4 Tab is displayed but is not selected");
-			} catch (Exception e) {
-				utils.log().info("IPv4 Tab is not displayed");
-			}
+//
+//			try {
+//				if (dnsIPv4Tab.isDisplayed())
+//					utils.log().info("IPv4 Tab is displayed but is not selected");
+//			} catch (Exception e) {
+//				utils.log().info("IPv4 Tab is not displayed");
+//			}
 
 			try {
 				if (primaryDNSLabel.isDisplayed() && automatic_primaryDNS.isDisplayed())
@@ -292,13 +292,13 @@ public class NetworkWANDNSConfigurationIPv6Page extends ParentClass implements P
 //			} catch (Exception e) {
 //				utils.log().info("IPv6 Tab is not displayed");
 //			}
-
-			try {
-				if (dnsIPv4Tab.isDisplayed())
-					utils.log().info("IPv4 Tab is displayed but is not selected");
-			} catch (Exception e) {
-				utils.log().info("IPv4 Tab is not displayed");
-			}
+//
+//			try {
+//				if (dnsIPv4Tab.isDisplayed())
+//					utils.log().info("IPv4 Tab is displayed but is not selected");
+//			} catch (Exception e) {
+//				utils.log().info("IPv4 Tab is not displayed");
+//			}
 
 			try {
 				if (primaryDNSLabel.isDisplayed() && static_primaryDNS.isDisplayed())

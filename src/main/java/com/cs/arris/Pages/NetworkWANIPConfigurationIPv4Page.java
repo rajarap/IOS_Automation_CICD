@@ -206,7 +206,7 @@ public class NetworkWANIPConfigurationIPv4Page extends ParentClass implements Pa
 	
 	public boolean clickDHCPRadioButton() {
 		if (dhcpRadioButton.isDisplayed()) {
-			utils.log().info("DHCP Radion button is selected");
+			utils.log().info("DHCP Radio button is selected");
 			click(dhcpRadioButton);
 			return true;
 		} else {
@@ -296,13 +296,13 @@ public class NetworkWANIPConfigurationIPv4Page extends ParentClass implements Pa
 //			} catch (Exception e) {
 //				utils.log().info("IPV6 Tab is not displayed");
 //			}
-
-			try {
-				if (dhcpRadioButton.isDisplayed())
-					utils.log().info("DHCP Radio button is displayed");
-			} catch (Exception e) {
-				utils.log().info("DHCP Radio button is not displayed");
-			}
+//
+//			try {
+//				if (dhcpRadioButton.isDisplayed())
+//					utils.log().info("DHCP Radio button is displayed");
+//			} catch (Exception e) {
+//				utils.log().info("DHCP Radio button is not displayed");
+//			}
 
 			try {
 				if (ipAddressLabel.isDisplayed() && dhcp_ipAddress.isDisplayed())
@@ -395,13 +395,13 @@ public class NetworkWANIPConfigurationIPv4Page extends ParentClass implements Pa
 //			} catch (Exception e) {
 //				utils.log().info("IPV6 Tab is not displayed");
 //			}
-
-			try {
-				if (staticRadioButton.isDisplayed())
-					utils.log().info("Static Radio button is displayed and is selected");
-			} catch (Exception e) {
-				utils.log().info("Static Radio button is not displayed");
-			}
+//
+//			try {
+//				if (staticRadioButton.isDisplayed())
+//					utils.log().info("Static Radio button is displayed and is selected");
+//			} catch (Exception e) {
+//				utils.log().info("Static Radio button is not displayed");
+//			}
 		
 			try {
 				if (ipAddressLabel.isDisplayed() && static_ipAddress.isDisplayed())

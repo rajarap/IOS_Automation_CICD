@@ -754,7 +754,7 @@ public class ParentClass
 			
 			int result = r.nextInt(high-low) + low;
 			String temp = String.valueOf(result);
-			utils.log().info("Mail-Id :" + "auser" + temp + "@mailsac.com");
+			utils.log().info("Mail-Id :" + "user" + temp + "@mailsac.com");
 			mail7EmailId= "user"+ temp;
 		}
 		

@@ -245,11 +245,11 @@ public class NetworkWANIPConfigurationIPv6Page extends ParentClass implements Pa
 //				utils.log().info("IPv4 Tab is displayed and is not selected");
 //			else
 //				utils.log().info("IPv46 Tab is not displayed ");
-
-			if (statefulRadioButton.isDisplayed())
-				utils.log().info("Stateful Radio button is displayed and is selected");
-			else
-				utils.log().info("Stateful Radio button is not displayed ");
+//
+//			if (statefulRadioButton.isDisplayed())
+//				utils.log().info("Stateful Radio button is displayed and is selected");
+//			else
+//				utils.log().info("Stateful Radio button is not displayed ");
 
 			if (ipv6AddressLabel.isDisplayed() && ipv6Address.isDisplayed())
 				utils.log().info(ipv6AddressLabel.getText() + " : " + ipv6Address.getText());
@@ -333,11 +333,11 @@ public class NetworkWANIPConfigurationIPv6Page extends ParentClass implements Pa
 //				utils.log().info("IPv4 Tab is displayed but is not selected");
 //			else
 //				utils.log().info("IPv6 Tab is not displayed ");
-
-			if (statelessRadioButton.isDisplayed())
-				utils.log().info("Stateless Radio button is displayed and is selected");
-			else
-				utils.log().info("Stateless Radio button is not displayed ");
+//
+//			if (statelessRadioButton.isDisplayed())
+//				utils.log().info("Stateless Radio button is displayed and is selected");
+//			else
+//				utils.log().info("Stateless Radio button is not displayed ");
 
 			new SwipeActions().swipeScreen(Direction.UP);
 

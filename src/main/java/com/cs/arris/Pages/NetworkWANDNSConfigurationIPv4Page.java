@@ -201,11 +201,11 @@ public class NetworkWANDNSConfigurationIPv4Page extends ParentClass implements P
 
 	public boolean clickAutomaticRadioButton() {
 		if (automaticRadioButton.isSelected()) {
-			utils.log().info("Automatic Radion button is already selected");
+			utils.log().info("Automatic Radio button is already selected");
 			return true;
 		}else {
 				click(automaticRadioButton);
-				utils.log().info("Automatic Radion button is selected");
+				utils.log().info("Automatic Radio button is selected");
 				return true;
 		}
 	}
