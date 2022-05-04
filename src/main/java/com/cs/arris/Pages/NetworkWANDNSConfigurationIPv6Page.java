@@ -195,33 +195,33 @@ public class NetworkWANDNSConfigurationIPv6Page extends ParentClass implements P
 		
 		this.clickAutomaticRadioButton();
 		try {
-			try {
-				if (dnsConfigurationTitle.isDisplayed())
-					utils.log().info(dnsConfigurationTitle.getText() + " title text is displayed ");
-			} catch (Exception e) {
-				utils.log().info("DNS Configuration Title is not displayed");
-			}
-
-			try {
-				if (backIcon.isDisplayed())
-					utils.log().info("Back Icon is displayed ");
-			} catch (Exception e) {
-				utils.log().info("Back Icon is not displayed");
-			}
-
-			try {
-				if (helpIcon.isDisplayed())
-					utils.log().info("Help Icon is displayed");
-			} catch (Exception e) {
-				utils.log().info("Help Icon is not displayed");
-			}
-
-			try {
-				if(dnsIPv6Tab.isDisplayed())
-					utils.log().info("IPv6 Tab is displayed and is currently selected");
-			} catch (Exception e) {
-				utils.log().info("IPv6 Tab is not displayed");
-			}
+//			try {
+//				if (dnsConfigurationTitle.isDisplayed())
+//					utils.log().info(dnsConfigurationTitle.getText() + " title text is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("DNS Configuration Title is not displayed");
+//			}
+//
+//			try {
+//				if (backIcon.isDisplayed())
+//					utils.log().info("Back Icon is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("Back Icon is not displayed");
+//			}
+//
+//			try {
+//				if (helpIcon.isDisplayed())
+//					utils.log().info("Help Icon is displayed");
+//			} catch (Exception e) {
+//				utils.log().info("Help Icon is not displayed");
+//			}
+//
+//			try {
+//				if(dnsIPv6Tab.isDisplayed())
+//					utils.log().info("IPv6 Tab is displayed and is currently selected");
+//			} catch (Exception e) {
+//				utils.log().info("IPv6 Tab is not displayed");
+//			}
 
 			try {
 				if (dnsIPv4Tab.isDisplayed())
@@ -265,33 +265,33 @@ public class NetworkWANDNSConfigurationIPv6Page extends ParentClass implements P
 		
 		this.clickStaticRadioButton();
 		try {
-			try {
-				if (dnsConfigurationTitle.isDisplayed())
-					utils.log().info(dnsConfigurationTitle.getText() + " title text is displayed ");
-			} catch (Exception e) {
-				utils.log().info("DNS Configuration Title is not displayed");
-			}
-
-			try {
-				if (backIcon.isDisplayed())
-					utils.log().info("Back Icon is displayed ");
-			} catch (Exception e) {
-				utils.log().info("Back Icon is not displayed");
-			}
-
-			try {
-				if (helpIcon.isDisplayed())
-					utils.log().info("Help Icon is displayed");
-			} catch (Exception e) {
-				utils.log().info("Help Icon is not displayed");
-			}
-
-			try {
-				if(dnsIPv6Tab.isDisplayed())
-					utils.log().info("IPv6 Tab is displayed and is currently selected");
-			} catch (Exception e) {
-				utils.log().info("IPv6 Tab is not displayed");
-			}
+//			try {
+//				if (dnsConfigurationTitle.isDisplayed())
+//					utils.log().info(dnsConfigurationTitle.getText() + " title text is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("DNS Configuration Title is not displayed");
+//			}
+//
+//			try {
+//				if (backIcon.isDisplayed())
+//					utils.log().info("Back Icon is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("Back Icon is not displayed");
+//			}
+//
+//			try {
+//				if (helpIcon.isDisplayed())
+//					utils.log().info("Help Icon is displayed");
+//			} catch (Exception e) {
+//				utils.log().info("Help Icon is not displayed");
+//			}
+//
+//			try {
+//				if(dnsIPv6Tab.isDisplayed())
+//					utils.log().info("IPv6 Tab is displayed and is currently selected");
+//			} catch (Exception e) {
+//				utils.log().info("IPv6 Tab is not displayed");
+//			}
 
 			try {
 				if (dnsIPv4Tab.isDisplayed())

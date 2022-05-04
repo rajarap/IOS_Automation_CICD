@@ -221,30 +221,30 @@ public class NetworkWANIPConfigurationIPv6Page extends ParentClass implements Pa
 
 		this.clickStatefulRadioButton();
 		try {
-			if (wanIPConfigurationTitle.isDisplayed())
-				utils.log().info(wanIPConfigurationTitle.getText() + " title text is displayed ");
-			else
-				utils.log().info("WAN IP Configuration title text is not displayed ");
-
-			if (backIcon.isDisplayed())
-				utils.log().info("Back Icon is displayed ");
-			else
-				utils.log().info("Back Icon is not displayed ");
-
-			if (helpIcon.isDisplayed())
-				utils.log().info("Help Icon is displayed");
-			else
-				utils.log().info("Help icon is not displayed ");
-
-			if (wanIPv6Tab.isDisplayed() && wanIPv6Tab.isSelected())
-				utils.log().info("IPv6 Tab is displayed and is currently selected");
-			else
-				utils.log().info("IPv6 Tab is not displayed ");
-
-			if (wanIPv4Tab.isDisplayed())
-				utils.log().info("IPv4 Tab is displayed and is not selected");
-			else
-				utils.log().info("IPv46 Tab is not displayed ");
+//			if (wanIPConfigurationTitle.isDisplayed())
+//				utils.log().info(wanIPConfigurationTitle.getText() + " title text is displayed ");
+//			else
+//				utils.log().info("WAN IP Configuration title text is not displayed ");
+//
+//			if (backIcon.isDisplayed())
+//				utils.log().info("Back Icon is displayed ");
+//			else
+//				utils.log().info("Back Icon is not displayed ");
+//
+//			if (helpIcon.isDisplayed())
+//				utils.log().info("Help Icon is displayed");
+//			else
+//				utils.log().info("Help icon is not displayed ");
+//
+//			if (wanIPv6Tab.isDisplayed() && wanIPv6Tab.isSelected())
+//				utils.log().info("IPv6 Tab is displayed and is currently selected");
+//			else
+//				utils.log().info("IPv6 Tab is not displayed ");
+//
+//			if (wanIPv4Tab.isDisplayed())
+//				utils.log().info("IPv4 Tab is displayed and is not selected");
+//			else
+//				utils.log().info("IPv46 Tab is not displayed ");
 
 			if (statefulRadioButton.isDisplayed())
 				utils.log().info("Stateful Radio button is displayed and is selected");
@@ -309,30 +309,30 @@ public class NetworkWANIPConfigurationIPv6Page extends ParentClass implements Pa
 		this.clickStatelessRadioButton();
 		
 		try {
-			if (wanIPConfigurationTitle.isDisplayed())
-				utils.log().info(wanIPConfigurationTitle.getText() + " title text is displayed ");
-			else
-				utils.log().info("WAN IP Configuration title text is not displayed ");
-
-			if (backIcon.isDisplayed())
-				utils.log().info("Back Icon is displayed ");
-			else
-				utils.log().info("Back Icon is not displayed ");
-
-			if (helpIcon.isDisplayed())
-				utils.log().info("Help Icon is displayed");
-			else
-				utils.log().info("Help icon is not displayed ");
-
-			if (wanIPv6Tab.isDisplayed() && wanIPv6Tab.isSelected())
-				utils.log().info("IPv6 Tab is displayed and is currently selected");
-			else
-				utils.log().info("IPv6 Tab is not displayed ");
-
-			if (wanIPv4Tab.isDisplayed())
-				utils.log().info("IPv4 Tab is displayed but is not selected");
-			else
-				utils.log().info("IPv6 Tab is not displayed ");
+//			if (wanIPConfigurationTitle.isDisplayed())
+//				utils.log().info(wanIPConfigurationTitle.getText() + " title text is displayed ");
+//			else
+//				utils.log().info("WAN IP Configuration title text is not displayed ");
+//
+//			if (backIcon.isDisplayed())
+//				utils.log().info("Back Icon is displayed ");
+//			else
+//				utils.log().info("Back Icon is not displayed ");
+//
+//			if (helpIcon.isDisplayed())
+//				utils.log().info("Help Icon is displayed");
+//			else
+//				utils.log().info("Help icon is not displayed ");
+//
+//			if (wanIPv6Tab.isDisplayed() && wanIPv6Tab.isSelected())
+//				utils.log().info("IPv6 Tab is displayed and is currently selected");
+//			else
+//				utils.log().info("IPv6 Tab is not displayed ");
+//
+//			if (wanIPv4Tab.isDisplayed())
+//				utils.log().info("IPv4 Tab is displayed but is not selected");
+//			else
+//				utils.log().info("IPv6 Tab is not displayed ");
 
 			if (statelessRadioButton.isDisplayed())
 				utils.log().info("Stateless Radio button is displayed and is selected");

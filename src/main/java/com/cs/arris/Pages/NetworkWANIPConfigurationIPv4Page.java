@@ -262,26 +262,26 @@ public class NetworkWANIPConfigurationIPv4Page extends ParentClass implements Pa
 		
 		this.clickDHCPRadioButton();
 		try {
-			try {
-				if (wanIPConfigurationTitle.isDisplayed())
-					utils.log().info(wanIPConfigurationTitle.getText() + " title text is displayed ");
-			} catch (Exception e) {
-				utils.log().info("WAN IP Configuration title text is not displayed");
-			}
-
-			try {
-				if (backIcon.isDisplayed())
-					utils.log().info("Back Icon is displayed ");
-			} catch (Exception e) {
-				utils.log().info("Back Icon is not displayed");
-			}
-
-			try {
-				if (helpIcon.isDisplayed())
-					utils.log().info("Help Icon is displayed");
-			} catch (Exception e) {
-				utils.log().info("Help Icon is not displayed");
-			}
+//			try {
+//				if (wanIPConfigurationTitle.isDisplayed())
+//					utils.log().info(wanIPConfigurationTitle.getText() + " title text is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("WAN IP Configuration title text is not displayed");
+//			}
+//
+//			try {
+//				if (backIcon.isDisplayed())
+//					utils.log().info("Back Icon is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("Back Icon is not displayed");
+//			}
+//
+//			try {
+//				if (helpIcon.isDisplayed())
+//					utils.log().info("Help Icon is displayed");
+//			} catch (Exception e) {
+//				utils.log().info("Help Icon is not displayed");
+//			}
 
 			try {
 				if (wanIPv4Tab.isDisplayed())
@@ -290,12 +290,12 @@ public class NetworkWANIPConfigurationIPv4Page extends ParentClass implements Pa
 				utils.log().info("IPv4 Tab is not displayed");
 			}
 
-			try {
-				if (wanIPv6Tab.isDisplayed())
-					utils.log().info("IPV6 Tab is displayed and is not selected");
-			} catch (Exception e) {
-				utils.log().info("IPV6 Tab is not displayed");
-			}
+//			try {
+//				if (wanIPv6Tab.isDisplayed())
+//					utils.log().info("IPV6 Tab is displayed and is not selected");
+//			} catch (Exception e) {
+//				utils.log().info("IPV6 Tab is not displayed");
+//			}
 
 			try {
 				if (dhcpRadioButton.isDisplayed())
@@ -361,40 +361,40 @@ public class NetworkWANIPConfigurationIPv4Page extends ParentClass implements Pa
 		this.clickStaticRadioButton();
 
 		try {
-			try {
-				if (wanIPConfigurationTitle.isDisplayed())
-					utils.log().info(wanIPConfigurationTitle.getText() + " title text is displayed ");
-			} catch (Exception e) {
-				utils.log().info("WAN IP Configuration title text is not displayed");
-			}
-
-			try {
-				if (backIcon.isDisplayed())
-					utils.log().info("Back Icon is displayed ");
-			} catch (Exception e) {
-				utils.log().info("Back Icon is not displayed");
-			}
-
-			try {
-				if (helpIcon.isDisplayed())
-					utils.log().info("Help Icon is displayed");
-			} catch (Exception e) {
-				utils.log().info("Help Icon is not displayed");
-			}
-
-			try {
-				if(wanIPv4Tab.isDisplayed())
-					utils.log().info("IPv4 Tab is displayed and is currently selected");
-			} catch (Exception e) {
-				utils.log().info("IPv4 Tab is not displayed");
-			}
-
-			try {
-				if (wanIPv6Tab.isDisplayed())
-					utils.log().info("IPV6 Tab is displayed and is not selected");
-			} catch (Exception e) {
-				utils.log().info("IPV6 Tab is not displayed");
-			}
+//			try {
+//				if (wanIPConfigurationTitle.isDisplayed())
+//					utils.log().info(wanIPConfigurationTitle.getText() + " title text is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("WAN IP Configuration title text is not displayed");
+//			}
+//
+//			try {
+//				if (backIcon.isDisplayed())
+//					utils.log().info("Back Icon is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("Back Icon is not displayed");
+//			}
+//
+//			try {
+//				if (helpIcon.isDisplayed())
+//					utils.log().info("Help Icon is displayed");
+//			} catch (Exception e) {
+//				utils.log().info("Help Icon is not displayed");
+//			}
+//
+//			try {
+//				if(wanIPv4Tab.isDisplayed())
+//					utils.log().info("IPv4 Tab is displayed and is currently selected");
+//			} catch (Exception e) {
+//				utils.log().info("IPv4 Tab is not displayed");
+//			}
+//
+//			try {
+//				if (wanIPv6Tab.isDisplayed())
+//					utils.log().info("IPV6 Tab is displayed and is not selected");
+//			} catch (Exception e) {
+//				utils.log().info("IPV6 Tab is not displayed");
+//			}
 
 			try {
 				if (staticRadioButton.isDisplayed())

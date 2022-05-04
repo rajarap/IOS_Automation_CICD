@@ -228,26 +228,26 @@ public class NetworkWANDNSConfigurationIPv4Page extends ParentClass implements P
 		
 		this.clickAutomaticRadioButton();
 		try {
-			try {
-				if (dnsConfigurationTitle.isDisplayed())
-					utils.log().info(dnsConfigurationTitle.getText() + " title text is displayed ");
-			} catch (Exception e) {
-				utils.log().info("DNS Configuration title text is not displayed ");
-			}
-
-			try {
-				if (backIcon.isDisplayed())
-					utils.log().info("Back Icon is displayed ");
-			} catch (Exception e) {
-				utils.log().info("Back Icon is not displayed ");
-			}
-
-			try {
-				if (helpIcon.isDisplayed())
-					utils.log().info("Help Icon is displayed");
-			} catch (Exception e) {
-				utils.log().info("Help Icon is not displayed ");
-			}
+//			try {
+//				if (dnsConfigurationTitle.isDisplayed())
+//					utils.log().info(dnsConfigurationTitle.getText() + " title text is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("DNS Configuration title text is not displayed ");
+//			}
+//
+//			try {
+//				if (backIcon.isDisplayed())
+//					utils.log().info("Back Icon is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("Back Icon is not displayed ");
+//			}
+//
+//			try {
+//				if (helpIcon.isDisplayed())
+//					utils.log().info("Help Icon is displayed");
+//			} catch (Exception e) {
+//				utils.log().info("Help Icon is not displayed ");
+//			}
 
 			try {
 				if(dnsIPv4Tab.isDisplayed())
@@ -256,12 +256,12 @@ public class NetworkWANDNSConfigurationIPv4Page extends ParentClass implements P
 				utils.log().info("IPv4 Tab is not displayed ");
 			}
 
-			try {
-				if (dnsIPv6Tab.isDisplayed())
-					utils.log().info("IPV6 Tab is displayed but is not selected");
-			} catch (Exception e) {
-				utils.log().info("IPV6 Tab is not displayed ");
-			}
+//			try {
+//				if (dnsIPv6Tab.isDisplayed())
+//					utils.log().info("IPV6 Tab is displayed but is not selected");
+//			} catch (Exception e) {
+//				utils.log().info("IPV6 Tab is not displayed ");
+//			}
 
 			try {
 				if (primaryDNSLabel.isDisplayed() && automatic_primaryDNS.isDisplayed() && !(automatic_primaryDNS.isEnabled()))
@@ -299,26 +299,26 @@ public class NetworkWANDNSConfigurationIPv4Page extends ParentClass implements P
 		
 		this.clickStaticRadioButton();
 		try {
-			try {
-				if (dnsConfigurationTitle.isDisplayed())
-					utils.log().info(dnsConfigurationTitle.getText() + " title text is displayed ");
-			} catch (Exception e) {
-				utils.log().info("DNS Configuration title text is not displayed ");
-			}
-
-			try {
-				if (backIcon.isDisplayed())
-					utils.log().info("Back Icon is displayed ");
-			} catch (Exception e) {
-				utils.log().info("Back Icon is not displayed ");
-			}
-
-			try {
-				if (helpIcon.isDisplayed())
-					utils.log().info("Help Icon is displayed");
-			} catch (Exception e) {
-				utils.log().info("Help Icon is not displayed ");
-			}
+//			try {
+//				if (dnsConfigurationTitle.isDisplayed())
+//					utils.log().info(dnsConfigurationTitle.getText() + " title text is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("DNS Configuration title text is not displayed ");
+//			}
+//
+//			try {
+//				if (backIcon.isDisplayed())
+//					utils.log().info("Back Icon is displayed ");
+//			} catch (Exception e) {
+//				utils.log().info("Back Icon is not displayed ");
+//			}
+//
+//			try {
+//				if (helpIcon.isDisplayed())
+//					utils.log().info("Help Icon is displayed");
+//			} catch (Exception e) {
+//				utils.log().info("Help Icon is not displayed ");
+//			}
 
 			try {
 				if(dnsIPv4Tab.isDisplayed() && dnsIPv4Tab.isSelected())
@@ -327,12 +327,12 @@ public class NetworkWANDNSConfigurationIPv4Page extends ParentClass implements P
 				utils.log().info("IPV4 Tab is not displayed ");
 			}
 
-			try {
-				if (dnsIPv6Tab.isDisplayed())
-					utils.log().info("IPV6 Tab is displayed but is not selected");
-			} catch (Exception e) {
-				utils.log().info("IPV6 Tab is not displayed ");
-			}
+//			try {
+//				if (dnsIPv6Tab.isDisplayed())
+//					utils.log().info("IPV6 Tab is displayed but is not selected");
+//			} catch (Exception e) {
+//				utils.log().info("IPV6 Tab is not displayed ");
+//			}
 			
 			try {
 				if (primaryDNSLabel.isDisplayed() && static_primaryDNS.isDisplayed())
