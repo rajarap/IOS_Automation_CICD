@@ -68,32 +68,6 @@ pipeline
             }
         }
       
-        stage('Execute QA Automated Test Scripts for Manually Selected Branch EXP')
-        {
-            when 
-            {
-                allOf
-                {
-                    expression { params.FROM_JOB_NAME == 'Arris_iOS_Manually_Build_Any_Branch_Or_Tag_EXP' }
-                    expression { params.QA_AUTOMATION  == true }
-                }
-            }
-
-            steps
-            {
-                echo '===== Automated Test Started ====='
-
-               		sh """
-                   		cp -f /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa  /Users/rm2652/Documents/jenkins/pipeline/build/artifacts/ios/
-                        ios-deploy --uninstall_only --bundle_id com.arris.sbcBeta
-                        ios-deploy --bundle /Users/rm2652/.jenkins/jobs/${FROM_JOB_NAME}/builds/${FROM_BUILD_NUMBER}/archive/ipa/${PROJECT_SCHEME_BETA}/SBC\\ Test.ipa
-                        mvn -f /Users/rm2652/.jenkins/workspace/Arris_iOS_QA_Automation_W31_BOBA/pom.xml test -PiOS
-                		"""  
-                
-                echo '=====Automated Test Completed====='
-            }
-        }
-
         stage('Execute QA Automated Test Scripts for Master Branch')
         {
             when 
